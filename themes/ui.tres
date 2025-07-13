@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://df2r57b2stnof"]
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://df2r57b2stnof"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4o4wu"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -12,11 +12,23 @@ expand_margin_right = 8.0
 expand_margin_bottom = 8.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5lm2"]
-content_margin_left = 10.0
-content_margin_top = 10.0
-content_margin_right = 10.0
-content_margin_bottom = 10.0
+content_margin_left = 40.0
+content_margin_top = 40.0
+content_margin_right = 40.0
+content_margin_bottom = 40.0
+bg_color = Color(0.147672, 0.147672, 0.147672, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h6ia1"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+expand_margin_left = 8.0
+expand_margin_top = 8.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
 
 [resource]
 Button/styles/focus = SubResource("StyleBoxFlat_4o4wu")
 TabContainer/styles/panel = SubResource("StyleBoxFlat_k5lm2")
+TabContainer/styles/tab_focus = SubResource("StyleBoxFlat_h6ia1")

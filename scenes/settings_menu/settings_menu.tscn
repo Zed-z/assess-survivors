@@ -77,6 +77,11 @@ text = "Master Volume"
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
+[node name="Credits" type="Control" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
 [node name="CloseButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 8
