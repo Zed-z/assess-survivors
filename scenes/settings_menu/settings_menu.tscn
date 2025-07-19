@@ -133,21 +133,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="TabContainer/Credits/VBoxContainer"]
+[node name="Label3" type="Label" parent="TabContainer/Credits/VBoxContainer"]
 layout_mode = 2
-text = "funny button"
+text = "Fonts:"
 
-[node name="Button2" type="Button" parent="TabContainer/Credits/VBoxContainer"]
+[node name="Label" type="Label" parent="TabContainer/Credits/VBoxContainer"]
 layout_mode = 2
-text = "funny button"
+theme_override_font_sizes/font_size = 16
+text = "Gotfridus by GGBotNet - https://ggbot.itch.io/gotfridus-font
+SIL Open Font License, Version 1.1"
 
-[node name="Button3" type="Button" parent="TabContainer/Credits/VBoxContainer"]
+[node name="Label2" type="Label" parent="TabContainer/Credits/VBoxContainer"]
 layout_mode = 2
-text = "funny button"
-
-[node name="Button4" type="Button" parent="TabContainer/Credits/VBoxContainer"]
-layout_mode = 2
-text = "funny button"
+theme_override_font_sizes/font_size = 16
+text = "smallburg  by GGBotNet - https://ggbot.itch.io/smallburg-font
+SIL Open Font License, Version 1.1"
 
 [node name="CloseButton" type="Button" parent="."]
 layout_mode = 1

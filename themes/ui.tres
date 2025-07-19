@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=7 format=3 uid="uid://df2r57b2stnof"]
 
 [ext_resource type="FontFile" uid="uid://ccu7qrtecogan" path="res://fonts/smallburg_font_1_04/TrueType (.ttf)/smallburg-Regular.ttf" id="1_h6ia1"]
-[ext_resource type="Texture2D" uid="uid://s2ls5uy6e3f2" path="res://ui/panel_background.png" id="1_k5lm2"]
+[ext_resource type="Texture2D" uid="uid://s2ls5uy6e3f2" path="res://ui/panel_background.png" id="2_bhwv2"]
 [ext_resource type="FontFile" uid="uid://bgsae7qrln08u" path="res://fonts/Gotfridus_Font_0_5/Gotfridus.ttf" id="3_bhwv2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4o4wu"]
@@ -16,7 +16,7 @@ expand_margin_right = 8.0
 expand_margin_bottom = 8.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h6ia1"]
-texture = ExtResource("1_k5lm2")
+texture = ExtResource("2_bhwv2")
 texture_margin_left = 40.0
 texture_margin_top = 40.0
 texture_margin_right = 40.0
@@ -38,6 +38,7 @@ expand_margin_bottom = 8.0
 Button/font_sizes/font_size = 32
 Button/fonts/font = ExtResource("1_h6ia1")
 Button/styles/focus = SubResource("StyleBoxFlat_4o4wu")
+HBoxContainer/constants/separation = 10
 Label/font_sizes/font_size = 32
 Label/fonts/font = ExtResource("1_h6ia1")
 TabContainer/font_sizes/font_size = 24
@@ -46,3 +47,4 @@ TabContainer/styles/panel = SubResource("StyleBoxTexture_h6ia1")
 TabContainer/styles/tab_focus = SubResource("StyleBoxFlat_h6ia1")
 TitleLabel/base_type = &"Label"
 TitleLabel/fonts/font = ExtResource("3_bhwv2")
+VBoxContainer/constants/separation = 10
