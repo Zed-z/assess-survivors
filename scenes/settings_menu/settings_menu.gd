@@ -20,7 +20,7 @@ func tab_next() -> void:
 
 
 func _ready() -> void:
-	$TabContainer/General/Button.grab_focus()
+	$TabContainer/General/VBoxContainer/Button.grab_focus()
 
 
 func _on_close_button_pressed() -> void:
