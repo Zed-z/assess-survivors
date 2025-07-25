@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1sq1okbpyorw"]
+[gd_scene load_steps=4 format=3 uid="uid://d1sq1okbpyorw"]
 
 [ext_resource type="Theme" uid="uid://df2r57b2stnof" path="res://themes/ui.tres" id="1_0ebjn"]
 [ext_resource type="Script" uid="uid://6ixe52l0owps" path="res://scenes/main_menu/main_menu.gd" id="1_fsom3"]
+[ext_resource type="Script" uid="uid://bfn4l4e5i8p0j" path="res://scenes/main_menu/change_scene_button.gd" id="3_ob46e"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -44,6 +45,8 @@ offset_bottom = 114.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "PLAY"
+script = ExtResource("3_ob46e")
+filepath = "uid://fnao1rs5haap"
 
 [node name="SettingsButton" type="Button" parent="."]
 layout_mode = 1
