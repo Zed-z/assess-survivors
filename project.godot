@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 AudioManager="*res://globals/audio_manager/audio_manager.tscn"
+UiAudioPlayer="*res://globals/ui_audio_player/ui_audio_player.tscn"
+SceneManager="*res://globals/scene_manager/scene_manager.tscn"
 
 [display]
 

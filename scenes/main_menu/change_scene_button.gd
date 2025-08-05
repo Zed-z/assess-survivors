@@ -1,9 +1,6 @@
 extends Button
 
+@export var scene: SceneMgr.Scene
 
-@export_file("*.tscn") var filepath : String
-
-
-	
 func _pressed() -> void:
-	get_tree().change_scene_to_file(filepath)
+	SceneManager.change_scene(scene)

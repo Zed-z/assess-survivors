@@ -47,7 +47,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "PLAY"
 script = ExtResource("3_ob46e")
-filepath = "uid://fnao1rs5haap"
+scene = 2
 
 [node name="SettingsButton" type="Button" parent="."]
 layout_mode = 1

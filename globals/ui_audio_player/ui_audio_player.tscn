@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2rpbdrifmsmb"]
+
+[ext_resource type="Script" uid="uid://b7u5rrqwkpxs" path="res://globals/ui_audio_player/ui_audio_player.gd" id="1_x3u01"]
+[ext_resource type="AudioStream" uid="uid://bjynwaajtbtpf" path="res://sounds/ui/button_pressed.wav" id="2_v1ym0"]
+[ext_resource type="AudioStream" uid="uid://ciqnoflqgwcfq" path="res://sounds/ui/button_focused.wav" id="3_t33i7"]
+
+[node name="UiAudioPlayer" type="Node2D"]
+script = ExtResource("1_x3u01")
+
+[node name="ButtonPressed" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_v1ym0")
+bus = &"Effects"
+
+[node name="ButtonFocused" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_t33i7")
+bus = &"Effects"
