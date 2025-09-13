@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://he6yu48mibej"]
+
+[ext_resource type="Script" uid="uid://1y32xdmsa005" path="res://objects/ui/chart_visualizer/chart_visualizer_node.gd" id="1_85d4y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nhysq"]
+bg_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="ChartVisualizerNode" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_85d4y")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+offset_left = -6.0
+offset_top = -6.0
+offset_right = 6.0
+offset_bottom = 6.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_nhysq")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+text = "(0,0)"
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="Panel" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Panel" to="." method="_on_mouse_exited"]

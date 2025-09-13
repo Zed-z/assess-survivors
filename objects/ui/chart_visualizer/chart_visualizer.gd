@@ -1,67 +1,111 @@
 @tool
 extends Control
+class_name ChartVisualizer
+
+var chart_node := preload("res://objects/ui/chart_visualizer/chart_visualizer_node.tscn")
+
+@export var auto_xaxis: bool = false:
+	set(val):
+		auto_xaxis = val
+		update_points()
 
 @export var xaxis: Vector2 = Vector2(0, 10):
 	set(val):
 		xaxis = val
-		set_points()
+		update_points()
 
 @export var xaxis_base: float = 0:
 	set(val):
 		xaxis_base = val
-		set_points()
+		update_points()
+
+@export var auto_yaxis: bool = false:
+	set(val):
+		auto_yaxis = val
+		update_points()
 
 @export var yaxis: Vector2 = Vector2(0, 30):
 	set(val):
 		yaxis = val
-		set_points()
+		update_points()
 
-@export var yaxis_base: float = 10:
+@export var yaxis_base: float = 0:
 	set(val):
 		yaxis_base = val
-		set_points()
+		update_points()
 
 @export var points: Array[Vector2]:
 	set(val):
 		points = val
-		set_points()
+		update_points()
 
 @export_tool_button("Set Points", "Callable")
-var action: Callable = set_points
+var action: Callable = update_points
 
-func translate_x(x: float) -> float:
-	return lerp(0.0, size.x, inverse_lerp(xaxis.x, xaxis.y, x))
+func translate_x(x: float, _xaxis: Vector2 = xaxis) -> float:
+	return lerp(0.0, size.x, inverse_lerp(_xaxis.x, _xaxis.y, x))
 
-func translate_y(y: float) -> float:
-	return lerp(size.y, 0.0, inverse_lerp(yaxis.x, yaxis.y, y))
+func translate_y(y: float, _yaxis: Vector2 = yaxis) -> float:
+	return lerp(size.y, 0.0, inverse_lerp(_yaxis.x, _yaxis.y, y))
 
-func set_points():
+func set_points(_points: Array[Vector2]):
+	points = _points
+
+func update_points():
+
+	if not is_node_ready():
+		return
+
+	var _xaxis := xaxis
+	var _yaxis := yaxis
+
+	if auto_xaxis:
+		_xaxis.x = 0
+		_xaxis.y = 0
+		for point: Vector2 in points:
+			_xaxis.x = min(_xaxis.x, point.x)
+			_xaxis.y = max(_xaxis.y, point.x)
+
+	if auto_yaxis:
+		_yaxis.x = 0
+		_yaxis.y = 0
+		for point: Vector2 in points:
+			_yaxis.x = min(_yaxis.x, point.y)
+			_yaxis.y = max(_yaxis.y, point.y)
 
 	$YaxisBase.clear_points()
-	var y_: float = translate_y(yaxis_base)
+	var y_: float = translate_y(yaxis_base, _yaxis)
 	$YaxisBase.add_point(Vector2(0, y_))
 	$YaxisBase.add_point(Vector2(size.x, y_))
 
 	$XaxisBase.clear_points()
-	var x_: float = translate_x(xaxis_base)
+	var x_: float = translate_x(xaxis_base, _xaxis)
 	$XaxisBase.add_point(Vector2(x_, 0))
 	$XaxisBase.add_point(Vector2(x_, size.y))
 
 	$Line2D.clear_points()
+	for child: Node in $Line2D.get_children():
+		child.queue_free()
 
 	var arr = PackedVector2Array()
 	arr.append(Vector2(0, size.y))
 
 	for point: Vector2 in points:
-		var x: float = translate_x(point.x)
-		var y: float = translate_y(point.y)
+		var x: float = translate_x(point.x, _xaxis)
+		var y: float = translate_y(point.y, _yaxis)
+		var xy: Vector2 = Vector2(x_ + x, yaxis_base + y)
 
-		$Line2D.add_point(Vector2(x_ + x, yaxis_base + y))
-		arr.append(Vector2(x_ + x, yaxis_base + y))
+		$Line2D.add_point(xy)
+		arr.append(xy)
+
+		var n: ChartVisualizerNode = chart_node.instantiate()
+		n.position = xy
+		n.pos = point
+		$Line2D.add_child(n)
 
 	arr.append(Vector2(size.x, size.y))
 	$Polygon2D.polygon = arr
 
 
 func _on_resized() -> void:
-	set_points()
+	update_points()
