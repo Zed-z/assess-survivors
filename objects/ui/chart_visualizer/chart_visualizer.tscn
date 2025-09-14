@@ -8,14 +8,19 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 100.0
 offset_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_gele2")
 auto_xaxis = true
 xaxis = Vector2(0, 50)
 auto_yaxis = true
 yaxis = Vector2(-10, 50)
 points = Array[Vector2]([Vector2(0, 10), Vector2(10, 20), Vector2(20, -10), Vector2(30, 50), Vector2(50, 10), Vector2(100, 0)])
+line_fill = null
+axis_color = null
 
 [node name="ColorRect" type="ColorRect" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,20 +29,29 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="XaxisBase" type="Line2D" parent="."]
+unique_name_in_owner = true
 points = PackedVector2Array(0, 0, 0, 100)
 width = 4.0
 default_color = Color(0, 0, 0, 0.498039)
 
 [node name="YaxisBase" type="Line2D" parent="."]
+unique_name_in_owner = true
 points = PackedVector2Array(0, 83.3333, 100, 83.3333)
 width = 4.0
 default_color = Color(0, 0, 0, 0.498039)
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
+[node name="Points" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Polygon" type="Polygon2D" parent="Points"]
+unique_name_in_owner = true
 color = Color(1, 0, 0, 0.498039)
 polygon = PackedVector2Array(0, 100, 0, 66.6667, 10, 50, 20, 100, 30, 0, 50, 66.6667, 100, 83.3333, 100, 100)
 
-[node name="Line2D" type="Line2D" parent="."]
+[node name="Line" type="Line2D" parent="Points"]
+unique_name_in_owner = true
 points = PackedVector2Array(0, 66.6667, 10, 50, 20, 100, 30, 0, 50, 66.6667, 100, 83.3333)
 width = 4.0
 default_color = Color(1, 0, 0, 1)

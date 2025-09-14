@@ -42,6 +42,42 @@ var chart_node := preload("res://objects/ui/chart_visualizer/chart_visualizer_no
 @export_tool_button("Set Points", "Callable")
 var action: Callable = update_points
 
+@export_category("Colors")
+
+@export var background_color: Color = Color.WHITE:
+	set(val):
+		background_color = val
+		update_colors()
+
+@export var line_color: Color = Color.RED:
+	set(val):
+		line_color = val
+		update_colors()
+
+@export var line_fill: bool = true:
+	set(val):
+		line_fill = val
+		update_colors()
+
+@export var axis_color: Color = Color.BLACK:
+	set(val):
+		axis_color = val
+		update_colors()
+
+
+func update_colors():
+	%ColorRect.color = background_color
+	%Line.default_color = line_color
+
+	if line_fill:
+		%Polygon.color = Color(line_color, 0.5)
+	else:
+		%Polygon.visible = false
+
+	%XaxisBase.default_color = axis_color
+	%YaxisBase.default_color = axis_color
+
+
 func translate_x(x: float, _xaxis: Vector2 = xaxis) -> float:
 	return lerp(0.0, size.x, inverse_lerp(_xaxis.x, _xaxis.y, x))
 
@@ -73,18 +109,18 @@ func update_points():
 			_yaxis.x = min(_yaxis.x, point.y)
 			_yaxis.y = max(_yaxis.y, point.y)
 
-	$YaxisBase.clear_points()
+	%YaxisBase.clear_points()
 	var y_: float = translate_y(yaxis_base, _yaxis)
-	$YaxisBase.add_point(Vector2(0, y_))
-	$YaxisBase.add_point(Vector2(size.x, y_))
+	%YaxisBase.add_point(Vector2(0, y_))
+	%YaxisBase.add_point(Vector2(size.x, y_))
 
-	$XaxisBase.clear_points()
+	%XaxisBase.clear_points()
 	var x_: float = translate_x(xaxis_base, _xaxis)
-	$XaxisBase.add_point(Vector2(x_, 0))
-	$XaxisBase.add_point(Vector2(x_, size.y))
+	%XaxisBase.add_point(Vector2(x_, 0))
+	%XaxisBase.add_point(Vector2(x_, size.y))
 
-	$Line2D.clear_points()
-	for child: Node in $Line2D.get_children():
+	%Line.clear_points()
+	for child: Node in %Line.get_children():
 		child.queue_free()
 
 	var arr = PackedVector2Array()
@@ -95,16 +131,21 @@ func update_points():
 		var y: float = translate_y(point.y, _yaxis)
 		var xy: Vector2 = Vector2(x_ + x, yaxis_base + y)
 
-		$Line2D.add_point(xy)
+		%Line.add_point(xy)
 		arr.append(xy)
 
 		var n: ChartVisualizerNode = chart_node.instantiate()
 		n.position = xy
 		n.pos = point
-		$Line2D.add_child(n)
+		%Line.add_child(n)
 
 	arr.append(Vector2(size.x, size.y))
-	$Polygon2D.polygon = arr
+	%Polygon.polygon = arr
+
+
+func _ready() -> void:
+	update_colors()
+	update_points()
 
 
 func _on_resized() -> void:
