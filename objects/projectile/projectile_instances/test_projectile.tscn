@@ -8,5 +8,6 @@ script = ExtResource("1_6yivw")
 metadata/_custom_type_script = "uid://brpv4cyt6hyn7"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.05, 0.05)
+self_modulate = Color(0.996558, 0.31296, 0.746188, 1)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_ctmtx")
