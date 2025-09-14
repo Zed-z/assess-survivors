@@ -6,7 +6,6 @@ extends CharacterBody2D
 
 
 func _physics_process(delta: float) -> void:
-
 	var direction := Input.get_vector("game_left","game_right","game_up","game_down").normalized()
 	direction.y *= 0.5
 	velocity = direction * SPEED;

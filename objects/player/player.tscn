@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ct88pvgyokerc"]
+[gd_scene load_steps=6 format=3 uid="uid://ct88pvgyokerc"]
 
 [ext_resource type="Texture2D" uid="uid://cigsdewro07vk" path="res://icon.svg" id="1_cqmt1"]
 [ext_resource type="Script" uid="uid://bpko7pdk264ld" path="res://objects/player/player.gd" id="1_g7ett"]
+[ext_resource type="Script" uid="uid://tbwlmhfwlhey" path="res://objects/player/projectile_shooter.gd" id="2_ssrue"]
+[ext_resource type="PackedScene" uid="uid://c0p4rc4vy31m" path="res://objects/projectile/projectile_instances/test_projectile.tscn" id="3_jnjyq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5lq1w"]
 
@@ -9,6 +11,10 @@
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_g7ett")
+
+[node name="ProjectileShooter" type="Node2D" parent="."]
+script = ExtResource("2_ssrue")
+projectile = ExtResource("3_jnjyq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.24, 0.24)
