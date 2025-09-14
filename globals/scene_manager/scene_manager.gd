@@ -4,15 +4,15 @@ class_name SceneMgr
 enum Scene {
 	SettingsMenu,
 	VolumeSlider,
-
 	TestScene,
+	AssessTest,
 }
 
 var uids: Dictionary[Scene, String] = {
 	Scene.SettingsMenu: "uid://d2xe4jjrkjnh0",
 	Scene.VolumeSlider: "uid://cn1bd1qg3n8ff",
-
 	Scene.TestScene: "uid://fnao1rs5haap",
+	Scene.AssessTest: "uid://cd2dgvodr3u8k",
 }
 
 

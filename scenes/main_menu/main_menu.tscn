@@ -49,6 +49,23 @@ text = "PLAY"
 script = ExtResource("3_ob46e")
 scene = 2
 
+[node name="Button2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = 173.0
+offset_right = 60.0
+offset_bottom = 274.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "ASSESS"
+script = ExtResource("3_ob46e")
+scene = 3
+
 [node name="SettingsButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -56,10 +73,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -194.0
-offset_top = 85.0
-offset_right = -21.0
-offset_bottom = 186.0
+offset_left = 167.0
+offset_top = 43.0
+offset_right = 340.0
+offset_bottom = 144.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "SETTINGS"
