@@ -85,4 +85,3 @@ func set_bound():
 
 func _ready() -> void:
 	do_point_append()
-	print(point_list)
