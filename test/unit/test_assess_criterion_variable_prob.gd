@@ -1,4 +1,4 @@
-extends GutTest
+extends GdUnitTestSuite
 
 
 @onready var criterion_script: GDScript = preload("res://globals/assess_criterion_manager/criteria/assess_criterion_variable_probability.gd")
@@ -7,27 +7,27 @@ var criterion: AssessCriterion
 
 
 func assert_almost_eq_vector2_array(actual: Array[Vector2], expected: Array[Vector2], delta: float):
-	assert_eq(actual.size(), expected.size())
+	assert_int(actual.size()).is_equal(expected.size())
 	for i in range(actual.size()):
-		assert_almost_eq(actual[i].x, expected[i].x, delta)
-		assert_almost_eq(actual[i].y, expected[i].y, delta)
+		assert_vector(actual[i]).is_equal_approx(expected[i], Vector2(delta, delta))
 
-func before_each():
+
+func before_test():
 	criterion = criterion_script.new()
 	criterion._ready()
 	criterion.MIN_value = 0
 	criterion.value_step = 10
-	
-func after_each():
+
+func after_test():
 	criterion.free()
 
 func test_answer_p():
 	criterion.step(AssessCriterion.Answer.p)
-	assert_almost_eq(criterion.point_list[1].y, 0.25, 0.01)
+	assert_float(criterion.point_list[1].y).is_equal_approx(0.25, 0.01)
 
 func test_answer_q():
 	criterion.step(AssessCriterion.Answer.q)
-	assert_almost_eq(criterion.point_list[1].y, 0.75, 0.01)
+	assert_float(criterion.point_list[1].y).is_equal_approx(0.75, 0.01)
 
 func test_answer_i():
 	criterion.step(AssessCriterion.Answer.i)
@@ -57,7 +57,7 @@ func test_scenario_1():
 	criterion.step(AssessCriterion.Answer.i)
 	criterion.step(AssessCriterion.Answer.p)
 	criterion.step(AssessCriterion.Answer.p)
-	assert_almost_eq_vector2_array(criterion.point_list, [	
+	assert_almost_eq_vector2_array(criterion.point_list, [
 	Vector2(0, 0.0),
 	Vector2(10, 0.07756449505437976),
 	Vector2(20, 0.17452011387235447),
@@ -71,21 +71,21 @@ func test_scenario_1():
 
 func test_scenario_2():
 	criterion.step(AssessCriterion.Answer.q) #3/4
-	assert_almost_eq(criterion.point_list[-2].y, 0.75, 0.01)
-	
+	assert_float(criterion.point_list[-2].y).is_equal_approx(0.75, 0.01)
+
 	criterion.step(AssessCriterion.Answer.q) #7/8
-	assert_almost_eq(criterion.point_list[-2].y, 0.875, 0.01)
-	
+	assert_float(criterion.point_list[-2].y).is_equal_approx(0.875, 0.01)
+
 	criterion.step(AssessCriterion.Answer.i) #skalowanie : 9/8
-	assert_almost_eq(criterion.point_list[-3].y, 0.777, 0.01) #7/9
-	assert_almost_eq(criterion.point_list[-2].y, 0.888, 0.01) # 8/9
-	
-	criterion.step(AssessCriterion.Answer.p) # 15/18  
-	assert_almost_eq(criterion.point_list[-2].y, 0.833, 0.01)
-	
+	assert_float(criterion.point_list[-3].y).is_equal_approx(0.777, 0.01) #7/9
+	assert_float(criterion.point_list[-2].y).is_equal_approx(0.888, 0.01) # 8/9
+
+	criterion.step(AssessCriterion.Answer.p) # 15/18
+	assert_float(criterion.point_list[-2].y).is_equal_approx(0.833, 0.01)
+
 	criterion.step(AssessCriterion.Answer.p) # 29/36
-	assert_almost_eq(criterion.point_list[-2].y,  0.805, 0.01) 
-	
+	assert_float(criterion.point_list[-2].y).is_equal_approx(0.805, 0.01)
+
 	criterion.step(AssessCriterion.Answer.i) #skalowanie 43/36
-	assert_almost_eq(criterion.point_list[-3].y, 0.674, 0.01) # 29/43
-	assert_almost_eq(criterion.point_list[-2].y, 0.837, 0.01) # 36/43
+	assert_float(criterion.point_list[-3].y).is_equal_approx(0.674, 0.01) # 29/43
+	assert_float(criterion.point_list[-2].y).is_equal_approx(0.837, 0.01) # 36/43

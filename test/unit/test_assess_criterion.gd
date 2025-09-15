@@ -1,4 +1,4 @@
-extends GutTest
+extends GdUnitTestSuite
 
 
 @onready var criterion_script: GDScript = preload("res://globals/assess_criterion_manager/criteria/assess_criterion_variable_probability.gd")
@@ -6,14 +6,13 @@ var exp: Array[Vector2]
 
 
 func assert_almost_eq_vector2_array(actual: Array[Vector2], expected: Array[Vector2], delta: float):
-	assert_eq(actual.size(), expected.size())
+	assert_int(actual.size()).is_equal(expected.size())
 	for i in range(actual.size()):
-		assert_almost_eq(actual[i].x, expected[i].x, delta)
-		assert_almost_eq(actual[i].y, expected[i].y, delta)
+		assert_vector(actual[i]).is_equal_approx(expected[i], Vector2(delta, delta))
 
 
 func test_point_append():
-	var criterion: AssessCriterion = criterion_script.new()
+	var criterion: AssessCriterion = auto_free(criterion_script.new())
 
 	assert_almost_eq_vector2_array(
 		criterion.point_list,

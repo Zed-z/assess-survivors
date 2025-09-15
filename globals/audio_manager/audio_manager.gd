@@ -22,7 +22,7 @@ class AudioBus:
 var audio_buses: Dictionary[String, AudioBus] = {}
 
 func _ready() -> void:
-	
+
 	for bus in ["Master", "Music", "Effects"]:
 		audio_buses[bus] = AudioBus.new(bus)
 

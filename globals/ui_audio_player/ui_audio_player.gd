@@ -19,13 +19,13 @@ func connect_buttons(root):
 		if node is Control:
 			connect_signals(node)
 		connect_buttons(node)
-		
+
 func connect_signals(node: Control):
-	
+
 	node.connect("focus_entered", _on_button_focused)
-	
+
 	if node is BaseButton:
 		node.connect("pressed", _on_button_pressed)
-		
+
 	if node is TabBar:
 		node.connect("tab_changed", func (x): _on_button_focused())
