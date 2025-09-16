@@ -11,5 +11,5 @@ enum STATS{
 
 
 func _ready() -> void:
-	for stat_type  in STATS:
-		Stats[stat_type].stat_type = STATS
+	for stat : STATS in STATS.values():
+		Stats[stat].stat_type = stat
