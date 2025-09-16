@@ -19,11 +19,9 @@ enum Answer {
 var MAX_dialog_answers: int = 2
 var dialog_answers_count: int = 0
 
-var first_answer: bool = true
-var is_risky: bool:
-	get: 
-		return is_risky
 
+var first_answer: bool = true
+var is_risky: bool
 
 
 var point_list : Array[Vector2] = [
@@ -32,9 +30,12 @@ var point_list : Array[Vector2] = [
 ]
 var left_bound : float
 var right_bound : float
+
 var lottery: Lottery:
 	get:
 		return Lottery.new(point_list[-1].x, point_list[-2].y, point_list[0].x)
+
+
 func step(answer: Answer):
 	match answer:
 		Answer.p:
