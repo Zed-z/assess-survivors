@@ -19,23 +19,35 @@ enum Answer {
 var MAX_dialog_answers: int = 2
 var dialog_answers_count: int = 0
 
+var first_answer: bool = true
+var is_risky: bool:
+	get: 
+		return is_risky
+
+
 
 var point_list : Array[Vector2] = [
 	Vector2(MIN_value, 0.0),
 	Vector2(MIN_value + value_step, 1.0)
 ]
-
-
 var left_bound : float
 var right_bound : float
+var lottery: Lottery:
+	get:
+		return Lottery.new(point_list[-1].x, point_list[-2].y, point_list[0].x)
 func step(answer: Answer):
-
 	match answer:
 		Answer.p:
 			do_preferred_left()
+			if first_answer:
+				is_risky = false
+				first_answer = true
 			dialog_answers_count += 1
 		Answer.q:
 			do_preferred_right()
+			if first_answer:
+				is_risky = false
+				first_answer = true
 			dialog_answers_count += 1
 		Answer.i:
 			do_point_append()
