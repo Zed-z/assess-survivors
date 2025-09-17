@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=4 uid="uid://fnao1rs5haap"]
+[gd_scene load_steps=7 format=4 uid="uid://fnao1rs5haap"]
 
 [ext_resource type="PackedScene" uid="uid://ct88pvgyokerc" path="res://objects/player/player.tscn" id="1_41wyt"]
 [ext_resource type="Texture2D" uid="uid://dubow81wedje7" path="res://sprites/tiles/grass_tile.png" id="1_fv5bi"]
+[ext_resource type="PackedScene" uid="uid://dh1jrdfgruvqn" path="res://objects/enemies/enemy_spawner/enemy_spawner.tscn" id="3_vqmlp"]
+[ext_resource type="PackedScene" uid="uid://dbefpu7ce12k2" path="res://objects/enemies/test_enemy/test_enemy.tscn" id="4_p4055"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lknbr"]
 resource_name = "s"
@@ -40,3 +42,9 @@ scale = Vector2(0.998866, 0.986525)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 scale = Vector2(1.00114, 1.01366)
 position_smoothing_enabled = true
+
+[node name="EnemySpawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_vqmlp")]
+player = NodePath("../Player")
+min_radius = 500.0
+max_radius = 600.0
+enemy = ExtResource("4_p4055")

@@ -7,9 +7,10 @@ enum STATS{
 	ATTACK
 }
 
-@export var stats : Dictionary[STATS,BaseStat]
+@export var stats: Dictionary[STATS,BaseStat]
 
 
 func _ready() -> void:
-	for stat : STATS in STATS.values():
-		stats.get_or_add(stat).stat_type = stat
+
+	for stat: STATS in STATS.values():
+		stats.get_or_add(stat,BaseStat.new()).stat_type = stat
