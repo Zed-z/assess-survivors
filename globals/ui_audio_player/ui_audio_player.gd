@@ -28,4 +28,4 @@ func connect_signals(node: Control):
 		node.connect("pressed", _on_button_pressed)
 
 	if node is TabBar:
-		node.connect("tab_changed", func (x): _on_button_focused())
+		node.connect("tab_changed", func (_x): _on_button_focused())

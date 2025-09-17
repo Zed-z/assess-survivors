@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites id="2025-09-17" name="report_1" tests="10" failures="0" skipped="0" flaky="0" time="0.000">
+	<testsuite id="0" name="test_assess_criterion" package="test/unit" timestamp="2025-09-17T17:23:25" hostname="localhost" tests="1" failures="0" errors="0" skipped="0" flaky="0" time="0.049">
+		<testcase name="test_point_append" classname="test_assess_criterion" time="0.028">
+		</testcase>
+	</testsuite>
+	<testsuite id="1" name="test_assess_criterion_variable_prob" package="test/unit" timestamp="2025-09-17T17:23:25" hostname="localhost" tests="5" failures="0" errors="0" skipped="0" flaky="0" time="0.165">
+		<testcase name="test_answer_p" classname="test_assess_criterion_variable_prob" time="0.013">
+		</testcase>
+		<testcase name="test_answer_q" classname="test_assess_criterion_variable_prob" time="0.014">
+		</testcase>
+		<testcase name="test_answer_i" classname="test_assess_criterion_variable_prob" time="0.021">
+		</testcase>
+		<testcase name="test_scenario_1" classname="test_assess_criterion_variable_prob" time="0.020">
+		</testcase>
+		<testcase name="test_scenario_2" classname="test_assess_criterion_variable_prob" time="0.014">
+		</testcase>
+	</testsuite>
+	<testsuite id="2" name="test_assess_criterion_variable_value" package="test/unit" timestamp="2025-09-17T17:23:25" hostname="localhost" tests="4" failures="0" errors="0" skipped="0" flaky="0" time="0.139">
+		<testcase name="test_answer_p" classname="test_assess_criterion_variable_value" time="0.022">
+		</testcase>
+		<testcase name="test_answer_q" classname="test_assess_criterion_variable_value" time="0.020">
+		</testcase>
+		<testcase name="test_answer_i" classname="test_assess_criterion_variable_value" time="0.014">
+		</testcase>
+		<testcase name="test_scenario_1" classname="test_assess_criterion_variable_value" time="0.014">
+		</testcase>
+	</testsuite>
+</testsuites>
