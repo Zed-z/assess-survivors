@@ -13,3 +13,8 @@ func preferred_right(): # Loteria
 func set_bound():
 	left_bound = point_list[-3].y
 	right_bound = point_list[-1].y
+
+func get_left() -> Lottery:
+	return Lottery.new(point_list[-2].y,1,-1)
+func get_right() -> Lottery:
+	return Lottery.new(point_list[-1].x,point_list[-2].y,point_list[0].x)

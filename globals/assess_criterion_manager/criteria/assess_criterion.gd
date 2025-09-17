@@ -31,10 +31,11 @@ var point_list : Array[Vector2] = [
 var left_bound : float
 var right_bound : float
 
-var lottery: Lottery:
-	get:
-		return Lottery.new(point_list[-1].x, point_list[-2].y, point_list[0].x)
 
+func get_left() -> Lottery:
+	return Lottery.new(-1,-1,-1)
+func get_right() -> Lottery:
+	return Lottery.new(-1,-1,-1)
 
 func step(answer: Answer):
 	match answer:
