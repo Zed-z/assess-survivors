@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ct88pvgyokerc"]
+[gd_scene load_steps=9 format=3 uid="uid://ct88pvgyokerc"]
 
 [ext_resource type="Texture2D" uid="uid://cigsdewro07vk" path="res://icon.svg" id="1_cqmt1"]
 [ext_resource type="Script" uid="uid://bpko7pdk264ld" path="res://objects/player/player.gd" id="1_g7ett"]
@@ -6,22 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://c0p4rc4vy31m" path="res://objects/projectile/projectile_instances/test_projectile.tscn" id="3_jnjyq"]
 [ext_resource type="Script" uid="uid://cqu2r76doy8h5" path="res://objects/player/Stats/player_stats.gd" id="5_gnkmh"]
 [ext_resource type="Script" uid="uid://bui6h7p4lincd" path="res://objects/player/Stats/base_stat.gd" id="6_ow0dq"]
-[ext_resource type="Script" uid="uid://ccj8rhd6knfds" path="res://objects/player/Stats/const_stat.gd" id="7_m4kly"]
-[ext_resource type="Script" uid="uid://d1e80dp6c7ji3" path="res://objects/player/Stats/assess_stat.gd" id="8_m4kly"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5lq1w"]
 
-[sub_resource type="Resource" id="Resource_xgwla"]
-script = ExtResource("7_m4kly")
-metadata/_custom_type_script = "uid://ccj8rhd6knfds"
-
-[sub_resource type="Resource" id="Resource_bi5m7"]
-script = ExtResource("7_m4kly")
-metadata/_custom_type_script = "uid://ccj8rhd6knfds"
-
-[sub_resource type="Resource" id="Resource_psowp"]
-script = ExtResource("8_m4kly")
-metadata/_custom_type_script = "uid://d1e80dp6c7ji3"
+[sub_resource type="Resource" id="Resource_xkryw"]
+script = ExtResource("6_ow0dq")
+metadata/_custom_type_script = "uid://bui6h7p4lincd"
 
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
@@ -41,8 +31,6 @@ shape = SubResource("CircleShape2D_5lq1w")
 
 [node name="Stats" type="Node" parent="."]
 script = ExtResource("5_gnkmh")
-Stats = Dictionary[int, ExtResource("6_ow0dq")]({
-0: SubResource("Resource_xgwla"),
-1: SubResource("Resource_bi5m7"),
-2: SubResource("Resource_psowp")
+stats = Dictionary[int, ExtResource("6_ow0dq")]({
+0: SubResource("Resource_xkryw")
 })

@@ -1,7 +1,9 @@
 extends CharacterBody2D
-
+class_name Player
 
 @export var SPEED :float = 300.0
+
+@onready var stats = $Stats
 
 
 

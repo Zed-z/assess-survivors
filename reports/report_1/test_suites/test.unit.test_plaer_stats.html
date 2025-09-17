@@ -34,12 +34,12 @@
 		<div class="report-container">
 			<h1>Testsuite Report</h1>
 			<div>
-				<span class="label">res://test/unit/test_assess_criterion_variable_value.gd</span>
+				<span class="label">res://test/unit/test_plaer_stats.gd</span>
 			</div>
 			<div class="summary">
 				<div class="summary-item">
 					<span class="label">Tests</span>
-					<span class="value">4</span>
+					<span class="value">3</span>
 				</div>
 				<div class="summary-item">
 					<span class="label">Skipped</span>
@@ -51,7 +51,7 @@
 				</div>
 				<div class="summary-item">
 					<span class="label">Failures</span>
-					<span class="value">0</span>
+					<span class="value">2</span>
 				</div>
 				<div class="summary-item">
 					<span class="label">Orphans</span>
@@ -59,13 +59,13 @@
 				</div>
 				<div class="summary-item">
 					<span class="label">Duration</span>
-					<span class="value">138ms</span>
+					<span class="value">98ms</span>
 				</div>
 				<div class="success-rate">
-					<div class="check-icon status-passed">✓</div>
+					<div class="check-icon status-failed">✓</div>
 					<div class="rate-text">
 						<span class="label">Success Rate</span>
-						<span class="value">100%</span>
+						<span class="value">33%</span>
 					</div>
 				</div>
 			</div>
@@ -73,7 +73,7 @@
 		<div class="breadcrumb">
 			<a href="../index.html"><span>All</span></a>
 			<a href="../path/test.unit.html"><span>test/unit</span></a>
-			<a class="active" href="#"><span>test_assess_criterion_variable_value</span></a>
+			<a class="active" href="#"><span>test_plaer_stats</span></a>
 		</div>
 	</header>
 
@@ -94,11 +94,11 @@
 					<tbody>
 						
 								<tr class="testcase-group">
-									<td>test_answer_p</td>
+									<td>test_player_stats_is_null</td>
 									<td><span class="status status-passed">PASSED</span></td>
 									<td>0</td>
 									<td>0</td>
-									<td>21ms</td>
+									<td>15ms</td>
 									<td class="report-column">
 										<pre>
 
@@ -108,21 +108,7 @@
 
 
 								<tr class="testcase-group">
-									<td>test_answer_q</td>
-									<td><span class="status status-passed">PASSED</span></td>
-									<td>0</td>
-									<td>0</td>
-									<td>22ms</td>
-									<td class="report-column">
-										<pre>
-
-										</pre>
-									</td>
-								</tr>
-
-
-								<tr class="testcase-group">
-									<td>test_answer_i</td>
+									<td>test_player_stats_stats_is_null</td>
 									<td><span class="status status-passed">PASSED</span></td>
 									<td>0</td>
 									<td>0</td>
@@ -136,13 +122,19 @@
 
 
 								<tr class="testcase-group">
-									<td>test_scenario_1</td>
-									<td><span class="status status-passed">PASSED</span></td>
+									<td>test_player_stats</td>
+									<td><span class="status status-failed">FAILED</span></td>
 									<td>0</td>
 									<td>0</td>
 									<td>14ms</td>
 									<td class="report-column">
 										<pre>
+line 30: Expecting: 'true' but is 'false'
+Additional info:
+ DEFENCE was not found
+line 30: Expecting: 'true' but is 'false'
+Additional info:
+ ATTACK was not found
 
 										</pre>
 									</td>
