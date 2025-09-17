@@ -14,4 +14,4 @@ func _init(win_val, win_prob, loss_val) -> void:
 	loss_probability = 1 - win_prob
 
 func _to_string() -> String:
-	return "("+"%.02f" % win_value +","+"%.02f" % win_probability +","+"%.02f" % loss_value +","+ ")"
+	return "("+"%.02f" % win_value +","+"%.02f" % win_probability +","+"%.02f" % loss_value + ")"
