@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 @export var player: Player
 
@@ -10,7 +10,7 @@ extends Node
 
 func _process(_delta: float) -> void:
 	var radius = randf_range(min_radius,max_radius)
-	var position = Vector2(radius,0).rotated(randf_range(0,3.14 * 2))
+	var offset = Vector2(radius,0).rotated(randf_range(0,3.14 * 2))
 	var e:Node2D= enemy.instantiate()
-	EnemyHolder.add_child(e)
-	e.global_position = player.global_position + position
+	add_child(e)
+	e.global_position = player.global_position + offset
