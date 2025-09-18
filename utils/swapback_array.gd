@@ -21,6 +21,20 @@ func at(index: int):
 	return array[index]
 
 
+func _iter_init(iter):
+	iter[0] = 0
+	return iter[0] < current_size
+
+
+func _iter_next(iter):
+	iter[0] += 1
+	return iter[0] < current_size
+
+
+func _iter_get(iter):
+	return array[iter[0]]
+
+
 func append(elem) -> bool:
 	if current_size == array.size():
 		array.resize(array.size() + size_increment)
