@@ -2,6 +2,13 @@ extends RefCounted
 class_name SwapbackArray
 
 var array: Array
+var array_clean: Array:
+	get():
+		return array.filter(func(x): return x != null)
+
+	set(val):
+		printerr("Do not say that again.")
+
 var current_size: int
 var size_increment: int = 10
 
@@ -32,7 +39,7 @@ func _iter_next(iter):
 
 
 func _iter_get(iter):
-	return array[iter[0]]
+	return array[iter]
 
 
 func append(elem) -> bool:
