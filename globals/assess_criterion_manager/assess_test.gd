@@ -1,10 +1,13 @@
 extends Control
 
+
 func _ready() -> void:
 
 	for criterion: AssessCriterion in $AssessManager.criteria:
 		criterion.points_changed.connect(%ChartVisualizer.set_points)
-		%ChartVisualizer.set_points(criterion.point_list)
+		%ChartVisualizer.set_points(criterion.point_list_float)
+
+	print($AssessManager.criteria[0].point_list)
 
 
 func _on_button_left_pressed() -> void:
@@ -52,11 +55,9 @@ func _on_button_scenario_pressed() -> void:
 	$AssessManager.criteria[0].step(AssessCriterion.Answer.p)
 	$AssessManager.criteria[0].step(AssessCriterion.Answer.i)
 
-
 	$AssessManager.criteria[0].step(AssessCriterion.Answer.q)
 	$AssessManager.criteria[0].step(AssessCriterion.Answer.q)
 	$AssessManager.criteria[0].step(AssessCriterion.Answer.i)
-
 
 	$AssessManager.criteria[0].step(AssessCriterion.Answer.p)
 	$AssessManager.criteria[0].step(AssessCriterion.Answer.p)

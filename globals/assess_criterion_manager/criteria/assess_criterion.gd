@@ -2,14 +2,15 @@ extends Node2D
 class_name AssessCriterion
 
 signal points_changed(points: Array[Vector2Decimal])
+signal points_float_changed(points: Array[Vector2])
 
 @export var criterion_name: String = ""
-var MIN_value: Decimal = Decimal.new(0, 1)
-var value_step: Decimal = Decimal.new(10, 1)
-var MAX_value: Decimal = Decimal.new(100, 1)
+var MIN_value: Decimal = Decimal.new(0)
+var value_step: Decimal = Decimal.new(10)
+var MAX_value: Decimal = Decimal.new(100)
 
-var UTILITY_MIN: Decimal = Decimal.new(0, 1)
-var UTILITY_MAX: Decimal = Decimal.new(1, 1)
+var UTILITY_MIN: Decimal = Decimal.new(0)
+var UTILITY_MAX: Decimal = Decimal.new(1)
 enum Answer {
 	i, # Indifferent
 	p, # Prefer left
@@ -26,6 +27,15 @@ var point_list: Array[Vector2Decimal] = [
 	Vector2Decimal.new(MIN_value, UTILITY_MIN),
 	Vector2Decimal.new(MIN_value.added(value_step), UTILITY_MAX)
 ]
+var point_list_float: Array[Vector2]:
+	get():
+		var a: Array[Vector2]
+		a.assign(point_list.map(func(x: Vector2Decimal): return x.to_vector2()))
+		return a
+
+	set(val):
+		pass
+
 var left_bound: Decimal
 var right_bound: Decimal
 
@@ -72,8 +82,12 @@ func do_point_append():
 
 func point_append():
 	#stwórz nowy punkt na podstawie poprzednich
-	var a: Decimal = (point_list[-1].y.subtract(point_list[-2].y)).divided(point_list[-1].x.subtract(point_list[-2].x))
-	var new_max = Vector2Decimal.new(point_list[-1].x.added(value_step),point_list[-1].y.added(a.multiplied(value_step)))
+	var a: Decimal = (point_list[-1].y.subtracted(point_list[-2].y))\
+		.divided(point_list[-1].x.subtracted(point_list[-2].x))
+
+	var new_max = Vector2Decimal.new(
+		point_list[-1].x.added(value_step),
+		point_list[-1].y.added(a.multiplied(value_step)))
 
 	point_list.append(new_max)
 

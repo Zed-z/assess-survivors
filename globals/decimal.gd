@@ -54,7 +54,7 @@ func multiply(_a: Decimal) -> Decimal:
 
 
 func multiplied(_a: Decimal) -> Decimal:
-	return copy().add(_a)
+	return copy().multiply(_a)
 
 
 func divide(_a: Decimal) -> Decimal:
@@ -71,12 +71,12 @@ func divided(_a: Decimal) -> Decimal:
 func add(_a: Decimal) -> Decimal:
 	var _a_copy: Decimal = _a.copy()
 
-	numerator *= _a.denominator
-	denominator *= _a.denominator
-	_a.numerator *= denominator
-	_a.denominator *= denominator
+	numerator *= _a_copy.denominator
+	denominator *= _a_copy.denominator
+	_a_copy.numerator *= denominator
+	_a_copy.denominator *= denominator
 
-	numerator += _a.numerator
+	numerator += _a_copy.numerator
 
 	normalize()
 
@@ -90,12 +90,12 @@ func added(_a: Decimal) -> Decimal:
 func subtract(_a: Decimal) -> Decimal:
 	var _a_copy: Decimal = _a.copy()
 
-	numerator *= _a.denominator
-	denominator *= _a.denominator
-	_a.numerator *= denominator
-	_a.denominator *= denominator
+	numerator *= _a_copy.denominator
+	denominator *= _a_copy.denominator
+	_a_copy.numerator *= denominator
+	_a_copy.denominator *= denominator
 
-	numerator -= _a.numerator
+	numerator -= _a_copy.numerator
 
 	normalize()
 
@@ -135,3 +135,10 @@ func _gcd(a: int, b: int) -> int:
 		return b
 	else:
 		return a
+
+
+func _to_string() -> String:
+	if denominator == 1:
+		return str(numerator)
+
+	return "%s/%s" % [numerator, denominator]
