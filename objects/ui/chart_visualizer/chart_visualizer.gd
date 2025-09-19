@@ -34,7 +34,10 @@ var chart_node := preload("res://objects/ui/chart_visualizer/chart_visualizer_no
 		yaxis_base = val
 		update_points()
 
-@export var points: Array[Vector2]:
+var points: Array[Vector2Decimal] = [
+	Vector2Decimal.new(Decimal.new(0), Decimal.new(0)),
+	Vector2Decimal.new(Decimal.new(1), Decimal.new(1))
+]:
 	set(val):
 		points = val
 		update_points()
@@ -86,17 +89,8 @@ func translate_y(y: float, _yaxis: Vector2 = yaxis) -> float:
 	return lerp(size.y, 0.0, inverse_lerp(_yaxis.x, _yaxis.y, y))
 
 
-func set_points(_points: Array[Vector2]):
+func set_points(_points: Array[Vector2Decimal]):
 	points = _points
-
-
-func set_points_decimal(_points: Array[Vector2Decimal]):
-	var pts: Array[Vector2] = []
-
-	for p in _points:
-		pts.append(p.to_vector2())
-
-	points = pts
 
 
 func update_points():
@@ -111,17 +105,17 @@ func update_points():
 		_xaxis.x = 0
 		_xaxis.y = 0
 
-		for point: Vector2 in points:
-			_xaxis.x = min(_xaxis.x, point.x)
-			_xaxis.y = max(_xaxis.y, point.x)
+		for point: Vector2Decimal in points:
+			_xaxis.x = min(_xaxis.x, point.x.get_float())
+			_xaxis.y = max(_xaxis.y, point.x.get_float())
 
 	if auto_yaxis:
 		_yaxis.x = 0
 		_yaxis.y = 0
 
-		for point: Vector2 in points:
-			_yaxis.x = min(_yaxis.x, point.y)
-			_yaxis.y = max(_yaxis.y, point.y)
+		for point: Vector2Decimal in points:
+			_yaxis.x = min(_yaxis.x, point.y.get_float())
+			_yaxis.y = max(_yaxis.y, point.y.get_float())
 
 	%YaxisBase.clear_points()
 	var y_: float = translate_y(yaxis_base, _yaxis)
@@ -140,9 +134,9 @@ func update_points():
 	var arr = PackedVector2Array()
 	arr.append(Vector2(0, size.y))
 
-	for point: Vector2 in points:
-		var x: float = translate_x(point.x, _xaxis)
-		var y: float = translate_y(point.y, _yaxis)
+	for point: Vector2Decimal in points:
+		var x: float = translate_x(point.x.get_float(), _xaxis)
+		var y: float = translate_y(point.y.get_float(), _yaxis)
 		var xy: Vector2 = Vector2(x_ + x, yaxis_base + y)
 
 		%Line.add_point(xy)

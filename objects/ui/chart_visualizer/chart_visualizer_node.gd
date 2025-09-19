@@ -2,8 +2,7 @@
 extends Control
 class_name ChartVisualizerNode
 
-
-@export var pos: Vector2 = Vector2(-1, -1)
+var pos: Vector2Decimal
 
 
 func _ready() -> void:
