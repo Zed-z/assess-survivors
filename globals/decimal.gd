@@ -6,8 +6,7 @@ var denominator: int = 1
 
 
 func copy() -> Decimal:
-	var d := Decimal.new(numerator, denominator)
-	return d
+	return Decimal.new(numerator, denominator)
 
 
 func _init(_numerator: int, _denominator: int = 1) -> void:
@@ -31,19 +30,19 @@ func set_float(_float: float, precision: int = 6) -> Decimal:
 
 
 func normalize() -> Decimal:
-	var minus: bool = (numerator >= 0) !=  (denominator >= 0)
-	
+	var minus: bool = (numerator >= 0) != (denominator >= 0)
+
 	numerator = abs(numerator)
 	denominator = abs(denominator)
-	
+
 	var divisor: int = _gcd(numerator,denominator)
-	
+
 	numerator /= divisor
 	denominator /= divisor
-	
-	if(minus):
+
+	if (minus):
 		numerator *= -1
-	
+
 	return self
 
 
@@ -54,11 +53,19 @@ func multiply(_a: Decimal) -> Decimal:
 	return self
 
 
+func multiplied(_a: Decimal) -> Decimal:
+	return copy().add(_a)
+
+
 func divide(_a: Decimal) -> Decimal:
 	numerator *= _a.denominator
 	denominator *= _a.numerator
 	normalize()
 	return self
+
+
+func divided(_a: Decimal) -> Decimal:
+	return copy().divide(_a)
 
 
 func add(_a: Decimal) -> Decimal:
@@ -76,6 +83,10 @@ func add(_a: Decimal) -> Decimal:
 	return self
 
 
+func added(_a: Decimal) -> Decimal:
+	return copy().add(_a)
+
+
 func subtract(_a: Decimal) -> Decimal:
 	var _a_copy: Decimal = _a.copy()
 
@@ -89,6 +100,10 @@ func subtract(_a: Decimal) -> Decimal:
 	normalize()
 
 	return self
+
+
+func subtracted(_a: Decimal) -> Decimal:
+	return copy().subtract(_a)
 
 
 func equals(_a: Decimal) -> bool:
@@ -108,13 +123,15 @@ func get_int() -> int:
 func get_float() -> float:
 	return float(numerator) / float(denominator)
 
+
 func _gcd(a: int, b: int) -> int:
-	while(a != 0 and b != 0):
-		if( a > b):
+	while (a != 0 and b != 0):
+		if (a > b):
 			a %= b
 		else:
 			b %= a
-	if(a == 0):
+
+	if (a == 0):
 		return b
 	else:
 		return a
