@@ -1,7 +1,7 @@
 extends Node2D
 class_name AssessCriterion
 
-signal points_changed(points: Array[Vector2])
+signal points_changed(points: Array[Vector2Decimal])
 
 @export var criterion_name: String = ""
 @export var MIN_value: float = 0.0
@@ -24,9 +24,9 @@ var first_answer: bool = true
 var is_risky: bool
 
 
-var point_list : Array[Vector2] = [
-	Vector2(MIN_value, 0.0),
-	Vector2(MIN_value + value_step, 1.0)
+var point_list : Array[Vector2Decimal] = [
+	Vector2Decimal(MIN_value, 0.0),
+	Vector2Decimal(MIN_value + value_step, 1.0)
 ]
 var left_bound : float
 var right_bound : float
@@ -67,7 +67,7 @@ func do_point_append():
 func point_append():
 	#stwórz nowy punkt na podstawie poprzednich
 	var a: float = (point_list[-1].y - point_list[-2].y)/ (point_list[-1].x - point_list[-2].x)
-	var new_max = Vector2(point_list[-1].x + value_step, point_list[-1].y + a * value_step)
+	var new_max = Vector2Decimal(point_list[-1].x + value_step, point_list[-1].y + a * value_step)
 
 	point_list.append(new_max)
 
