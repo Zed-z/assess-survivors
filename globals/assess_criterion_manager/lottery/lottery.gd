@@ -2,10 +2,11 @@ extends Node
 
 class_name Lottery
 
-@export var win_value : float
-@export var win_probability : float
-@export var loss_probability : float
-@export var loss_value: float
+var win_value: float
+var loss_value: float
+var win_probability: Decimal
+var loss_probability: Decimal
+
 
 func _init(win_val, win_prob, loss_val) -> void:
 	win_value = win_val
@@ -13,5 +14,13 @@ func _init(win_val, win_prob, loss_val) -> void:
 	loss_value = loss_val
 	loss_probability = 1 - win_prob
 
+
+func copy() -> Lottery:
+	return Lottery.new(win_value, win_probability, loss_value)
+
+
 func _to_string() -> String:
+	if win_probability.get_int() == 1:
+		return "%.02f" % win_value
+
 	return "("+"%.02f" % win_value +","+"%.02f" % win_probability +","+"%.02f" % loss_value + ")"

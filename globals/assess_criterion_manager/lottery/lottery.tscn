@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bffmohogtjj6j"]
-
-[ext_resource type="Script" uid="uid://jtwhj833jw7m" path="res://globals/assess_criterion_manager/lottery/lottery.gd" id="1_tv6ra"]
-
-[node name="Lottery" type="Node"]
-script = ExtResource("1_tv6ra")
