@@ -31,19 +31,19 @@ func set_float(_float: float, precision: int = 6) -> Decimal:
 
 
 func normalize() -> Decimal:
-	var minus: bool = (numerator >= 0) !=  (denominator >= 0)
-	
+	var minus: bool = (numerator >= 0) != (denominator >= 0)
+
 	numerator = abs(numerator)
 	denominator = abs(denominator)
-	
+
 	var divisor: int = _gcd(numerator,denominator)
-	
+
 	numerator /= divisor
 	denominator /= divisor
-	
-	if(minus):
+
+	if (minus):
 		numerator *= -1
-	
+
 	return self
 
 
@@ -108,13 +108,15 @@ func get_int() -> int:
 func get_float() -> float:
 	return float(numerator) / float(denominator)
 
+
 func _gcd(a: int, b: int) -> int:
-	while(a != 0 and b != 0):
-		if( a > b):
+	while (a != 0 and b != 0):
+		if (a > b):
 			a %= b
 		else:
 			b %= a
-	if(a == 0):
+
+	if (a == 0):
 		return b
 	else:
 		return a
