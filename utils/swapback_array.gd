@@ -45,6 +45,7 @@ func _iter_get(iter):
 func append(elem) -> bool:
 	if current_size == array.size():
 		array.resize(array.size() + size_increment)
+		print("resized array new size %d" % array.size())
 
 	array[current_size] = elem
 	current_size += 1
@@ -60,6 +61,10 @@ func erase(elem):
 			array[x] = array[current_size]
 			array[current_size] = null
 			return e
+	return null
+
+func size()->int:
+	return array.size()
 
 
 func remove_at(position):
