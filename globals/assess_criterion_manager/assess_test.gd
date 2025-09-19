@@ -4,7 +4,7 @@ extends Control
 func _ready() -> void:
 
 	for criterion: AssessCriterion in $AssessManager.criteria:
-		criterion.points_changed.connect(%ChartVisualizer.set_points)
+		criterion.points_changed.connect(%ChartVisualizer.set_points_decimal)
 		%ChartVisualizer.set_points(criterion.point_list_float)
 
 	print($AssessManager.criteria[0].point_list)

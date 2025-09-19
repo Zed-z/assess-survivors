@@ -2,7 +2,6 @@ extends Node2D
 class_name AssessCriterion
 
 signal points_changed(points: Array[Vector2Decimal])
-signal points_float_changed(points: Array[Vector2])
 
 @export var criterion_name: String = ""
 var MIN_value: Decimal = Decimal.new(0)

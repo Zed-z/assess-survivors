@@ -81,11 +81,23 @@ func update_colors():
 func translate_x(x: float, _xaxis: Vector2 = xaxis) -> float:
 	return lerp(0.0, size.x, inverse_lerp(_xaxis.x, _xaxis.y, x))
 
+
 func translate_y(y: float, _yaxis: Vector2 = yaxis) -> float:
 	return lerp(size.y, 0.0, inverse_lerp(_yaxis.x, _yaxis.y, y))
 
+
 func set_points(_points: Array[Vector2]):
 	points = _points
+
+
+func set_points_decimal(_points: Array[Vector2Decimal]):
+	var pts: Array[Vector2] = []
+
+	for p in _points:
+		pts.append(p.to_vector2())
+
+	points = pts
+
 
 func update_points():
 
@@ -98,6 +110,7 @@ func update_points():
 	if auto_xaxis:
 		_xaxis.x = 0
 		_xaxis.y = 0
+
 		for point: Vector2 in points:
 			_xaxis.x = min(_xaxis.x, point.x)
 			_xaxis.y = max(_xaxis.y, point.x)
@@ -105,6 +118,7 @@ func update_points():
 	if auto_yaxis:
 		_yaxis.x = 0
 		_yaxis.y = 0
+
 		for point: Vector2 in points:
 			_yaxis.x = min(_yaxis.x, point.y)
 			_yaxis.y = max(_yaxis.y, point.y)

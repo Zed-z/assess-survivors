@@ -34,7 +34,7 @@ default_color = Color(0, 0, 0, 1)
 
 [node name="YaxisBase" type="Line2D" parent="."]
 unique_name_in_owner = true
-points = PackedVector2Array(0, 83.3333, 100, 83.3333)
+points = PackedVector2Array(0, 83.333336, 100, 83.333336)
 width = 4.0
 default_color = Color(0, 0, 0, 1)
 
@@ -46,11 +46,11 @@ offset_bottom = 40.0
 [node name="Polygon" type="Polygon2D" parent="Points"]
 unique_name_in_owner = true
 color = Color(1, 0, 0, 0.5)
-polygon = PackedVector2Array(0, 100, 0, 66.6667, 10, 50, 20, 100, 30, 0, 50, 66.6667, 100, 83.3333, 100, 100)
+polygon = PackedVector2Array(0, 100, 0, 66.666664, 10, 50, 20, 100, 30, 0, 50, 66.666664, 100, 83.333336, 100, 100)
 
 [node name="Line" type="Line2D" parent="Points"]
 unique_name_in_owner = true
-points = PackedVector2Array(0, 66.6667, 10, 50, 20, 100, 30, 0, 50, 66.6667, 100, 83.3333)
+points = PackedVector2Array(0, 66.666664, 10, 50, 20, 100, 30, 0, 50, 66.666664, 100, 83.333336)
 width = 4.0
 default_color = Color(1, 0, 0, 1)
 joint_mode = 2
