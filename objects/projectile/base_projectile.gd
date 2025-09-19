@@ -1,9 +1,10 @@
-extends Node2D
+extends Area2D
 class_name BaseProjectile
 
-var direction : Vector2
+var direction: Vector2
 
-func initiate_projectile(vec : Vector2) -> void:
+
+func initiate_projectile(vec: Vector2) -> void:
 	direction = vec
 
 

@@ -61,7 +61,9 @@ func erase(elem):
 			array[x] = array[current_size]
 			array[current_size] = null
 			return e
+
 	return null
+
 
 func size()->int:
 	return array.size()

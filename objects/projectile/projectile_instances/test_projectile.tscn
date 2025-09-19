@@ -1,11 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0p4rc4vy31m"]
+[gd_scene load_steps=4 format=3 uid="uid://c0p4rc4vy31m"]
 
 [ext_resource type="Script" uid="uid://brpv4cyt6hyn7" path="res://objects/projectile/base_projectile.gd" id="1_6yivw"]
 [ext_resource type="Texture2D" uid="uid://cigsdewro07vk" path="res://icon.svg" id="2_ctmtx"]
 
-[node name="TestProjectile" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6yivw"]
+
+[node name="TestProjectile" type="Area2D"]
 script = ExtResource("1_6yivw")
-metadata/_custom_type_script = "uid://brpv4cyt6hyn7"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.6340952, 0.6340952)
+shape = SubResource("RectangleShape2D_6yivw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 self_modulate = Color(0.996558, 0.31296, 0.746188, 1)

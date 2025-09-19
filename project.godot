@@ -21,6 +21,7 @@ AudioManager="*res://globals/audio_manager/audio_manager.tscn"
 UiAudioPlayer="*res://globals/ui_audio_player/ui_audio_player.tscn"
 SceneManager="*res://globals/scene_manager/scene_manager.tscn"
 ProjectileHolder="*res://globals/holders/projectile_holder/projectile_holder.gd"
+GlobalInfo="*res://globals/global_info/global_info.gd"
 
 [display]
 
@@ -39,6 +40,10 @@ folder_colors={
 "res://globals/assess_criterion_manager/": "purple",
 "res://objects/player/Stats/": "blue"
 }
+
+[global_group]
+
+Player="player group"
 
 [input]
 
