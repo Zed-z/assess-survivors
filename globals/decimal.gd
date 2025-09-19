@@ -71,10 +71,13 @@ func divided(_a: Decimal) -> Decimal:
 func add(_a: Decimal) -> Decimal:
 	var _a_copy: Decimal = _a.copy()
 
-	numerator *= _a_copy.denominator
-	denominator *= _a_copy.denominator
-	_a_copy.numerator *= denominator
-	_a_copy.denominator *= denominator
+	var self_denominator := denominator
+	var other_denominator := _a_copy.denominator
+
+	numerator *= other_denominator
+	denominator *= other_denominator
+	_a_copy.numerator *= self_denominator
+	_a_copy.denominator *= self_denominator
 
 	numerator += _a_copy.numerator
 
@@ -90,10 +93,13 @@ func added(_a: Decimal) -> Decimal:
 func subtract(_a: Decimal) -> Decimal:
 	var _a_copy: Decimal = _a.copy()
 
-	numerator *= _a_copy.denominator
-	denominator *= _a_copy.denominator
-	_a_copy.numerator *= denominator
-	_a_copy.denominator *= denominator
+	var self_denominator := denominator
+	var other_denominator := _a_copy.denominator
+
+	numerator *= other_denominator
+	denominator *= other_denominator
+	_a_copy.numerator *= self_denominator
+	_a_copy.denominator *= self_denominator
 
 	numerator -= _a_copy.numerator
 
