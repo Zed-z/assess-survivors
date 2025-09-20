@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=25 format=3 uid="uid://df2r57b2stnof"]
+[gd_resource type="Theme" load_steps=32 format=3 uid="uid://df2r57b2stnof"]
 
 [ext_resource type="FontFile" uid="uid://ccu7qrtecogan" path="res://fonts/smallburg_font_1_04/TrueType (.ttf)/smallburg-Regular.ttf" id="1_h6ia1"]
 [ext_resource type="Texture2D" uid="uid://s2ls5uy6e3f2" path="res://sprites/ui/panel_background.png" id="2_bhwv2"]
@@ -8,8 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://droibt6ng3cc2" path="res://sprites/ui/tab_active.png" id="3_hbfgb"]
 [ext_resource type="Texture2D" uid="uid://b1655dpipjg7w" path="res://sprites/ui/tab_inactive.png" id="3_v6eyv"]
 [ext_resource type="Texture2D" uid="uid://deodh6dn36sio" path="res://sprites/ui/grabber_off.png" id="4_hirh7"]
+[ext_resource type="Texture2D" uid="uid://54jhrd0edoes" path="res://sprites/ui/check_on.png" id="4_jivjh"]
 [ext_resource type="Texture2D" uid="uid://bk06fl6nnp4oh" path="res://sprites/ui/tab_border.png" id="5_7gpds"]
 [ext_resource type="Texture2D" uid="uid://g4s6lgunmyfl" path="res://sprites/ui/grabber_on.png" id="5_jln3u"]
+[ext_resource type="Texture2D" uid="uid://cd8l6up6px067" path="res://sprites/ui/check_off.png" id="5_owxhb"]
 [ext_resource type="Texture2D" uid="uid://culhnn44v0v71" path="res://sprites/ui/progressbar_on.png" id="6_jivjh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4o4wu"]
@@ -38,6 +40,16 @@ texture_margin_top = 32.0
 texture_margin_right = 32.0
 texture_margin_bottom = 32.0
 region_rect = Rect2(21, 21, 364, 155)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sds01"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_612vp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0oa1y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_41f1y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4efn8"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_owxhb"]
 texture = ExtResource("6_jivjh")
@@ -151,6 +163,14 @@ Button/styles/focus = SubResource("StyleBoxFlat_4o4wu")
 Button/styles/hover = SubResource("StyleBoxTexture_hirh7")
 Button/styles/normal = SubResource("StyleBoxTexture_31w7s")
 Button/styles/pressed = SubResource("StyleBoxTexture_hirh7")
+CheckButton/constants/h_separation = 24
+CheckButton/icons/checked = ExtResource("4_jivjh")
+CheckButton/icons/unchecked = ExtResource("5_owxhb")
+CheckButton/styles/disabled = SubResource("StyleBoxEmpty_sds01")
+CheckButton/styles/hover = SubResource("StyleBoxEmpty_612vp")
+CheckButton/styles/hover_pressed = SubResource("StyleBoxEmpty_0oa1y")
+CheckButton/styles/normal = SubResource("StyleBoxEmpty_41f1y")
+CheckButton/styles/pressed = SubResource("StyleBoxEmpty_4efn8")
 HBoxContainer/constants/separation = 10
 HSlider/constants/center_grabber = 1
 HSlider/icons/grabber = ExtResource("4_hirh7")
