@@ -69,8 +69,8 @@ text = "scenariusz"
 [node name="ChartVisualizer" parent="MarginContainer/HBoxContainer" instance=ExtResource("3_uts2w")]
 unique_name_in_owner = true
 layout_mode = 2
-line_fill = true
-axis_color = Color(0, 0, 0, 1)
+line_color = Color(0, 0.54023165, 0.95391196, 1)
+margin = 60
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/ButtonLeft" to="." method="_on_button_left_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/ButtonRight" to="." method="_on_button_right_pressed"]

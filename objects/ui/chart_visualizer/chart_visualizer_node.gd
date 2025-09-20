@@ -10,7 +10,7 @@ func _ready() -> void:
 
 
 func _on_mouse_entered() -> void:
-	$Label.text = str(pos)
+	$Label.text = "%s: %s%%" % [snapped(pos.x, 0.01), snapped(pos.y * 100, 0.01)]
 	$Label.visible = true
 
 	$Panel.self_modulate = Color(20.0, 20.0, 20.0)

@@ -12,12 +12,11 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_gele2")
 auto_xaxis = true
-xaxis = Vector2(0, 50)
 auto_yaxis = true
-yaxis = Vector2(-10, 50)
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Canvas" type="ColorRect" parent="."]
 unique_name_in_owner = true
+clip_contents = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,30 +24,48 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="XaxisBase" type="Line2D" parent="."]
+[node name="CanvasMargin" type="MarginContainer" parent="Canvas"]
 unique_name_in_owner = true
-points = PackedVector2Array(nan, 0, nan, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ChartArea" type="ColorRect" parent="Canvas/CanvasMargin"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="XaxisBase" type="Line2D" parent="Canvas/CanvasMargin/ChartArea"]
+unique_name_in_owner = true
+points = PackedVector2Array(0, -5, 0, 85)
 width = 4.0
 default_color = Color(0, 0, 0, 1)
 
-[node name="YaxisBase" type="Line2D" parent="."]
+[node name="YaxisBase" type="Line2D" parent="Canvas/CanvasMargin/ChartArea"]
 unique_name_in_owner = true
-points = PackedVector2Array(0, nan, 100, nan)
+points = PackedVector2Array(-5, 80, 86, 80)
 width = 4.0
 default_color = Color(0, 0, 0, 1)
 
-[node name="Points" type="Control" parent="."]
+[node name="Points" type="Control" parent="Canvas/CanvasMargin/ChartArea"]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Polygon" type="Polygon2D" parent="Points"]
+[node name="Polygon" type="Polygon2D" parent="Canvas/CanvasMargin/ChartArea/Points"]
 unique_name_in_owner = true
 color = Color(1, 0, 0, 0.5)
-polygon = PackedVector2Array(0, 100, 100, 100)
+polygon = PackedVector2Array(0, 80, 0, 80, 81, 0, 81, 80)
 
-[node name="Line" type="Line2D" parent="Points"]
+[node name="Line" type="Line2D" parent="Canvas/CanvasMargin/ChartArea/Points"]
 unique_name_in_owner = true
+points = PackedVector2Array(0, 80, 81, 0)
 width = 4.0
 default_color = Color(1, 0, 0, 1)
 joint_mode = 2
