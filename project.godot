@@ -103,6 +103,10 @@ game_down={
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://strings.en.translation", "res://strings.pl.translation")
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

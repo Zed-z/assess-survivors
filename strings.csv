@@ -1,0 +1,10 @@
+key,en,pl
+MENU_BACK,Back,Wstecz
+MAIN_MENU_PLAY,Play,Graj
+MAIN_MENU_QUIT,Quit,Wyjdź
+MAIN_MENU_SETTINGS,Settings,Ustawienia
+MAIN_MENU_ASSESS,ASSESS,ASSESS
+ASSESS_TEST_PREFER_LEFT,Prefer Left,Preferuj Lewe
+ASSESS_TEST_PREFER_RIGHT,Prefer Right,Preferuj Prawe
+ASSESS_TEST_INDIFFERENT,Indifferent,Obojętnie Mi
+ASSESS_TEST_SCENARIO,Test Scenario,Scenariusz Testowy

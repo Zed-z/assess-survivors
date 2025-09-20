@@ -1,6 +1,7 @@
 extends Button
 
-@export var scene: SceneMgr.Scene
+@export var scene: String
+
 
 func _pressed() -> void:
 	SceneManager.change_scene(scene)

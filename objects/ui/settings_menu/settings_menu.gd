@@ -42,7 +42,7 @@ func _ready() -> void:
 	tab_bar.tab_selected.connect(_on_tab_selected)
 	_populate_tabs()
 	_show_tab(0)
-	
+
 	$Panel/General/VBoxContainer/Button.grab_focus()
 
 

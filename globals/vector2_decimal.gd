@@ -19,4 +19,12 @@ func equals(v2: Vector2Decimal) -> bool:
 
 
 func _to_string() -> String:
-	return "Vector2Decimal(%s, %s)" % [str(x), str(y)]
+	return "Vector2Decimal(%s, %s)" % [x, y]
+
+
+func to_vector2() -> Vector2:
+	return Vector2(x.get_float(), y.get_float())
+
+
+func to_vector2i() -> Vector2i:
+	return Vector2i(x.get_int(), y.get_int())

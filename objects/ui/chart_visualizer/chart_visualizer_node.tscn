@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://1y32xdmsa005" path="res://objects/ui/chart_visualizer/chart_visualizer_node.gd" id="1_85d4y"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nhysq"]
-bg_color = Color(1, 0, 0, 1)
+bg_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
@@ -25,12 +25,22 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_nhysq")
 [node name="Label" type="Label" parent="."]
 visible = false
 layout_mode = 1
-offset_right = 40.0
-offset_bottom = 23.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -32.0
+offset_right = 20.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 text = "(0,0)"
-vertical_alignment = 1
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [connection signal="mouse_entered" from="Panel" to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Panel" to="." method="_on_mouse_exited"]
