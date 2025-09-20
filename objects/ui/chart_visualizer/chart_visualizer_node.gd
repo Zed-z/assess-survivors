@@ -2,7 +2,7 @@
 extends Control
 class_name ChartVisualizerNode
 
-var pos: Vector2Decimal
+var pos: Vector2
 
 
 func _ready() -> void:

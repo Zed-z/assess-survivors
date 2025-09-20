@@ -4,8 +4,8 @@ class_name Lottery
 
 var win_value: float
 var loss_value: float
-var win_probability: Decimal
-var loss_probability: Decimal
+var win_probability: float
+var loss_probability: float
 
 
 func _init(win_val, win_prob, loss_val) -> void:
@@ -20,7 +20,7 @@ func copy() -> Lottery:
 
 
 func _to_string() -> String:
-	if win_probability.get_int() == 1:
+	if win_probability == 1:
 		return "%.02f" % win_value
 
 	return "("+"%.02f" % win_value +","+"%.02f" % win_probability +","+"%.02f" % loss_value + ")"

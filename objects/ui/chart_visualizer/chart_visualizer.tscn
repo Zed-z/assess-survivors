@@ -15,7 +15,6 @@ auto_xaxis = true
 xaxis = Vector2(0, 50)
 auto_yaxis = true
 yaxis = Vector2(-10, 50)
-points = Array[Vector2]([Vector2(0, 10), Vector2(10, 20), Vector2(20, -10), Vector2(30, 50), Vector2(50, 10), Vector2(100, 0)])
 
 [node name="ColorRect" type="ColorRect" parent="."]
 unique_name_in_owner = true
@@ -28,13 +27,13 @@ grow_vertical = 2
 
 [node name="XaxisBase" type="Line2D" parent="."]
 unique_name_in_owner = true
-points = PackedVector2Array(0, 0, 0, 100)
+points = PackedVector2Array(nan, 0, nan, 100)
 width = 4.0
 default_color = Color(0, 0, 0, 1)
 
 [node name="YaxisBase" type="Line2D" parent="."]
 unique_name_in_owner = true
-points = PackedVector2Array(0, 83.333336, 100, 83.333336)
+points = PackedVector2Array(0, nan, 100, nan)
 width = 4.0
 default_color = Color(0, 0, 0, 1)
 
@@ -46,11 +45,10 @@ offset_bottom = 40.0
 [node name="Polygon" type="Polygon2D" parent="Points"]
 unique_name_in_owner = true
 color = Color(1, 0, 0, 0.5)
-polygon = PackedVector2Array(0, 100, 0, 66.666664, 10, 50, 20, 100, 30, 0, 50, 66.666664, 100, 83.333336, 100, 100)
+polygon = PackedVector2Array(0, 100, 100, 100)
 
 [node name="Line" type="Line2D" parent="Points"]
 unique_name_in_owner = true
-points = PackedVector2Array(0, 66.666664, 10, 50, 20, 100, 30, 0, 50, 66.666664, 100, 83.333336)
 width = 4.0
 default_color = Color(1, 0, 0, 1)
 joint_mode = 2

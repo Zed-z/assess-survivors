@@ -3,13 +3,13 @@ extends AssessCriterion
 
 func preferred_left(): # Pewnik
 	right_bound = point_list[-2].y
-	point_list[-2].y = (left_bound.added(point_list[-2].y)).divided(Decimal.new(2,1))
+	point_list[-2].y = (left_bound + point_list[-2].y) / 2
 	#pewniak się robi jako (MIN_value + pewniak) / 2
 
 
 func preferred_right(): # Loteria
 	left_bound = point_list[-2].y
-	point_list[-2].y = (point_list[-2].y.added(right_bound)).divided(Decimal.new(2))
+	point_list[-2].y = (point_list[-2].y + right_bound) / 2
 	#pewniak się robi jako (pewniak + CUR_MAX_value) / 2
 
 
