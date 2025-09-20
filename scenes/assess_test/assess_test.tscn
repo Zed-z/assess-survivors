@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cd2dgvodr3u8k"]
+[gd_scene load_steps=7 format=3 uid="uid://cd2dgvodr3u8k"]
 
-[ext_resource type="Script" uid="uid://dqjtx2pjfltf0" path="res://globals/assess_criterion_manager/assess_test.gd" id="1_mafoi"]
+[ext_resource type="Script" uid="uid://dqjtx2pjfltf0" path="res://scenes/assess_test/assess_test.gd" id="1_mafoi"]
 [ext_resource type="Theme" uid="uid://df2r57b2stnof" path="res://themes/ui.tres" id="1_uts2w"]
 [ext_resource type="Script" uid="uid://dxavujg1j5jr5" path="res://globals/assess_criterion_manager/criteria/assess_criterion_variable_probability.gd" id="2_a22l4"]
 [ext_resource type="PackedScene" uid="uid://55kp84v1di83" path="res://globals/assess_criterion_manager/assess_manager.tscn" id="2_uts2w"]
 [ext_resource type="PackedScene" uid="uid://chw3reglhg6by" path="res://objects/ui/chart_visualizer/chart_visualizer.tscn" id="3_uts2w"]
+[ext_resource type="Script" uid="uid://bfn4l4e5i8p0j" path="res://scenes/main_menu/change_scene_button.gd" id="5_cxtxd"]
 
 [node name="AssessTest" type="Control"]
 layout_mode = 3
@@ -15,15 +16,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_uts2w")
 script = ExtResource("1_mafoi")
-
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
 
 [node name="AssessManager" parent="." instance=ExtResource("2_uts2w")]
 criteria_scripts = Array[Script]([ExtResource("2_a22l4")])
@@ -46,27 +38,39 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 
+[node name="ButtonBack" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "MENU_BACK"
+script = ExtResource("5_cxtxd")
+scene = "main_menu"
+
 [node name="ButtonLeft" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Pewnik"
+text = "ASSESS_TEST_PREFER_LEFT"
 
 [node name="ButtonRight" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Loteria"
-
-[node name="ButtonAdd" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-text = "dodaj punkt"
+text = "ASSESS_TEST_PREFER_RIGHT"
 
 [node name="ButtonIndifferent" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "obojętnie"
+text = "ASSESS_TEST_INDIFFERENT"
 
 [node name="ButtonScenario" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "scenariusz"
+text = "ASSESS_TEST_SCENARIO"
 
-[node name="ChartVisualizer" parent="MarginContainer/HBoxContainer" instance=ExtResource("3_uts2w")]
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AssessQuestion" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "ASSESS QUESTION"
+horizontal_alignment = 1
+
+[node name="ChartVisualizer" parent="MarginContainer/HBoxContainer/VBoxContainer2" instance=ExtResource("3_uts2w")]
 unique_name_in_owner = true
 layout_mode = 2
 line_color = Color(0, 0.54023165, 0.95391196, 1)
@@ -74,6 +78,5 @@ margin = 60
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/ButtonLeft" to="." method="_on_button_left_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/ButtonRight" to="." method="_on_button_right_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/ButtonAdd" to="." method="_on_button_add_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/ButtonIndifferent" to="." method="_on_button_indifferent_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/ButtonScenario" to="." method="_on_button_scenario_pressed"]

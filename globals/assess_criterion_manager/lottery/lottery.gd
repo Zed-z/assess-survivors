@@ -23,4 +23,4 @@ func _to_string() -> String:
 	if win_probability == 1:
 		return "%.02f" % win_value
 
-	return "("+"%.02f" % win_value +","+"%.02f" % win_probability +","+"%.02f" % loss_value + ")"
+	return "L(%.02f, %.02f%%, %.02f)" % [win_value, (win_probability * 100), loss_value]
