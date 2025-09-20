@@ -8,3 +8,19 @@ ASSESS_TEST_PREFER_LEFT,Prefer Left,Preferuj Lewe
 ASSESS_TEST_PREFER_RIGHT,Prefer Right,Preferuj Prawe
 ASSESS_TEST_INDIFFERENT,Indifferent,Obojętnie Mi
 ASSESS_TEST_SCENARIO,Test Scenario,Scenariusz Testowy
+
+AUDIO_BUS_MASTER,Master,Ogólny
+AUDIO_BUS_MUSIC,Music,Muzyka
+AUDIO_BUS_EFFECTS,Effects,Efekty
+
+SETTINGS_TAB_GENERAL,General,Ogólne
+SETTINGS_TITLE_GENERAL,General Settings,Ogólne Ustawienia
+
+SETTINGS_TAB_VIDEO,Video,Grafika
+SETTINGS_TITLE_VIDEO,Video Settings,Ustawienia Graficzne
+
+SETTINGS_TAB_AUDIO,Audio,Dźwięk
+SETTINGS_TITLE_AUDIO,Audio Settings,Ustawienia Dźwięku
+
+SETTINGS_TAB_CREDITS,Credits,Autorzy
+SETTINGS_TITLE_CREDITS,Credits,Autorzy
