@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ct88pvgyokerc"]
+[gd_scene load_steps=10 format=3 uid="uid://ct88pvgyokerc"]
 
 [ext_resource type="Texture2D" uid="uid://cigsdewro07vk" path="res://icon.svg" id="1_cqmt1"]
 [ext_resource type="Script" uid="uid://bpko7pdk264ld" path="res://objects/player/player.gd" id="1_g7ett"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c0p4rc4vy31m" path="res://objects/projectile/projectile_instances/test_projectile.tscn" id="3_jnjyq"]
 [ext_resource type="Script" uid="uid://cqu2r76doy8h5" path="res://objects/player/Stats/player_stats.gd" id="5_gnkmh"]
 [ext_resource type="Script" uid="uid://bui6h7p4lincd" path="res://objects/player/Stats/base_stat.gd" id="6_ow0dq"]
+[ext_resource type="Script" uid="uid://s8o7eln2esn0" path="res://objects/player/levels.gd" id="7_ow0dq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5lq1w"]
 
@@ -34,3 +35,6 @@ script = ExtResource("5_gnkmh")
 stats = Dictionary[int, ExtResource("6_ow0dq")]({
 0: SubResource("Resource_xkryw")
 })
+
+[node name="Levels" type="Node" parent="."]
+script = ExtResource("7_ow0dq")
