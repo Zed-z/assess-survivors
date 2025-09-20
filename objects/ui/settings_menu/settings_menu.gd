@@ -7,8 +7,8 @@ extends Control
 
 func _populate_tabs():
 	tab_bar.clear_tabs()
-	for child in content_panel.get_children():
-		tab_bar.add_tab(child.name)
+	for child: SettingsTab in content_panel.get_children():
+		tab_bar.add_tab(child.tab_name)
 
 
 func _on_tab_selected(tab_index: int):
@@ -34,10 +34,14 @@ func tab_prev() -> void:
 	if $TabBar.current_tab > 0:
 		$TabBar.current_tab -= 1
 
+	$TabBar.grab_focus()
+
 
 func tab_next() -> void:
 	if $TabBar.current_tab < $TabBar.get_tab_count() - 1:
 		$TabBar.current_tab += 1
+
+	$TabBar.grab_focus()
 
 
 func _ready() -> void:
@@ -46,7 +50,7 @@ func _ready() -> void:
 	_populate_tabs()
 	_show_tab(0)
 
-	$Panel/General/VBoxContainer/Button.grab_focus()
+	$TabBar.grab_focus()
 
 
 func _on_close_button_pressed() -> void:
