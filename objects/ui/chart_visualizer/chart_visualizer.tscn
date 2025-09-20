@@ -43,13 +43,13 @@ layout_mode = 2
 
 [node name="XaxisBase" type="Line2D" parent="Canvas/CanvasMargin/ChartArea"]
 unique_name_in_owner = true
-points = PackedVector2Array(0, -5, 0, 85)
+points = PackedVector2Array(0, -5, 0, 86)
 width = 4.0
 default_color = Color(0, 0, 0, 1)
 
 [node name="YaxisBase" type="Line2D" parent="Canvas/CanvasMargin/ChartArea"]
 unique_name_in_owner = true
-points = PackedVector2Array(-5, 80, 86, 80)
+points = PackedVector2Array(-5, 81, 85, 81)
 width = 4.0
 default_color = Color(0, 0, 0, 1)
 
@@ -61,11 +61,11 @@ offset_bottom = 40.0
 [node name="Polygon" type="Polygon2D" parent="Canvas/CanvasMargin/ChartArea/Points"]
 unique_name_in_owner = true
 color = Color(1, 0, 0, 0.5)
-polygon = PackedVector2Array(0, 80, 0, 80, 81, 0, 81, 80)
+polygon = PackedVector2Array(0, 81, 0, 81, 80, 0, 80, 81)
 
 [node name="Line" type="Line2D" parent="Canvas/CanvasMargin/ChartArea/Points"]
 unique_name_in_owner = true
-points = PackedVector2Array(0, 80, 81, 0)
+points = PackedVector2Array(0, 81, 80, 0)
 width = 4.0
 default_color = Color(1, 0, 0, 1)
 joint_mode = 2
@@ -73,3 +73,6 @@ begin_cap_mode = 2
 end_cap_mode = 2
 
 [connection signal="resized" from="." to="." method="_on_resized"]
+[connection signal="resized" from="Canvas" to="." method="_on_resized"]
+[connection signal="resized" from="Canvas/CanvasMargin" to="." method="_on_resized"]
+[connection signal="resized" from="Canvas/CanvasMargin/ChartArea" to="." method="_on_resized"]
