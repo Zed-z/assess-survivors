@@ -66,7 +66,7 @@ func erase(elem):
 
 
 func size()->int:
-	return array.size()
+	return current_size
 
 
 func remove_at(position):

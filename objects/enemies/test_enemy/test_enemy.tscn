@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://dbefpu7ce12k2"]
+[gd_scene load_steps=13 format=3 uid="uid://dbefpu7ce12k2"]
 
 [ext_resource type="Script" uid="uid://gohumc4rt4ne" path="res://objects/enemies/test_enemy/enemy.gd" id="1_ck1x7"]
 [ext_resource type="Texture2D" uid="uid://eawq50uwgn24" path="res://sprites/mobs/spider.png" id="2_2qy66"]
 [ext_resource type="Script" uid="uid://bfk4pro2k5bf6" path="res://objects/enemies/test_enemy/hurt_box.gd" id="3_2qy66"]
+[ext_resource type="Script" uid="uid://008ins25r0w8" path="res://components/health_component.gd" id="4_w84hb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ck1x7"]
 
@@ -70,4 +71,11 @@ script = ExtResource("3_2qy66")
 scale = Vector2(5.840002, 5.840002)
 shape = SubResource("RectangleShape2D_ck1x7")
 
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("4_w84hb")
+health = 3
+metadata/_custom_type_script = "uid://008ins25r0w8"
+
 [connection signal="area_entered" from="HurtBox" to="HurtBox" method="_on_area_entered"]
+[connection signal="hit" from="HurtBox" to="HealthComponent" method="take_damage"]
+[connection signal="health_depleted" from="HealthComponent" to="." method="die"]
