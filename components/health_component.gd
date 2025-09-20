@@ -25,13 +25,13 @@ func _ready() -> void:
 
 func take_damage(damage: DamageParameters) -> void:
 
-	if current_health == 0 and deplete_once and has_depleted:
+	if current_health < 0 and deplete_once and has_depleted:
 		return
 
 	got_hit.emit()
 
 	if not invulnerable:
-		current_health -= 1
+		current_health -= damage.damage
 		health_dropped.emit()
 
 		if current_health <= 0:
