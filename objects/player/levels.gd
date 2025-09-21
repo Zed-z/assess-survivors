@@ -6,9 +6,10 @@ var collected_xp: int = 0
 
 
 func _ready() -> void:
+	set_new_required_ex(0)
 	await get_tree().process_frame
 	GlobalInfo.enemy_spawner.enemy_killed.connect(xp_collected)
-	set_new_required_ex(0)
+	GlobalInfo.combat_ui_overlay.update_progres_bar(level, collected_xp,required_xp)
 
 
 func set_new_required_ex(new_level: int):
