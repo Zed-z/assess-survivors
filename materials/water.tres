@@ -1,11 +1,11 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bahv2nf1ouhdy"]
 
 [ext_resource type="Shader" uid="uid://ctgswswljibdk" path="res://objects/water/water.gdshader" id="1_4lgl7"]
-[ext_resource type="Texture2D" uid="uid://cttjl42yjf8cj" path="res://sprites/tiles/water.png" id="2_6tan1"]
+[ext_resource type="Texture2D" uid="uid://cigsdewro07vk" path="res://icon.svg" id="2_4lgl7"]
 
 [resource]
 shader = ExtResource("1_4lgl7")
-shader_parameter/NOISE_TEXTURE = ExtResource("2_6tan1")
+shader_parameter/NOISE_TEXTURE = ExtResource("2_4lgl7")
 shader_parameter/shine_intensity = 0.145
 shader_parameter/speed = 0.88
 shader_parameter/shine_speed = 0.42
