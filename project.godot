@@ -23,6 +23,7 @@ SceneManager="*res://globals/scene_manager/scene_manager.tscn"
 ProjectileHolder="*res://globals/holders/projectile_holder/projectile_holder.gd"
 GlobalInfo="*res://globals/global_info/global_info.gd"
 ScreenManager="*res://globals/screen_manager/screen_manager.tscn"
+AssessManager="*res://globals/assess_criterion_manager/assess_manager.tscn"
 
 [display]
 

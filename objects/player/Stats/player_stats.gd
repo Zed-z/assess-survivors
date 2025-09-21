@@ -13,4 +13,6 @@ enum STATS{
 func _ready() -> void:
 
 	for stat: STATS in STATS.values():
-		stats.get_or_add(stat,BaseStat.new()).stat_type = stat
+		var s: BaseStat = stats.get_or_add(stat,BaseStat.new())
+		s.stat_type = stat
+		s.init()
