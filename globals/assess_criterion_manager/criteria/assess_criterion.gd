@@ -2,6 +2,7 @@ extends Node2D
 class_name AssessCriterion
 
 signal points_changed(points: Array[Vector2])
+signal value_result(value: float) # Rresult of making a choice and the random stuff happening
 
 @export var criterion_name: String = ""
 @export var MIN_value: float = 0
@@ -64,6 +65,8 @@ func step(answer: Answer):
 	if dialog_answers_count > MAX_dialog_answers:
 		do_point_append()
 		dialog_answers_count = 0
+
+	value_result.emit(1000)
 
 
 func do_point_append():
