@@ -22,10 +22,10 @@ sources/0 = SubResource("TileSetAtlasSource_lknbr")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = ExtResource("1_p4055")
-offset_left = -1055.0
-offset_top = -676.0
-offset_right = 1166.0
-offset_bottom = 608.0
+offset_left = -3710.0
+offset_top = -2269.0
+offset_right = 3821.0
+offset_bottom = 2201.0
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 y_sort_enabled = true
