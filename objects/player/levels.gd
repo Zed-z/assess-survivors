@@ -24,5 +24,5 @@ func xp_collected(ammount: int) ->void:
 		level += 1
 		set_new_required_ex(level)
 
-	GlobalInfo.combat_ui_overlay.update_progres_bar(collected_xp,required_xp)
+	GlobalInfo.combat_ui_overlay.update_progres_bar(level, collected_xp,required_xp)
 	print("current level %d: %d/%d" % [level, collected_xp,required_xp])

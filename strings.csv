@@ -30,3 +30,5 @@ SETTINGS_TITLE_AUDIO,Audio Settings,Ustawienia Dźwięku
 
 SETTINGS_TAB_CREDITS,Credits,Autorzy
 SETTINGS_TITLE_CREDITS,Credits,Autorzy
+
+GAMEPLAY_LEVEL_BAR,Level %s (%s / %s XP),Poziom %s (%s / %s PD)
