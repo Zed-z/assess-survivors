@@ -45,7 +45,6 @@ func _iter_get(iter):
 func append(elem) -> bool:
 	if current_size == array.size():
 		array.resize(array.size() + size_increment)
-		print("resized array new size %d" % array.size())
 
 	array[current_size] = elem
 	current_size += 1
