@@ -21,7 +21,7 @@ func xp_collected(ammount: int) ->void:
 
 	if collected_xp > required_xp:
 		collected_xp -= required_xp
-		level+=1
+		level += 1
 		set_new_required_ex(level)
 
 	GlobalInfo.combat_ui_overlay.update_progres_bar(collected_xp,required_xp)
