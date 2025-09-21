@@ -1,6 +1,8 @@
 extends Node
 
 var player: Player
+var combat_ui_overlay: UIOverley
+var enemy_spawner: EnemySpawner
 
 
 func _ready() -> void:
