@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=32 format=3 uid="uid://df2r57b2stnof"]
+[gd_resource type="Theme" load_steps=34 format=3 uid="uid://df2r57b2stnof"]
 
 [ext_resource type="FontFile" uid="uid://ccu7qrtecogan" path="res://fonts/smallburg_font_1_04/TrueType (.ttf)/smallburg-Regular.ttf" id="1_h6ia1"]
 [ext_resource type="Texture2D" uid="uid://s2ls5uy6e3f2" path="res://sprites/ui/panel_background.png" id="2_bhwv2"]
@@ -51,16 +51,20 @@ region_rect = Rect2(21, 21, 364, 155)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4efn8"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_owxhb"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sds01"]
 texture = ExtResource("6_jivjh")
 texture_margin_left = 10.0
 texture_margin_top = 10.0
 texture_margin_right = 10.0
 texture_margin_bottom = 10.0
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
 region_rect = Rect2(8, 8, 350, 30)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sds01"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_612vp"]
 bg_color = Color(0, 0, 0, 1)
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7gpds"]
 content_margin_left = 100.0
@@ -79,6 +83,17 @@ expand_margin_bottom = 60.0
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 region_rect = Rect2(31, 45, 854, 882)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sds01"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_owxhb"]
+texture = ExtResource("6_jivjh")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+region_rect = Rect2(8, 8, 350, 30)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jln3u"]
 texture = ExtResource("5_7gpds")
@@ -171,9 +186,9 @@ HBoxContainer/constants/separation = 10
 HSlider/constants/center_grabber = 1
 HSlider/icons/grabber = ExtResource("4_hirh7")
 HSlider/icons/grabber_highlight = ExtResource("5_jln3u")
-HSlider/styles/grabber_area = SubResource("StyleBoxTexture_owxhb")
-HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_owxhb")
-HSlider/styles/slider = SubResource("StyleBoxFlat_sds01")
+HSlider/styles/grabber_area = SubResource("StyleBoxTexture_sds01")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_sds01")
+HSlider/styles/slider = SubResource("StyleBoxFlat_612vp")
 Label/font_sizes/font_size = 32
 Label/fonts/font = ExtResource("1_h6ia1")
 Panel/styles/panel = SubResource("StyleBoxTexture_7gpds")
