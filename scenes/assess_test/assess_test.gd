@@ -1,18 +1,17 @@
 extends Control
 
 
-func update_text(_points: Array[Vector2]):
-	%AssessQuestion.text = "%s   vs   %s" % [$AssessCriterion.get_left(), $AssessCriterion.get_right()]
+func update_text(question: Array[Lottery]):
+	%AssessQuestion.text = "%s   vs   %s" % [question[0], question[1]]
 
 
 func _ready() -> void:
 
 	$AssessCriterion.points_changed.connect(%ChartVisualizer.set_points)
-	$AssessCriterion.points_changed.connect(update_text)
 	%ChartVisualizer.set_points($AssessCriterion.point_list)
 
-	print($AssessCriterion.point_list)
-	update_text([])
+	$AssessCriterion.question_changed.connect(update_text)
+	update_text($AssessCriterion.get_question())
 
 
 func _on_button_left_pressed() -> void:
