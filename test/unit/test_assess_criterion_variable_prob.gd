@@ -1,6 +1,5 @@
 extends GdUnitTestSuite
 
-
 @onready var criterion_script: GDScript = preload("res://globals/assess_criterion_manager/criteria/assess_criterion_variable_probability.gd")
 
 var criterion: AssessCriterion
@@ -18,20 +17,72 @@ func before_test():
 	criterion.MIN_value = 0
 	criterion.value_step = 10
 
+	assert_float(criterion.question[0].win_value).is_equal(10.0)
+	assert_float(criterion.question[0].win_probability).is_equal(1.0)
+	assert_float(criterion.question[0].loss_value).is_equal(-1.0)
+
+	assert_float(criterion.question[1].win_value).is_equal(20.0)
+	assert_float(criterion.question[1].win_probability).is_equal(0.5)
+	assert_float(criterion.question[1].loss_value).is_equal(0.0)
+
+
 func after_test():
+	criterion.question[0].free()
+	criterion.question[1].free()
 	criterion.free()
+
 
 func test_answer_p():
 	criterion.step(AssessCriterion.Answer.p)
 	assert_float(criterion.point_list[1].y).is_equal_approx(0.25, 0.01)
 
+
+func test_answer_p_question():
+
+	criterion.step(AssessCriterion.Answer.p)
+	assert_float(criterion.question[0].win_value).is_equal(10.0)
+	assert_float(criterion.question[0].win_probability).is_equal(1.0)
+	assert_float(criterion.question[0].loss_value).is_equal(-1.0)
+
+	assert_float(criterion.question[1].win_value).is_equal(20.0)
+	assert_float(criterion.question[1].win_probability).is_equal(0.75)
+	assert_float(criterion.question[1].loss_value).is_equal(0.0)
+
+
 func test_answer_q():
 	criterion.step(AssessCriterion.Answer.q)
 	assert_float(criterion.point_list[1].y).is_equal_approx(0.75, 0.01)
 
+
+func test_answer_q_question():
+	criterion.step(AssessCriterion.Answer.q)
+	assert_float(criterion.point_list[1].y).is_equal_approx(0.75, 0.01)
+
+	assert_float(criterion.question[0].win_value).is_equal(10.0)
+	assert_float(criterion.question[0].win_probability).is_equal(1.0)
+	assert_float(criterion.question[0].loss_value).is_equal(-1.0)
+
+	assert_float(criterion.question[1].win_value).is_equal(20.0)
+	assert_float(criterion.question[1].win_probability).is_equal(0.25)
+	assert_float(criterion.question[1].loss_value).is_equal(0.0)
+
+
 func test_answer_i():
 	criterion.step(AssessCriterion.Answer.i)
 	assert_almost_eq_vector2_array(criterion.point_list, [Vector2(0, 0), Vector2(10, 0.333),Vector2(20, 0.666),Vector2(30, 1)], 0.01)
+
+
+func test_answer_i_question():
+	criterion.step(AssessCriterion.Answer.i)
+
+	assert_float(criterion.question[0].win_value).is_equal(20.0)
+	assert_float(criterion.question[0].win_probability).is_equal(1.0)
+	assert_float(criterion.question[0].loss_value).is_equal(-1.0)
+
+	assert_float(criterion.question[1].win_value).is_equal(30.0)
+	assert_float(criterion.question[1].win_probability).is_equal_approx(0.33, 0.01)
+	assert_float(criterion.question[1].loss_value).is_equal(0.0)
+
 
 func test_scenario_1():
 	criterion.step(AssessCriterion.Answer.p)
@@ -68,6 +119,7 @@ func test_scenario_1():
 	Vector2(70, 0.9536052214640551),
 	Vector2(80, 0.9594045687810482),
 	Vector2(90, 1.0)], 0.1)
+
 
 func test_scenario_2():
 	criterion.step(AssessCriterion.Answer.q) #3/4
