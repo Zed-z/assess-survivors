@@ -3,6 +3,7 @@ class_name AssessCriterion
 
 signal points_changed(points: Array[Vector2])
 signal value_result(value: float) # Rresult of making a choice and the random stuff happening
+signal question_changed(question: Array[Lottery])
 
 @export var criterion_name: String = ""
 @export var MIN_value: float = 0
@@ -27,17 +28,9 @@ var point_list: Array[Vector2] = [
 	Vector2(MIN_value, UTILITY_MIN),
 	Vector2(MIN_value + value_step, UTILITY_MAX)
 ]
-
+var question: Array[Lottery] = []
 var left_bound: float
 var right_bound: float
-
-
-func get_left() -> Lottery:
-	return Lottery.new(-1,-1,-1)
-
-
-func get_right() -> Lottery:
-	return Lottery.new(-1,-1,-1)
 
 
 func step(answer: Answer):
@@ -65,6 +58,8 @@ func step(answer: Answer):
 	if dialog_answers_count > MAX_dialog_answers:
 		do_point_append()
 		dialog_answers_count = 0
+
+	change_question()
 
 	value_result.emit(1000)
 
@@ -113,5 +108,18 @@ func set_bound():
 	pass
 
 
+func get_question() -> Array[Lottery]:
+	return question
+
+
+func _question_init() ->void:
+	pass
+
+
+func change_question() -> void:
+	pass
+
+
 func _ready() -> void:
 	do_point_append()
+	_question_init()

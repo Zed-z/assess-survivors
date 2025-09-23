@@ -18,9 +18,13 @@ func set_bound():
 	right_bound = point_list[-1].x
 
 
-func get_left() -> Lottery:
-	return Lottery.new(point_list[-2].y,1,-1)
+func change_question() -> void:
+	question[0] = Lottery.new(point_list[-2].x, 1, -1)
+	question[1] = Lottery.new(point_list[-1].x, point_list[-2].y, MIN_value)
+	question_changed.emit(question)
 
 
-func get_right() -> Lottery:
-	return Lottery.new(point_list[-1].x,point_list[-2].y,point_list[0].x)
+func _question_init() ->void:
+	question.append(Lottery.new(point_list[-2].x, 1, -1)) # Guaranteed middle value
+	question.append(Lottery.new(point_list[-1].x, point_list[-2].y,MIN_value)) #Lottery
+	question_changed.emit(question)
