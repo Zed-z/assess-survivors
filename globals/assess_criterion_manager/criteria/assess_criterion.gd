@@ -2,7 +2,7 @@ extends Node2D
 class_name AssessCriterion
 
 signal points_changed(points: Array[Vector2])
-signal value_result(value: float) # Rresult of making a choice and the random stuff happening
+signal value_result(value: float) # Result of making a choice and the random stuff happening
 signal question_changed(question: Array[Lottery])
 
 @export var criterion_name: String = ""
@@ -34,8 +34,11 @@ var right_bound: float
 
 
 func step(answer: Answer):
+	var result: float
+
 	match answer:
 		Answer.p:
+			result = question[0].get_value()
 			do_preferred_left()
 			if first_answer:
 				is_risky = false
@@ -44,6 +47,7 @@ func step(answer: Answer):
 			dialog_answers_count += 1
 
 		Answer.q:
+			result = question[1].get_value()
 			do_preferred_right()
 			if first_answer:
 				is_risky = false
@@ -52,6 +56,7 @@ func step(answer: Answer):
 			dialog_answers_count += 1
 
 		Answer.i:
+			result = question.pick_random().get_value()
 			do_point_append()
 			dialog_answers_count = 0
 
@@ -61,7 +66,7 @@ func step(answer: Answer):
 
 	change_question()
 
-	value_result.emit(1000)
+	value_result.emit(result)
 
 
 func do_point_append():
