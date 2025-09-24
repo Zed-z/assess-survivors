@@ -2,10 +2,11 @@
 
 [ext_resource type="FontFile" uid="uid://ccu7qrtecogan" path="res://fonts/smallburg_font_1_04/TrueType (.ttf)/smallburg-Regular.ttf" id="1_h6ia1"]
 [ext_resource type="Texture2D" uid="uid://s2ls5uy6e3f2" path="res://sprites/ui/panel_background.png" id="2_bhwv2"]
-[ext_resource type="Texture2D" uid="uid://bqvniitnymbir" path="res://sprites/ui/button/button.png" id="2_ffde8"]
-[ext_resource type="Texture2D" uid="uid://c0kd585yins8t" path="res://sprites/ui/button/button_hover.png" id="2_n6ega"]
+[ext_resource type="Texture2D" uid="uid://b08v68ef7qcbc" path="res://sprites/ui/new_button_focus.png" id="2_owxhb"]
 [ext_resource type="FontFile" uid="uid://bgsae7qrln08u" path="res://fonts/Gotfridus_Font_0_5/Gotfridus.ttf" id="3_bhwv2"]
 [ext_resource type="Texture2D" uid="uid://droibt6ng3cc2" path="res://sprites/ui/tab_active.png" id="3_hbfgb"]
+[ext_resource type="Texture2D" uid="uid://xt55dq1boi26" path="res://sprites/ui/new_button.png" id="3_jivjh"]
+[ext_resource type="Texture2D" uid="uid://cb3py36yi8h06" path="res://sprites/ui/new_button_active.png" id="3_sds01"]
 [ext_resource type="Texture2D" uid="uid://b1655dpipjg7w" path="res://sprites/ui/tab_inactive.png" id="3_v6eyv"]
 [ext_resource type="Texture2D" uid="uid://deodh6dn36sio" path="res://sprites/ui/grabber_off.png" id="4_hirh7"]
 [ext_resource type="Texture2D" uid="uid://54jhrd0edoes" path="res://sprites/ui/check_on.png" id="4_jivjh"]
@@ -14,32 +15,37 @@
 [ext_resource type="Texture2D" uid="uid://cd8l6up6px067" path="res://sprites/ui/check_off.png" id="5_owxhb"]
 [ext_resource type="Texture2D" uid="uid://culhnn44v0v71" path="res://sprites/ui/progressbar_on.png" id="6_jivjh"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4o4wu"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-expand_margin_left = 8.0
-expand_margin_top = 8.0
-expand_margin_right = 8.0
-expand_margin_bottom = 8.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_612vp"]
+texture = ExtResource("2_owxhb")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+region_rect = Rect2(37, 33, 270, 124)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hirh7"]
-texture = ExtResource("2_n6ega")
-texture_margin_left = 32.0
-texture_margin_top = 32.0
-texture_margin_right = 32.0
-texture_margin_bottom = 32.0
-region_rect = Rect2(21, 21, 364, 155)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0oa1y"]
+texture = ExtResource("3_sds01")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+region_rect = Rect2(37, 33, 270, 124)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_31w7s"]
-texture = ExtResource("2_ffde8")
-texture_margin_left = 32.0
-texture_margin_top = 32.0
-texture_margin_right = 32.0
-texture_margin_bottom = 32.0
-region_rect = Rect2(21, 21, 364, 155)
+texture = ExtResource("3_jivjh")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+region_rect = Rect2(37, 33, 270, 124)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_41f1y"]
+texture = ExtResource("3_sds01")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+region_rect = Rect2(37, 33, 270, 124)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sds01"]
 
@@ -170,10 +176,10 @@ axis_stretch_vertical = 2
 [resource]
 Button/font_sizes/font_size = 32
 Button/fonts/font = ExtResource("1_h6ia1")
-Button/styles/focus = SubResource("StyleBoxFlat_4o4wu")
-Button/styles/hover = SubResource("StyleBoxTexture_hirh7")
+Button/styles/focus = SubResource("StyleBoxTexture_612vp")
+Button/styles/hover = SubResource("StyleBoxTexture_0oa1y")
 Button/styles/normal = SubResource("StyleBoxTexture_31w7s")
-Button/styles/pressed = SubResource("StyleBoxTexture_hirh7")
+Button/styles/pressed = SubResource("StyleBoxTexture_41f1y")
 CheckButton/constants/h_separation = 24
 CheckButton/icons/checked = ExtResource("4_jivjh")
 CheckButton/icons/unchecked = ExtResource("5_owxhb")
