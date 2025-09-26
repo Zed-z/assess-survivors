@@ -1,5 +1,12 @@
 extends Control
 
+var value: float = 0
+
+
+func update_value(_value: float):
+	value += _value
+	%Value.text = "%s\n(+%s)" % [value, _value]
+
 
 func update_text(question: Array[Lottery]):
 	%AssessQuestion.text = "%s   vs   %s" % [question[0], question[1]]
@@ -12,6 +19,9 @@ func _ready() -> void:
 
 	$AssessCriterion.question_changed.connect(update_text)
 	update_text($AssessCriterion.get_question())
+
+	$AssessCriterion.value_result.connect(update_value)
+	update_value(0)
 
 
 func _on_button_left_pressed() -> void:
