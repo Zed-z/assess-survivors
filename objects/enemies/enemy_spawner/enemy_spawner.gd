@@ -8,6 +8,8 @@ class_name EnemySpawner
 @export var max_radius: float = 200
 @export var enemy: PackedScene
 
+@export_group("enemy veaves ")
+
 var enemies_array: SwapbackArray
 
 signal enemy_killed(int)

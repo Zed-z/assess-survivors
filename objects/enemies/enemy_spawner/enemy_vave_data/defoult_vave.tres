@@ -1,7 +1,0 @@
-[gd_resource type="Resource" script_class="VaveData" load_steps=2 format=3 uid="uid://csxxdfqxntgj7"]
-
-[ext_resource type="Script" uid="uid://cd06aok4ajl3c" path="res://objects/enemies/enemy_spawner/enemy_vave_data/enemy_vave_data.gd" id="1_av6gn"]
-
-[resource]
-script = ExtResource("1_av6gn")
-metadata/_custom_type_script = "uid://cd06aok4ajl3c"
