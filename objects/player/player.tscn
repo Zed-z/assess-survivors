@@ -30,3 +30,5 @@ script = ExtResource("5_gnkmh")
 
 [node name="Levels" type="Node" parent="."]
 script = ExtResource("7_ow0dq")
+
+[connection signal="new_level" from="Levels" to="." method="_on_levels_new_level"]
