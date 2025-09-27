@@ -172,10 +172,11 @@ shape = SubResource("CircleShape2D_ck1x7")
 disabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -17)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_rxg0b")
 autoplay = "default"
-frame_progress = 0.04849319
+frame_progress = 0.51870143
 
 [node name="HurtBox" type="Area2D" parent="."]
 script = ExtResource("3_glk4a")
