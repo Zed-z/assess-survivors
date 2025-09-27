@@ -100,20 +100,27 @@ layout_mode = 2
 text = "SETTINGS_TITLE_GENERAL"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/General/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Panel/General/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/General/VBoxContainer/MarginContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="Panel/General/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="Panel/General/VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 text = "SETTINGS_GENERAL_LANGUAGE"
 
-[node name="ButtonEN" type="Button" parent="Panel/General/VBoxContainer/HBoxContainer"]
+[node name="ButtonEN" type="Button" parent="Panel/General/VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 text = "SETTINGS_GENERAL_LANGUAGE_EN"
 script = ExtResource("4_6cw0p")
 
-[node name="ButtonPL" type="Button" parent="Panel/General/VBoxContainer/HBoxContainer"]
+[node name="ButtonPL" type="Button" parent="Panel/General/VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 text = "SETTINGS_GENERAL_LANGUAGE_PL"
 script = ExtResource("5_pf8so")
@@ -143,11 +150,18 @@ layout_mode = 2
 text = "SETTINGS_TITLE_VIDEO"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/Video/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Panel/Video/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/Video/VBoxContainer/MarginContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="CheckButton" type="CheckButton" parent="Panel/Video/VBoxContainer/HBoxContainer"]
+[node name="CheckButton" type="CheckButton" parent="Panel/Video/VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 text = "SETTINGS_VIDEO_FULLSCREEN"
 script = ExtResource("6_porcf")
@@ -177,47 +191,54 @@ layout_mode = 2
 text = "SETTINGS_TITLE_AUDIO"
 horizontal_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Audio/VBoxContainer2"]
+[node name="MarginContainer" type="MarginContainer" parent="Panel/Audio/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Audio/VBoxContainer2/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/Audio/VBoxContainer2/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/Audio/VBoxContainer2/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 48
 alignment = 2
 
-[node name="Label" type="Label" parent="Panel/Audio/VBoxContainer2/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="Panel/Audio/VBoxContainer2/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "AUDIO_BUS_MASTER"
 
-[node name="VolumeSlider" parent="Panel/Audio/VBoxContainer2/VBoxContainer/HBoxContainer" instance=ExtResource("3_vlvk0")]
+[node name="VolumeSlider" parent="Panel/Audio/VBoxContainer2/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_vlvk0")]
 layout_mode = 2
 audio_bus = "Master"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/Audio/VBoxContainer2/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/Audio/VBoxContainer2/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 48
 alignment = 2
 
-[node name="Label" type="Label" parent="Panel/Audio/VBoxContainer2/VBoxContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="Panel/Audio/VBoxContainer2/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 text = "AUDIO_BUS_MUSIC"
 
-[node name="VolumeSlider" parent="Panel/Audio/VBoxContainer2/VBoxContainer/HBoxContainer2" instance=ExtResource("3_vlvk0")]
+[node name="VolumeSlider" parent="Panel/Audio/VBoxContainer2/MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("3_vlvk0")]
 layout_mode = 2
 audio_bus = "Music"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/Audio/VBoxContainer2/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="Panel/Audio/VBoxContainer2/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 48
 alignment = 2
 
-[node name="Label" type="Label" parent="Panel/Audio/VBoxContainer2/VBoxContainer/HBoxContainer3"]
+[node name="Label" type="Label" parent="Panel/Audio/VBoxContainer2/MarginContainer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 text = "AUDIO_BUS_EFFECTS"
 
-[node name="VolumeSlider" parent="Panel/Audio/VBoxContainer2/VBoxContainer/HBoxContainer3" instance=ExtResource("3_vlvk0")]
+[node name="VolumeSlider" parent="Panel/Audio/VBoxContainer2/MarginContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("3_vlvk0")]
 layout_mode = 2
 audio_bus = "Effects"
 
@@ -233,7 +254,7 @@ script = ExtResource("3_gw16s")
 tab_name = "SETTINGS_TAB_CREDITS"
 metadata/_tab_index = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Credits"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/Credits"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -241,27 +262,37 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label4" type="Label" parent="Panel/Credits/VBoxContainer"]
+[node name="Label4" type="Label" parent="Panel/Credits/VBoxContainer2"]
 layout_mode = 2
 text = "SETTINGS_TITLE_CREDITS"
 horizontal_alignment = 1
 
-[node name="Label3" type="Label" parent="Panel/Credits/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Panel/Credits/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Credits/VBoxContainer2/MarginContainer"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="Panel/Credits/VBoxContainer2/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Fonts:"
 
-[node name="Label" type="Label" parent="Panel/Credits/VBoxContainer"]
+[node name="Label" type="Label" parent="Panel/Credits/VBoxContainer2/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "Gotfridus by GGBotNet - https://ggbot.itch.io/gotfridus-font
 SIL Open Font License, Version 1.1"
 
-[node name="Label2" type="Label" parent="Panel/Credits/VBoxContainer"]
+[node name="Label2" type="Label" parent="Panel/Credits/VBoxContainer2/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "smallburg  by GGBotNet - https://ggbot.itch.io/smallburg-font
 SIL Open Font License, Version 1.1"
 
 [connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]
-[connection signal="pressed" from="Panel/General/VBoxContainer/HBoxContainer/ButtonEN" to="Panel/General/VBoxContainer/HBoxContainer/ButtonEN" method="_on_pressed"]
-[connection signal="pressed" from="Panel/General/VBoxContainer/HBoxContainer/ButtonPL" to="Panel/General/VBoxContainer/HBoxContainer/ButtonPL" method="_on_pressed"]
+[connection signal="pressed" from="Panel/General/VBoxContainer/MarginContainer/HBoxContainer/ButtonEN" to="Panel/General/VBoxContainer/MarginContainer/HBoxContainer/ButtonEN" method="_on_pressed"]
+[connection signal="pressed" from="Panel/General/VBoxContainer/MarginContainer/HBoxContainer/ButtonPL" to="Panel/General/VBoxContainer/MarginContainer/HBoxContainer/ButtonPL" method="_on_pressed"]

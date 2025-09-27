@@ -4,7 +4,7 @@ var level: int =0
 var required_xp: int = 0
 var collected_xp: int = 0
 
-signal new_level(int)
+signal new_level(level: int)
 
 
 func _ready() -> void:

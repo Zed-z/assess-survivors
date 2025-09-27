@@ -12,3 +12,4 @@ func _ready() -> void:
 
 func _toggled(toggled_on: bool) -> void:
 	ScreenManager.set_fullscreen(toggled_on)
+	SettingsManager.set_setting("video/fullscreen", toggled_on)

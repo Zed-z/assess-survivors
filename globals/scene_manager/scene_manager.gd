@@ -5,9 +5,7 @@ var uids: Dictionary[String, String] = {
 	"main_menu": "uid://d1sq1okbpyorw",
 	"assess_test": "uid://cd2dgvodr3u8k",
 	"test_scene": "uid://fnao1rs5haap",
-
-	"settings_panel": "uid://d2xe4jjrkjnh0",
-	"volume_slider": "uid://cn1bd1qg3n8ff",
+	"choice_menu": "uid://bgiawodt7wvts",
 }
 
 var current_scene: String = uids.keys()[0]

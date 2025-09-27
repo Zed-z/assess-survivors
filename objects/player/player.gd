@@ -1,10 +1,9 @@
 extends CharacterBody2D
 class_name Player
 
-@export var SPEED :float = 300.0
+@export var SPEED:float = 300.0
 
 @onready var stats = $Stats
-
 
 
 func _physics_process(delta: float) -> void:
@@ -13,3 +12,7 @@ func _physics_process(delta: float) -> void:
 	velocity = direction * SPEED;
 
 	move_and_slide()
+
+
+func _on_levels_new_level(level: int) -> void:
+	GlobalInfo.combat_ui_overlay.add_child(ObjectManager.instantiate(ObjectManager.OBJ_CHOICE_PANEL))

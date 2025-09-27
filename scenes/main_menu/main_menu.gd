@@ -6,8 +6,7 @@ func _ready() -> void:
 
 
 func _on_settings_button_pressed() -> void:
-	var settings = load(SceneManager.uids["settings_panel"])
-	var s = settings.instantiate()
+	var s = ObjectManager.instantiate(ObjectManager.OBJ_SETTINGS_PANEL)
 	s.close_callback = func():
 		$HBoxContainer/SettingsButton.grab_focus()
 
