@@ -24,78 +24,97 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.298039)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="Panel" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 2
+theme_type_variation = &"LightPanel"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Panel"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 40
 alignment = 1
 
-[node name="Control" type="Control" parent="HBoxContainer/VBoxContainer"]
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(256, 256)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/VBoxContainer/Control"]
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/HBoxContainer/Panel/VBoxContainer/Control"]
 scale = Vector2(2, 2)
 texture = ExtResource("2_4fn4h")
 centered = false
 
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Panel/VBoxContainer"]
 layout_mode = 2
 text = "ATK: 100"
 horizontal_alignment = 1
 
-[node name="ButtonChooseLeft" type="Button" parent="HBoxContainer/VBoxContainer"]
+[node name="ButtonChooseLeft" type="Button" parent="MarginContainer/HBoxContainer/Panel/VBoxContainer"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Stay safe"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 theme_override_constants/separation = 40
 alignment = 1
 
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2"]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 text = "OR..."
 horizontal_alignment = 1
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer"]
+[node name="Panel2" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 2
+theme_type_variation = &"LightPanel"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/HBoxContainer/Panel2"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 40
 alignment = 1
 
-[node name="Control" type="Control" parent="HBoxContainer/VBoxContainer3"]
+[node name="Control" type="Control" parent="MarginContainer/HBoxContainer/Panel2/VBoxContainer3"]
 custom_minimum_size = Vector2(256, 256)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/VBoxContainer3/Control"]
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/HBoxContainer/Panel2/VBoxContainer3/Control"]
 scale = Vector2(2, 2)
 texture = ExtResource("2_4fn4h")
 centered = false
 
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer3"]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Panel2/VBoxContainer3"]
 layout_mode = 2
 text = "ATK: 10 (50%) / 200 (50%)"
 horizontal_alignment = 1
 
-[node name="ButtonChooseRight" type="Button" parent="HBoxContainer/VBoxContainer3"]
+[node name="ButtonChooseRight" type="Button" parent="MarginContainer/HBoxContainer/Panel2/VBoxContainer3"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Spin the Wheel!"
 
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/ButtonChooseLeft" to="." method="_on_button_choose_left_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer3/ButtonChooseRight" to="." method="_on_button_choose_right_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Panel/VBoxContainer/ButtonChooseLeft" to="." method="_on_button_choose_left_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Panel2/VBoxContainer3/ButtonChooseRight" to="." method="_on_button_choose_right_pressed"]
