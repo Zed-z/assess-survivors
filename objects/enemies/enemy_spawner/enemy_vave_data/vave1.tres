@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="VaveData" load_steps=7 format=3 uid="uid://47wavg7dyesa"]
+
+[ext_resource type="Script" uid="uid://dmbi1icxkymxl" path="res://objects/enemies/enemy_spawner/enemy_vave_data/vave_touple.gd" id="1_uagnr"]
+[ext_resource type="PackedScene" uid="uid://ckq354kcg7bnv" path="res://objects/enemies/test_enemy/slime_enemy.tscn" id="2_k1do8"]
+[ext_resource type="PackedScene" uid="uid://dbefpu7ce12k2" path="res://objects/enemies/test_enemy/test_enemy.tscn" id="3_1yyl8"]
+[ext_resource type="Script" uid="uid://cd06aok4ajl3c" path="res://objects/enemies/enemy_spawner/enemy_vave_data/enemy_vave_data.gd" id="4_jh8bj"]
+
+[sub_resource type="Resource" id="Resource_rg5qa"]
+script = ExtResource("1_uagnr")
+probability = 0.1
+scene = ExtResource("2_k1do8")
+metadata/_custom_type_script = "uid://dmbi1icxkymxl"
+
+[sub_resource type="Resource" id="Resource_xorab"]
+script = ExtResource("1_uagnr")
+probability = 0.9
+scene = ExtResource("3_1yyl8")
+metadata/_custom_type_script = "uid://dmbi1icxkymxl"
+
+[resource]
+script = ExtResource("4_jh8bj")
+enemies = Array[ExtResource("1_uagnr")]([SubResource("Resource_rg5qa"), SubResource("Resource_xorab")])
+metadata/_custom_type_script = "uid://cd06aok4ajl3c"
