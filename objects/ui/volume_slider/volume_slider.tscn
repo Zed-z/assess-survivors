@@ -10,4 +10,5 @@ max_value = 1.0
 step = 0.01
 script = ExtResource("1_ct2xg")
 
+[connection signal="drag_ended" from="." to="." method="_on_drag_ended"]
 [connection signal="value_changed" from="." to="." method="_on_value_changed"]

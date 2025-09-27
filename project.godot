@@ -12,6 +12,7 @@ config_version=5
 
 config/name="Assess Survivors"
 run/main_scene="uid://d1sq1okbpyorw"
+config/use_custom_user_dir=true
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -24,6 +25,7 @@ ProjectileHolder="*res://globals/holders/projectile_holder/projectile_holder.gd"
 GlobalInfo="*res://globals/global_info/global_info.gd"
 ScreenManager="*res://globals/screen_manager/screen_manager.tscn"
 AssessManager="*res://globals/assess_criterion_manager/assess_manager.tscn"
+SettingsManager="*res://globals/settings_manager/settings_manager.tscn"
 
 [display]
 
