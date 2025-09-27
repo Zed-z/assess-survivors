@@ -11,7 +11,7 @@ class_name EnemySpawner
 @export_group("enemy veaves ")
 ## key is level at whitch it is beeing spawned
 ##value is value data representing probability of certain enemiy to spawn
-@export var vaves: Dictionary[int, VaveData]
+@export var vaves: VaveCollection
 var current_vave_data: VaveData
 var cached_probabilities: Array[float]
 
@@ -24,12 +24,11 @@ func create_enemy()->Node2D:
 
 
 func on_player_new_level(level: int):
-	var data = vaves.get(level)
-	print("AAAAA level ",level)
-	if data != null:
-		print("bbbbbb")
-		current_vave_data = data
+	var data = vaves.vaves.get(level)
 
+	if data != null:
+
+		current_vave_data = data
 		cached_probabilities = []
 
 		for value:VaveTouple in current_vave_data.enemies:
@@ -44,7 +43,7 @@ func _ready() -> void:
 	enemies_array = SwapbackArray.new(50)
 	GlobalInfo.enemy_spawner = self
 
-	current_vave_data = vaves[0]
+	current_vave_data = vaves.vaves[0]
 	cached_probabilities = []
 
 	for value:VaveTouple in current_vave_data.enemies:

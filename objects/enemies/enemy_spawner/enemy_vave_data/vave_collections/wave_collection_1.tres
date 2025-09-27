@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="VaveCollection" load_steps=5 format=3 uid="uid://cqoxrismskjsx"]
+
+[ext_resource type="Script" uid="uid://dv2tcw31lol1u" path="res://objects/enemies/enemy_spawner/enemy_vave_data/vave_data_collection.gd" id="1_icnq3"]
+[ext_resource type="Script" uid="uid://cd06aok4ajl3c" path="res://objects/enemies/enemy_spawner/enemy_vave_data/enemy_vave_data.gd" id="2_ek71b"]
+[ext_resource type="Resource" uid="uid://bdt01a177m1y6" path="res://objects/enemies/enemy_spawner/enemy_vave_data/enemy_vave_datas/defoult.tres" id="3_pc5r8"]
+[ext_resource type="Resource" uid="uid://47wavg7dyesa" path="res://objects/enemies/enemy_spawner/enemy_vave_data/enemy_vave_datas/vave1.tres" id="4_fd8j1"]
+
+[resource]
+script = ExtResource("1_icnq3")
+vaves = Dictionary[int, ExtResource("2_ek71b")]({
+0: ExtResource("3_pc5r8"),
+1: ExtResource("4_fd8j1")
+})
+metadata/_custom_type_script = "uid://dv2tcw31lol1u"

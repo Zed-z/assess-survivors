@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://fnao1rs5haap"]
+[gd_scene load_steps=25 format=4 uid="uid://fnao1rs5haap"]
 
 [ext_resource type="PackedScene" uid="uid://ct88pvgyokerc" path="res://objects/player/player.tscn" id="1_41wyt"]
 [ext_resource type="Texture2D" uid="uid://dubow81wedje7" path="res://sprites/tiles/grass_tile.png" id="1_fv5bi"]
@@ -13,10 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://o40flkrlkb4n" path="res://sprites/tiles/stones_tile2.png" id="5_hosda"]
 [ext_resource type="PackedScene" uid="uid://bh5tkxvg8jh42" path="res://scenes/combat_scenes/combat_ui/combat_overlay.tscn" id="6_1nlv8"]
 [ext_resource type="Texture2D" uid="uid://c3k6eruham6hy" path="res://sprites/tiles/sand_tile3.png" id="8_07hmm"]
-[ext_resource type="Script" uid="uid://cd06aok4ajl3c" path="res://objects/enemies/enemy_spawner/enemy_vave_data/enemy_vave_data.gd" id="10_8btbg"]
 [ext_resource type="Texture2D" uid="uid://b11qep01pmgkb" path="res://sprites/tiles/sand_tile4.png" id="10_nstv8"]
-[ext_resource type="Resource" uid="uid://bdt01a177m1y6" path="res://objects/enemies/enemy_spawner/enemy_vave_data/defoult.tres" id="11_6iaqk"]
-[ext_resource type="Resource" uid="uid://47wavg7dyesa" path="res://objects/enemies/enemy_spawner/enemy_vave_data/vave1.tres" id="12_6iaqk"]
+[ext_resource type="Resource" uid="uid://cqoxrismskjsx" path="res://objects/enemies/enemy_spawner/enemy_vave_data/vave_collections/wave_collection_1.tres" id="14_131tw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lknbr"]
 resource_name = "s"
@@ -105,9 +103,6 @@ player = NodePath("../Player")
 min_radius = 500.0
 max_radius = 600.0
 enemy = ExtResource("4_p4055")
-vaves = Dictionary[int, ExtResource("10_8btbg")]({
-0: ExtResource("11_6iaqk"),
-1: ExtResource("12_6iaqk")
-})
+vaves = ExtResource("14_131tw")
 
 [node name="CombatUIOverlay" parent="." instance=ExtResource("6_1nlv8")]
