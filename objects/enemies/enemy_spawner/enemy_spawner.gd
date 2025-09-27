@@ -28,7 +28,12 @@ func on_player_new_level(level: int):
 	print("AAAAA level ",level)
 	if data != null:
 		print("bbbbbb")
-		cached_probabilities = data
+		current_vave_data = data
+
+		cached_probabilities = []
+
+		for value:VaveTouple in current_vave_data.enemies:
+			cached_probabilities.append(value.probability)
 
 #endregion vaves
 
