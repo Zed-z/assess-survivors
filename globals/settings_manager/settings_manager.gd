@@ -72,6 +72,10 @@ func save(path: String = "user://settings.json"):
 
 
 func load_settings(path: String = "user://settings.json"):
+
+	if not FileAccess.file_exists(path):
+		return
+
 	var file := FileAccess.open(path, FileAccess.READ)
 	var data = JSON.parse_string(file.get_line())
 	from_json(data)
