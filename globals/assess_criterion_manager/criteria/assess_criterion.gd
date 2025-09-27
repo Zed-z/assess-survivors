@@ -2,7 +2,8 @@ extends Node2D
 class_name AssessCriterion
 
 signal points_changed(points: Array[Vector2])
-signal value_result(value: float) # Rresult of making a choice and the random stuff happening
+signal value_result(value: float) # Result of making a choice and the random stuff happening
+signal question_changed(question: Array[Lottery])
 
 @export var criterion_name: String = ""
 @export var MIN_value: float = 0
@@ -27,22 +28,17 @@ var point_list: Array[Vector2] = [
 	Vector2(MIN_value, UTILITY_MIN),
 	Vector2(MIN_value + value_step, UTILITY_MAX)
 ]
-
+var question: Array[Lottery] = []
 var left_bound: float
 var right_bound: float
 
 
-func get_left() -> Lottery:
-	return Lottery.new(-1,-1,-1)
-
-
-func get_right() -> Lottery:
-	return Lottery.new(-1,-1,-1)
-
-
 func step(answer: Answer):
+	var result: float
+
 	match answer:
 		Answer.p:
+			result = question[0].get_value()
 			do_preferred_left()
 			if first_answer:
 				is_risky = false
@@ -51,6 +47,7 @@ func step(answer: Answer):
 			dialog_answers_count += 1
 
 		Answer.q:
+			result = question[1].get_value()
 			do_preferred_right()
 			if first_answer:
 				is_risky = false
@@ -59,6 +56,7 @@ func step(answer: Answer):
 			dialog_answers_count += 1
 
 		Answer.i:
+			result = question.pick_random().get_value()
 			do_point_append()
 			dialog_answers_count = 0
 
@@ -66,7 +64,9 @@ func step(answer: Answer):
 		do_point_append()
 		dialog_answers_count = 0
 
-	value_result.emit(1000)
+	change_question()
+
+	value_result.emit(result)
 
 
 func do_point_append():
@@ -113,5 +113,18 @@ func set_bound():
 	pass
 
 
+func get_question() -> Array[Lottery]:
+	return question
+
+
+func _question_init() ->void:
+	pass
+
+
+func change_question() -> void:
+	pass
+
+
 func _ready() -> void:
 	do_point_append()
+	_question_init()

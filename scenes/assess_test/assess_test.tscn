@@ -59,6 +59,10 @@ text = "ASSESS_TEST_INDIFFERENT"
 layout_mode = 2
 text = "ASSESS_TEST_SCENARIO"
 
+[node name="Value" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
