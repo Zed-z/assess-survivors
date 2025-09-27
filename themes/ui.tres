@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=36 format=3 uid="uid://df2r57b2stnof"]
+[gd_resource type="Theme" load_steps=38 format=3 uid="uid://df2r57b2stnof"]
 
 [ext_resource type="FontFile" uid="uid://ccu7qrtecogan" path="res://fonts/smallburg_font_1_04/TrueType (.ttf)/smallburg-Regular.ttf" id="1_h6ia1"]
 [ext_resource type="Texture2D" uid="uid://s2ls5uy6e3f2" path="res://sprites/ui/panel_background.png" id="2_bhwv2"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://g4s6lgunmyfl" path="res://sprites/ui/grabber_on.png" id="5_jln3u"]
 [ext_resource type="Texture2D" uid="uid://cd8l6up6px067" path="res://sprites/ui/check_off.png" id="5_owxhb"]
 [ext_resource type="Texture2D" uid="uid://culhnn44v0v71" path="res://sprites/ui/progressbar_on.png" id="6_jivjh"]
+[ext_resource type="Texture2D" uid="uid://qrdhtj2iamw8" path="res://sprites/ui/minipanel.png" id="10_sds01"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_612vp"]
 texture = ExtResource("2_owxhb")
@@ -65,6 +66,14 @@ region_rect = Rect2(8, 8, 350, 30)
 bg_color = Color(0, 0, 0, 1)
 expand_margin_top = 10.0
 expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_41f1y"]
+texture = ExtResource("10_sds01")
+texture_margin_left = 40.0
+texture_margin_top = 40.0
+texture_margin_right = 40.0
+texture_margin_bottom = 40.0
+region_rect = Rect2(7, 7, 175, 174)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7gpds"]
 content_margin_left = 100.0
@@ -192,6 +201,8 @@ HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_sds01")
 HSlider/styles/slider = SubResource("StyleBoxFlat_612vp")
 Label/font_sizes/font_size = 32
 Label/fonts/font = ExtResource("1_h6ia1")
+LightPanel/base_type = &"Panel"
+LightPanel/styles/panel = SubResource("StyleBoxTexture_41f1y")
 Panel/styles/panel = SubResource("StyleBoxTexture_7gpds")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_sds01")
 ProgressBar/styles/fill = SubResource("StyleBoxTexture_owxhb")
