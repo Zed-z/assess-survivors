@@ -5,6 +5,7 @@
 [ext_resource type="Resource" uid="uid://bdt01a177m1y6" path="res://objects/enemies/enemy_spawner/enemy_vave_data/defoult.tres" id="3_n2rlw"]
 
 [node name="EnemySpawner" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_oriv1")
 vaves = Dictionary[int, ExtResource("2_nyopy")]({
 0: ExtResource("3_n2rlw"),
