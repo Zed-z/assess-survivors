@@ -79,6 +79,7 @@ offset_left = -3710.0
 offset_top = -2269.0
 offset_right = 3821.0
 offset_bottom = 2201.0
+mouse_filter = 2
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 y_sort_enabled = true
