@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://fnao1rs5haap"]
+[gd_scene load_steps=35 format=4 uid="uid://fnao1rs5haap"]
 
 [ext_resource type="PackedScene" uid="uid://ct88pvgyokerc" path="res://objects/player/player.tscn" id="1_41wyt"]
 [ext_resource type="Texture2D" uid="uid://dubow81wedje7" path="res://sprites/tiles/grass_tile.png" id="1_fv5bi"]
@@ -11,7 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://dbefpu7ce12k2" path="res://objects/enemies/test_enemy/test_enemy.tscn" id="4_p4055"]
 [ext_resource type="Texture2D" uid="uid://7evceerthlwv" path="res://sprites/tiles/sand_tile2.png" id="5_131tw"]
 [ext_resource type="Texture2D" uid="uid://o40flkrlkb4n" path="res://sprites/tiles/stones_tile2.png" id="5_hosda"]
+[ext_resource type="Texture2D" uid="uid://ckeb0idhn6oti" path="res://sprites/tiles/another_bush.png" id="5_ui2sr"]
+[ext_resource type="Texture2D" uid="uid://dfrsdrjwfftik" path="res://sprites/tiles/lil_bush.png" id="6_0vhnt"]
 [ext_resource type="PackedScene" uid="uid://bh5tkxvg8jh42" path="res://scenes/combat_scenes/combat_ui/combat_overlay.tscn" id="6_1nlv8"]
+[ext_resource type="Texture2D" uid="uid://cokvpbbqcmpbu" path="res://sprites/tiles/tree.png" id="7_l8cci"]
+[ext_resource type="Texture2D" uid="uid://csjp6ate5ksd7" path="res://sprites/tiles/chill_bush.png" id="8_0vhnt"]
 [ext_resource type="Texture2D" uid="uid://c3k6eruham6hy" path="res://sprites/tiles/sand_tile3.png" id="8_07hmm"]
 [ext_resource type="Script" uid="uid://cd06aok4ajl3c" path="res://objects/enemies/enemy_spawner/enemy_vave_data/enemy_vave_data.gd" id="10_8btbg"]
 [ext_resource type="Texture2D" uid="uid://b11qep01pmgkb" path="res://sprites/tiles/sand_tile4.png" id="10_nstv8"]
@@ -28,6 +32,36 @@ texture_region_size = Vector2i(144, 112)
 texture = ExtResource("4_ars3e")
 texture_region_size = Vector2i(144, 112)
 0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t2vte"]
+texture = ExtResource("5_ui2sr")
+texture_region_size = Vector2i(144, 112)
+0:0/0 = 0
+0:0/0/z_index = 2
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e3c58"]
+texture = ExtResource("6_0vhnt")
+texture_region_size = Vector2i(144, 112)
+0:0/0 = 0
+0:0/0/z_index = 2
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_22mrj"]
+texture = ExtResource("7_l8cci")
+texture_region_size = Vector2i(144, 224)
+use_texture_padding = false
+0:0/0 = 0
+0:0/0/z_index = 2
+0:1/0 = 0
+0:1/0/z_index = 2
+0:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l8cci"]
+texture = ExtResource("8_0vhnt")
+texture_region_size = Vector2i(144, 112)
+0:0/next_alternative_id = 2
+0:0/0 = 0
+0:0/1 = 1
+0:0/1/flip_h = true
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o1s56"]
 texture = ExtResource("5_131tw")
@@ -70,6 +104,10 @@ sources/1 = SubResource("TileSetAtlasSource_k5p8g")
 sources/2 = SubResource("TileSetAtlasSource_o1s56")
 sources/5 = SubResource("TileSetAtlasSource_ui2sr")
 sources/7 = SubResource("TileSetAtlasSource_0vhnt")
+sources/10 = SubResource("TileSetAtlasSource_t2vte")
+sources/11 = SubResource("TileSetAtlasSource_e3c58")
+sources/12 = SubResource("TileSetAtlasSource_22mrj")
+sources/13 = SubResource("TileSetAtlasSource_l8cci")
 
 [node name="TestScene" type="Node2D"]
 
@@ -91,6 +129,7 @@ tile_set = SubResource("TileSet_vqmlp")
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 y_sort_enabled = true
 position = Vector2(0, -21)
+tile_map_data = PackedByteArray("AAD8/wEACgAAAAAAAAD///v/CgAAAAAAAAD9//n/CwAAAAAAAAD//wQACwAAAAAAAAD7//7/DAAAAAAAAAAAAP3/DAAAAAAAAAD+//b/DAAAAAAAAAD9//7/DQAAAAAAAAD///3/DQAAAAAAAQA=")
 tile_set = SubResource("TileSet_vqmlp")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("1_41wyt")]
