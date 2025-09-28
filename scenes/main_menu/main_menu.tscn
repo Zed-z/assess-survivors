@@ -39,12 +39,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -295.0
-offset_top = -188.0
-offset_right = 295.0
-offset_bottom = -87.0
+offset_left = -328.5
+offset_top = -168.0
+offset_right = 328.5
+offset_bottom = -83.0
 grow_horizontal = 2
 grow_vertical = 0
+alignment = 1
 
 [node name="Button" type="Button" parent="HBoxContainer"]
 layout_mode = 2
