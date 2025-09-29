@@ -31,9 +31,7 @@ func _ready() -> void:
 
 
 func display_choice(criterion: AssessCriterion) -> String:
-	var left: Lottery = criterion.get_left()
-	var right: Lottery = criterion.get_right()
-	return left._to_string() + " ? " + right._to_string()
+	return criterion.question._to_string()
 
 
 func init_add_criterion(stat: PlayerStats.STATS, type: CriteriaType):
