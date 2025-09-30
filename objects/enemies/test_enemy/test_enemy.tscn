@@ -1,11 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://dbefpu7ce12k2"]
+[gd_scene load_steps=12 format=3 uid="uid://dbefpu7ce12k2"]
 
 [ext_resource type="Script" uid="uid://gohumc4rt4ne" path="res://objects/enemies/test_enemy/enemy.gd" id="1_ck1x7"]
 [ext_resource type="Texture2D" uid="uid://eawq50uwgn24" path="res://sprites/mobs/spider.png" id="2_2qy66"]
 [ext_resource type="Script" uid="uid://bfk4pro2k5bf6" path="res://objects/enemies/test_enemy/hurt_box.gd" id="3_2qy66"]
 [ext_resource type="Script" uid="uid://008ins25r0w8" path="res://components/health_component.gd" id="4_w84hb"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ck1x7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w84hb"]
 atlas = ExtResource("2_2qy66")
@@ -55,10 +53,6 @@ animations = [{
 [node name="TestEnemy" type="CharacterBody2D"]
 script = ExtResource("1_ck1x7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_ck1x7")
-disabled = true
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_rxg0b")
@@ -69,7 +63,7 @@ frame_progress = 0.4643504
 script = ExtResource("3_2qy66")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-scale = Vector2(5.840002, 5.840002)
+scale = Vector2(2.8395557, 2.8395557)
 shape = SubResource("RectangleShape2D_ck1x7")
 
 [node name="HealthComponent" type="Node" parent="."]

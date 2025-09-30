@@ -16,3 +16,8 @@ func _physics_process(delta: float) -> void:
 
 func _on_levels_new_level(level: int) -> void:
 	GlobalInfo.combat_ui_overlay.add_child(ObjectManager.instantiate(ObjectManager.OBJ_CHOICE_PANEL))
+
+
+func _on_health_component_health_depleted() -> void:
+	print("You Died")
+	get_tree().paused = true
