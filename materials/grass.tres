@@ -19,3 +19,5 @@ shader_parameter/color = Color(0.7490196, 1, 0, 0.44313726)
 shader_parameter/grass_mask = Color(1, 0, 1, 1)
 shader_parameter/grass_threshold = 0.615
 shader_parameter/grass_threshold_margin = 0.05
+shader_parameter/noise_scale_1 = 1000.0
+shader_parameter/noise_Scale_2 = 500.0

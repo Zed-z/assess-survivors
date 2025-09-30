@@ -114,7 +114,7 @@ func test_scenario_1():
 	assert_float(criterion.point_list[-2].y).is_equal_approx(1995.0/2156, 0.01)
 	criterion.step(AssessCriterion.Answer.i) # przeskalowanie 2317/2156
 	assert_float(criterion.point_list[-2].y).is_equal_approx(2156.0/2317, 0.01)
-	criterion.step(AssessCriterion.Answer.p) # 
+	criterion.step(AssessCriterion.Answer.p) #
 	assert_float(criterion.point_list[-2].y).is_equal_approx(4473.0/4634, 0.001)
 	criterion.step(AssessCriterion.Answer.p)
 	assert_float(criterion.point_list[-2].y).is_equal_approx(9107.0/9268, 0.001)

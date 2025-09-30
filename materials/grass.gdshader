@@ -7,6 +7,9 @@ uniform vec3 grass_mask: source_color = vec3(0.0, 1.0, 0.0);
 uniform float grass_threshold = 0.5;
 uniform float grass_threshold_margin = 0.05;
 
+uniform float noise_scale_1 = 1000;
+uniform float noise_Scale_2 = 1000;
+
 varying vec2 world_position;
 
 void vertex() {
@@ -15,7 +18,8 @@ void vertex() {
 
 void fragment() {
 	vec4 front = texture(TEXTURE, UV);
-	vec4 noise_tex = texture(noise, world_position / 1000.0);
+	vec4 noise_tex_1 = texture(noise, world_position / noise_scale_1);
+	vec4 noise_tex_2 = texture(noise, world_position / noise_Scale_2);
 	float grassness = dot(front.xyz, grass_mask);
 
 	//float is_grass = grassness >= grass_threshold ? 0.0 : 1.0;
@@ -24,8 +28,11 @@ void fragment() {
 		grass_threshold + grass_threshold_margin,
 		grassness);
 
+	vec4 noise_tex = mix(noise_tex_1, noise_tex_2, 0.25);
+
 	//COLOR = vec4(is_grass, is_grass, is_grass, COLOR.a);
 	COLOR = mix(front, vec4(color.rgb, front.a), color.a * noise_tex.r * is_grass);
+	//COLOR = noise_tex;
 }
 
 //void light() {
