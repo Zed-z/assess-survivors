@@ -21,3 +21,7 @@ func _on_levels_new_level(level: int) -> void:
 func _on_health_component_health_depleted() -> void:
 	print("You Died")
 	get_tree().paused = true
+
+
+func _on_health_component_got_hit() -> void:
+	print("hit")
