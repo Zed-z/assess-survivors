@@ -19,8 +19,9 @@ func before_test():
 
 
 func after_test():
-	criterion.question[0].free()
-	criterion.question[1].free()
+	criterion.question.get_left().free()
+	criterion.question.get_right().free()
+	criterion.question.free()
 	criterion.free()
 
 
@@ -32,13 +33,13 @@ func test_answer_p():
 func test_answer_p_question():
 	criterion.step(AssessCriterion.Answer.p)
 
-	assert_float(criterion.question[0].win_value).is_equal(5.0)
-	assert_float(criterion.question[0].win_probability).is_equal(1.0)
-	assert_float(criterion.question[0].loss_value).is_equal(-1.0)
+	assert_float(criterion.question.get_left().win_value).is_equal(5.0)
+	assert_float(criterion.question.get_left().win_probability).is_equal(1.0)
+	assert_float(criterion.question.get_left().loss_value).is_equal(-1.0)
 
-	assert_float(criterion.question[1].win_value).is_equal(20.0)
-	assert_float(criterion.question[1].win_probability).is_equal(0.5)
-	assert_float(criterion.question[1].loss_value).is_equal(0.0)
+	assert_float(criterion.question.get_right().win_value).is_equal(20.0)
+	assert_float(criterion.question.get_right().win_probability).is_equal(0.5)
+	assert_float(criterion.question.get_right().loss_value).is_equal(0.0)
 
 
 func test_answer_q():
@@ -49,13 +50,13 @@ func test_answer_q():
 func test_answer_q_question():
 	criterion.step(AssessCriterion.Answer.q)
 
-	assert_float(criterion.question[0].win_value).is_equal(15.0)
-	assert_float(criterion.question[0].win_probability).is_equal(1.0)
-	assert_float(criterion.question[0].loss_value).is_equal(-1.0)
+	assert_float(criterion.question.get_left().win_value).is_equal(15.0)
+	assert_float(criterion.question.get_left().win_probability).is_equal(1.0)
+	assert_float(criterion.question.get_left().loss_value).is_equal(-1.0)
 
-	assert_float(criterion.question[1].win_value).is_equal(20.0)
-	assert_float(criterion.question[1].win_probability).is_equal(0.5)
-	assert_float(criterion.question[1].loss_value).is_equal(0.0)
+	assert_float(criterion.question.get_right().win_value).is_equal(20.0)
+	assert_float(criterion.question.get_right().win_probability).is_equal(0.5)
+	assert_float(criterion.question.get_right().loss_value).is_equal(0.0)
 
 
 func test_answer_i():
@@ -65,13 +66,13 @@ func test_answer_i():
 
 func test_answer_i_question():
 	criterion.step(AssessCriterion.Answer.i)
-	assert_float(criterion.question[0].win_value).is_equal(20.0)
-	assert_float(criterion.question[0].win_probability).is_equal(1.0)
-	assert_float(criterion.question[0].loss_value).is_equal(-1.0)
+	assert_float(criterion.question.get_left().win_value).is_equal(20.0)
+	assert_float(criterion.question.get_left().win_probability).is_equal(1.0)
+	assert_float(criterion.question.get_left().loss_value).is_equal(-1.0)
 
-	assert_float(criterion.question[1].win_value).is_equal(30.0)
-	assert_float(criterion.question[1].win_probability).is_equal_approx(0.33, 0.01)
-	assert_float(criterion.question[1].loss_value).is_equal(0.0)
+	assert_float(criterion.question.get_right().win_value).is_equal(30.0)
+	assert_float(criterion.question.get_right().win_probability).is_equal_approx(0.33, 0.01)
+	assert_float(criterion.question.get_right().loss_value).is_equal(0.0)
 
 
 func test_scenario_1():
