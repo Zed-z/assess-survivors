@@ -1,11 +1,9 @@
-extends Node
+extends Lottery
 
 class_name MultiLottery
 
 var win_array: Dictionary[String, float]
-var win_probability: float
 var loss_array: Dictionary[String, float]
-var loss_probability: float
 
 
 func _init(win_val: Dictionary[String, float], win_prob: float, loss_val: Dictionary[String, float]) -> void:

@@ -12,7 +12,7 @@ func _init(l: Lottery, r: Lottery) -> void:
 
 
 func _to_string() -> String:
-	return left._to_string() + "or" + right._to_string()
+	return left._to_string() + " or " + right._to_string()
 
 
 func get_left() -> Lottery:

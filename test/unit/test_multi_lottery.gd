@@ -20,4 +20,4 @@ func after_test() -> void:
 func test_to_string() -> void:
 	#tested._init({"ATK": 100, "HP":10, "DEF":10}, 0.5, {"ATK":100, "HP":100, "DEF":100})
 	assert_float(tested.win_probability).is_equal_approx(0.5, 0.01)
-	assert_str(str(tested)).contains("[ATK: 100, HP:10, DEF:10]")
+	assert_str(str(tested)).contains("[ATK : 100.00, HP : 10.00, DEF : 10.00]")

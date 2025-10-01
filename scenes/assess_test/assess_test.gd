@@ -8,8 +8,8 @@ func update_value(_value: float):
 	%Value.text = "%s\n(+%s)" % [value, _value]
 
 
-func update_text(question: Array[Lottery]):
-	%AssessQuestion.text = "%s   vs   %s" % [question[0], question[1]]
+func update_text(question: Question):
+	%AssessQuestion.text = str(question)
 
 
 func _ready() -> void:
