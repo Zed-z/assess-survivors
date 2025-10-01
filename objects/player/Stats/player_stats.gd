@@ -16,3 +16,7 @@ func _ready() -> void:
 		var s: BaseStat = stats.get_or_add(stat,BaseStat.new())
 		s.stat_type = stat
 		s.init()
+
+
+func get_stat(stat: STATS):
+	return stats[stat].get_stat()

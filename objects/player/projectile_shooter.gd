@@ -3,6 +3,8 @@ extends Node2D
 @export var projectile: PackedScene
 @export var projectile_speed: float = 200
 
+@onready var stats: PlayerStats = $"../Stats"
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
@@ -15,6 +17,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func shoot_projectile(direction: Vector2):
 	var proj: BaseProjectile = projectile.instantiate() as BaseProjectile
+	proj.damage = stats.get_stat(PlayerStats.STATS.ATTACK)
 	ProjectileHolder.add_child(proj)
 	proj.global_position = global_position
 	proj.initiate_projectile(direction)

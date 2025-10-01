@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://gohumc4rt4ne" path="res://objects/enemies/test_enemy/enemy.gd" id="1_uuu8t"]
 [ext_resource type="Texture2D" uid="uid://co25ljbuhtkla" path="res://sprites/mobs/slime.png" id="2_uuu8t"]
-[ext_resource type="Script" uid="uid://bfk4pro2k5bf6" path="res://objects/enemies/test_enemy/hurt_box.gd" id="3_glk4a"]
+[ext_resource type="Script" uid="uid://bfk4pro2k5bf6" path="res://objects/enemies/test_enemy/enemy_hurt_box.gd" id="3_glk4a"]
 [ext_resource type="Script" uid="uid://008ins25r0w8" path="res://components/health_component.gd" id="4_nt6gy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ck1x7"]

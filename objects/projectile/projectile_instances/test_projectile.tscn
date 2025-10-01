@@ -16,3 +16,5 @@ shape = SubResource("RectangleShape2D_6yivw")
 self_modulate = Color(0.996558, 0.31296, 0.746188, 1)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_ctmtx")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

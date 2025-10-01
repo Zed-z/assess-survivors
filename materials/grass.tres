@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://d1581d5ay26af"]
 
-[ext_resource type="Shader" path="res://materials/grass.gdshader" id="1_oysvd"]
+[ext_resource type="Shader" uid="uid://c1mbqdu61721j" path="res://materials/grass.gdshader" id="1_oysvd"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_oysvd"]
 frequency = 0.001

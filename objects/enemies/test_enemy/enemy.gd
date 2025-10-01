@@ -3,6 +3,10 @@ class_name Enemy
 var target: Player
 
 
+func get_contact_dmg() -> int:
+	return 1
+
+
 func _ready() -> void:
 	target = GlobalInfo.get_player()
 
