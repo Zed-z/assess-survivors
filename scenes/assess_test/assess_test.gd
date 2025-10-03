@@ -2,10 +2,12 @@ extends Control
 
 var value: float = 0
 
+@onready var assess_criteria := GlobalInfo.assess_manager.criteria
 
-func update_value(_value: float):
+
+func update_value(_name: String, _value: float):
 	value += _value
-	%Value.text = "%s\n(+%s)" % [value, _value]
+	%Value.text = "%s\n%s\n(+%s)" % [_name, value, _value]
 
 
 func update_text(question: Question):
@@ -14,62 +16,62 @@ func update_text(question: Question):
 
 func _ready() -> void:
 
-	$AssessCriterion.points_changed.connect(%ChartVisualizer.set_points)
-	%ChartVisualizer.set_points($AssessCriterion.point_list)
+	assess_criteria[0].points_changed.connect(%ChartVisualizer.set_points)
+	%ChartVisualizer.set_points(assess_criteria[0].point_list)
 
-	$AssessCriterion.question_changed.connect(update_text)
-	update_text($AssessCriterion.get_question())
+	assess_criteria[0].question_changed.connect(update_text)
+	update_text(assess_criteria[0].get_question())
 
-	$AssessCriterion.value_result.connect(update_value)
-	update_value(0)
+	assess_criteria[0].value_result.connect(update_value.bind(assess_criteria[0].criterion_name))
+	update_value(assess_criteria[0].criterion_name, 0)
 
 
 func _on_button_left_pressed() -> void:
-	$AssessCriterion.step(AssessCriterion.Answer.p)
-	print($AssessCriterion.point_list)
+	assess_criteria[0].step(AssessCriterion.Answer.p)
+	print(assess_criteria[0].point_list)
 
 
 func _on_button_right_pressed() -> void:
-	$AssessCriterion.step(AssessCriterion.Answer.q)
-	print($AssessCriterion.point_list)
+	assess_criteria[0].step(AssessCriterion.Answer.q)
+	print(assess_criteria[0].point_list)
 
 
 func _on_button_indifferent_pressed() -> void:
-	$AssessCriterion.step(AssessCriterion.Answer.i)
-	print($AssessCriterion.point_list)
+	assess_criteria[0].step(AssessCriterion.Answer.i)
+	print(assess_criteria[0].point_list)
 
 
 func _on_button_scenario_pressed() -> void:
-	$AssessCriterion.step(AssessCriterion.Answer.p)
-	$AssessCriterion.step(AssessCriterion.Answer.q)
-	$AssessCriterion.step(AssessCriterion.Answer.i)
+	assess_criteria[0].step(AssessCriterion.Answer.p)
+	assess_criteria[0].step(AssessCriterion.Answer.q)
+	assess_criteria[0].step(AssessCriterion.Answer.i)
 
-	$AssessCriterion.step(AssessCriterion.Answer.p)
-	$AssessCriterion.step(AssessCriterion.Answer.q)
-	$AssessCriterion.step(AssessCriterion.Answer.i)
+	assess_criteria[0].step(AssessCriterion.Answer.p)
+	assess_criteria[0].step(AssessCriterion.Answer.q)
+	assess_criteria[0].step(AssessCriterion.Answer.i)
 
-	$AssessCriterion.step(AssessCriterion.Answer.q)
-	$AssessCriterion.step(AssessCriterion.Answer.p)
-	$AssessCriterion.step(AssessCriterion.Answer.i)
+	assess_criteria[0].step(AssessCriterion.Answer.q)
+	assess_criteria[0].step(AssessCriterion.Answer.p)
+	assess_criteria[0].step(AssessCriterion.Answer.i)
 
-	$AssessCriterion.step(AssessCriterion.Answer.p)
-	$AssessCriterion.step(AssessCriterion.Answer.p)
-	$AssessCriterion.step(AssessCriterion.Answer.i)
+	assess_criteria[0].step(AssessCriterion.Answer.p)
+	assess_criteria[0].step(AssessCriterion.Answer.p)
+	assess_criteria[0].step(AssessCriterion.Answer.i)
 
-	$AssessCriterion.step(AssessCriterion.Answer.q)
-	$AssessCriterion.step(AssessCriterion.Answer.q)
-	$AssessCriterion.step(AssessCriterion.Answer.i)
+	assess_criteria[0].step(AssessCriterion.Answer.q)
+	assess_criteria[0].step(AssessCriterion.Answer.q)
+	assess_criteria[0].step(AssessCriterion.Answer.i)
 
-	$AssessCriterion.step(AssessCriterion.Answer.p)
-	$AssessCriterion.step(AssessCriterion.Answer.p)
-	$AssessCriterion.step(AssessCriterion.Answer.i)
+	assess_criteria[0].step(AssessCriterion.Answer.p)
+	assess_criteria[0].step(AssessCriterion.Answer.p)
+	assess_criteria[0].step(AssessCriterion.Answer.i)
 
-	$AssessCriterion.step(AssessCriterion.Answer.q)
-	$AssessCriterion.step(AssessCriterion.Answer.q)
-	$AssessCriterion.step(AssessCriterion.Answer.i)
+	assess_criteria[0].step(AssessCriterion.Answer.q)
+	assess_criteria[0].step(AssessCriterion.Answer.q)
+	assess_criteria[0].step(AssessCriterion.Answer.i)
 
-	$AssessCriterion.step(AssessCriterion.Answer.p)
-	$AssessCriterion.step(AssessCriterion.Answer.p)
+	assess_criteria[0].step(AssessCriterion.Answer.p)
+	assess_criteria[0].step(AssessCriterion.Answer.p)
 	#step(Answer.i)
 
-	print($AssessCriterion.point_list)
+	print(assess_criteria[0].point_list)

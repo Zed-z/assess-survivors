@@ -2,7 +2,6 @@ extends Node2D
 class_name AssessManagerClass
 
 @export var algorithm_script: GDScript = preload('res://globals/assess_criterion_manager/assess_decision_algorithm/algorithm_rr.gd')
-@export var criteria_scripts: Array[Script] = []
 
 var algorithm: AssessAlgorithm
 var criteria: Dictionary[PlayerStats.STATS, AssessCriterion] = {}
@@ -21,15 +20,7 @@ var decide_value: int = 0
 
 
 func _ready() -> void:
-
 	GlobalInfo.assess_manager = self
-
-	for criterion: GDScript in criteria_scripts:
-		var c: AssessCriterion = criterion.new()
-		#criteria.append(c)
-		add_child(c)
-
-	#algorithm = algorithm_script.new(criteria)
 
 
 func display_choice(criterion: AssessCriterion) -> String:
@@ -38,6 +29,7 @@ func display_choice(criterion: AssessCriterion) -> String:
 
 func init_add_criterion(stat: PlayerStats.STATS, type: CriteriaType):
 	var c: AssessCriterion = criteria_type_script[type].new()
+	c.criterion_name = PlayerStats.STATS.keys()[stat]
 	criteria[stat] = c
 	add_child(c)
 
