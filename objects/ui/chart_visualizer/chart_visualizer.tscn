@@ -37,35 +37,47 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="ChartArea" type="ColorRect" parent="Canvas/CanvasMargin"]
-unique_name_in_owner = true
+[node name="VBoxContainer" type="VBoxContainer" parent="Canvas/CanvasMargin"]
 layout_mode = 2
 
-[node name="XaxisBase" type="Line2D" parent="Canvas/CanvasMargin/ChartArea"]
+[node name="Title" type="Label" parent="Canvas/CanvasMargin/VBoxContainer"]
 unique_name_in_owner = true
-points = PackedVector2Array(0, -5, 0, 85)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Title"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="ChartArea" type="ColorRect" parent="Canvas/CanvasMargin/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="XaxisBase" type="Line2D" parent="Canvas/CanvasMargin/VBoxContainer/ChartArea"]
+unique_name_in_owner = true
+points = PackedVector2Array(0, -5, 0, 58)
 width = 4.0
 default_color = Color(0, 0, 0, 1)
 
-[node name="YaxisBase" type="Line2D" parent="Canvas/CanvasMargin/ChartArea"]
+[node name="YaxisBase" type="Line2D" parent="Canvas/CanvasMargin/VBoxContainer/ChartArea"]
 unique_name_in_owner = true
-points = PackedVector2Array(-5, 80, 85, 80)
+points = PackedVector2Array(-5, 53, 85, 53)
 width = 4.0
 default_color = Color(0, 0, 0, 1)
 
-[node name="Points" type="Control" parent="Canvas/CanvasMargin/ChartArea"]
+[node name="Points" type="Control" parent="Canvas/CanvasMargin/VBoxContainer/ChartArea"]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Polygon" type="Polygon2D" parent="Canvas/CanvasMargin/ChartArea/Points"]
+[node name="Polygon" type="Polygon2D" parent="Canvas/CanvasMargin/VBoxContainer/ChartArea/Points"]
 unique_name_in_owner = true
 color = Color(1, 0, 0, 0.5)
-polygon = PackedVector2Array(0, 80, 0, 80, 80, 0, 80, 80)
+polygon = PackedVector2Array(0, 53, 0, 53, 80, 0, 80, 53)
 
-[node name="Line" type="Line2D" parent="Canvas/CanvasMargin/ChartArea/Points"]
+[node name="Line" type="Line2D" parent="Canvas/CanvasMargin/VBoxContainer/ChartArea/Points"]
 unique_name_in_owner = true
-points = PackedVector2Array(0, 80, 80, 0)
+points = PackedVector2Array(0, 53, 80, 0)
 width = 4.0
 default_color = Color(1, 0, 0, 1)
 joint_mode = 2
@@ -75,4 +87,4 @@ end_cap_mode = 2
 [connection signal="resized" from="." to="." method="_on_resized"]
 [connection signal="resized" from="Canvas" to="." method="_on_resized"]
 [connection signal="resized" from="Canvas/CanvasMargin" to="." method="_on_resized"]
-[connection signal="resized" from="Canvas/CanvasMargin/ChartArea" to="." method="_on_resized"]
+[connection signal="resized" from="Canvas/CanvasMargin/VBoxContainer/ChartArea" to="." method="_on_resized"]

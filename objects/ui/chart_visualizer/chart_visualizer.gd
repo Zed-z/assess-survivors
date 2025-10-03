@@ -9,6 +9,11 @@ var action: Callable = update_chart
 
 @export_category("Data")
 
+@export var title: String = "Title":
+	set(val):
+		title = val
+		update_chart()
+
 @export var auto_xaxis: bool = false:
 	set(val):
 		auto_xaxis = val
@@ -85,6 +90,10 @@ func translate_y(y: float, _yaxis: Vector2 = yaxis) -> float:
 	return lerp(%ChartArea.size.y, 0.0, inverse_lerp(_yaxis.x, _yaxis.y, y))
 
 
+func set_title(_title: String):
+	title = _title
+
+
 func set_points(_points: Array[Vector2]):
 	points = _points
 
@@ -93,6 +102,9 @@ func update_chart():
 
 	if not is_node_ready():
 		return
+
+	# Title
+	%Title.text = title
 
 	# Colors
 	$Canvas.color = background_color
