@@ -3,6 +3,7 @@ extends Node
 var player: Player
 var combat_ui_overlay: UIOverley
 var enemy_spawner: EnemySpawner
+var assess_manager: AssessManagerClass
 
 
 func _ready() -> void:

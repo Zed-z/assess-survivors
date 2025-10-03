@@ -22,6 +22,8 @@ var decide_value: int = 0
 
 func _ready() -> void:
 
+	GlobalInfo.assess_manager = self
+
 	for criterion: GDScript in criteria_scripts:
 		var c: AssessCriterion = criterion.new()
 		#criteria.append(c)

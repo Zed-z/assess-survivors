@@ -1,7 +1,7 @@
 extends BaseStat
 class_name AssessStat
 
-@export var criterion_type: AssessManager.CriteriaType
+@export var criterion_type: AssessManagerClass.CriteriaType
 
 var value: float = 0
 
@@ -11,4 +11,4 @@ func get_stat() -> float:
 
 
 func init() -> void:
-	AssessManager.init_add_criterion(stat_type, criterion_type)
+	GlobalInfo.assess_manager.init_add_criterion(stat_type, criterion_type)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://fnao1rs5haap"]
+[gd_scene load_steps=10 format=4 uid="uid://fnao1rs5haap"]
 
 [ext_resource type="PackedScene" uid="uid://ct88pvgyokerc" path="res://objects/player/player.tscn" id="1_41wyt"]
 [ext_resource type="Material" uid="uid://bahv2nf1ouhdy" path="res://materials/water.tres" id="1_p4055"]
@@ -7,15 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://dh1jrdfgruvqn" path="res://objects/enemies/enemy_spawner/enemy_spawner.tscn" id="3_vqmlp"]
 [ext_resource type="PackedScene" uid="uid://dbefpu7ce12k2" path="res://objects/enemies/test_enemy/test_enemy.tscn" id="4_p4055"]
 [ext_resource type="PackedScene" uid="uid://bh5tkxvg8jh42" path="res://scenes/combat_scenes/combat_ui/combat_overlay.tscn" id="6_1nlv8"]
-[ext_resource type="Texture2D" uid="uid://c3k6eruham6hy" path="res://sprites/tiles/sand_tile3.png" id="8_07hmm"]
-[ext_resource type="Texture2D" uid="uid://b11qep01pmgkb" path="res://sprites/tiles/sand_tile4.png" id="10_nstv8"]
+[ext_resource type="PackedScene" uid="uid://55kp84v1di83" path="res://globals/assess_criterion_manager/assess_manager.tscn" id="9_ug5hv"]
 [ext_resource type="Resource" uid="uid://cqoxrismskjsx" path="res://objects/enemies/enemy_spawner/enemy_vave_data/vave_collections/wave_collection_1.tres" id="14_131tw"]
-[ext_resource type="Script" uid="uid://cd06aok4ajl3c" path="res://objects/enemies/enemy_spawner/enemy_vave_data/enemy_vave_data.gd" id="10_8btbg"]
-[ext_resource type="Resource" uid="uid://bdt01a177m1y6" path="res://objects/enemies/enemy_spawner/enemy_vave_data/defoult.tres" id="11_6iaqk"]
-[ext_resource type="Resource" uid="uid://47wavg7dyesa" path="res://objects/enemies/enemy_spawner/enemy_vave_data/vave1.tres" id="12_6iaqk"]
 
 [node name="TestScene" type="Node2D"]
 y_sort_enabled = true
+
+[node name="AssessManager" parent="." instance=ExtResource("9_ug5hv")]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -2
