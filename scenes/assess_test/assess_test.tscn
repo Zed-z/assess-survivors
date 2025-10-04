@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://dqjtx2pjfltf0" path="res://scenes/assess_test/assess_test.gd" id="1_mafoi"]
 [ext_resource type="Theme" uid="uid://df2r57b2stnof" path="res://themes/ui.tres" id="1_uts2w"]
 [ext_resource type="PackedScene" uid="uid://55kp84v1di83" path="res://globals/assess_criterion_manager/assess_manager.tscn" id="3_6yb16"]
-[ext_resource type="PackedScene" uid="uid://chw3reglhg6by" path="res://objects/ui/chart_visualizer/chart_visualizer.tscn" id="3_uts2w"]
 [ext_resource type="Script" uid="uid://cqu2r76doy8h5" path="res://objects/player/Stats/player_stats.gd" id="4_og7m7"]
 [ext_resource type="Script" uid="uid://bfn4l4e5i8p0j" path="res://scenes/main_menu/change_scene_button.gd" id="5_cxtxd"]
 [ext_resource type="Script" uid="uid://bui6h7p4lincd" path="res://objects/player/Stats/base_stat.gd" id="5_lm43g"]
@@ -14,6 +13,10 @@ script = ExtResource("6_tlrlt")
 metadata/_custom_type_script = "uid://d1e80dp6c7ji3"
 
 [sub_resource type="Resource" id="Resource_23xs6"]
+script = ExtResource("6_tlrlt")
+metadata/_custom_type_script = "uid://d1e80dp6c7ji3"
+
+[sub_resource type="Resource" id="Resource_o6syu"]
 script = ExtResource("6_tlrlt")
 metadata/_custom_type_script = "uid://d1e80dp6c7ji3"
 
@@ -33,6 +36,7 @@ script = ExtResource("1_mafoi")
 script = ExtResource("4_og7m7")
 stats = Dictionary[int, ExtResource("5_lm43g")]({
 0: SubResource("Resource_xkl3t"),
+1: SubResource("Resource_o6syu"),
 2: SubResource("Resource_23xs6")
 })
 
@@ -55,22 +59,11 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+[node name="ChartContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 columns = 2
-
-[node name="ChartVisualizer" parent="MarginContainer/HBoxContainer/VBoxContainer2/GridContainer" instance=ExtResource("3_uts2w")]
-unique_name_in_owner = true
-layout_mode = 2
-line_color = Color(0, 0.54023165, 0.95391196, 1)
-margin = 40
-
-[node name="ChartVisualizer2" parent="MarginContainer/HBoxContainer/VBoxContainer2/GridContainer" instance=ExtResource("3_uts2w")]
-unique_name_in_owner = true
-layout_mode = 2
-line_color = Color(0.9167084, 0.26599848, 0.27735093, 1)
-margin = 40
 
 [node name="AssessQuestion" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
 unique_name_in_owner = true
