@@ -2,6 +2,7 @@ extends Node2D
 class_name SceneMgr
 
 var uids: Dictionary[String, String] = {
+	"init": "uid://cksd53ocdjjc5",
 	"main_menu": "uid://d1sq1okbpyorw",
 	"assess_test": "uid://cd2dgvodr3u8k",
 	"test_scene": "uid://fnao1rs5haap",

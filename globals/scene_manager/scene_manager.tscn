@@ -259,14 +259,15 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -190.0
-offset_top = -51.0
+offset_left = -236.0
+offset_top = -64.0
 offset_right = -98.0
-offset_bottom = -14.0
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_font_sizes/font_size = 48
 text = "LOADING"
 horizontal_alignment = 2
+vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/SceneTransition/MarginContainer/LoadIndicator"]
 root_node = NodePath("../LoadLabel")
