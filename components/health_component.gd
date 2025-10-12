@@ -14,6 +14,11 @@ var current_health: int = 1
 var has_depleted: bool = false
 
 
+func setup(_health: int):
+	health = _health
+	reset()
+
+
 func reset():
 	current_health = health
 	has_depleted = false

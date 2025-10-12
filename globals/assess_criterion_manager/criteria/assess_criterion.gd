@@ -1,4 +1,4 @@
-extends Node2D
+extends Resource
 class_name AssessCriterion
 
 signal points_changed(points: Array[Vector2])
@@ -129,6 +129,6 @@ func change_question() -> void:
 	pass
 
 
-func _ready() -> void:
+func _init() -> void:
 	do_point_append()
 	_question_init()

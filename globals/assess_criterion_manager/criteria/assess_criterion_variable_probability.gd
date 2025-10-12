@@ -1,5 +1,5 @@
 extends AssessCriterion
-
+class_name AssessCriterionVariableProbability
 
 func preferred_right(): # Loteria, pewnik staje się mniej użyteczny
 	right_bound = point_list[-2].y

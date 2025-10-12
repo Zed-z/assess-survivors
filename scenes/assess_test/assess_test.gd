@@ -24,22 +24,21 @@ func update_text(question: Question, _name: String):
 
 func _ready() -> void:
 
-	current_critetion = GlobalInfo.assess_manager.criteria[GlobalInfo.assess_manager.get_current_decide_criterion()]
+	current_critetion = GlobalInfo.assess_manager.get_current_decide_criterion()
 
-	for i in len(assess_criteria):
-		var key: int = assess_criteria.keys()[i]
+	for c in assess_criteria:
 
 		var chart: ChartVisualizer = ObjectManager.instantiate(ObjectManager.OBJ_CHART_VISUALIZER)
 		%ChartContainer.add_child(chart)
 
-		assess_criteria[key].points_changed.connect(chart.set_points)
-		chart.set_points(assess_criteria[key].point_list)
+		c.points_changed.connect(chart.set_points)
+		chart.set_points(c.point_list)
 
-		#assess_criteria[key].question_changed.connect(update_text.bind(assess_criteria[key].criterion_name))
-		#update_text(assess_criteria[key].get_question(), assess_criteria[key].criterion_name)
+		#c.question_changed.connect(update_text.bind(c.criterion_name))
+		#update_text(c.get_question(), c.criterion_name)
 
-		assess_criteria[key].value_result.connect(update_value.bind(assess_criteria[key].criterion_name, chart))
-		update_value(0, assess_criteria[key].criterion_name, chart)
+		c.value_result.connect(update_value.bind(c.criterion_name, chart))
+		update_value(0, c.criterion_name, chart)
 
 	update_question()
 

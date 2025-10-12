@@ -17,7 +17,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func shoot_projectile(direction: Vector2):
 	var proj: BaseProjectile = projectile.instantiate() as BaseProjectile
-	proj.damage = stats.get_stat(PlayerStats.STATS.ATTACK)
+	proj.damage = stats.get_stat("Attack")
 	ProjectileHolder.add_child(proj)
 	proj.global_position = global_position
 	proj.initiate_projectile(direction)

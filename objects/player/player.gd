@@ -6,6 +6,10 @@ class_name Player
 @onready var stats = $Stats
 
 
+func _ready() -> void:
+	$HealthComponent.setup($Stats.stats["Health"].get_stat())
+
+
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_vector("game_left","game_right","game_up","game_down").normalized()
 	direction.y *= 0.5

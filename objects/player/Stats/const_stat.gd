@@ -1,8 +1,8 @@
 extends BaseStat
 class_name ConstStat
 
-@export var stat : float
+@export var const_value: float = 0
 
 
-func get_stat()->float:
-	return stat
+func init() -> void:
+	set_stat(const_value)

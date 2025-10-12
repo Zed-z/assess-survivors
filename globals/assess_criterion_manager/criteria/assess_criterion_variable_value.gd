@@ -1,4 +1,5 @@
 extends AssessCriterion
+class_name AssessCriterionVariableValue
 
 
 func preferred_left(): # Jeśli preferuje pewnik pogorsz pewnik

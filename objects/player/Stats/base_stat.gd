@@ -1,15 +1,16 @@
 extends Resource
 class_name BaseStat
 
-var stat_type: PlayerStats.STATS
+@export var name = "Stat"
+var value: Variant
 
 
-func set_stat(stat: Variant) -> void:
-	pass
+func set_stat(_value: Variant) -> void:
+	value = _value
 
 
 func get_stat() -> Variant:
-	return null
+	return value
 
 
 func init() -> void:

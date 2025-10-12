@@ -187,7 +187,7 @@ shape = SubResource("RectangleShape2D_ck1x7")
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("4_nt6gy")
-health = 3
+health = 150
 metadata/_custom_type_script = "uid://008ins25r0w8"
 
 [connection signal="area_entered" from="HurtBox" to="HurtBox" method="_on_area_entered"]

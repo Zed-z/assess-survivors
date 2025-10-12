@@ -1,14 +1,14 @@
 extends BaseStat
 class_name AssessStat
 
-@export var criterion_type: AssessManagerClass.CriteriaType
-
-var value: float = 0
+@export var criterion: AssessCriterion
 
 
-func get_stat() -> float:
-	return 0
+func increment(val: float) -> void:
+	value += val
 
 
 func init() -> void:
-	GlobalInfo.assess_manager.init_add_criterion(stat_type, criterion_type)
+	GlobalInfo.assess_manager.init_add_criterion(self, criterion)
+	value = criterion.MIN_value
+	criterion.value_result.connect(increment)
