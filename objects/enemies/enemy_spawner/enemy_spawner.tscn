@@ -1,13 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dh1jrdfgruvqn"]
+[gd_scene load_steps=2 format=3 uid="uid://dh1jrdfgruvqn"]
 
 [ext_resource type="Script" uid="uid://bgnp6y3oetgbg" path="res://objects/enemies/enemy_spawner/enemy_spawner.gd" id="1_oriv1"]
-[ext_resource type="Script" uid="uid://cd06aok4ajl3c" path="res://objects/enemies/enemy_spawner/enemy_vave_data/enemy_vave_data.gd" id="2_nyopy"]
-[ext_resource type="Resource" uid="uid://bdt01a177m1y6" path="res://objects/enemies/enemy_spawner/enemy_vave_data/enemy_vave_datas/defoult.tres" id="3_n2rlw"]
 
 [node name="EnemySpawner" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_oriv1")
-vaves = Dictionary[int, ExtResource("2_nyopy")]({
-0: ExtResource("3_n2rlw"),
-1: null
-})
+
+[node name="EnemySpawnTimer" type="Timer" parent="."]

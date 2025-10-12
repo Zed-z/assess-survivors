@@ -2,6 +2,8 @@ extends CharacterBody2D
 class_name Enemy
 var target: Player
 
+var vave_number: int
+
 
 func get_contact_dmg() -> int:
 	return 1

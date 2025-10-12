@@ -19,5 +19,7 @@ metadata/_custom_type_script = "uid://dmbi1icxkymxl"
 
 [resource]
 script = ExtResource("4_s4f5b")
+enemies_per_minute = 1
+vave_duration = 40.0
 enemies = Array[ExtResource("1_v24uj")]([SubResource("Resource_rg5qa"), SubResource("Resource_xorab")])
 metadata/_custom_type_script = "uid://cd06aok4ajl3c"

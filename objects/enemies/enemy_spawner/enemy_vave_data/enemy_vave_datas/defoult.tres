@@ -19,5 +19,7 @@ metadata/_custom_type_script = "uid://dmbi1icxkymxl"
 
 [resource]
 script = ExtResource("1_aaagh")
+enemies_to_spawn = 20
+kill_all_enemies = true
 enemies = Array[ExtResource("1_rg5qa")]([SubResource("Resource_rg5qa"), SubResource("Resource_xorab")])
 metadata/_custom_type_script = "uid://cd06aok4ajl3c"

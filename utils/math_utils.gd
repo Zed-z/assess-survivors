@@ -1,6 +1,7 @@
 class_name MathUtils
 
 
+## chooses one element with asumption that probability of all elements in aray sum up to one
 static func choices_1f(data: Array[float])->int:
 	var f = randf_range(0,1)
 
