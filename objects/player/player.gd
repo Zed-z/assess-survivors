@@ -10,6 +10,12 @@ func _ready() -> void:
 	$HealthComponent.setup($Stats.stats["Health"].get_stat())
 
 
+	$HealthComponent.max_health_changed.connect(func x(val): GlobalInfo.combat_ui_overlay.helth_bar.set("max_value",val))
+
+
+	$HealthComponent.health_changed.connect(func x(val): GlobalInfo.combat_ui_overlay.helth_bar.set("value",val))
+
+
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_vector("game_left","game_right","game_up","game_down").normalized()
 	direction.y *= 0.5

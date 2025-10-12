@@ -2,6 +2,8 @@ extends Control
 class_name UIOverley
 @onready var progress_bar: ProgressBar = $ProgressBar
 
+@onready var helth_bar: ProgressBar = $HelthBar
+
 
 func _ready() -> void:
 	GlobalInfo.combat_ui_overlay = self

@@ -2,8 +2,9 @@ class_name HealthComponent
 extends Node
 
 signal got_hit()
-signal health_dropped()
 signal health_depleted()
+signal health_changed(new_value: int)
+signal max_health_changed(new_value: int)
 
 @export var invulnerable: bool = false
 @export var health: int = 1
@@ -30,6 +31,7 @@ func _ready() -> void:
 
 func take_damage(damage: DamageParameters) -> void:
 
+	max_health_changed.emit(health)
 	if current_health <= 0 and deplete_once and has_depleted:
 		return
 
@@ -37,7 +39,7 @@ func take_damage(damage: DamageParameters) -> void:
 
 	if not invulnerable:
 		current_health -= damage.damage
-		health_dropped.emit()
+		health_changed.emit(current_health)
 
 		if current_health <= 0:
 

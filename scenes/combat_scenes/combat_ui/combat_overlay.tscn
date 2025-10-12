@@ -57,3 +57,10 @@ offset_bottom = 105.0
 text = "QUIT"
 script = ExtResource("3_0c1yk")
 scene = "main_menu"
+
+[node name="HelthBar" type="ProgressBar" parent="Control"]
+layout_mode = 0
+offset_left = 254.0
+offset_top = 105.0
+offset_right = 618.0
+offset_bottom = 132.0
