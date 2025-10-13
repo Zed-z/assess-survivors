@@ -73,7 +73,7 @@ func step(answer: Answer):
 		do_preferred_none()
 		dialog_answers_count = 0
 
-	change_question()
+	do_change_question()
 
 	value_result.emit(result)
 
@@ -160,7 +160,9 @@ func get_question() -> Question:
 func _question_init() ->void:
 	pass
 
-
+func do_change_question() -> void:
+	change_question()
+	question_changed.emit(question)
 func change_question() -> void:
 	pass
 

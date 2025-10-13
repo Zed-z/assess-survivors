@@ -24,7 +24,6 @@ func change_question() -> void:
 	question.set_left(SingleLottery.new(point_list[-2].x, 1, -1))
 	question.get_right().free()
 	question.set_right(SingleLottery.new(point_list[-1].x, point_list[-2].y, MIN_value))
-	question_changed.emit(question)
 
 
 func _question_init() ->void:
