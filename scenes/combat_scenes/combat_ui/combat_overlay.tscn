@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://bh5tkxvg8jh42"]
+[gd_scene load_steps=5 format=3 uid="uid://bh5tkxvg8jh42"]
 
 [ext_resource type="Theme" uid="uid://df2r57b2stnof" path="res://themes/ui.tres" id="1_n8r28"]
 [ext_resource type="Script" uid="uid://2850i5pp8lmf" path="res://scenes/combat_scenes/combat_ui/combat_overlay.gd" id="1_ylltj"]
 [ext_resource type="Script" uid="uid://bfn4l4e5i8p0j" path="res://scenes/main_menu/change_scene_button.gd" id="3_0c1yk"]
+[ext_resource type="Script" uid="uid://dvlwdde65sqw2" path="res://scenes/combat_scenes/combat_ui/helth_bar.gd" id="4_1bpvo"]
 
 [node name="CombatUIOverlay" type="CanvasLayer"]
 
 [node name="Control" type="Control" parent="."]
+process_priority = -1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -64,3 +66,4 @@ offset_left = 254.0
 offset_top = 105.0
 offset_right = 618.0
 offset_bottom = 132.0
+script = ExtResource("4_1bpvo")

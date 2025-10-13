@@ -9,11 +9,8 @@ class_name Player
 func _ready() -> void:
 	$HealthComponent.setup($Stats.stats["Health"].get_stat())
 
-
-	$HealthComponent.max_health_changed.connect(func x(val): GlobalInfo.combat_ui_overlay.helth_bar.set("max_value",val))
-
-
-	$HealthComponent.health_changed.connect(func x(val): GlobalInfo.combat_ui_overlay.helth_bar.set("value",val))
+	$HealthComponent.health_changed.connect(GlobalInfo.combat_ui_overlay.helth_bar.set_health)
+	$HealthComponent.max_health_changed.connect(GlobalInfo.combat_ui_overlay.helth_bar.set_max_health)
 
 
 func _physics_process(delta: float) -> void:

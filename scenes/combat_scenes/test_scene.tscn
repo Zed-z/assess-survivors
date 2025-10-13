@@ -13,6 +13,8 @@
 [node name="TestScene" type="Node2D"]
 y_sort_enabled = true
 
+[node name="CombatUIOverlay" parent="." instance=ExtResource("6_1nlv8")]
+
 [node name="AssessManager" parent="." instance=ExtResource("9_ug5hv")]
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -53,5 +55,3 @@ min_radius = 500.0
 max_radius = 600.0
 enemy = ExtResource("4_p4055")
 vaves = ExtResource("14_131tw")
-
-[node name="CombatUIOverlay" parent="." instance=ExtResource("6_1nlv8")]
