@@ -24,7 +24,7 @@ func update_text(question: Question, _name: String):
 
 func _ready() -> void:
 
-	current_critetion = GlobalInfo.assess_manager.get_current_decide_criterion()
+	current_critetion = GlobalInfo.assess_manager.get_criterion()
 
 	for c in assess_criteria:
 

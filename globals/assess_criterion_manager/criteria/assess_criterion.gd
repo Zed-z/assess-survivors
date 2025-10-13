@@ -16,6 +16,7 @@ signal question_changed(question: Question)
 
 var CUR_phase: int = len(phases)
 var last_significant_index: int
+
 enum Answer {
 	i, # Indifferent
 	p, # Prefer left
@@ -93,7 +94,6 @@ func point_append():
 		)
 
 	point_list.append(new_max)
-	print(point_list)
 	#zeskaluj
 	for i in range(len(point_list)):
 		point_list[i].y = point_list[i].y / point_list[-1].y
@@ -140,12 +140,9 @@ func do_preferred_none():
 		do_point_append()
 		CUR_phase = 0
 		last_significant_index = len(point_list) - 2
-		print(point_list[last_significant_index])
 	else:
 		do_point_inbetween()
 		CUR_phase += 1
-
-	print(point_list)
 
 
 func preferred_none():
