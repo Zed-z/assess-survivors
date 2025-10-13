@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://ct88pvgyokerc"]
+[gd_scene load_steps=18 format=3 uid="uid://ct88pvgyokerc"]
 
 [ext_resource type="Texture2D" uid="uid://cigsdewro07vk" path="res://icon.svg" id="1_cqmt1"]
 [ext_resource type="Script" uid="uid://bpko7pdk264ld" path="res://objects/player/player.gd" id="1_g7ett"]
 [ext_resource type="Script" uid="uid://tbwlmhfwlhey" path="res://objects/player/projectile_shooter.gd" id="2_ssrue"]
 [ext_resource type="PackedScene" uid="uid://c0p4rc4vy31m" path="res://objects/projectile/projectile_instances/test_projectile.tscn" id="3_jnjyq"]
+[ext_resource type="Script" uid="uid://bdbniel8jt6tc" path="res://objects/player/sprite_modulation.gd" id="5_c34wb"]
 [ext_resource type="Script" uid="uid://cqu2r76doy8h5" path="res://objects/player/Stats/player_stats.gd" id="5_gnkmh"]
 [ext_resource type="Script" uid="uid://bui6h7p4lincd" path="res://objects/player/Stats/base_stat.gd" id="6_psowp"]
 [ext_resource type="Script" uid="uid://d1e80dp6c7ji3" path="res://objects/player/Stats/assess_stat.gd" id="7_45urx"]
@@ -45,6 +46,8 @@ projectile = ExtResource("3_jnjyq")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.24, 0.24)
 texture = ExtResource("1_cqmt1")
+script = ExtResource("5_c34wb")
+invornerable_color = Color(1, 1, 1, 0.23921569)
 
 [node name="Stats" type="Node" parent="."]
 script = ExtResource("5_gnkmh")
