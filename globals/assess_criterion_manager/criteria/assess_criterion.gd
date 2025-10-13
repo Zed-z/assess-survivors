@@ -12,6 +12,10 @@ signal question_changed(question: Question)
 
 @export var UTILITY_MIN: float = 0
 @export var UTILITY_MAX: float = 1
+@export var phases: Array[float] = [0.33, 0.66]
+
+var CUR_phase: int = len(phases)
+var last_significant_index: int
 enum Answer {
 	i, # Indifferent
 	p, # Prefer left
@@ -42,7 +46,7 @@ func step(answer: Answer):
 			do_preferred_left()
 			if first_answer:
 				is_risky = false
-				first_answer = true
+				first_answer = false
 
 			dialog_answers_count += 1
 
@@ -51,7 +55,7 @@ func step(answer: Answer):
 			do_preferred_right()
 			if first_answer:
 				is_risky = false
-				first_answer = true
+				first_answer = false
 
 			dialog_answers_count += 1
 
@@ -61,11 +65,11 @@ func step(answer: Answer):
 			else:
 				result = question.get_right().get_value()
 
-			do_point_append()
+			do_preferred_none()
 			dialog_answers_count = 0
 
 	if dialog_answers_count > MAX_dialog_answers:
-		do_point_append()
+		do_preferred_none()
 		dialog_answers_count = 0
 
 	change_question()
@@ -81,18 +85,35 @@ func do_point_append():
 func point_append():
 	#stwórz nowy punkt na podstawie poprzednich
 	var a: float = (point_list[-1].y - point_list[-2].y) / (point_list[-1].x - point_list[-2].x)
-
+	var new_x: float = point_list[-1].x + value_step
+	var new_y: float = point_list[-1].y + a * value_step
 	var new_max = Vector2(
-		point_list[-1].x + value_step,
-		point_list[-1].y + a * value_step)
+		new_x,
+		new_y
+		)
 
 	point_list.append(new_max)
-
+	print(point_list)
 	#zeskaluj
 	for i in range(len(point_list)):
 		point_list[i].y = point_list[i].y / point_list[-1].y
 
 	set_bound()
+
+
+func do_point_inbetween() -> void:
+	point_inbetween()
+	points_changed.emit(point_list)
+
+
+func point_inbetween() -> void:
+	var val: float = phases[CUR_phase]
+	var point = Vector2(
+		point_list[last_significant_index].x*(1-val) + point_list[-1].x*val,
+		point_list[last_significant_index].y*(1-val) + point_list[-1].y*val
+
+	)
+	point_list.insert(-1, point)
 
 
 func do_preferred_left():
@@ -110,6 +131,24 @@ func do_preferred_right():
 
 
 func preferred_right():
+	pass
+
+
+func do_preferred_none():
+	preferred_none()
+	if CUR_phase >= len(phases):
+		do_point_append()
+		CUR_phase = 0
+		last_significant_index = len(point_list) - 2
+		print(point_list[last_significant_index])
+	else:
+		do_point_inbetween()
+		CUR_phase += 1
+
+	print(point_list)
+
+
+func preferred_none():
 	pass
 
 

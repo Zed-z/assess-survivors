@@ -71,7 +71,7 @@ func test_answer_i_question():
 	assert_float(criterion.question.get_left().loss_value).is_equal(-1.0)
 
 	assert_float(criterion.question.get_right().win_value).is_equal(30.0)
-	assert_float(criterion.question.get_right().win_probability).is_equal_approx(0.33, 0.01)
+	assert_float(criterion.question.get_right().win_probability).is_equal_approx(0.66, 0.01)
 	assert_float(criterion.question.get_right().loss_value).is_equal(0.0)
 
 
