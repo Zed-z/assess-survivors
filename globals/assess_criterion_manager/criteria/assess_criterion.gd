@@ -8,6 +8,7 @@ signal question_changed(question: Question)
 @export var criterion_name: String = ""
 @export var MIN_value: float = 0
 @export var value_step: float = 10
+@export var value_mult: float = 2
 @export var MAX_value: float = 100
 
 @export var UTILITY_MIN: float = 0
@@ -31,7 +32,7 @@ var is_risky: bool
 
 var point_list: Array[Vector2] = [
 	Vector2(MIN_value, UTILITY_MIN),
-	Vector2(MIN_value + value_step, UTILITY_MAX)
+	Vector2(value_mult*MIN_value + value_step, UTILITY_MAX)
 ]
 var question: Question
 var left_bound: float
@@ -86,13 +87,14 @@ func do_point_append():
 func point_append():
 	#stwórz nowy punkt na podstawie poprzednich
 	var a: float = (point_list[-1].y - point_list[-2].y) / (point_list[-1].x - point_list[-2].x)
-	var new_x: float = point_list[-1].x + value_step
-	var new_y: float = point_list[-1].y + a * value_step
+	var new_x: float = value_mult*point_list[-1].x + value_step
+	var new_y: float = point_list[-1].y + a * (new_x - point_list[-1].x)
 	var new_max = Vector2(
 		new_x,
 		new_y
 		)
 
+	print(new_max)
 	point_list.append(new_max)
 	#zeskaluj
 	for i in range(len(point_list)):
@@ -144,6 +146,8 @@ func do_preferred_none():
 		do_point_inbetween()
 		CUR_phase += 1
 
+	print(point_list)
+
 
 func preferred_none():
 	pass
@@ -160,9 +164,12 @@ func get_question() -> Question:
 func _question_init() ->void:
 	pass
 
+
 func do_change_question() -> void:
 	change_question()
 	question_changed.emit(question)
+
+
 func change_question() -> void:
 	pass
 
@@ -170,3 +177,4 @@ func change_question() -> void:
 func _init() -> void:
 	do_point_append()
 	_question_init()
+	print(point_list)
