@@ -7,25 +7,25 @@ signal question_changed(question: Question)
 
 @export var criterion_name: String = ""
 @export var MIN_value: float = 0
-@export var value_step: float = 10
-@export var value_mult: float = 2
-@export var MAX_value: float = 100
 
-@export var UTILITY_MIN: float = 0
-@export var UTILITY_MAX: float = 1
-@export var phases: Array[float] = [0.33, 0.66]
+@export var value_step: float = 10 # additive value used for increasing interval
+@export var value_mult: float = 1 # multiplicative value used for increasing interval
+@export var phases: Array[float] = [0.33, 0.66] # floats describing points in newly added interval
 
-var CUR_phase: int = len(phases)
-var last_significant_index: int
+var UTILITY_MIN: float = 0
+var UTILITY_MAX: float = 1
+
+var CUR_phase: int = 0
+var last_significant_index: int = 0
+
+var MAX_dialog_answers: int = 2
+var dialog_answers_count: int = 0
 
 enum Answer {
 	i, # Indifferent
 	p, # Prefer left
 	q, # prefer right
 }
-
-var MAX_dialog_answers: int = 2
-var dialog_answers_count: int = 0
 
 var first_answer: bool = true
 var is_risky: bool
@@ -94,7 +94,6 @@ func point_append():
 		new_y
 		)
 
-	print(new_max)
 	point_list.append(new_max)
 	#zeskaluj
 	for i in range(len(point_list)):
@@ -146,8 +145,6 @@ func do_preferred_none():
 		do_point_inbetween()
 		CUR_phase += 1
 
-	print(point_list)
-
 
 func preferred_none():
 	pass
@@ -175,6 +172,5 @@ func change_question() -> void:
 
 
 func _init() -> void:
-	do_point_append()
 	_question_init()
-	print(point_list)
+	#print(point_list)
