@@ -10,7 +10,7 @@ signal question_changed(question: Question)
 
 @export var value_step: float = 10 # additive value used for increasing interval
 @export var value_mult: float = 1 # multiplicative value used for increasing interval
-@export var phases: Array[float] = [0.33, 0.66] # floats describing points in newly added interval
+@export var phases: Array[float] = [1/3.0, 2/3.0] # floats describing points in newly added interval
 #do not touch those values unless, you know what you are doing
 var UTILITY_MIN: float = 0
 var UTILITY_MAX: float = 1
@@ -109,12 +109,17 @@ func do_point_inbetween() -> void:
 
 func point_inbetween() -> void:
 	var val: float = phases[CUR_phase]
+
+	var new_x = point_list[last_significant_index].x*(1-val) + point_list[-1].x*val
+	var a: float = (new_x-point_list[-2].x)/(point_list[-1].x - point_list[-2].x)
 	var point = Vector2(
-		point_list[last_significant_index].x*(1-val) + point_list[-1].x*val,
-		point_list[last_significant_index].y*(1-val) + point_list[-1].y*val
+		new_x,
+		point_list[-2].y*(1-a) + point_list[-1].y*a
 
 	)
+
 	point_list.insert(-1, point)
+	set_bound()
 
 
 func do_preferred_left():
