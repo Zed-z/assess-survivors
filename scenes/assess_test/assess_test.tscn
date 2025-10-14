@@ -92,6 +92,7 @@ text = "ASSESS_TEST_SCENARIO"
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(-299, 349)
+scale = Vector2(1, 9999)
 texture = ExtResource("7_o6syu")
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/ButtonLeft" to="." method="_on_button_left_pressed"]
