@@ -9,7 +9,8 @@ signal question_changed(question: Question)
 @export var MIN_value: float = 0
 
 @export var value_step: float = 10 # additive value used for increasing interval
-@export var value_mult: float = 1 # multiplicative value used for increasing interval
+@export var max_value : float = 10
+@export_range(1,10,0.1,"or_greater") var value_mult: float = 1 # multiplicative value used for increasing interval
 @export var phases: Array[float] = [1/3.0, 2/3.0] # floats describing points in newly added interval
 #do not touch those values unless, you know what you are doing
 var UTILITY_MIN: float = 0
