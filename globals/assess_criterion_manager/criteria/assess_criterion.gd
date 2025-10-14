@@ -11,10 +11,9 @@ signal question_changed(question: Question)
 @export var value_step: float = 10 # additive value used for increasing interval
 @export var value_mult: float = 1 # multiplicative value used for increasing interval
 @export var phases: Array[float] = [0.33, 0.66] # floats describing points in newly added interval
-
+#do not touch those values unless, you know what you are doing
 var UTILITY_MIN: float = 0
 var UTILITY_MAX: float = 1
-
 var CUR_phase: int = 0
 var last_significant_index: int = 0
 
@@ -104,6 +103,7 @@ func point_append():
 
 func do_point_inbetween() -> void:
 	point_inbetween()
+	CUR_phase += 1
 	points_changed.emit(point_list)
 
 
@@ -143,7 +143,6 @@ func do_preferred_none():
 		last_significant_index = len(point_list) - 2
 	else:
 		do_point_inbetween()
-		CUR_phase += 1
 
 
 func preferred_none():
@@ -172,5 +171,6 @@ func change_question() -> void:
 
 
 func _init() -> void:
+	do_point_inbetween()
 	_question_init()
 	#print(point_list)

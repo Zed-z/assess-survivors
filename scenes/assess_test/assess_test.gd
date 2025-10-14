@@ -11,7 +11,7 @@ var current_critetion: AssessCriterion = null
 
 func update_value(_value: float, _name: String, _visualizer: ChartVisualizer):
 	value += _value
-	_visualizer.set_title("%s: %s (+%s)" % [_name, value, _value])
+	_visualizer.set_title("%s: %0.2f (+%0.2f)" % [_name, value, _value])
 
 
 func update_question():
