@@ -9,7 +9,7 @@ var last_direction: int = 1
 
 
 func _ready() -> void:
-	$HealthComponent.setup($Stats.stats["Health"].get_stat())
+	$HealthComponent.setup($Stats.stats["STAT_HP"].get_stat())
 
 	$HealthComponent.health_changed.connect(GlobalInfo.combat_ui_overlay.helth_bar.set_health)
 	$HealthComponent.max_health_changed.connect(GlobalInfo.combat_ui_overlay.helth_bar.set_max_health)

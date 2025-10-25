@@ -82,7 +82,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Stay safe"
+text = "CHOICE_PANEL_SAFE"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(150, 0)
@@ -126,7 +126,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Spin the Wheel!"
+text = "CHOICE_PANEL_SPIN"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer/ButtonChooseLeft" to="." method="_on_button_choose_left_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Panel2/VBoxContainer3/ButtonChooseRight" to="." method="_on_button_choose_right_pressed"]

@@ -13,10 +13,22 @@ func _ready() -> void:
 		return
 
 	%LabelChooseLeft.text = str(question.get_left())
+
+	if (question.get_left().win_probability == 1):
+		%ButtonChooseLeft.text = tr("CHOICE_PANEL_SAFE")
+	else:
+		%ButtonChooseLeft.text = tr("CHOICE_PANEL_SPIN")
+
 	%LabelChooseRight.text = str(question.get_right())
+
+	if (question.get_right().win_probability == 1):
+		%ButtonChooseRight.text = tr("CHOICE_PANEL_SAFE")
+	else:
+		%ButtonChooseRight.text = tr("CHOICE_PANEL_SPIN")
+
 	%IconChooseLeft.texture = criterion.icon
 	%IconChooseRight.texture = criterion.icon
-	%LabelName.text = criterion.criterion_name
+	%LabelName.text = tr(criterion.criterion_name)
 
 
 func _exit_tree() -> void:
