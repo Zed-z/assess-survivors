@@ -14,7 +14,7 @@ func assert_almost_eq_vector2_array(actual: Array[Vector2], expected: Array[Vect
 func before_test():
 	criterion = criterion_script.new()
 	criterion._ready()
-	criterion.MIN_value = 0
+	criterion.min_value = 0
 	criterion.value_step = 10
 
 	assert_float(criterion.question.get_left().win_value).is_equal(10.0)

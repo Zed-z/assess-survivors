@@ -1,8 +1,17 @@
 extends Resource
 class_name BaseStat
 
+signal value_changed(value: Variant)
+
 @export var name = "Stat"
-var value: Variant
+@export var icon: CompressedTexture2D
+var value: Variant:
+	get:
+		return value
+
+	set(val):
+		value = val
+		value_changed.emit(value)
 
 
 func set_stat(_value: Variant) -> void:

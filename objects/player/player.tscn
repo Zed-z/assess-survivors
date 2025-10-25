@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ct88pvgyokerc"]
+[gd_scene load_steps=21 format=3 uid="uid://ct88pvgyokerc"]
 
 [ext_resource type="Script" uid="uid://bpko7pdk264ld" path="res://objects/player/player.gd" id="1_g7ett"]
 [ext_resource type="Script" uid="uid://tbwlmhfwlhey" path="res://objects/player/projectile_shooter.gd" id="2_ssrue"]
@@ -11,25 +11,34 @@
 [ext_resource type="Script" uid="uid://dxavujg1j5jr5" path="res://globals/assess_criterion_manager/criteria/assess_criterion_variable_probability.gd" id="7_c34wb"]
 [ext_resource type="Script" uid="uid://008ins25r0w8" path="res://components/health_component.gd" id="7_m4kly"]
 [ext_resource type="Script" uid="uid://s8o7eln2esn0" path="res://objects/player/levels.gd" id="7_ow0dq"]
-[ext_resource type="Script" uid="uid://ccj8rhd6knfds" path="res://objects/player/Stats/const_stat.gd" id="8_c34wb"]
 [ext_resource type="Script" uid="uid://1ogv7wo486wd" path="res://objects/player/hurtbox/hurtbox.gd" id="8_m4kly"]
+[ext_resource type="Texture2D" uid="uid://d2khmtbsk4mom" path="res://sprites/tiles/luk.png" id="9_ylcck"]
+[ext_resource type="Script" uid="uid://5b0w6k2jxyuc" path="res://globals/assess_criterion_manager/criteria/assess_criterion_lottery.gd" id="11_x5bgp"]
+[ext_resource type="Texture2D" uid="uid://buuaf3wdlshc0" path="res://sprites/tiles/flower.png" id="12_dthqj"]
 
 [sub_resource type="Resource" id="Resource_dthqj"]
 script = ExtResource("7_c34wb")
-MIN_value = 50.0
 metadata/_custom_type_script = "uid://dxavujg1j5jr5"
 
 [sub_resource type="Resource" id="Resource_ylcck"]
 script = ExtResource("7_45urx")
 criterion = SubResource("Resource_dthqj")
+starting_value = 50
 name = "Attack"
+icon = ExtResource("9_ylcck")
 metadata/_custom_type_script = "uid://d1e80dp6c7ji3"
 
-[sub_resource type="Resource" id="Resource_45urx"]
-script = ExtResource("8_c34wb")
-const_value = 10.0
+[sub_resource type="Resource" id="Resource_xlkbi"]
+script = ExtResource("11_x5bgp")
+metadata/_custom_type_script = "uid://5b0w6k2jxyuc"
+
+[sub_resource type="Resource" id="Resource_l55sg"]
+script = ExtResource("7_45urx")
+criterion = SubResource("Resource_xlkbi")
+starting_value = 10
 name = "Health"
-metadata/_custom_type_script = "uid://ccj8rhd6knfds"
+icon = ExtResource("12_dthqj")
+metadata/_custom_type_script = "uid://d1e80dp6c7ji3"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ow0dq"]
 size = Vector2(22, 22)
@@ -52,7 +61,7 @@ script = ExtResource("5_c34wb")
 script = ExtResource("5_gnkmh")
 stats = Dictionary[String, ExtResource("6_psowp")]({
 "Attack": SubResource("Resource_ylcck"),
-"Health": SubResource("Resource_45urx")
+"Health": SubResource("Resource_l55sg")
 })
 
 [node name="Levels" type="Node" parent="."]

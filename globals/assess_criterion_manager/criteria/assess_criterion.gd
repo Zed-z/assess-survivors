@@ -6,10 +6,11 @@ signal value_result(value: float) # Result of making a choice and the random stu
 signal question_changed(question: Question)
 
 @export var criterion_name: String = ""
-@export var MIN_value: float = 0
+@export var icon: CompressedTexture2D
 
+@export var min_value: float = 0 # starting value for criterion
 @export var value_step: float = 10 # additive value used for increasing interval
-@export var max_value: float = 10
+@export var initial_max_value: float = 10
 
 @export_range(1,10,0.1,"or_greater") var value_mult: float = 1 # multiplicative value used for increasing interval
 @export var phases: Array[float] = [1/3.0, 2/3.0] # floats describing points in newly added interval
@@ -32,8 +33,8 @@ var first_answer: bool = true
 var is_risky: bool
 
 var point_list: Array[Vector2] = [
-	Vector2(MIN_value, UTILITY_MIN),
-	Vector2(max_value, UTILITY_MAX)
+	Vector2(min_value, UTILITY_MIN),
+	Vector2(initial_max_value, UTILITY_MAX)
 ]
 var question: Question
 var left_bound: float

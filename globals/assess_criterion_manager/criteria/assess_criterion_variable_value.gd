@@ -5,7 +5,7 @@ class_name AssessCriterionVariableValue
 func preferred_left(): # Jeśli preferuje pewnik pogorsz pewnik
 	right_bound = point_list[-2].x
 	point_list[-2].x = (left_bound + point_list[-2].x) / 2
-	#pewniak się robi jako (MIN_value + pewniak) / 2
+	#pewniak się robi jako (min_value + pewniak) / 2
 
 
 func preferred_right(): # Jeśli preferuje loterię polepsz pewnik
@@ -23,9 +23,9 @@ func change_question() -> void:
 	question.get_left().free()
 	question.set_left(SingleLottery.new(point_list[-2].x, 1, -1))
 	question.get_right().free()
-	question.set_right(SingleLottery.new(point_list[-1].x, point_list[-2].y, MIN_value))
+	question.set_right(SingleLottery.new(point_list[-1].x, point_list[-2].y, min_value))
 
 
 func _question_init() ->void:
-	question = Question.new(SingleLottery.new(point_list[-2].x, 1, -1), SingleLottery.new(point_list[-1].x, point_list[-2].y,MIN_value))
+	question = Question.new(SingleLottery.new(point_list[-2].x, 1, -1), SingleLottery.new(point_list[-1].x, point_list[-2].y,min_value))
 	question_changed.emit(question)

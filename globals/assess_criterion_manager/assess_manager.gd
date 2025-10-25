@@ -26,6 +26,7 @@ func display_choice(criterion: AssessCriterion) -> String:
 func init_add_criterion(stat: AssessStat, criterion: AssessCriterion):
 	criteria.append(criterion)
 	criterion.criterion_name = stat.name
+	criterion.icon = stat.icon
 	algorithm = algorithm_script.new(criteria)
 
 

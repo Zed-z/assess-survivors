@@ -12,8 +12,11 @@ func _ready() -> void:
 		queue_free()
 		return
 
-	$MarginContainer/HBoxContainer/Panel/VBoxContainer/Label.text = str(question.get_left())
-	$MarginContainer/HBoxContainer/Panel2/VBoxContainer3/Label.text = str(question.get_right())
+	%LabelChooseLeft.text = str(question.get_left())
+	%LabelChooseRight.text = str(question.get_right())
+	%IconChooseLeft.texture = criterion.icon
+	%IconChooseRight.texture = criterion.icon
+	%LabelName.text = criterion.criterion_name
 
 
 func _exit_tree() -> void:
