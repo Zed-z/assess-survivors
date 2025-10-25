@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://d1sq1okbpyorw"]
+[gd_scene load_steps=9 format=4 uid="uid://d1sq1okbpyorw"]
 
 [ext_resource type="Theme" uid="uid://df2r57b2stnof" path="res://themes/ui.tres" id="1_0ebjn"]
 [ext_resource type="Script" uid="uid://6ixe52l0owps" path="res://scenes/main_menu/main_menu.gd" id="1_fsom3"]
@@ -7,6 +7,7 @@
 [ext_resource type="Material" uid="uid://d1581d5ay26af" path="res://materials/grass.tres" id="4_4xg86"]
 [ext_resource type="Texture2D" uid="uid://buuaf3wdlshc0" path="res://sprites/tiles/flower.png" id="4_uqeha"]
 [ext_resource type="TileSet" uid="uid://cld71m6mttjlh" path="res://tilesets/tileset.tres" id="5_thkx5"]
+[ext_resource type="PackedScene" uid="uid://61ygvpbmpjum" path="res://objects/player/player_sprite.tscn" id="6_4xg86"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -54,10 +55,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -364.5
-offset_top = -236.5
-offset_right = 364.5
-offset_bottom = 40.5
+offset_left = -451.5
+offset_top = -300.5
+offset_right = 451.5
+offset_bottom = -23.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_type_variation = &"TitleLabel"
@@ -68,6 +69,10 @@ text = "DEADLY
 [node name="Flower" type="Sprite2D" parent="Label"]
 position = Vector2(77.5, 201.5)
 texture = ExtResource("4_uqeha")
+
+[node name="PlayerSprite" parent="Label" instance=ExtResource("6_4xg86")]
+position = Vector2(98.5, 420.49997)
+scale = Vector2(0.8664383, 0.8664384)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1

@@ -18,11 +18,19 @@ func set_new_required_ex(_new_level: int):
 	required_xp = 10 * _new_level + 5
 
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("force_level"):
+		collected_xp = 0
+		level += 1
+		set_new_required_ex(level)
+		new_level.emit(level)
+
+
 func xp_collected(enemy: Enemy) ->void:
 
 	collected_xp += 1
 
-	if collected_xp > required_xp:
+	if collected_xp >= required_xp:
 		collected_xp -= required_xp
 		level += 1
 		set_new_required_ex(level)

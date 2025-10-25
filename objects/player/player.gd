@@ -36,7 +36,10 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_levels_new_level(level: int) -> void:
-	GlobalInfo.combat_ui_overlay.add_child(ObjectManager.instantiate(ObjectManager.OBJ_CHOICE_PANEL))
+	var choice_panel: ChoicePanel = ObjectManager.instantiate(ObjectManager.OBJ_CHOICE_PANEL)
+	choice_panel.criterion = GlobalInfo.assess_manager.get_criterion()
+	choice_panel.question = choice_panel.criterion.get_question()
+	GlobalInfo.combat_ui_overlay.add_child(choice_panel)
 
 
 func _on_health_component_health_depleted() -> void:
