@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://blfd7tomoo2ky"]
+
+[ext_resource type="Script" uid="uid://bicoqccf56tb2" path="res://globals/holders/projectile_holder/projectile_holder.gd" id="1_ahmtg"]
+
+[node name="ProjectileHolder" type="Node2D"]
+script = ExtResource("1_ahmtg")
