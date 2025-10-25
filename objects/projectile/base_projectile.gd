@@ -9,8 +9,9 @@ func initiate_projectile(vec: Vector2) -> void:
 	direction = vec
 
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	position += direction * delta
+	$Sprite2D.rotation += deg_to_rad(360) * delta
 
 
 func _on_area_entered(area: Area2D) -> void:

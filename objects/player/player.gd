@@ -1,9 +1,11 @@
 extends CharacterBody2D
 class_name Player
 
-@export var SPEED:float = 300.0
+@export var SPEED:float = 200.0
 
 @onready var stats = $Stats
+
+var last_direction: int = 1
 
 
 func _ready() -> void:
@@ -15,8 +17,20 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_vector("game_left","game_right","game_up","game_down").normalized()
-	direction.y *= 0.5
+	direction.y *= 0.75
 	velocity = direction * SPEED;
+
+	if velocity.x > 0:
+		last_direction = 1
+	elif velocity.x < 0:
+		last_direction = -1
+
+	$Sprite2D.scale.x = last_direction
+
+	if velocity.length() > 0:
+		$Sprite2D/PlayerSprite.animation = "walk"
+	else:
+		$Sprite2D/PlayerSprite.animation = "idle"
 
 	move_and_slide()
 

@@ -1,20 +1,21 @@
 [gd_scene load_steps=4 format=3 uid="uid://c0p4rc4vy31m"]
 
 [ext_resource type="Script" uid="uid://brpv4cyt6hyn7" path="res://objects/projectile/base_projectile.gd" id="1_6yivw"]
-[ext_resource type="Texture2D" uid="uid://cigsdewro07vk" path="res://icon.svg" id="2_ctmtx"]
+[ext_resource type="Texture2D" uid="uid://buuaf3wdlshc0" path="res://sprites/tiles/flower.png" id="2_ctmtx"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6yivw"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_4d8bg"]
+radius = 24.0
 
 [node name="TestProjectile" type="Area2D"]
 script = ExtResource("1_6yivw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(0.6340952, 0.6340952)
-shape = SubResource("RectangleShape2D_6yivw")
+shape = SubResource("CircleShape2D_4d8bg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(0.996558, 0.31296, 0.746188, 1)
-scale = Vector2(0.1, 0.1)
+position = Vector2(3, 2)
+scale = Vector2(0.21484375, 0.21484375)
 texture = ExtResource("2_ctmtx")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

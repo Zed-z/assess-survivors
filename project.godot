@@ -118,6 +118,10 @@ fullscreen={
 
 locale/translations=PackedStringArray("res://strings.en.translation", "res://strings.pl.translation")
 
+[physics]
+
+common/physics_interpolation=true
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
