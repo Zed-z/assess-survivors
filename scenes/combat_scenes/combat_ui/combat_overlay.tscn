@@ -19,6 +19,13 @@ mouse_filter = 2
 theme = ExtResource("1_n8r28")
 script = ExtResource("1_ylltj")
 
+[node name="WaveLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 719.0
+offset_top = 118.0
+offset_right = 759.0
+offset_bottom = 155.0
+
 [node name="ProgressBar" type="ProgressBar" parent="Control"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 1

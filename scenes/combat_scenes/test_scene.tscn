@@ -55,3 +55,6 @@ min_radius = 500.0
 max_radius = 600.0
 enemy = ExtResource("4_p4055")
 vaves = ExtResource("14_131tw")
+
+[node name="SpawnableArea" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-992, 321, -640, 447, 858, 500, 1429, 112, 1440, -484, 808, -684, -420, -677, -747, -662, -809, -525, -1401, -134)

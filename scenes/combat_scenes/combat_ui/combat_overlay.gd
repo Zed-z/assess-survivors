@@ -3,6 +3,7 @@ class_name UIOverley
 @onready var progress_bar: ProgressBar = $ProgressBar
 
 @onready var helth_bar: ProgressBar = $HelthBar
+@onready var wave_label: Label = $WaveLabel
 
 
 func _ready() -> void:

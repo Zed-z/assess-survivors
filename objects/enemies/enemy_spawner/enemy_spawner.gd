@@ -21,6 +21,7 @@ var spawned_enemies =0
 
 var enemies_array: SwapbackArray
 @onready var enemy_spawn_timer: Timer = $EnemySpawnTimer
+@onready var spawnable_area: CollisionPolygon2D = $"../SpawnableArea"
 
 
 func create_enemy()->Node2D:
@@ -113,9 +114,11 @@ func spawn_enemy():
 
 	add_child(e)
 	enemies_array.append(e)
+	spawnable_area
 	e.global_position = player.global_position + offset
 	e.vave_number = current_vave_index
 
 
 func _process(_delta: float) -> void:
 	pass
+	#GlobalInfo.combat_ui_overlay.wave_label.text = current_vave_data.get_status(counted_enemies,timer.time_left if timer else 0.0)
