@@ -48,7 +48,25 @@ position = Vector2(0, -21)
 tile_map_data = PackedByteArray("AAD//wQACwAAAAAAAAAAAP3/DAAAAAAAAAACAAYADQAAAAAAAAAEAAYADQAAAAAAAAAAAA0ADQAAAAAAAQAGAPv/DAAAAAAAAAAIAAEACwAAAAAAAAADAAkACwAAAAAAAAADAP//CwAAAAAAAAAGAA0ACwAAAAAAAAAFAA4ACwAAAAAAAAAIAAwACgAAAAAAAAAEAA0ACgAAAAAAAAAIAAQACgAAAAAAAAA=")
 tile_set = ExtResource("5_thkx5")
 
-[node name="Label" type="Label" parent="."]
+[node name="PlayerSprite" parent="Background" instance=ExtResource("6_4xg86")]
+position = Vector2(287, 479.99997)
+scale = Vector2(0.8664383, 0.8664384)
+
+[node name="Camera2D" type="Camera2D" parent="Background"]
+position = Vector2(640, 360)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_0ebjn")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -56,9 +74,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -451.5
-offset_top = -300.5
+offset_top = -240.5
 offset_right = 451.5
-offset_bottom = -23.5
+offset_bottom = 36.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_type_variation = &"TitleLabel"
@@ -66,50 +84,50 @@ theme_override_font_sizes/font_size = 100
 text = "DEADLY
     ASSESSMENT"
 
-[node name="Flower" type="Sprite2D" parent="Label"]
-position = Vector2(77.5, 201.5)
+[node name="Flower" type="Sprite2D" parent="CanvasLayer/Control/Label"]
+position = Vector2(557.5, 61.5)
 texture = ExtResource("4_uqeha")
 
-[node name="PlayerSprite" parent="Label" instance=ExtResource("6_4xg86")]
-position = Vector2(98.5, 420.49997)
-scale = Vector2(0.8664383, 0.8664384)
-
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -328.5
-offset_top = -168.0
-offset_right = 328.5
-offset_bottom = -83.0
+offset_left = -589.5
+offset_top = -177.0
+offset_right = 589.5
+offset_bottom = -92.0
 grow_horizontal = 2
 grow_vertical = 0
 alignment = 1
 
-[node name="Button" type="Button" parent="HBoxContainer"]
+[node name="ButtonPlay" type="Button" parent="CanvasLayer/Control/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "MAIN_MENU_PLAY"
 script = ExtResource("3_ob46e")
 scene = "test_scene"
 
-[node name="Button2" type="Button" parent="HBoxContainer"]
+[node name="ButtonAssess" type="Button" parent="CanvasLayer/Control/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "MAIN_MENU_ASSESS"
 script = ExtResource("3_ob46e")
 scene = "assess_test"
 
-[node name="SettingsButton" type="Button" parent="HBoxContainer"]
+[node name="SettingsButton" type="Button" parent="CanvasLayer/Control/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "MAIN_MENU_SETTINGS"
 
-[node name="ButtonQuit" type="Button" parent="HBoxContainer"]
+[node name="ButtonQuit" type="Button" parent="CanvasLayer/Control/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "MAIN_MENU_QUIT"
 
-[node name="Label2" type="Label" parent="."]
+[node name="Label2" type="Label" parent="CanvasLayer/Control"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -123,5 +141,5 @@ text = "© 2025"
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[connection signal="pressed" from="HBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/ButtonQuit" to="." method="_on_button_quit_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/HBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/HBoxContainer/ButtonQuit" to="." method="_on_button_quit_pressed"]
