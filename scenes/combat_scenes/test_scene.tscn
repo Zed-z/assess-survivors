@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=4 uid="uid://fnao1rs5haap"]
+[gd_scene load_steps=11 format=4 uid="uid://fnao1rs5haap"]
 
 [ext_resource type="PackedScene" uid="uid://ct88pvgyokerc" path="res://objects/player/player.tscn" id="1_41wyt"]
+[ext_resource type="PackedScene" uid="uid://blfd7tomoo2ky" path="res://globals/holders/projectile_holder/projectile_holder.tscn" id="1_gyrba"]
 [ext_resource type="Material" uid="uid://bahv2nf1ouhdy" path="res://materials/water.tres" id="1_p4055"]
 [ext_resource type="Material" uid="uid://d1581d5ay26af" path="res://materials/grass.tres" id="2_gyrba"]
 [ext_resource type="TileSet" uid="uid://cld71m6mttjlh" path="res://tilesets/tileset.tres" id="3_gyrba"]
@@ -11,6 +12,9 @@
 [ext_resource type="Resource" uid="uid://cqoxrismskjsx" path="res://objects/enemies/enemy_spawner/enemy_vave_data/vave_collections/wave_collection_1.tres" id="14_131tw"]
 
 [node name="TestScene" type="Node2D"]
+y_sort_enabled = true
+
+[node name="ProjectileHolder" parent="." instance=ExtResource("1_gyrba")]
 y_sort_enabled = true
 
 [node name="CombatUIOverlay" parent="." instance=ExtResource("6_1nlv8")]
