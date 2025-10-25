@@ -26,6 +26,7 @@ func _ready() -> void:
 	else:
 		%ButtonChooseRight.text = tr("CHOICE_PANEL_SPIN")
 
+	%ButtonChooseNone.text = tr("CHOICE_PANEL_NONE")
 	%IconChooseLeft.texture = criterion.icon
 	%IconChooseRight.texture = criterion.icon
 	%LabelName.text = tr(criterion.criterion_name)
@@ -42,4 +43,9 @@ func _on_button_choose_left_pressed() -> void:
 
 func _on_button_choose_right_pressed() -> void:
 	criterion.step(AssessCriterion.Answer.q)
+	queue_free()
+
+
+func _on_button_choose_none_pressed() -> void:
+	criterion.step(AssessCriterion.Answer.i)
 	queue_free()

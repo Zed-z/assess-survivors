@@ -28,6 +28,7 @@ LOADING,Loading...,Ładowanie...
 QUIT,Quit,Wyjdź
 CHOICE_PANEL_SAFE,Stay Safe,Pewna Opcja
 CHOICE_PANEL_SPIN,Spin the Wheel!,Zakręć Kołem!
+CHOICE_PANEL_NONE,Pick for me,Wybierz za mnie
 STAT_ATK,Attack,Atak
 STAT_HP,Health,Zdrowie
 STAT_SPD,Speed,Prędkość

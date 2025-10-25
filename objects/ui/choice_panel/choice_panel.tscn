@@ -42,7 +42,7 @@ layout_mode = 2
 [node name="LabelName" type="Label" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_font_sizes/font_size = 70
+theme_override_font_sizes/font_size = 38
 text = "Name"
 horizontal_alignment = 1
 
@@ -128,5 +128,13 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "CHOICE_PANEL_SPIN"
 
+[node name="ButtonChooseNone" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "CHOICE_PANEL_SAFE"
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer/ButtonChooseLeft" to="." method="_on_button_choose_left_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Panel2/VBoxContainer3/ButtonChooseRight" to="." method="_on_button_choose_right_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonChooseNone" to="." method="_on_button_choose_none_pressed"]
