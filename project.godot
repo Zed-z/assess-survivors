@@ -27,6 +27,14 @@ ScreenManager="*res://globals/screen_manager/screen_manager.tscn"
 SettingsManager="*res://globals/settings_manager/settings_manager.tscn"
 ObjectManager="*res://globals/object_manager/object_manager.tscn"
 
+[debug]
+
+gdscript/warnings/unused_variable=0
+gdscript/warnings/unused_local_constant=0
+gdscript/warnings/unused_private_class_variable=0
+gdscript/warnings/unused_parameter=0
+gdscript/warnings/unused_signal=0
+
 [display]
 
 window/size/viewport_width=1280

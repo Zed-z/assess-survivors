@@ -122,6 +122,8 @@ func spawn_enemy():
 
 	#a crude way of making enemies appear only on land
 	#ALERT: will not work when map is small
+	var spawn_try_tally := 0
+
 	while true:
 		var radius = randf_range(min_radius,max_radius)
 		var offset = Vector2(radius,0).rotated(randf_range(0,3.14 * 2))
@@ -133,13 +135,16 @@ func spawn_enemy():
 			if not Geometry2D.is_point_in_polygon(to_local(enemy_location),spawnable_area.polygon):
 				continue
 
+		spawn_try_tally += 1
+
+		if spawn_try_tally > 10:
+			printerr("tried to spawn enemy multiple times without succes")
+			return
+
 		break
 
 	call_deferred("add_child",e)
-
-
 	enemies_array.append(e)
-
 	e.global_position = enemy_location
 	e.vave_number = current_vave_index
 
