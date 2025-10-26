@@ -52,13 +52,8 @@ tile_set = ExtResource("5_thkx5")
 position = Vector2(287, 479.99997)
 scale = Vector2(0.8664383, 0.8664384)
 
-[node name="Camera2D" type="Camera2D" parent="Background"]
-position = Vector2(640, 360)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Control" type="Control" parent="CanvasLayer"]
-layout_mode = 3
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -66,7 +61,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_0ebjn")
 
-[node name="Label" type="Label" parent="CanvasLayer/Control"]
+[node name="Label" type="Label" parent="Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -84,11 +79,11 @@ theme_override_font_sizes/font_size = 100
 text = "DEADLY
     ASSESSMENT"
 
-[node name="Flower" type="Sprite2D" parent="CanvasLayer/Control/Label"]
+[node name="Flower" type="Sprite2D" parent="Control/Label"]
 position = Vector2(557.5, 61.5)
 texture = ExtResource("4_uqeha")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -103,31 +98,31 @@ grow_horizontal = 2
 grow_vertical = 0
 alignment = 1
 
-[node name="ButtonPlay" type="Button" parent="CanvasLayer/Control/HBoxContainer"]
+[node name="ButtonPlay" type="Button" parent="Control/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "MAIN_MENU_PLAY"
 script = ExtResource("3_ob46e")
 scene = "test_scene"
 
-[node name="ButtonAssess" type="Button" parent="CanvasLayer/Control/HBoxContainer"]
+[node name="ButtonAssess" type="Button" parent="Control/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "MAIN_MENU_ASSESS"
 script = ExtResource("3_ob46e")
 scene = "assess_test"
 
-[node name="SettingsButton" type="Button" parent="CanvasLayer/Control/HBoxContainer"]
+[node name="SettingsButton" type="Button" parent="Control/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "MAIN_MENU_SETTINGS"
 
-[node name="ButtonQuit" type="Button" parent="CanvasLayer/Control/HBoxContainer"]
+[node name="ButtonQuit" type="Button" parent="Control/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "MAIN_MENU_QUIT"
 
-[node name="Label2" type="Label" parent="CanvasLayer/Control"]
+[node name="Label2" type="Label" parent="Control"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -141,5 +136,5 @@ text = "© 2025"
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[connection signal="pressed" from="CanvasLayer/Control/HBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/HBoxContainer/ButtonQuit" to="." method="_on_button_quit_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/ButtonQuit" to="." method="_on_button_quit_pressed"]
