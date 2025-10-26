@@ -21,10 +21,10 @@ var spawned_enemies =0
 
 var enemies_array: SwapbackArray
 @onready var enemy_spawn_timer: Timer = $EnemySpawnTimer
-@onready var spawnable_area: CollisionPolygon2D = $"../SpawnableArea"
+@onready var spawnable_area: CollisionPolygon2D = $SpawnableArea
 
 
-func create_enemy()->Node2D:
+func create_enemy()->Enemy:
 	var index = MathUtils.choices_1f(cached_probabilities)
 	return current_vave_data.enemies[index].scene.instantiate()
 
@@ -116,14 +116,29 @@ func spawn_enemy():
 		return
 
 	spawned_enemies += 1
-	var radius = randf_range(min_radius,max_radius)
-	var offset = Vector2(radius,0).rotated(randf_range(0,3.14 * 2))
-	var e: Node2D = create_enemy()
+	var e: Enemy = create_enemy()
+
+	var enemy_location
+
+	#a crude way of making enemies appear only on land
+	#ALERT: will not work when map is small
+	while true:
+		var radius = randf_range(min_radius,max_radius)
+		var offset = Vector2(radius,0).rotated(randf_range(0,3.14 * 2))
+		enemy_location= player.global_position + offset
+
+		if not Geometry2D.is_point_in_polygon(to_local(enemy_location),spawnable_area.polygon):
+			enemy_location = player.global_position - offset
+
+			if not Geometry2D.is_point_in_polygon(to_local(enemy_location),spawnable_area.polygon):
+				continue
+
+		break
 
 	add_child(e)
 	enemies_array.append(e)
 
-	e.global_position = player.global_position + offset
+	e.global_position = enemy_location
 	e.vave_number = current_vave_index
 
 
