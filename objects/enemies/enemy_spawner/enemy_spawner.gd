@@ -135,7 +135,9 @@ func spawn_enemy():
 
 		break
 
-	add_child(e)
+	call_deferred("add_child",e)
+
+
 	enemies_array.append(e)
 
 	e.global_position = enemy_location
