@@ -31,7 +31,6 @@ func create_enemy()->Node2D:
 
 func new_vave():
 
-	print("new wejw")
 	var data = vaves.vaves.get(current_vave_index)
 
 	if data != null:
@@ -61,6 +60,9 @@ func new_vave():
 
 		enemy_spawn_timer.wait_time = 60.0 / current_vave_data.enemies_per_minute
 		enemy_spawn_timer.start()
+
+	else:
+		current_vave_data = null
 #endregion vaves
 
 signal enemy_killed(enemy: Enemy)
@@ -101,9 +103,15 @@ func remove_enemy(enemy_to_kill):
 
 func spawn_enemy():
 
+	#we fuinished all the vaves so we cannot spawn anything
+	if current_vave_data == null:
+		return
+
+	#we  reched the maximum number of enemies on the screen
 	if not enemies_array.size() < current_vave_data.enemy_cap:
 		return
 
+	#all enemies that belonged to the vave have been spawned
 	if spawned_enemies >= current_vave_data.enemies_to_spawn and current_vave_data.enemies_to_spawn > 0:
 		return
 
@@ -120,5 +128,7 @@ func spawn_enemy():
 
 
 func _process(_delta: float) -> void:
-	pass
-	GlobalInfo.combat_ui_overlay.wave_label.text = current_vave_data.get_status(counted_enemies,timer.time_left if timer else 0.0)
+	if current_vave_data:
+		GlobalInfo.combat_ui_overlay.wave_label.text = current_vave_data.get_status(counted_enemies,timer.time_left if timer else 0.0)
+	else:
+		GlobalInfo.combat_ui_overlay.wave_label.text = "all wawes finished"
