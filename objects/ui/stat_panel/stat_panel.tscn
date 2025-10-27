@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwenam73fitmy"]
+
+[ext_resource type="Theme" uid="uid://df2r57b2stnof" path="res://themes/ui.tres" id="1_j8gen"]
+[ext_resource type="Script" uid="uid://d1ic5iy214kv4" path="res://objects/ui/stat_panel/stat_panel.gd" id="2_k78dq"]
+[ext_resource type="PackedScene" uid="uid://8ihne73n7c5" path="res://objects/ui/stat_panel/stat_panel_item.tscn" id="3_v7j7w"]
+
+[node name="StatPanel" type="Panel"]
+custom_minimum_size = Vector2(300, 200)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -980.0
+offset_bottom = -520.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_j8gen")
+theme_type_variation = &"LightPanel"
+script = ExtResource("2_k78dq")
+item_display = ExtResource("3_v7j7w")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

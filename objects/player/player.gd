@@ -13,6 +13,7 @@ func _ready() -> void:
 
 	$HealthComponent.health_changed.connect(GlobalInfo.combat_ui_overlay.helth_bar.set_health)
 	$HealthComponent.max_health_changed.connect(GlobalInfo.combat_ui_overlay.helth_bar.set_max_health)
+	GlobalInfo.combat_ui_overlay.stat_panel.data_fill(stats.stats.values())
 
 
 func _physics_process(delta: float) -> void:
