@@ -7,7 +7,6 @@ var stat: BaseStat
 
 func data_fill(val: float) -> void:
 	%StatLabel.text = tr(stat.name) + " : " + "%0.2f" % val
-	print(stat.name + ":" + "%0.2f" % val)
 
 
 func _ready():
