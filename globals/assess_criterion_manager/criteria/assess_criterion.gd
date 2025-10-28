@@ -41,8 +41,16 @@ var left_bound: float
 var right_bound: float
 
 
-func step(answer: Answer):
+class StepAnswer:
+	var answer: Answer
+	var value: float
+
+
+func step(answer: Answer) -> StepAnswer:
 	var result: float
+
+	var ret: StepAnswer = StepAnswer.new()
+	ret.answer = answer
 
 	match answer:
 		Answer.p:
@@ -66,8 +74,10 @@ func step(answer: Answer):
 		Answer.i:
 			if randf() <= 0.5:
 				result = question.get_left().get_value()
+				ret.answer = Answer.p
 			else:
 				result = question.get_right().get_value()
+				ret.answer = Answer.q
 
 			do_preferred_none()
 			dialog_answers_count = 0
@@ -79,6 +89,9 @@ func step(answer: Answer):
 	do_change_question()
 
 	value_result.emit(result)
+
+	ret.value = result
+	return ret
 
 
 func do_point_append():

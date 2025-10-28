@@ -16,6 +16,14 @@
 [ext_resource type="Texture2D" uid="uid://culhnn44v0v71" path="res://sprites/ui/progressbar_on.png" id="6_jivjh"]
 [ext_resource type="Texture2D" uid="uid://qrdhtj2iamw8" path="res://sprites/ui/minipanel.png" id="10_sds01"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_31w7s"]
+texture = ExtResource("3_jivjh")
+texture_margin_left = 24.0
+texture_margin_top = 24.0
+texture_margin_right = 24.0
+texture_margin_bottom = 24.0
+region_rect = Rect2(34, 30, 274, 128)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_612vp"]
 texture = ExtResource("2_owxhb")
 texture_margin_left = 24.0
@@ -26,14 +34,6 @@ region_rect = Rect2(34, 30, 274, 128)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0oa1y"]
 texture = ExtResource("3_sds01")
-texture_margin_left = 24.0
-texture_margin_top = 24.0
-texture_margin_right = 24.0
-texture_margin_bottom = 24.0
-region_rect = Rect2(34, 30, 274, 128)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_31w7s"]
-texture = ExtResource("3_jivjh")
 texture_margin_left = 24.0
 texture_margin_top = 24.0
 texture_margin_right = 24.0
@@ -179,6 +179,7 @@ axis_stretch_vertical = 2
 [resource]
 Button/font_sizes/font_size = 32
 Button/fonts/font = ExtResource("1_h6ia1")
+Button/styles/disabled = SubResource("StyleBoxTexture_31w7s")
 Button/styles/focus = SubResource("StyleBoxTexture_612vp")
 Button/styles/hover = SubResource("StyleBoxTexture_0oa1y")
 Button/styles/normal = SubResource("StyleBoxTexture_31w7s")
