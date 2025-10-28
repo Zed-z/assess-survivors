@@ -11,6 +11,6 @@ func data_fill(val: float) -> void:
 
 
 func _ready():
-	print("my stat is " + stat.name)
+	%StatIcon.texture = stat.icon
 	data_fill(stat.value)
 	stat.value_changed.connect(data_fill)
