@@ -1,4 +1,4 @@
-extends Panel
+extends PanelContainer
 
 class_name StatPanel
 @export var stats: Array[BaseStat]
