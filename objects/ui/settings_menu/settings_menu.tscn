@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d2xe4jjrkjnh0"]
+[gd_scene load_steps=9 format=3 uid="uid://d2xe4jjrkjnh0"]
 
 [ext_resource type="Theme" uid="uid://df2r57b2stnof" path="res://themes/ui.tres" id="1_j78aw"]
 [ext_resource type="Script" uid="uid://cyq1ux3q7slto" path="res://objects/ui/settings_menu/settings_menu.gd" id="2_p28av"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cn1bd1qg3n8ff" path="res://objects/ui/volume_slider/volume_slider.tscn" id="3_vlvk0"]
 [ext_resource type="Script" uid="uid://co13x53vk5ehx" path="res://objects/ui/settings_menu/button_en.gd" id="4_6cw0p"]
 [ext_resource type="Script" uid="uid://dy0wjph0kkw1t" path="res://objects/ui/settings_menu/button_pl.gd" id="5_pf8so"]
+[ext_resource type="Script" uid="uid://qbw3tn4t6ack" path="res://objects/ui/settings_menu/button_de.gd" id="6_nrojl"]
 [ext_resource type="Script" uid="uid://dsr6wvf0ouvdd" path="res://objects/ui/settings_menu/fullscreen_button.gd" id="6_porcf"]
 
 [node name="SettingsMenu" type="Control"]
@@ -124,6 +125,11 @@ script = ExtResource("4_6cw0p")
 layout_mode = 2
 text = "SETTINGS_GENERAL_LANGUAGE_PL"
 script = ExtResource("5_pf8so")
+
+[node name="ButtonDE" type="Button" parent="Panel/General/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "SETTINGS_GENERAL_LANGUAGE_DE"
+script = ExtResource("6_nrojl")
 
 [node name="Video" type="Control" parent="Panel"]
 visible = false
@@ -296,3 +302,4 @@ SIL Open Font License, Version 1.1"
 [connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]
 [connection signal="pressed" from="Panel/General/VBoxContainer/MarginContainer/HBoxContainer/ButtonEN" to="Panel/General/VBoxContainer/MarginContainer/HBoxContainer/ButtonEN" method="_on_pressed"]
 [connection signal="pressed" from="Panel/General/VBoxContainer/MarginContainer/HBoxContainer/ButtonPL" to="Panel/General/VBoxContainer/MarginContainer/HBoxContainer/ButtonPL" method="_on_pressed"]
+[connection signal="pressed" from="Panel/General/VBoxContainer/MarginContainer/HBoxContainer/ButtonDE" to="Panel/General/VBoxContainer/MarginContainer/HBoxContainer/ButtonDE" method="_on_pressed"]

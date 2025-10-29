@@ -1,41 +1,42 @@
-key,en,pl
-GAME_TITLE,Indecision of\nArthur Sess,Niezdecydowanie\nArtura Sessa
-MENU_BACK,Back,Wstecz
-MAIN_MENU_PLAY,Play,Graj
-MAIN_MENU_QUIT,Quit,Wyjdź
-MAIN_MENU_SETTINGS,Settings,Ustawienia
-MAIN_MENU_ASSESS,ASSESS,ASSESS
-MAIN_MENU_COPYRIGHT,© 2025,© 2025
-ASSESS_TEST_PREFER_LEFT,Prefer Left,Preferuj Lewe
-ASSESS_TEST_PREFER_RIGHT,Prefer Right,Preferuj Prawe
-ASSESS_TEST_INDIFFERENT,Indifferent,Obojętnie Mi
-ASSESS_TEST_SCENARIO,Test Scenario,Scenariusz Testowy
-AUDIO_BUS_MASTER,Master,Ogólny
-AUDIO_BUS_MUSIC,Music,Muzyka
-AUDIO_BUS_EFFECTS,Effects,Efekty
-SETTINGS_TAB_GENERAL,General,Ogólne
-SETTINGS_TITLE_GENERAL,General Settings,Ogólne Ustawienia
-SETTINGS_GENERAL_LANGUAGE,Language,Język
-SETTINGS_GENERAL_LANGUAGE_EN,English,English
-SETTINGS_GENERAL_LANGUAGE_PL,Polski,Polski
-SETTINGS_TAB_VIDEO,Video,Grafika
-SETTINGS_TITLE_VIDEO,Video Settings,Ustawienia Graficzne
-SETTINGS_VIDEO_FULLSCREEN,Fullscreen,Pełny Ekran
-SETTINGS_TAB_AUDIO,Audio,Dźwięk
-SETTINGS_TITLE_AUDIO,Audio Settings,Ustawienia Dźwięku
-SETTINGS_TAB_CREDITS,Credits,Autorzy
-SETTINGS_TITLE_CREDITS,Credits,Autorzy
-GAMEPLAY_LEVEL_BAR,Level %s (%s / %s XP),Poziom %s (%s / %s PD)
-GAMEPLAY_SCORE_COUNTER,Score\n%08d,Wynik\n%08d
-LOADING,Loading...,Ładowanie...
-QUIT,Quit,Wyjdź
-CHOICE_PANEL_SAFE,Stay Safe,Pewna Opcja
-CHOICE_PANEL_SPIN,Spin the Wheel!,Zakręć Kołem!
-CHOICE_PANEL_NONE,Pick for me,Wybierz za mnie
-END_SCREEN_TITLE,Game Over!,Koniec Gry!
-END_SCREEN_SCORE_COUNTER,Final Score: %08d,Ostateczny Wynik: %08d
-END_SCREEN_MAIN_MENU,Back to Menu,Wróć do Menu
-STAT_ATK,Attack,Atak
-STAT_HP,Health,Zdrowie
-STAT_SPD,Speed,Prędkość
-STAT_DEF,Defense,Obrona
+key,en,pl,de
+GAME_TITLE,The Indecision of\nArthur Sess,Niezdecydowanie\nArtura Sessa,Die Unentschlossenheit\nvon Arthur Sess
+MENU_BACK,Back,Wstecz,Zurück
+MAIN_MENU_PLAY,Play,Graj,Spielen
+MAIN_MENU_QUIT,Quit,Wyjdź,Beenden
+MAIN_MENU_SETTINGS,Settings,Ustawienia,Einstellungen
+MAIN_MENU_ASSESS,ASSESS,ASSESS,ASSESS
+MAIN_MENU_COPYRIGHT,© 2025,© 2025,© 2025
+ASSESS_TEST_PREFER_LEFT,Prefer Left,Preferuj Lewe,Bevor Links
+ASSESS_TEST_PREFER_RIGHT,Prefer Right,Preferuj Prawe,Bevor Rechts
+ASSESS_TEST_INDIFFERENT,Indifferent,Obojętnie Mi,Egal
+ASSESS_TEST_SCENARIO,Test Scenario,Scenariusz Testowy,Testszenario
+AUDIO_BUS_MASTER,Master,Ogólny,Gesamt
+AUDIO_BUS_MUSIC,Music,Muzyka,Musik
+AUDIO_BUS_EFFECTS,Effects,Efekty,Effekte
+SETTINGS_TAB_GENERAL,General,Ogólne,Algemein
+SETTINGS_TITLE_GENERAL,General Settings,Ogólne Ustawienia,Algemeine Einstellungen
+SETTINGS_GENERAL_LANGUAGE,Language,Język,Sprache
+SETTINGS_GENERAL_LANGUAGE_EN,English,English,English
+SETTINGS_GENERAL_LANGUAGE_PL,Polski,Polski,Polski
+SETTINGS_GENERAL_LANGUAGE_DE,Deutsch,Deutsch,Deutsch
+SETTINGS_TAB_VIDEO,Video,Grafika,Grafik
+SETTINGS_TITLE_VIDEO,Video Settings,Ustawienia Graficzne,Grafikeinstellungen
+SETTINGS_VIDEO_FULLSCREEN,Fullscreen,Pełny Ekran,Vollbild
+SETTINGS_TAB_AUDIO,Audio,Dźwięk,Audio
+SETTINGS_TITLE_AUDIO,Audio Settings,Ustawienia Dźwięku,Audioeinstellungen
+SETTINGS_TAB_CREDITS,Credits,Autorzy,Credits
+SETTINGS_TITLE_CREDITS,Credits,Autorzy,Credits
+GAMEPLAY_LEVEL_BAR,Level %s (%s / %s XP),Poziom %s (%s / %s PD),Level %s (%s / %s XP)
+GAMEPLAY_SCORE_COUNTER,Score\n%08d,Wynik\n%08d,Punktzahl\n%08d
+LOADING,Loading...,Ładowanie...,Laden...
+QUIT,Quit,Wyjdź,Beenden
+CHOICE_PANEL_SAFE,Stay Safe,Pewna Opcja,Sicher Option
+CHOICE_PANEL_SPIN,Spin the Wheel!,Zakręć Kołem!,Dreh das Rad!
+CHOICE_PANEL_NONE,Pick for me,Wybierz za mnie,Für mich auswählen
+END_SCREEN_TITLE,Game Over!,Koniec Gry!,Spiel Vorbei!
+END_SCREEN_SCORE_COUNTER,Final Score: %08d,Ostateczny Wynik: %08d,Endpunktzahl: %08d
+END_SCREEN_MAIN_MENU,Back to Menu,Wróć do Menu,Menü Zurück
+STAT_ATK,Attack,Atak,Angriff
+STAT_HP,Health,Zdrowie,Gesundheit
+STAT_SPD,Speed,Prędkość,Geschwindigkeit
+STAT_DEF,Defense,Obrona,Verteidigung

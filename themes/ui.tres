@@ -3,7 +3,6 @@
 [ext_resource type="FontFile" uid="uid://ccu7qrtecogan" path="res://fonts/smallburg_font_1_04/TrueType (.ttf)/smallburg-Regular.ttf" id="1_h6ia1"]
 [ext_resource type="Texture2D" uid="uid://s2ls5uy6e3f2" path="res://sprites/ui/panel_background.png" id="2_bhwv2"]
 [ext_resource type="Texture2D" uid="uid://b08v68ef7qcbc" path="res://sprites/ui/new_button_focus.png" id="2_owxhb"]
-[ext_resource type="FontFile" uid="uid://bgsae7qrln08u" path="res://fonts/Gotfridus_Font_0_5/Gotfridus.ttf" id="3_bhwv2"]
 [ext_resource type="Texture2D" uid="uid://droibt6ng3cc2" path="res://sprites/ui/tab_active.png" id="3_hbfgb"]
 [ext_resource type="Texture2D" uid="uid://xt55dq1boi26" path="res://sprites/ui/new_button.png" id="3_jivjh"]
 [ext_resource type="Texture2D" uid="uid://cb3py36yi8h06" path="res://sprites/ui/new_button_active.png" id="3_sds01"]
@@ -15,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cd8l6up6px067" path="res://sprites/ui/check_off.png" id="5_owxhb"]
 [ext_resource type="Texture2D" uid="uid://culhnn44v0v71" path="res://sprites/ui/progressbar_on.png" id="6_jivjh"]
 [ext_resource type="Texture2D" uid="uid://qrdhtj2iamw8" path="res://sprites/ui/minipanel.png" id="10_sds01"]
+[ext_resource type="FontFile" uid="uid://cf43bv3bi7jwi" path="res://fonts/MisterBrush_Font_1_0/MisterBrush.ttf" id="15_sds01"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_31w7s"]
 texture = ExtResource("3_jivjh")
@@ -227,8 +227,8 @@ TabContainer/styles/panel = SubResource("StyleBoxTexture_h6ia1")
 TabContainer/styles/tab_focus = SubResource("StyleBoxFlat_h6ia1")
 TabContainer/styles/tab_selected = SubResource("StyleBoxTexture_v6eyv")
 TitleLabel/base_type = &"Label"
-TitleLabel/colors/font_shadow_color = Color(0, 0, 0, 1)
-TitleLabel/constants/shadow_offset_x = 8
-TitleLabel/constants/shadow_offset_y = 8
-TitleLabel/fonts/font = ExtResource("3_bhwv2")
+TitleLabel/colors/font_color = Color(0.90588236, 0.7607843, 0.5803922, 1)
+TitleLabel/colors/font_outline_color = Color(0.26666668, 0.26666668, 0.1764706, 1)
+TitleLabel/constants/outline_size = 64
+TitleLabel/fonts/font = ExtResource("15_sds01")
 VBoxContainer/constants/separation = 10
