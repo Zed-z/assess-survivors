@@ -37,6 +37,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_levels_new_level(level: int) -> void:
+	GlobalInfo.score_manager.score_increase(1000)
 	var choice_panel: ChoicePanel = ObjectManager.instantiate(ObjectManager.OBJ_CHOICE_PANEL)
 	choice_panel.criterion = GlobalInfo.assess_manager.get_criterion()
 	choice_panel.question = choice_panel.criterion.get_question()
@@ -45,7 +46,8 @@ func _on_levels_new_level(level: int) -> void:
 
 func _on_health_component_health_depleted() -> void:
 	print("You Died")
-	get_tree().paused = true
+	var end_screen: EndScreen = ObjectManager.instantiate(ObjectManager.OBJ_END_SCREEN)
+	GlobalInfo.combat_ui_overlay.add_child(end_screen)
 
 
 func _on_health_component_got_hit() -> void:

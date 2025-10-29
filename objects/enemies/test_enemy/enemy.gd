@@ -20,3 +20,4 @@ func _physics_process(_delta: float) -> void:
 
 func die():
 	get_parent().remove_enemy(self)
+	GlobalInfo.score_manager.score_increase(100)

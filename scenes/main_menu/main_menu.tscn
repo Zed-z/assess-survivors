@@ -76,11 +76,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_type_variation = &"TitleLabel"
 theme_override_font_sizes/font_size = 100
-text = "DEADLY
-    ASSESSMENT"
+text = "INDECISION OF
+ARTHUR SESS"
 
 [node name="Flower" type="Sprite2D" parent="Control/Label"]
-position = Vector2(557.5, 61.5)
+position = Vector2(879.5, 135.5)
 texture = ExtResource("4_uqeha")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control"]

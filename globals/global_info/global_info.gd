@@ -5,6 +5,7 @@ var combat_ui_overlay: UIOverley
 var enemy_spawner: EnemySpawner
 var assess_manager: AssessManagerClass
 var projectile_holder: ProjectileHolder
+var score_manager: ScoreManager
 
 
 func _ready() -> void:
