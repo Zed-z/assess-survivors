@@ -1,9 +1,11 @@
 key,en,pl
+GAME_TITLE,Indecision of\nArthur Sess,Niezdecydowanie\nArtura Sessa
 MENU_BACK,Back,Wstecz
 MAIN_MENU_PLAY,Play,Graj
 MAIN_MENU_QUIT,Quit,Wyjdź
 MAIN_MENU_SETTINGS,Settings,Ustawienia
 MAIN_MENU_ASSESS,ASSESS,ASSESS
+MAIN_MENU_COPYRIGHT,© 2025,© 2025
 ASSESS_TEST_PREFER_LEFT,Prefer Left,Preferuj Lewe
 ASSESS_TEST_PREFER_RIGHT,Prefer Right,Preferuj Prawe
 ASSESS_TEST_INDIFFERENT,Indifferent,Obojętnie Mi
@@ -24,11 +26,15 @@ SETTINGS_TITLE_AUDIO,Audio Settings,Ustawienia Dźwięku
 SETTINGS_TAB_CREDITS,Credits,Autorzy
 SETTINGS_TITLE_CREDITS,Credits,Autorzy
 GAMEPLAY_LEVEL_BAR,Level %s (%s / %s XP),Poziom %s (%s / %s PD)
+GAMEPLAY_SCORE_COUNTER,Score\n%08d,Wynik\n%08d
 LOADING,Loading...,Ładowanie...
 QUIT,Quit,Wyjdź
 CHOICE_PANEL_SAFE,Stay Safe,Pewna Opcja
 CHOICE_PANEL_SPIN,Spin the Wheel!,Zakręć Kołem!
 CHOICE_PANEL_NONE,Pick for me,Wybierz za mnie
+END_SCREEN_TITLE,Game Over!,Koniec Gry!
+END_SCREEN_SCORE_COUNTER,Final Score: %08d,Ostateczny Wynik: %08d
+END_SCREEN_MAIN_MENU,Back to Menu,Wróć do Menu
 STAT_ATK,Attack,Atak
 STAT_HP,Health,Zdrowie
 STAT_SPD,Speed,Prędkość

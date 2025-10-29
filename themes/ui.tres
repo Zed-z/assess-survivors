@@ -16,6 +16,14 @@
 [ext_resource type="Texture2D" uid="uid://culhnn44v0v71" path="res://sprites/ui/progressbar_on.png" id="6_jivjh"]
 [ext_resource type="Texture2D" uid="uid://qrdhtj2iamw8" path="res://sprites/ui/minipanel.png" id="10_sds01"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_31w7s"]
+texture = ExtResource("3_jivjh")
+texture_margin_left = 24.0
+texture_margin_top = 24.0
+texture_margin_right = 24.0
+texture_margin_bottom = 24.0
+region_rect = Rect2(34, 30, 274, 128)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_612vp"]
 texture = ExtResource("2_owxhb")
 texture_margin_left = 24.0
@@ -26,14 +34,6 @@ region_rect = Rect2(34, 30, 274, 128)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0oa1y"]
 texture = ExtResource("3_sds01")
-texture_margin_left = 24.0
-texture_margin_top = 24.0
-texture_margin_right = 24.0
-texture_margin_bottom = 24.0
-region_rect = Rect2(34, 30, 274, 128)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_31w7s"]
-texture = ExtResource("3_jivjh")
 texture_margin_left = 24.0
 texture_margin_top = 24.0
 texture_margin_right = 24.0
@@ -69,10 +69,10 @@ expand_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_41f1y"]
 texture = ExtResource("10_sds01")
-texture_margin_left = 40.0
-texture_margin_top = 40.0
-texture_margin_right = 40.0
-texture_margin_bottom = 40.0
+texture_margin_left = 24.0
+texture_margin_top = 24.0
+texture_margin_right = 24.0
+texture_margin_bottom = 24.0
 region_rect = Rect2(7, 7, 175, 174)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7gpds"]
@@ -177,8 +177,11 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 
 [resource]
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 4
 Button/font_sizes/font_size = 32
 Button/fonts/font = ExtResource("1_h6ia1")
+Button/styles/disabled = SubResource("StyleBoxTexture_31w7s")
 Button/styles/focus = SubResource("StyleBoxTexture_612vp")
 Button/styles/hover = SubResource("StyleBoxTexture_0oa1y")
 Button/styles/normal = SubResource("StyleBoxTexture_31w7s")
@@ -199,6 +202,10 @@ HSlider/icons/grabber_highlight = ExtResource("5_jln3u")
 HSlider/styles/grabber_area = SubResource("StyleBoxTexture_sds01")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_sds01")
 HSlider/styles/slider = SubResource("StyleBoxFlat_612vp")
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0.49803922)
+Label/constants/outline_size = 4
+Label/constants/shadow_offset_y = 2
 Label/font_sizes/font_size = 32
 Label/fonts/font = ExtResource("1_h6ia1")
 LightPanel/base_type = &"Panel"
@@ -207,6 +214,7 @@ Panel/styles/panel = SubResource("StyleBoxTexture_7gpds")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_sds01")
 ProgressBar/styles/fill = SubResource("StyleBoxTexture_owxhb")
 TabBar/constants/h_separation = 200
+TabBar/constants/outline_size = 4
 TabBar/font_sizes/font_size = 28
 TabBar/fonts/font = ExtResource("1_h6ia1")
 TabBar/styles/tab_focus = SubResource("StyleBoxTexture_jln3u")

@@ -1,8 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://bgiawodt7wvts"]
+[gd_scene load_steps=6 format=3 uid="uid://bgiawodt7wvts"]
 
 [ext_resource type="Theme" uid="uid://df2r57b2stnof" path="res://themes/ui.tres" id="1_1p5cp"]
 [ext_resource type="Texture2D" uid="uid://cigsdewro07vk" path="res://icon.svg" id="2_4fn4h"]
 [ext_resource type="Script" uid="uid://dp4fsgcjkh8hc" path="res://objects/ui/choice_panel/choice_panel.gd" id="2_w0mb8"]
+
+[sub_resource type="Animation" id="Animation_w0mb8"]
+resource_name = "choose_left"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_goghf"]
+_data = {
+&"choose_left": SubResource("Animation_w0mb8")
+}
 
 [node name="ChoiceMenu" type="Control"]
 process_mode = 3
@@ -36,94 +44,122 @@ theme_override_constants/margin_top = 80
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 40
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="Control" parent="MarginContainer"]
 layout_mode = 2
+
+[node name="LabelOr" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -18.5
+offset_right = 75.0
+offset_bottom = 18.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "OR..."
+horizontal_alignment = 1
 
 [node name="LabelName" type="Label" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -42.0
+offset_right = 42.0
+offset_bottom = 44.0
+grow_horizontal = 2
 theme_override_font_sizes/font_size = 38
 text = "Name"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-alignment = 1
-
-[node name="Panel" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(480, 0)
-layout_mode = 2
+[node name="ChoiceLeft" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -241.0
+offset_right = 400.0
+offset_bottom = 241.0
+grow_vertical = 2
 theme_type_variation = &"LightPanel"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ChoiceLeft"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 40
 alignment = 1
 
-[node name="IconChooseLeft" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer"]
+[node name="IconChooseLeft" type="TextureRect" parent="MarginContainer/VBoxContainer/ChoiceLeft/VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(256, 256)
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("2_4fn4h")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="LabelChooseLeft" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer"]
+[node name="LabelChooseLeft" type="Label" parent="MarginContainer/VBoxContainer/ChoiceLeft/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "ATK: 100"
 horizontal_alignment = 1
 
-[node name="ButtonChooseLeft" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer"]
+[node name="ButtonChooseLeft" type="Button" parent="MarginContainer/VBoxContainer/ChoiceLeft/VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "CHOICE_PANEL_SAFE"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-theme_override_constants/separation = 40
-alignment = 1
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
-layout_mode = 2
-text = "OR..."
-horizontal_alignment = 1
-
-[node name="Panel2" type="PanelContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(480, 0)
-layout_mode = 2
+[node name="ChoiceRight" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -261.0
+offset_bottom = 261.0
+grow_horizontal = 0
+grow_vertical = 2
 theme_type_variation = &"LightPanel"
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/Panel2"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ChoiceRight"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 40
 alignment = 1
 
-[node name="IconChooseRight" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/Panel2/VBoxContainer3"]
+[node name="IconChooseRight" type="TextureRect" parent="MarginContainer/VBoxContainer/ChoiceRight/VBoxContainer3"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(256, 256)
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("2_4fn4h")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="LabelChooseRight" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/Panel2/VBoxContainer3"]
+[node name="LabelChooseRight" type="Label" parent="MarginContainer/VBoxContainer/ChoiceRight/VBoxContainer3"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "ATK: 10 (50%) / 200 (50%)"
+text = "ATK: 10 (50%)
+200 (50%)"
 horizontal_alignment = 1
 
-[node name="ButtonChooseRight" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/Panel2/VBoxContainer3"]
+[node name="ButtonChooseRight" type="Button" parent="MarginContainer/VBoxContainer/ChoiceRight/VBoxContainer3"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "CHOICE_PANEL_SPIN"
@@ -131,10 +167,54 @@ text = "CHOICE_PANEL_SPIN"
 [node name="ButtonChooseNone" type="Button" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 0)
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -85.0
+offset_right = 200.0
+grow_horizontal = 2
+grow_vertical = 0
 size_flags_horizontal = 4
 text = "CHOICE_PANEL_SAFE"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Panel/VBoxContainer/ButtonChooseLeft" to="." method="_on_button_choose_left_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Panel2/VBoxContainer3/ButtonChooseRight" to="." method="_on_button_choose_right_pressed"]
+[node name="ChoiceFinalPosition" type="Control" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ChoiceOffscreen" type="Control" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 736.0
+offset_bottom = 736.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_goghf")
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ChoiceLeft/VBoxContainer/ButtonChooseLeft" to="." method="_on_button_choose_left_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ChoiceRight/VBoxContainer3/ButtonChooseRight" to="." method="_on_button_choose_right_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonChooseNone" to="." method="_on_button_choose_none_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

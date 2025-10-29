@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bh5tkxvg8jh42"]
+[gd_scene load_steps=6 format=3 uid="uid://bh5tkxvg8jh42"]
 
 [ext_resource type="Theme" uid="uid://df2r57b2stnof" path="res://themes/ui.tres" id="1_n8r28"]
 [ext_resource type="Script" uid="uid://2850i5pp8lmf" path="res://scenes/combat_scenes/combat_ui/combat_overlay.gd" id="1_ylltj"]
 [ext_resource type="Script" uid="uid://bfn4l4e5i8p0j" path="res://scenes/main_menu/change_scene_button.gd" id="3_0c1yk"]
 [ext_resource type="Script" uid="uid://dvlwdde65sqw2" path="res://scenes/combat_scenes/combat_ui/helth_bar.gd" id="4_1bpvo"]
+[ext_resource type="PackedScene" uid="uid://cwenam73fitmy" path="res://objects/ui/stat_panel/stat_panel.tscn" id="5_hdsv1"]
 
 [node name="CombatUIOverlay" type="CanvasLayer"]
 
@@ -19,27 +20,62 @@ mouse_filter = 2
 theme = ExtResource("1_n8r28")
 script = ExtResource("1_ylltj")
 
-[node name="WaveLabel" type="Label" parent="Control"]
-layout_mode = 0
-offset_left = 719.0
-offset_top = 118.0
-offset_right = 759.0
-offset_bottom = 155.0
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
-[node name="ProgressBar" type="ProgressBar" parent="Control"]
+[node name="Control" type="Control" parent="Control/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="WaveLabel" type="Label" parent="Control/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -140.0
+offset_top = -37.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "WAVE STATUS"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="ScoreLabel" type="Label" parent="Control/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -170.0
+offset_bottom = 37.0
+grow_horizontal = 0
+text = "GAMEPLAY_SCORE_COUNTER"
+horizontal_alignment = 2
+
+[node name="LevelBar" type="ProgressBar" parent="Control/MarginContainer/Control"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -382.0
-offset_top = 16.0
 offset_right = 382.0
-offset_bottom = 51.0
+offset_bottom = 35.0
 grow_horizontal = 2
 show_percentage = false
 
-[node name="Label" type="Label" parent="Control/ProgressBar"]
+[node name="Label" type="Label" parent="Control/MarginContainer/Control/LevelBar"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -57,20 +93,33 @@ text = "GAMEPLAY_LEVEL_BAR"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="Control"]
+[node name="QuitButton" type="Button" parent="Control/MarginContainer/Control"]
 layout_mode = 1
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 118.0
-offset_bottom = 105.0
+offset_right = 98.0
+offset_bottom = 85.0
 text = "QUIT"
 script = ExtResource("3_0c1yk")
 scene = "main_menu"
 
-[node name="HelthBar" type="ProgressBar" parent="Control"]
-layout_mode = 0
-offset_left = 254.0
-offset_top = 105.0
-offset_right = 618.0
-offset_bottom = 132.0
+[node name="HealthBar" type="ProgressBar" parent="Control/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -182.0
+offset_top = -27.0
+offset_right = 182.0
+grow_horizontal = 2
+grow_vertical = 0
 script = ExtResource("4_1bpvo")
+
+[node name="StatPanel" parent="Control/MarginContainer/Control" instance=ExtResource("5_hdsv1")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -100.0
+offset_bottom = 0.0
+grow_vertical = 0

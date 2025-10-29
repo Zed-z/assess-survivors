@@ -75,7 +75,7 @@ metadata/_custom_type_script = "uid://008ins25r0w8"
 script = ExtResource("8_m4kly")
 
 [node name="Timer" type="Timer" parent="Hurtbox"]
-wait_time = 5.0
+wait_time = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("RectangleShape2D_ow0dq")
