@@ -1,6 +1,7 @@
-[gd_scene load_steps=29 format=3 uid="uid://ckq354kcg7bnv"]
+[gd_scene load_steps=30 format=3 uid="uid://ckq354kcg7bnv"]
 
 [ext_resource type="Script" uid="uid://gohumc4rt4ne" path="res://objects/enemies/test_enemy/enemy.gd" id="1_uuu8t"]
+[ext_resource type="Script" uid="uid://cnwb66k0tvq7m" path="res://objects/enemies/test_enemy/move_controller/ranger_move_controller.gd" id="2_fg4xr"]
 [ext_resource type="Texture2D" uid="uid://co25ljbuhtkla" path="res://sprites/mobs/slime.png" id="2_uuu8t"]
 [ext_resource type="Script" uid="uid://bfk4pro2k5bf6" path="res://objects/enemies/test_enemy/enemy_hurt_box.gd" id="3_glk4a"]
 [ext_resource type="Script" uid="uid://008ins25r0w8" path="res://components/health_component.gd" id="4_nt6gy"]
@@ -166,6 +167,10 @@ animations = [{
 
 [node name="TestEnemy" type="CharacterBody2D"]
 script = ExtResource("1_uuu8t")
+
+[node name="MoveController" type="Node2D" parent="."]
+script = ExtResource("2_fg4xr")
+metadata/_custom_type_script = "uid://cnwb66k0tvq7m"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ck1x7")

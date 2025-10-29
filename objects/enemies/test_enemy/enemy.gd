@@ -4,6 +4,8 @@ var target: Player
 
 var vave_number: int
 
+@onready var move_controller:MoveController = $MoveController
+
 
 func get_contact_dmg() -> int:
 	return 1
@@ -14,7 +16,7 @@ func _ready() -> void:
 
 
 func _physics_process(_delta: float) -> void:
-	velocity = (target.position- position).normalized() * 10
+	velocity = move_controller.get_velocity()
 	move_and_slide()
 
 
