@@ -128,7 +128,7 @@ force_level={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://strings.en.translation", "res://strings.pl.translation", "res://strings.de.translation", "res://strings.nh.translation")
+locale/translations=PackedStringArray("res://strings.en.translation", "res://strings.pl.translation", "res://strings.de.translation", "res://strings.ja.translation")
 
 [physics]
 

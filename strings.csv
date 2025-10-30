@@ -1,4 +1,4 @@
-key,en,pl,de,nh
+key,en,pl,de,ja
 GAME_TITLE,The Indecision of\nArthur Sess,Niezdecydowanie\nArtura Sessa,Die Unentschlossenheit\nvon Arthur Sess,アーサーセッスの\n優柔不断 
 MENU_BACK,Back,Wstecz,Zurück,バック 
 MAIN_MENU_PLAY,Play,Graj,Spielen,プレー 
@@ -19,6 +19,7 @@ SETTINGS_GENERAL_LANGUAGE,Language,Język,Sprache,言葉
 SETTINGS_GENERAL_LANGUAGE_EN,English,English,English,English
 SETTINGS_GENERAL_LANGUAGE_PL,Polski,Polski,Polski,Polski
 SETTINGS_GENERAL_LANGUAGE_DE,Deutsch,Deutsch,Deutsch,Deutsch
+SETTINGS_GENERAL_LANGUAGE_JA,日本語,日本語,日本語,日本語
 SETTINGS_TAB_VIDEO,Video,Grafika,Grafik,グラフィックス
 SETTINGS_TITLE_VIDEO,Video Settings,Ustawienia Graficzne,Grafikeinstellungen,グラフィックスのせってい
 SETTINGS_VIDEO_FULLSCREEN,Fullscreen,Pełny Ekran,Vollbild,全画面 
@@ -28,7 +29,7 @@ SETTINGS_TAB_CREDITS,Credits,Autorzy,Credits,クレジット
 SETTINGS_TITLE_CREDITS,Credits,Autorzy,Credits,クレジット
 GAMEPLAY_LEVEL_BAR,Level %s (%s / %s XP),Poziom %s (%s / %s PD),Level %s (%s / %s XP),レベル %s (%s / %s XP)
 GAMEPLAY_SCORE_COUNTER,Score\n%08d,Wynik\n%08d,Punktzahl\n%08d,結果
-LOADING,Loading...,Ładowanie...,Laden...,ランディング。。。
+LOADING,Loading...,Ładowanie...,Laden...,ロード中。。。
 QUIT,Quit,Wyjdź,Beenden,終了
 CHOICE_PANEL_SAFE,Stay Safe,Pewna Opcja,Sicher Option,お大事に
 CHOICE_PANEL_SPIN,Spin the Wheel!,Zakręć Kołem!,Dreh das Rad!,ホイールを回す

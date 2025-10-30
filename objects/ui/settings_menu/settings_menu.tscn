@@ -134,7 +134,7 @@ script = ExtResource("6_nrojl")
 
 [node name="ButtonNH" type="Button" parent="Panel/General/VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
-text = "SETTINGS_GENERAL_LANGUAGE_NH"
+text = "SETTINGS_GENERAL_LANGUAGE_JA"
 script = ExtResource("7_cbb5h")
 
 [node name="Video" type="Control" parent="Panel"]
