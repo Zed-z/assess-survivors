@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d2xe4jjrkjnh0"]
+[gd_scene load_steps=10 format=3 uid="uid://d2xe4jjrkjnh0"]
 
 [ext_resource type="Theme" uid="uid://df2r57b2stnof" path="res://themes/ui.tres" id="1_j78aw"]
 [ext_resource type="Script" uid="uid://cyq1ux3q7slto" path="res://objects/ui/settings_menu/settings_menu.gd" id="2_p28av"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://dy0wjph0kkw1t" path="res://objects/ui/settings_menu/button_pl.gd" id="5_pf8so"]
 [ext_resource type="Script" uid="uid://qbw3tn4t6ack" path="res://objects/ui/settings_menu/button_de.gd" id="6_nrojl"]
 [ext_resource type="Script" uid="uid://dsr6wvf0ouvdd" path="res://objects/ui/settings_menu/fullscreen_button.gd" id="6_porcf"]
+[ext_resource type="Script" uid="uid://do5v087546avq" path="res://objects/ui/settings_menu/button_nh.gd" id="7_cbb5h"]
 
 [node name="SettingsMenu" type="Control"]
 layout_mode = 3
@@ -130,6 +131,11 @@ script = ExtResource("5_pf8so")
 layout_mode = 2
 text = "SETTINGS_GENERAL_LANGUAGE_DE"
 script = ExtResource("6_nrojl")
+
+[node name="ButtonNH" type="Button" parent="Panel/General/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "SETTINGS_GENERAL_LANGUAGE_NH"
+script = ExtResource("7_cbb5h")
 
 [node name="Video" type="Control" parent="Panel"]
 visible = false
@@ -303,3 +309,4 @@ SIL Open Font License, Version 1.1"
 [connection signal="pressed" from="Panel/General/VBoxContainer/MarginContainer/HBoxContainer/ButtonEN" to="Panel/General/VBoxContainer/MarginContainer/HBoxContainer/ButtonEN" method="_on_pressed"]
 [connection signal="pressed" from="Panel/General/VBoxContainer/MarginContainer/HBoxContainer/ButtonPL" to="Panel/General/VBoxContainer/MarginContainer/HBoxContainer/ButtonPL" method="_on_pressed"]
 [connection signal="pressed" from="Panel/General/VBoxContainer/MarginContainer/HBoxContainer/ButtonDE" to="Panel/General/VBoxContainer/MarginContainer/HBoxContainer/ButtonDE" method="_on_pressed"]
+[connection signal="pressed" from="Panel/General/VBoxContainer/MarginContainer/HBoxContainer/ButtonNH" to="Panel/General/VBoxContainer/MarginContainer/HBoxContainer/ButtonNH" method="_on_pressed"]

@@ -1,42 +1,42 @@
-key,en,pl,de
-GAME_TITLE,The Indecision of\nArthur Sess,Niezdecydowanie\nArtura Sessa,Die Unentschlossenheit\nvon Arthur Sess
-MENU_BACK,Back,Wstecz,Zurück
-MAIN_MENU_PLAY,Play,Graj,Spielen
-MAIN_MENU_QUIT,Quit,Wyjdź,Beenden
-MAIN_MENU_SETTINGS,Settings,Ustawienia,Einstellungen
-MAIN_MENU_ASSESS,ASSESS,ASSESS,ASSESS
-MAIN_MENU_COPYRIGHT,© 2025,© 2025,© 2025
-ASSESS_TEST_PREFER_LEFT,Prefer Left,Preferuj Lewe,Bevor Links
-ASSESS_TEST_PREFER_RIGHT,Prefer Right,Preferuj Prawe,Bevor Rechts
-ASSESS_TEST_INDIFFERENT,Indifferent,Obojętnie Mi,Egal
-ASSESS_TEST_SCENARIO,Test Scenario,Scenariusz Testowy,Testszenario
-AUDIO_BUS_MASTER,Master,Ogólny,Gesamt
-AUDIO_BUS_MUSIC,Music,Muzyka,Musik
-AUDIO_BUS_EFFECTS,Effects,Efekty,Effekte
-SETTINGS_TAB_GENERAL,General,Ogólne,Algemein
-SETTINGS_TITLE_GENERAL,General Settings,Ogólne Ustawienia,Algemeine Einstellungen
-SETTINGS_GENERAL_LANGUAGE,Language,Język,Sprache
-SETTINGS_GENERAL_LANGUAGE_EN,English,English,English
-SETTINGS_GENERAL_LANGUAGE_PL,Polski,Polski,Polski
-SETTINGS_GENERAL_LANGUAGE_DE,Deutsch,Deutsch,Deutsch
-SETTINGS_TAB_VIDEO,Video,Grafika,Grafik
-SETTINGS_TITLE_VIDEO,Video Settings,Ustawienia Graficzne,Grafikeinstellungen
-SETTINGS_VIDEO_FULLSCREEN,Fullscreen,Pełny Ekran,Vollbild
-SETTINGS_TAB_AUDIO,Audio,Dźwięk,Audio
-SETTINGS_TITLE_AUDIO,Audio Settings,Ustawienia Dźwięku,Audioeinstellungen
-SETTINGS_TAB_CREDITS,Credits,Autorzy,Credits
-SETTINGS_TITLE_CREDITS,Credits,Autorzy,Credits
-GAMEPLAY_LEVEL_BAR,Level %s (%s / %s XP),Poziom %s (%s / %s PD),Level %s (%s / %s XP)
-GAMEPLAY_SCORE_COUNTER,Score\n%08d,Wynik\n%08d,Punktzahl\n%08d
-LOADING,Loading...,Ładowanie...,Laden...
-QUIT,Quit,Wyjdź,Beenden
-CHOICE_PANEL_SAFE,Stay Safe,Pewna Opcja,Sicher Option
-CHOICE_PANEL_SPIN,Spin the Wheel!,Zakręć Kołem!,Dreh das Rad!
-CHOICE_PANEL_NONE,Pick for me,Wybierz za mnie,Für mich auswählen
-END_SCREEN_TITLE,Game Over!,Koniec Gry!,Spiel Vorbei!
-END_SCREEN_SCORE_COUNTER,Final Score: %08d,Ostateczny Wynik: %08d,Endpunktzahl: %08d
-END_SCREEN_MAIN_MENU,Back to Menu,Wróć do Menu,Menü Zurück
-STAT_ATK,Attack,Atak,Angriff
-STAT_HP,Health,Zdrowie,Gesundheit
-STAT_SPD,Speed,Prędkość,Geschwindigkeit
-STAT_DEF,Defense,Obrona,Verteidigung
+key,en,pl,de,nh
+GAME_TITLE,The Indecision of\nArthur Sess,Niezdecydowanie\nArtura Sessa,Die Unentschlossenheit\nvon Arthur Sess,アルツアせースの優柔不断 
+MENU_BACK,Back,Wstecz,Zurück,バック 
+MAIN_MENU_PLAY,Play,Graj,Spielen,プレー 
+MAIN_MENU_QUIT,Quit,Wyjdź,Beenden,終了
+MAIN_MENU_SETTINGS,Settings,Ustawienia,Einstellungen,せってい
+MAIN_MENU_ASSESS,ASSESS,ASSESS,ASSESS,アッセッス
+MAIN_MENU_COPYRIGHT,© 2025,© 2025,© 2025,© 2025
+ASSESS_TEST_PREFER_LEFT,Prefer Left,Preferuj Lewe,Bevor Links, 左の好む
+ASSESS_TEST_PREFER_RIGHT,Prefer Right,Preferuj Prawe,Bevor Rechts, みぎの好む 
+ASSESS_TEST_INDIFFERENT,Indifferent,Obojętnie Mi,Egal,私は気にしない
+ASSESS_TEST_SCENARIO,Test Scenario,Scenariusz Testowy,Testszenario, テストのシナリオ 
+AUDIO_BUS_MASTER,Master,Ogólny,Gesamt,一般
+AUDIO_BUS_MUSIC,Music,Muzyka,Musik,音楽
+AUDIO_BUS_EFFECTS,Effects,Efekty,Effekte,音響効果
+SETTINGS_TAB_GENERAL,General,Ogólne,Algemein,一般
+SETTINGS_TITLE_GENERAL,General Settings,Ogólne Ustawienia,Algemeine Einstellungen,一般のせってい
+SETTINGS_GENERAL_LANGUAGE,Language,Język,Sprache,言葉
+SETTINGS_GENERAL_LANGUAGE_EN,English,English,English,English
+SETTINGS_GENERAL_LANGUAGE_PL,Polski,Polski,Polski,Polski
+SETTINGS_GENERAL_LANGUAGE_DE,Deutsch,Deutsch,Deutsch,Deutsch
+SETTINGS_TAB_VIDEO,Video,Grafika,Grafik,グラフィックス
+SETTINGS_TITLE_VIDEO,Video Settings,Ustawienia Graficzne,Grafikeinstellungen,グラフィックスのせってい
+SETTINGS_VIDEO_FULLSCREEN,Fullscreen,Pełny Ekran,Vollbild,全画面 
+SETTINGS_TAB_AUDIO,Audio,Dźwięk,Audio,音
+SETTINGS_TITLE_AUDIO,Audio Settings,Ustawienia Dźwięku,Audioeinstellungen,音のせってい
+SETTINGS_TAB_CREDITS,Credits,Autorzy,Credits,クレジット
+SETTINGS_TITLE_CREDITS,Credits,Autorzy,Credits,クレジット
+GAMEPLAY_LEVEL_BAR,Level %s (%s / %s XP),Poziom %s (%s / %s PD),Level %s (%s / %s XP),レベル %s (%s / %s XP)
+GAMEPLAY_SCORE_COUNTER,Score\n%08d,Wynik\n%08d,Punktzahl\n%08d,結果
+LOADING,Loading...,Ładowanie...,Laden...,ランディング。。。
+QUIT,Quit,Wyjdź,Beenden,終了
+CHOICE_PANEL_SAFE,Stay Safe,Pewna Opcja,Sicher Option,お大事に
+CHOICE_PANEL_SPIN,Spin the Wheel!,Zakręć Kołem!,Dreh das Rad!,ホイールを回す
+CHOICE_PANEL_NONE,Pick for me,Wybierz za mnie,Für mich auswählen,私は気にしない
+END_SCREEN_TITLE,Game Over!,Koniec Gry!,Spiel Vorbei!,ゲームセット
+END_SCREEN_SCORE_COUNTER,Final Score: %08d,Ostateczny Wynik: %08d,Endpunktzahl: %08d,最終結果: %08d
+END_SCREEN_MAIN_MENU,Back to Menu,Wróć do Menu,Menü Zurück,メニューに戻る
+STAT_ATK,Attack,Atak,Angriff,撃
+STAT_HP,Health,Zdrowie,Gesundheit,ヘルス
+STAT_SPD,Speed,Prędkość,Geschwindigkeit,敏速
+STAT_DEF,Defense,Obrona,Verteidigung,ディフェンス
