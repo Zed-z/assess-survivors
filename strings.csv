@@ -28,7 +28,7 @@ SETTINGS_TITLE_AUDIO,Audio Settings,Ustawienia Dźwięku,Audioeinstellungen,音�
 SETTINGS_TAB_CREDITS,Credits,Autorzy,Credits,クレジット
 SETTINGS_TITLE_CREDITS,Credits,Autorzy,Credits,クレジット
 GAMEPLAY_LEVEL_BAR,Level %s (%s / %s XP),Poziom %s (%s / %s PD),Level %s (%s / %s XP),レベル %s (%s / %s XP)
-GAMEPLAY_SCORE_COUNTER,Score\n%08d,Wynik\n%08d,Punktzahl\n%08d,結果
+GAMEPLAY_SCORE_COUNTER,Score\n%08d,Wynik\n%08d,Punktzahl\n%08d,結果\n%08d
 LOADING,Loading...,Ładowanie...,Laden...,ロード中。。。
 QUIT,Quit,Wyjdź,Beenden,終了
 CHOICE_PANEL_SAFE,Stay Safe,Pewna Opcja,Sicher Option,お大事に
