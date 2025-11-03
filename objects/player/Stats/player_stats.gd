@@ -11,3 +11,7 @@ func _ready() -> void:
 
 func get_stat(stat: String):
 	return stats[stat].get_stat()
+
+
+func get_stat_raw(stat: String) -> BaseStat:
+	return stats[stat]

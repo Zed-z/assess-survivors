@@ -29,9 +29,18 @@ func _ready() -> void:
 	reset()
 
 
+func new_max_health(value: int):
+	var ratio = current_health / (health as float)
+
+	@warning_ignore("narrowing_conversion")
+	current_health = ratio * value
+
+	health = value
+
+
 func take_damage(damage: DamageParameters) -> void:
 
-	max_health_changed.emit(health)
+	health_changed.emit(health)
 	if current_health <= 0 and deplete_once and has_depleted:
 		return
 
