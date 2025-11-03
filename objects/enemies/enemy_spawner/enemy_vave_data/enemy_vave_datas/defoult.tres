@@ -2,19 +2,19 @@
 
 [ext_resource type="Script" uid="uid://cd06aok4ajl3c" path="res://objects/enemies/enemy_spawner/enemy_vave_data/enemy_vave_data.gd" id="1_aaagh"]
 [ext_resource type="Script" uid="uid://dmbi1icxkymxl" path="res://objects/enemies/enemy_spawner/enemy_vave_data/vave_touple.gd" id="1_rg5qa"]
-[ext_resource type="PackedScene" uid="uid://ckq354kcg7bnv" path="res://objects/enemies/test_enemy/slime_enemy.tscn" id="2_pj4f0"]
-[ext_resource type="PackedScene" uid="uid://dbefpu7ce12k2" path="res://objects/enemies/test_enemy/test_enemy.tscn" id="3_fpskf"]
+[ext_resource type="PackedScene" uid="uid://b6mxutcmgdjsk" path="res://objects/enemies/test_enemy/enemy_slime.tscn" id="2_3lt6t"]
+[ext_resource type="PackedScene" uid="uid://dnears1tiwond" path="res://objects/enemies/test_enemy/enemy_spider.tscn" id="3_3lt6t"]
 
 [sub_resource type="Resource" id="Resource_rg5qa"]
 script = ExtResource("1_rg5qa")
 probability = 0.9
-scene = ExtResource("2_pj4f0")
+scene = ExtResource("2_3lt6t")
 metadata/_custom_type_script = "uid://dmbi1icxkymxl"
 
 [sub_resource type="Resource" id="Resource_xorab"]
 script = ExtResource("1_rg5qa")
 probability = 0.1
-scene = ExtResource("3_fpskf")
+scene = ExtResource("3_3lt6t")
 metadata/_custom_type_script = "uid://dmbi1icxkymxl"
 
 [resource]

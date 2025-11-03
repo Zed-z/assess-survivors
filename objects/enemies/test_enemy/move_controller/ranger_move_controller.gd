@@ -3,6 +3,7 @@ class_name RangerMoveControler
 
 @export var speed: float = 10
 @export var escape_radius: float = 450
+@export var debug_view: bool = false
 var target: Player
 
 
@@ -22,4 +23,5 @@ func get_velocity() -> Vector2:
 
 
 func _draw() -> void:
-	draw_circle(Vector2.ZERO,escape_radius,Color.RED,false,5)
+	if debug_view:
+		draw_circle(Vector2.ZERO,escape_radius,Color.RED,false,5)

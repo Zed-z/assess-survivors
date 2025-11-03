@@ -4,7 +4,7 @@ var target: Player
 
 var vave_number: int
 
-@onready var move_controller:MoveController = $MoveController
+@export var move_controller: MoveController
 
 
 func get_contact_dmg() -> int:
@@ -21,5 +21,14 @@ func _physics_process(_delta: float) -> void:
 
 
 func die():
+	$AnimationPlayer.stop()
+	$AnimationPlayer.play("hit")
+
+	await $AnimationPlayer.animation_finished
 	get_parent().remove_enemy(self)
 	GlobalInfo.score_manager.score_increase(100)
+
+
+func _on_health_component_got_hit() -> void:
+	$AnimationPlayer.stop()
+	$AnimationPlayer.play("hit")

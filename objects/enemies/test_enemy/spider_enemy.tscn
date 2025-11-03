@@ -1,10 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://dbefpu7ce12k2"]
+[gd_scene load_steps=13 format=3 uid="uid://djbdhjxecfs1j"]
 
 [ext_resource type="Script" uid="uid://gohumc4rt4ne" path="res://objects/enemies/test_enemy/enemy.gd" id="1_ck1x7"]
 [ext_resource type="Texture2D" uid="uid://eawq50uwgn24" path="res://sprites/mobs/spider.png" id="2_2qy66"]
-[ext_resource type="Script" uid="uid://dmxtlm500xt1a" path="res://objects/enemies/test_enemy/move_controller/straight_ahed_move.gd" id="2_y6csn"]
 [ext_resource type="Script" uid="uid://bfk4pro2k5bf6" path="res://objects/enemies/test_enemy/enemy_hurt_box.gd" id="3_2qy66"]
 [ext_resource type="Script" uid="uid://008ins25r0w8" path="res://components/health_component.gd" id="4_w84hb"]
+[ext_resource type="Script" uid="uid://cnwb66k0tvq7m" path="res://objects/enemies/test_enemy/move_controller/ranger_move_controller.gd" id="5_3xcpw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w84hb"]
 atlas = ExtResource("2_2qy66")
@@ -49,14 +49,10 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ck1x7"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_3xcpw"]
 
 [node name="TestEnemy" type="CharacterBody2D"]
 script = ExtResource("1_ck1x7")
-
-[node name="MoveController" type="Node2D" parent="."]
-script = ExtResource("2_y6csn")
-metadata/_custom_type_script = "uid://dmxtlm500xt1a"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
@@ -69,12 +65,18 @@ script = ExtResource("3_2qy66")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 scale = Vector2(2.8395557, 2.8395557)
-shape = SubResource("RectangleShape2D_ck1x7")
+shape = SubResource("CircleShape2D_3xcpw")
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("4_w84hb")
 health = 3
 metadata/_custom_type_script = "uid://008ins25r0w8"
+
+[node name="MoveController" type="Node2D" parent="."]
+script = ExtResource("5_3xcpw")
+speed = 30.0
+escape_radius = 200.0
+metadata/_custom_type_script = "uid://cnwb66k0tvq7m"
 
 [connection signal="area_entered" from="HurtBox" to="HurtBox" method="_on_area_entered"]
 [connection signal="hit" from="HurtBox" to="HealthComponent" method="take_damage"]

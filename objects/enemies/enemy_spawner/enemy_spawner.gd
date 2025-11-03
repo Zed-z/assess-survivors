@@ -6,7 +6,6 @@ class_name EnemySpawner
 @export_group("spawn parameters")
 @export var min_radius: float = 100
 @export var max_radius: float = 200
-@export var enemy: PackedScene
 #region vaves
 @export_group("enemy veaves ")
 ## key is level at whitch it is beeing spawned

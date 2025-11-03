@@ -1,0 +1,62 @@
+[gd_scene load_steps=10 format=3 uid="uid://dnears1tiwond"]
+
+[ext_resource type="PackedScene" uid="uid://epsr1o1tk6ur" path="res://objects/enemies/test_enemy/base_enemy.tscn" id="1_ptey4"]
+[ext_resource type="Texture2D" uid="uid://eawq50uwgn24" path="res://sprites/mobs/spider.png" id="2_3j6jn"]
+[ext_resource type="Script" uid="uid://cnwb66k0tvq7m" path="res://objects/enemies/test_enemy/move_controller/ranger_move_controller.gd" id="3_fni1j"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w84hb"]
+atlas = ExtResource("2_3j6jn")
+region = Rect2(0, 0, 146, 114)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6csn"]
+atlas = ExtResource("2_3j6jn")
+region = Rect2(146, 0, 146, 114)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flejh"]
+atlas = ExtResource("2_3j6jn")
+region = Rect2(0, 114, 146, 114)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpfut"]
+atlas = ExtResource("2_3j6jn")
+region = Rect2(146, 114, 146, 114)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_isliy"]
+atlas = ExtResource("2_3j6jn")
+region = Rect2(0, 228, 146, 114)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fni1j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w84hb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6csn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flejh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fpfut")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_isliy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Enemy" node_paths=PackedStringArray("move_controller") instance=ExtResource("1_ptey4")]
+move_controller = NodePath("MoveController")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SpriteContainer" index="0"]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_fni1j")
+autoplay = "default"
+
+[node name="MoveController" type="Node2D" parent="." index="5"]
+script = ExtResource("3_fni1j")
+speed = 30.0
+escape_radius = 200.0
+metadata/_custom_type_script = "uid://cnwb66k0tvq7m"
