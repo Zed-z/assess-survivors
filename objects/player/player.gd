@@ -46,11 +46,10 @@ func _on_levels_new_level(level: int) -> void:
 	GlobalInfo.combat_ui_overlay.add_child(choice_panel)
 
 
-func _on_health_component_health_depleted() -> void:
-	print("You Died")
-	var end_screen: EndScreen = ObjectManager.instantiate(ObjectManager.OBJ_END_SCREEN)
-	GlobalInfo.combat_ui_overlay.add_child(end_screen)
-
-
-func _on_health_component_got_hit() -> void:
+func _on_health_component_got_hit(depleted: bool) -> void:
 	print("hit")
+
+	if depleted:
+		print("You Died")
+		var end_screen: EndScreen = ObjectManager.instantiate(ObjectManager.OBJ_END_SCREEN)
+		GlobalInfo.combat_ui_overlay.add_child(end_screen)

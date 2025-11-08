@@ -20,15 +20,14 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 
-func die():
-	$AnimationPlayer.stop()
-	$AnimationPlayer.play("hit")
+func _on_health_component_got_hit(depleted: bool) -> void:
+	if depleted:
+		$AnimationPlayer.stop()
+		$AnimationPlayer.play("die")
 
-	await $AnimationPlayer.animation_finished
-	get_parent().remove_enemy(self)
-	GlobalInfo.score_manager.score_increase(100)
-
-
-func _on_health_component_got_hit() -> void:
-	$AnimationPlayer.stop()
-	$AnimationPlayer.play("hit")
+		await $AnimationPlayer.animation_finished
+		get_parent().remove_enemy(self)
+		GlobalInfo.score_manager.score_increase(100)
+	else:
+		$AnimationPlayer.stop()
+		$AnimationPlayer.play("hit")
