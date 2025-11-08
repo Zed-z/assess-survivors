@@ -1,11 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://d2xe4jjrkjnh0"]
+[gd_scene load_steps=11 format=3 uid="uid://d2xe4jjrkjnh0"]
 
 [ext_resource type="Theme" uid="uid://df2r57b2stnof" path="res://themes/ui.tres" id="1_j78aw"]
 [ext_resource type="Script" uid="uid://cyq1ux3q7slto" path="res://objects/ui/settings_menu/settings_menu.gd" id="2_p28av"]
 [ext_resource type="Script" uid="uid://bhnjomljo214g" path="res://objects/ui/settings_menu/settings_tab.gd" id="3_gw16s"]
 [ext_resource type="PackedScene" uid="uid://cn1bd1qg3n8ff" path="res://objects/ui/volume_slider/volume_slider.tscn" id="3_vlvk0"]
 [ext_resource type="Script" uid="uid://co13x53vk5ehx" path="res://objects/ui/settings_menu/button_en.gd" id="4_6cw0p"]
-[ext_resource type="Script" uid="uid://bfn4l4e5i8p0j" path="res://scenes/main_menu/change_scene_button.gd" id="4_bto1d"]
 [ext_resource type="Script" uid="uid://dy0wjph0kkw1t" path="res://objects/ui/settings_menu/button_pl.gd" id="5_pf8so"]
 [ext_resource type="Script" uid="uid://qbw3tn4t6ack" path="res://objects/ui/settings_menu/button_de.gd" id="6_nrojl"]
 [ext_resource type="Script" uid="uid://dsr6wvf0ouvdd" path="res://objects/ui/settings_menu/fullscreen_button.gd" id="6_porcf"]
@@ -22,7 +21,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_j78aw")
 script = ExtResource("2_p28av")
-show_game_tab = null
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -81,48 +79,6 @@ offset_right = 478.0
 offset_bottom = 246.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Game" type="Control" parent="Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("3_gw16s")
-tab_name = "SETTINGS_TAB_GAME"
-metadata/_tab_index = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Game"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="Panel/Game/VBoxContainer"]
-layout_mode = 2
-text = "SETTINGS_TITLE_GAME"
-horizontal_alignment = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="Panel/Game/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
-
-[node name="HBoxContainer" type="VBoxContainer" parent="Panel/Game/VBoxContainer/MarginContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="Button" type="Button" parent="Panel/Game/VBoxContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "QUIT"
-script = ExtResource("4_bto1d")
-scene = "main_menu"
 
 [node name="General" type="Control" parent="Panel"]
 layout_mode = 1
@@ -356,7 +312,6 @@ theme_override_font_sizes/font_size = 16
 text = "smallburg  by GGBotNet - https://ggbot.itch.io/smallburg-font
 SIL Open Font License, Version 1.1"
 
-[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]
 [connection signal="pressed" from="Panel/General/VBoxContainer/MarginContainer/HBoxContainer/ButtonEN" to="Panel/General/VBoxContainer/MarginContainer/HBoxContainer/ButtonEN" method="_on_pressed"]
 [connection signal="pressed" from="Panel/General/VBoxContainer/MarginContainer/HBoxContainer/ButtonPL" to="Panel/General/VBoxContainer/MarginContainer/HBoxContainer/ButtonPL" method="_on_pressed"]

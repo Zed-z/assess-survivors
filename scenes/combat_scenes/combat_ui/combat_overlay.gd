@@ -24,8 +24,7 @@ func update_progres_bar(level: int, curent: int, max_value: int):
 
 
 func _on_pause_button_pressed() -> void:
-	var s = ObjectManager.instantiate(ObjectManager.OBJ_SETTINGS_PANEL)
-	s.show_game_tab = true
+	var s = ObjectManager.instantiate(ObjectManager.OBJ_PAUSE_MENU)
 	get_parent().add_child(s)
 
 

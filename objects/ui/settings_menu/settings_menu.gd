@@ -1,8 +1,6 @@
 @tool
 extends Control
 
-@export var show_game_tab: bool = false
-
 @onready var tab_bar: TabBar = $TabBar
 @onready var content_panel: Control = $Panel  # or whatever node contains your pages
 var tab_contents: Array[SettingsTab] = []
@@ -47,13 +45,7 @@ func tab_next() -> void:
 
 func _ready() -> void:
 
-	get_tree().paused = true
-
 	for child: SettingsTab in content_panel.get_children():
-		if not show_game_tab and child == $Panel/Game:
-			child.queue_free()
-			continue
-
 		tab_contents.append(child)
 
 	tab_bar.tab_selected.connect(_on_tab_selected)
@@ -68,15 +60,15 @@ func _on_close_button_pressed() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+
 	if event.is_action_pressed("ui_cancel"):
+		get_viewport().set_input_as_handled()
 		close()
 
 	if event.is_action_pressed("ui_page_up"):
+		get_viewport().set_input_as_handled()
 		tab_prev()
 
 	if event.is_action_pressed("ui_page_down"):
+		get_viewport().set_input_as_handled()
 		tab_next()
-
-
-func _on_tree_exiting() -> void:
-	get_tree().paused = false

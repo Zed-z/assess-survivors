@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=3 uid="uid://ylrjujxuk8ve"]
+
+[ext_resource type="Theme" uid="uid://df2r57b2stnof" path="res://themes/ui.tres" id="1_dhos7"]
+[ext_resource type="Script" uid="uid://bgy6hpaq267ue" path="res://objects/ui/pause_menu/pause_menu.gd" id="1_hax40"]
+[ext_resource type="Script" uid="uid://bfn4l4e5i8p0j" path="res://scenes/main_menu/change_scene_button.gd" id="3_o0bnm"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_dhos7")
+script = ExtResource("1_hax40")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.298039)
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"LightPanel"
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "PAUSE MENU"
+
+[node name="ButtonContinue" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "CONTINUE"
+
+[node name="ButtonSettings" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "SETTINGS"
+
+[node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "QUIT"
+script = ExtResource("3_o0bnm")
+
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/ButtonContinue" to="." method="_on_button_continue_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/ButtonSettings" to="." method="_on_button_settings_pressed"]
