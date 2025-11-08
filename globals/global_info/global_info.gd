@@ -6,6 +6,7 @@ var enemy_spawner: EnemySpawner
 var assess_manager: AssessManagerClass
 var projectile_holder: ProjectileHolder
 var score_manager: ScoreManager
+var game_camera: GameCamera
 
 
 func _ready() -> void:

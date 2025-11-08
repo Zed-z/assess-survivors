@@ -48,6 +48,7 @@ func _on_levels_new_level(level: int) -> void:
 
 func _on_health_component_got_hit(depleted: bool) -> void:
 	print("hit")
+	GlobalInfo.game_camera.shake()
 
 	if depleted:
 		print("You Died")

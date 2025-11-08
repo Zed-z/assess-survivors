@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://fnao1rs5haap"]
+[gd_scene load_steps=12 format=4 uid="uid://fnao1rs5haap"]
 
 [ext_resource type="PackedScene" uid="uid://ct88pvgyokerc" path="res://objects/player/player.tscn" id="1_41wyt"]
 [ext_resource type="PackedScene" uid="uid://blfd7tomoo2ky" path="res://globals/holders/projectile_holder/projectile_holder.tscn" id="1_gyrba"]
@@ -8,6 +8,7 @@
 [ext_resource type="TileSet" uid="uid://cld71m6mttjlh" path="res://tilesets/tileset.tres" id="3_gyrba"]
 [ext_resource type="PackedScene" uid="uid://dh1jrdfgruvqn" path="res://objects/enemies/enemy_spawner/enemy_spawner.tscn" id="3_vqmlp"]
 [ext_resource type="PackedScene" uid="uid://bh5tkxvg8jh42" path="res://scenes/combat_scenes/combat_ui/combat_overlay.tscn" id="6_1nlv8"]
+[ext_resource type="PackedScene" uid="uid://dcnxirbl2tpfw" path="res://objects/game_camera/game_camera.tscn" id="9_hosda"]
 [ext_resource type="PackedScene" uid="uid://55kp84v1di83" path="res://globals/assess_criterion_manager/assess_manager.tscn" id="9_ug5hv"]
 [ext_resource type="Resource" uid="uid://cqoxrismskjsx" path="res://objects/enemies/enemy_spawner/enemy_vave_data/vave_collections/wave_collection_1.tres" id="14_131tw"]
 
@@ -51,9 +52,7 @@ y_sort_enabled = true
 position = Vector2(-0.99999994, 3.0000005)
 scale = Vector2(0.998866, 0.986525)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-scale = Vector2(1.00114, 1.01366)
-position_smoothing_enabled = true
+[node name="GameCamera" parent="Player" instance=ExtResource("9_hosda")]
 
 [node name="EnemySpawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_vqmlp")]
 player = NodePath("../Player")

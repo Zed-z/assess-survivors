@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d2xe4jjrkjnh0"]
+[gd_scene load_steps=11 format=3 uid="uid://d2xe4jjrkjnh0"]
 
 [ext_resource type="Theme" uid="uid://df2r57b2stnof" path="res://themes/ui.tres" id="1_j78aw"]
 [ext_resource type="Script" uid="uid://cyq1ux3q7slto" path="res://objects/ui/settings_menu/settings_menu.gd" id="2_p28av"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://qbw3tn4t6ack" path="res://objects/ui/settings_menu/button_de.gd" id="6_nrojl"]
 [ext_resource type="Script" uid="uid://dsr6wvf0ouvdd" path="res://objects/ui/settings_menu/fullscreen_button.gd" id="6_porcf"]
 [ext_resource type="Script" uid="uid://do5v087546avq" path="res://objects/ui/settings_menu/button_nh.gd" id="7_cbb5h"]
+[ext_resource type="Script" uid="uid://bkdmoalpoaho5" path="res://objects/ui/settings_menu/screen_shake_button.gd" id="9_2n5xb"]
 
 [node name="SettingsMenu" type="Control"]
 layout_mode = 3
@@ -169,7 +170,7 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/Video/VBoxContainer/MarginContainer"]
+[node name="HBoxContainer" type="VBoxContainer" parent="Panel/Video/VBoxContainer/MarginContainer"]
 layout_mode = 2
 alignment = 1
 
@@ -177,6 +178,11 @@ alignment = 1
 layout_mode = 2
 text = "SETTINGS_VIDEO_FULLSCREEN"
 script = ExtResource("6_porcf")
+
+[node name="CheckButton2" type="CheckButton" parent="Panel/Video/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "SETTINGS_VIDEO_SCREEN_SHAKE"
+script = ExtResource("9_2n5xb")
 
 [node name="Audio" type="Control" parent="Panel"]
 visible = false

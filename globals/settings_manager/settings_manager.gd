@@ -8,6 +8,7 @@ var settings: Dictionary = {
 	},
 	"video": {
 		"fullscreen": false,
+		"screen_shake": true,
 	},
 	"language": OS.get_locale_language()
 }
