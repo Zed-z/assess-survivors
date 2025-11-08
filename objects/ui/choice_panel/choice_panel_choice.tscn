@@ -29,19 +29,57 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 
-[node name="SureIcon" type="TextureRect" parent="VBoxContainer/IconContainer/SureOption"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 200)
+[node name="LotteryBackground" type="TextureRect" parent="VBoxContainer/IconContainer/SureOption"]
+custom_minimum_size = Vector2(400, 400)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -100.0
-offset_right = 100.0
-offset_bottom = 100.0
+offset_left = -200.0
+offset_top = -200.0
+offset_right = 200.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+texture = ExtResource("4_vhl1g")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="LotteryBackground2" type="TextureRect" parent="VBoxContainer/IconContainer/SureOption"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -200.0
+offset_right = 200.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+texture = ExtResource("5_x37fy")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="SureIcon" type="TextureRect" parent="VBoxContainer/IconContainer/SureOption"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 160)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -80.0
+offset_right = 80.0
+offset_bottom = 80.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -54,7 +92,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 
-[node name="Icon" type="TextureRect" parent="VBoxContainer/IconContainer/Lottery"]
+[node name="LotteryBackground" type="TextureRect" parent="VBoxContainer/IconContainer/Lottery"]
 custom_minimum_size = Vector2(400, 400)
 layout_mode = 1
 anchors_preset = 8
@@ -99,7 +137,7 @@ texture_progress = ExtResource("5_x37fy")
 tint_under = Color(1, 1, 0.3764706, 1)
 tint_progress = Color(0.15294118, 0.29803923, 1, 1)
 
-[node name="Icon3" type="TextureRect" parent="VBoxContainer/IconContainer/Lottery"]
+[node name="LotteryNail" type="TextureRect" parent="VBoxContainer/IconContainer/Lottery"]
 custom_minimum_size = Vector2(400, 400)
 layout_mode = 1
 anchors_preset = 8
@@ -141,17 +179,17 @@ stretch_mode = 4
 
 [node name="LotteryIcon" type="TextureRect" parent="VBoxContainer/IconContainer/Lottery"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(160, 160)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = -50.0
-offset_right = 50.0
-offset_bottom = 50.0
+offset_left = -80.0
+offset_top = -80.0
+offset_right = 80.0
+offset_bottom = 80.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
