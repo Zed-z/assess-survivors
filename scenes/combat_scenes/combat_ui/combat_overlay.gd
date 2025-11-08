@@ -21,3 +21,14 @@ func update_progres_bar(level: int, curent: int, max_value: int):
 	progress_bar.value = curent
 	progress_bar.max_value = max_value
 	progress_bar.get_node("Label").text = tr("GAMEPLAY_LEVEL_BAR") % [level + 1, curent, max_value]
+
+
+func _on_pause_button_pressed() -> void:
+	var s = ObjectManager.instantiate(ObjectManager.OBJ_SETTINGS_PANEL)
+	s.show_game_tab = true
+	get_parent().add_child(s)
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		_on_pause_button_pressed()

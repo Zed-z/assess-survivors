@@ -32,6 +32,7 @@ GAMEPLAY_LEVEL_BAR,Level %s (%s / %s XP),Poziom %s (%s / %s PD),Level %s (%s / %
 GAMEPLAY_SCORE_COUNTER,Score\n%08d,Wynik\n%08d,Punktzahl\n%08d,結果\n%08d
 LOADING,Loading...,Ładowanie...,Laden...,ロード中。。。
 QUIT,Quit,Wyjdź,Beenden,終了
+PAUSE,Pause,Pauza,?????????????????????????????,?????????????????????????????
 CHOICE_PANEL_SAFE,Stay Safe,Pewna Opcja,Sicher Option,お大事に
 CHOICE_PANEL_SPIN,Spin the Wheel!,Zakręć Kołem!,Dreh das Rad!,ホイールを回す
 CHOICE_PANEL_NONE,Pick for me,Wybierz za mnie,Für mich auswählen,私は気にしない
@@ -42,3 +43,5 @@ STAT_ATK,Attack,Atak,Angriff,撃
 STAT_HP,Health,Zdrowie,Gesundheit,ヘルス
 STAT_SPD,Speed,Prędkość,Geschwindigkeit,敏速
 STAT_DEF,Defense,Obrona,Verteidigung,ディフェンス
+SETTINGS_TAB_GAME,Game,Gra,Spiel,ゲーム
+SETTINGS_TITLE_GAME,Game,Gra,Spiel,ゲーム

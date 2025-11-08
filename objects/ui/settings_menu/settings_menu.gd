@@ -1,14 +1,17 @@
 @tool
 extends Control
 
+@export var show_game_tab: bool = false
+
 @onready var tab_bar: TabBar = $TabBar
 @onready var content_panel: Control = $Panel  # or whatever node contains your pages
+var tab_contents: Array[SettingsTab] = []
 
 
 func _populate_tabs():
 	tab_bar.clear_tabs()
-	for child: SettingsTab in content_panel.get_children():
-		tab_bar.add_tab(child.tab_name)
+	for tab: SettingsTab in tab_contents:
+		tab_bar.add_tab(tab.tab_name)
 
 
 func _on_tab_selected(tab_index: int):
@@ -16,17 +19,15 @@ func _on_tab_selected(tab_index: int):
 
 
 func _show_tab(index: int):
-	var children = content_panel.get_children()
-
-	for i in range(len(children)):
-		children[i].visible = (i == index)
+	for i in range(len(tab_contents)):
+		tab_contents[i].visible = (i == index)
 
 var close_callback: Callable
 
 
 func close() -> void:
 	queue_free()
-	if close_callback != null:
+	if close_callback:
 		close_callback.call()
 
 
@@ -45,6 +46,15 @@ func tab_next() -> void:
 
 
 func _ready() -> void:
+
+	get_tree().paused = true
+
+	for child: SettingsTab in content_panel.get_children():
+		if not show_game_tab and child == $Panel/Game:
+			child.queue_free()
+			continue
+
+		tab_contents.append(child)
 
 	tab_bar.tab_selected.connect(_on_tab_selected)
 	_populate_tabs()
@@ -66,3 +76,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	if event.is_action_pressed("ui_page_down"):
 		tab_next()
+
+
+func _on_tree_exiting() -> void:
+	get_tree().paused = false
