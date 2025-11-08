@@ -24,6 +24,13 @@ func _to_string() -> String:
 	return "L(%.02f, %.02f%%, %.02f)" % [win_value, (win_probability * 100), loss_value]
 
 
+func _to_pretty_string() -> String:
+	if win_probability == 1:
+		return "%.02f" % win_value
+
+	return "%.02f %.02f%%\n%.02f %.02f%%" % [win_value, (win_probability * 100), loss_value, (loss_probability * 100)]
+
+
 func get_value() -> float:
 	var random_float: float = randf_range(0.0, 1.0)
 

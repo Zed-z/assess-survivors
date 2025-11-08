@@ -17,23 +17,12 @@ func _ready() -> void:
 		queue_free()
 		return
 
-	%LabelChooseLeft.text = str(question.get_left())
-
-	if (question.get_left().win_probability == 1):
-		%ButtonChooseLeft.text = tr("CHOICE_PANEL_SAFE")
-	else:
-		%ButtonChooseLeft.text = tr("CHOICE_PANEL_SPIN")
-
-	%LabelChooseRight.text = str(question.get_right())
-
-	if (question.get_right().win_probability == 1):
-		%ButtonChooseRight.text = tr("CHOICE_PANEL_SAFE")
-	else:
-		%ButtonChooseRight.text = tr("CHOICE_PANEL_SPIN")
+	%ChoiceLeft.setup(criterion, question.get_left())
+	%ChoiceLeft.chosen.connect(_on_button_choose_left_pressed)
+	%ChoiceRight.setup(criterion, question.get_right())
+	%ChoiceRight.chosen.connect(_on_button_choose_right_pressed)
 
 	%ButtonChooseNone.text = tr("CHOICE_PANEL_NONE")
-	%IconChooseLeft.texture = criterion.icon
-	%IconChooseRight.texture = criterion.icon
 	%LabelName.text = tr(criterion.criterion_name)
 
 
@@ -44,6 +33,8 @@ func _exit_tree() -> void:
 func _on_button_choose_left_pressed() -> void:
 	disable_controls()
 	criterion.step(AssessCriterion.Answer.p)
+
+	%ChoiceLeft.lottery_roll_speed = PI/10
 
 	move_to_node(%ChoiceLeft, %ChoiceFinalPosition, tween_left)
 	move_to_node(%ChoiceRight, %ChoiceOffscreen, tween_right)
@@ -56,6 +47,8 @@ func _on_button_choose_left_pressed() -> void:
 func _on_button_choose_right_pressed() -> void:
 	disable_controls()
 	criterion.step(AssessCriterion.Answer.q)
+
+	%ChoiceRight.lottery_roll_speed = PI/10
 
 	move_to_node(%ChoiceRight, %ChoiceFinalPosition, tween_right)
 	move_to_node(%ChoiceLeft, %ChoiceOffscreen, tween_left)
@@ -88,8 +81,8 @@ func _on_timer_timeout() -> void:
 
 
 func disable_controls() -> void:
-	%ButtonChooseLeft.disabled = true
-	%ButtonChooseRight.disabled = true
+	%ChoiceLeft.disabled = true
+	%ChoiceRight.disabled = true
 	%ButtonChooseNone.disabled = true
 
 

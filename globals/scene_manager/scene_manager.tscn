@@ -196,6 +196,7 @@ process_mode = 3
 script = ExtResource("1_861ra")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 100
 
 [node name="SceneTransition" type="Control" parent="CanvasLayer"]
 unique_name_in_owner = true
