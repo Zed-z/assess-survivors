@@ -69,7 +69,7 @@ func get_most_u_on_criterion(criterion_name: String)-> Dictionary[String, float]
 	return dictionary
 
 
-func get_weight() -> Question:
+func get_weight_question() -> Question:
 	var index: int = weight_algorithm.decide()
 	var win_val_right: Dictionary[String, float] = get_most_u_on_all()
 	var loss_val_right: Dictionary[String, float] = get_least_u_on_all()
