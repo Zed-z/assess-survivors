@@ -2,19 +2,19 @@ class_name HealthComponent
 extends Node
 
 signal got_hit(depleted: bool)
-signal health_changed(new_value: int)
-signal max_health_changed(new_value: int)
+signal health_changed(new_value: float)
+signal max_health_changed(new_value: float)
 
 @export var invulnerable: bool = false
-@export var health: int = 1
+@export var health: float = 1
 @export var team: String = ""
 @export var deplete_once: bool = true
 
-var current_health: int = 1
+var current_health: float = 1
 var has_depleted: bool = false
 
 
-func setup(_health: int):
+func setup(_health: float):
 	health = _health
 	reset()
 
@@ -28,15 +28,15 @@ func _ready() -> void:
 	reset()
 
 
-func new_max_health(value: int):
-	var ratio = current_health / (health as float)
+func new_max_health(value: float):
+	var increase: float= value - health
 
-	@warning_ignore("narrowing_conversion")
-	current_health = ratio * value
+	current_health += increase
 
 	health = value
 
 	max_health_changed.emit(health)
+	health_changed.emit(current_health)
 
 
 func take_damage(damage: DamageParameters) -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dv3lq6de6l1a8"]
+[gd_scene load_steps=12 format=3 uid="uid://epsr1o1tk6ur"]
 
 [ext_resource type="Script" uid="uid://gohumc4rt4ne" path="res://objects/enemies/test_enemy/enemy.gd" id="1_d6f65"]
 [ext_resource type="Script" uid="uid://bfk4pro2k5bf6" path="res://objects/enemies/test_enemy/enemy_hurt_box.gd" id="3_dm3ug"]

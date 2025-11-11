@@ -53,6 +53,10 @@ folder_colors={
 "res://objects/player/Stats/": "blue"
 }
 
+[gdunit4]
+
+settings/common/update_notification_enabled=false
+
 [global_group]
 
 Player="player group"

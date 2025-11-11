@@ -1,27 +1,27 @@
 [gd_scene load_steps=10 format=3 uid="uid://dnears1tiwond"]
 
-[ext_resource type="PackedScene" uid="uid://epsr1o1tk6ur" path="res://objects/enemies/test_enemy/base_enemy.tscn" id="1_ptey4"]
-[ext_resource type="Texture2D" uid="uid://eawq50uwgn24" path="res://sprites/mobs/spider.png" id="2_3j6jn"]
-[ext_resource type="Script" uid="uid://cnwb66k0tvq7m" path="res://objects/enemies/test_enemy/move_controller/ranger_move_controller.gd" id="3_fni1j"]
+[ext_resource type="PackedScene" uid="uid://epsr1o1tk6ur" path="res://objects/enemies/test_enemy/enemy_scenes/base_enemy.tscn" id="1_o4p7e"]
+[ext_resource type="Texture2D" uid="uid://eawq50uwgn24" path="res://sprites/mobs/spider.png" id="2_4q77u"]
+[ext_resource type="Script" uid="uid://cnwb66k0tvq7m" path="res://objects/enemies/test_enemy/move_controller/ranger_move_controller.gd" id="3_wp2wx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w84hb"]
-atlas = ExtResource("2_3j6jn")
+atlas = ExtResource("2_4q77u")
 region = Rect2(0, 0, 146, 114)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y6csn"]
-atlas = ExtResource("2_3j6jn")
+atlas = ExtResource("2_4q77u")
 region = Rect2(146, 0, 146, 114)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_flejh"]
-atlas = ExtResource("2_3j6jn")
+atlas = ExtResource("2_4q77u")
 region = Rect2(0, 114, 146, 114)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fpfut"]
-atlas = ExtResource("2_3j6jn")
+atlas = ExtResource("2_4q77u")
 region = Rect2(146, 114, 146, 114)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_isliy"]
-atlas = ExtResource("2_3j6jn")
+atlas = ExtResource("2_4q77u")
 region = Rect2(0, 228, 146, 114)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fni1j"]
@@ -47,8 +47,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Enemy" node_paths=PackedStringArray("move_controller") instance=ExtResource("1_ptey4")]
+[node name="Enemy" node_paths=PackedStringArray("move_controller") instance=ExtResource("1_o4p7e")]
 move_controller = NodePath("MoveController")
+
+[node name="HealthComponent" parent="." index="2"]
+health = 1.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SpriteContainer" index="0"]
 scale = Vector2(0.5, 0.5)
@@ -56,7 +59,7 @@ sprite_frames = SubResource("SpriteFrames_fni1j")
 autoplay = "default"
 
 [node name="MoveController" type="Node2D" parent="." index="5"]
-script = ExtResource("3_fni1j")
+script = ExtResource("3_wp2wx")
 speed = 30.0
 escape_radius = 200.0
 metadata/_custom_type_script = "uid://cnwb66k0tvq7m"

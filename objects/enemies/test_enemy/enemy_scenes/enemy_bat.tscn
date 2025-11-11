@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmtshlqm6061i"]
+
+[ext_resource type="PackedScene" uid="uid://epsr1o1tk6ur" path="res://objects/enemies/test_enemy/enemy_scenes/base_enemy.tscn" id="1_k50q8"]
+[ext_resource type="Script" uid="uid://r84uspc8jmiv" path="res://objects/enemies/test_enemy/move_controller/stright_line_move_controller.gd" id="2_ia6ut"]
+[ext_resource type="Texture2D" uid="uid://cigsdewro07vk" path="res://icon.svg" id="2_n6ykq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_troyk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_n6ykq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Bat" node_paths=PackedStringArray("move_controller") instance=ExtResource("1_k50q8")]
+move_controller = NodePath("MoveController")
+
+[node name="MoveController" type="Node2D" parent="." index="0"]
+script = ExtResource("2_ia6ut")
+speed = 30.0
+metadata/_custom_type_script = "uid://r84uspc8jmiv"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SpriteContainer" index="0"]
+sprite_frames = SubResource("SpriteFrames_troyk")
