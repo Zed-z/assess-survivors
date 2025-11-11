@@ -11,4 +11,4 @@ func _ready() -> void:
 
 
 func get_velocity() -> Vector2:
-	return(target.position- global_position).normalized() * 10
+	return(target.position- global_position).normalized() * speed

@@ -31,7 +31,6 @@ func _ready() -> void:
 func new_max_health(value: float):
 	var increase: float= value - health
 
-	@warning_ignore("narrowing_conversion")
 	current_health += increase
 
 	health = value

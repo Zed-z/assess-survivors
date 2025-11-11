@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cd06aok4ajl3c" path="res://objects/enemies/enemy_spawner/enemy_vave_data/enemy_vave_data.gd" id="1_aaagh"]
 [ext_resource type="Script" uid="uid://dmbi1icxkymxl" path="res://objects/enemies/enemy_spawner/enemy_vave_data/vave_touple.gd" id="1_rg5qa"]
-[ext_resource type="PackedScene" uid="uid://b6mxutcmgdjsk" path="res://objects/enemies/test_enemy/enemy_slime.tscn" id="2_3lt6t"]
-[ext_resource type="PackedScene" uid="uid://dnears1tiwond" path="res://objects/enemies/test_enemy/enemy_spider.tscn" id="3_3lt6t"]
+[ext_resource type="PackedScene" uid="uid://dmtshlqm6061i" path="res://objects/enemies/test_enemy/enemy_scenes/enemy_bat.tscn" id="2_3lt6t"]
+[ext_resource type="PackedScene" uid="uid://dnears1tiwond" path="res://objects/enemies/test_enemy/enemy_scenes/enemy_spider.tscn" id="3_3lt6t"]
 
 [sub_resource type="Resource" id="Resource_rg5qa"]
 script = ExtResource("1_rg5qa")
