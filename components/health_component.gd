@@ -36,6 +36,8 @@ func new_max_health(value: int):
 
 	health = value
 
+	max_health_changed.emit(health)
+
 
 func take_damage(damage: DamageParameters) -> void:
 

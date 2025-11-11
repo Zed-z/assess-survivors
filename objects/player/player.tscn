@@ -13,7 +13,7 @@
 [ext_resource type="Script" uid="uid://s8o7eln2esn0" path="res://objects/player/levels.gd" id="7_ow0dq"]
 [ext_resource type="Script" uid="uid://1ogv7wo486wd" path="res://objects/player/hurtbox/hurtbox.gd" id="8_m4kly"]
 [ext_resource type="Texture2D" uid="uid://d2khmtbsk4mom" path="res://sprites/tiles/luk.png" id="9_ylcck"]
-[ext_resource type="Texture2D" uid="uid://buuaf3wdlshc0" path="res://sprites/tiles/flower.png" id="12_dthqj"]
+[ext_resource type="Texture2D" uid="uid://b8riatfslt0b8" path="res://sprites/ui/potion.png" id="11_45rsp"]
 
 [sub_resource type="Resource" id="Resource_dthqj"]
 script = ExtResource("7_c34wb")
@@ -36,7 +36,7 @@ script = ExtResource("7_45urx")
 criterion = SubResource("Resource_45rsp")
 starting_value = 10
 name = "STAT_HP"
-icon = ExtResource("12_dthqj")
+icon = ExtResource("11_45rsp")
 metadata/_custom_type_script = "uid://d1e80dp6c7ji3"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ow0dq"]

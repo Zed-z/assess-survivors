@@ -11,8 +11,9 @@ var last_direction: int = 1
 func _ready() -> void:
 	$HealthComponent.setup($Stats.stats["STAT_HP"].get_stat())
 
-	$HealthComponent.health_changed.connect(GlobalInfo.combat_ui_overlay.helth_bar.set_health)
-	$HealthComponent.max_health_changed.connect(GlobalInfo.combat_ui_overlay.helth_bar.set_max_health)
+	GlobalInfo.combat_ui_overlay.health_bar.setup($HealthComponent.current_health, $HealthComponent.health)
+	$HealthComponent.health_changed.connect(GlobalInfo.combat_ui_overlay.health_bar.set_health)
+	$HealthComponent.max_health_changed.connect(GlobalInfo.combat_ui_overlay.health_bar.set_max_health)
 	GlobalInfo.combat_ui_overlay.stat_panel.data_fill(stats.stats.values())
 
 	stats.get_stat_raw("STAT_HP").value_changed.connect($HealthComponent.new_max_health)
