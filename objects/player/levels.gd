@@ -15,6 +15,7 @@ func _ready() -> void:
 
 
 func set_new_required_ex(_new_level: int):
+	return 1
 	required_xp = 10 * _new_level + 5
 
 
