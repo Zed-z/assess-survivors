@@ -1,4 +1,4 @@
-extends ProgressBar
+extends TextureProgressBar
 
 var health: float
 var max_health: float

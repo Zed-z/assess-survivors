@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bh5tkxvg8jh42"]
+[gd_scene load_steps=7 format=3 uid="uid://bh5tkxvg8jh42"]
 
 [ext_resource type="Theme" uid="uid://df2r57b2stnof" path="res://themes/ui.tres" id="1_n8r28"]
 [ext_resource type="Script" uid="uid://2850i5pp8lmf" path="res://scenes/combat_scenes/combat_ui/combat_overlay.gd" id="1_ylltj"]
+[ext_resource type="Texture2D" uid="uid://b7tm4yxs73v82" path="res://sprites/ui/progressbar_bg.png" id="3_cxf21"]
 [ext_resource type="Script" uid="uid://dvlwdde65sqw2" path="res://scenes/combat_scenes/combat_ui/helth_bar.gd" id="4_1bpvo"]
+[ext_resource type="Texture2D" uid="uid://clplrbt37inet" path="res://sprites/ui/progressbar_white.png" id="4_m7cs0"]
 [ext_resource type="PackedScene" uid="uid://cwenam73fitmy" path="res://objects/ui/stat_panel/stat_panel.tscn" id="5_hdsv1"]
 
 [node name="CombatUIOverlay" type="CanvasLayer"]
@@ -69,8 +71,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -382.0
+offset_top = 24.0
 offset_right = 382.0
-offset_bottom = 35.0
+offset_bottom = 59.0
 grow_horizontal = 2
 show_percentage = false
 
@@ -98,7 +101,7 @@ offset_right = 98.0
 offset_bottom = 85.0
 text = "PAUSE"
 
-[node name="HealthBar" type="ProgressBar" parent="Control/MarginContainer/Control"]
+[node name="HealthBar" type="TextureProgressBar" parent="Control/MarginContainer/Control"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 7
@@ -106,12 +109,21 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -247.0
-offset_top = -36.0
-offset_right = 247.0
+offset_left = -230.0
+offset_top = -42.0
+offset_right = 230.0
+offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 0
-show_percentage = false
+value = 50.0
+nine_patch_stretch = true
+stretch_margin_left = 10
+stretch_margin_top = 10
+stretch_margin_right = 10
+stretch_margin_bottom = 10
+texture_under = ExtResource("3_cxf21")
+texture_progress = ExtResource("4_m7cs0")
+tint_progress = Color(0.75686276, 0.1882353, 0.16470589, 1)
 script = ExtResource("4_1bpvo")
 
 [node name="Label" type="Label" parent="Control/MarginContainer/Control/HealthBar"]

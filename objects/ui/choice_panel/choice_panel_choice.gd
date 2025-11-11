@@ -8,7 +8,7 @@ signal chosen()
 @export var disabled: bool:
 	set(val):
 		disabled = val
-		%ButtonChooseNone.disabled = disabled
+		%Button.disabled = disabled
 
 @export_range(0, 360, 0.1, "radians_as_degrees") var lottery_roll_speed: float = 0
 

@@ -1,7 +1,7 @@
 extends Control
 class_name UIOverley
-@onready var progress_bar: ProgressBar = $MarginContainer/Control/LevelBar
-@onready var health_bar: ProgressBar = %HealthBar
+@onready var progress_bar: Range = $MarginContainer/Control/LevelBar
+@onready var health_bar: Range = %HealthBar
 @onready var wave_label: Label = $MarginContainer/Control/WaveLabel
 @onready var stat_panel: StatPanel = $MarginContainer/Control/StatPanel
 
