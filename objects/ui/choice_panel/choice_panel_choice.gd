@@ -29,6 +29,9 @@ func setup(_criterion: AssessCriterion, _choice: Lottery):
 		%Lottery.visible = true
 		%Button.text = tr("CHOICE_PANEL_SPIN")
 
+	%SureIcon.texture = criterion.icon
+	%LotteryIcon.texture = criterion.icon
+
 
 func _ready() -> void:
 	disabled = disabled
