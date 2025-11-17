@@ -1,33 +1,38 @@
 extends PanelContainer
-class_name ChoicePanelChoice
+class_name ChoicePanelWeight
 
 signal chosen()
-@export var criterion: AssessCriterion
+
 @export var choice: Lottery
 @export var disabled: bool:
 	set(val):
 		disabled = val
 		%Button.disabled = disabled
 
-@export_range(0, 360, 0.1, "radians_as_degrees") var lottery_roll_speed: float = 0
+@export var item_display: PackedScene
+#@export_range(0, 360, 0.1, "radians_as_degrees") var lottery_roll_speed: float = 0
 
 
 func setup(_criterion: AssessCriterion, _choice: Lottery):
-	criterion = _criterion
-	choice = _choice
-
-	%Label.text = choice._to_pretty_string()
-
-	%LotteryProgress.value = choice.win_probability
-
-	if (choice.win_probability == 1):
+	if (_choice.win_probability == 1):
 		%SureOption.visible = true
 		%Lottery.visible = false
 		%Button.text = tr("CHOICE_PANEL_SAFE")
+		fill_container(_choice.win_val, %SureContainer)
 	else:
 		%SureOption.visible = false
 		%Lottery.visible = true
 		%Button.text = tr("CHOICE_PANEL_SPIN")
+		fill_container(_choice.win_val, %WinContainer)
+		fill_container(_choice.loss_val, %LossContainer)
+
+
+func fill_container(dict: Dictionary[String, float], container: BoxContainer) -> void:
+	for key in dict:
+		var item = item_display.instantiate()
+		item.name = key
+		item.value = dict[key]
+		container.add_child(item)
 
 
 func _ready() -> void:
@@ -35,9 +40,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if lottery_roll_speed > 0:
-		%LotteryCursor.rotation_degrees = lottery_roll_speed * 20 + sin(deg_to_rad(Engine.get_physics_frames()) * 20) * 10
-		%LotteryProgress.rotation += lottery_roll_speed
+	pass
 
 
 func _on_button_pressed() -> void:
