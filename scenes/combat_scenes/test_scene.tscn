@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://fnao1rs5haap"]
+[gd_scene load_steps=15 format=4 uid="uid://fnao1rs5haap"]
 
 [ext_resource type="PackedScene" uid="uid://ct88pvgyokerc" path="res://objects/player/player.tscn" id="1_41wyt"]
 [ext_resource type="PackedScene" uid="uid://blfd7tomoo2ky" path="res://globals/holders/projectile_holder/projectile_holder.tscn" id="1_gyrba"]
@@ -10,7 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://bh5tkxvg8jh42" path="res://scenes/combat_scenes/combat_ui/combat_overlay.tscn" id="6_1nlv8"]
 [ext_resource type="PackedScene" uid="uid://dcnxirbl2tpfw" path="res://objects/game_camera/game_camera.tscn" id="9_hosda"]
 [ext_resource type="PackedScene" uid="uid://55kp84v1di83" path="res://globals/assess_criterion_manager/assess_manager.tscn" id="9_ug5hv"]
+[ext_resource type="Script" uid="uid://cewtwidc4lwar" path="res://scenes/combat_scenes/pickup_spawner.gd" id="12_8btbg"]
+[ext_resource type="PackedScene" uid="uid://dcoqxmxne62pu" path="res://objects/player/pickup/instances/health_pickup.tscn" id="13_6iaqk"]
 [ext_resource type="Resource" uid="uid://cqoxrismskjsx" path="res://objects/enemies/enemy_spawner/enemy_vave_data/vave_collections/wave_collection_1.tres" id="14_131tw"]
+[ext_resource type="PackedScene" uid="uid://bayobo3ev4nkp" path="res://objects/player/pickup/instances/xp_pickup.tscn" id="14_ars3e"]
 
 [node name="TestScene" type="Node2D"]
 y_sort_enabled = true
@@ -60,5 +63,11 @@ min_radius = 500.0
 max_radius = 600.0
 vaves = ExtResource("14_131tw")
 
+[node name="PickupSpawner" type="Node2D" parent="EnemySpawner"]
+script = ExtResource("12_8btbg")
+pickups = Array[PackedScene]([ExtResource("13_6iaqk"), ExtResource("14_ars3e")])
+
 [node name="SpawnableArea" type="CollisionPolygon2D" parent="EnemySpawner"]
 polygon = PackedVector2Array(-992, 321, -640, 447, 858, 500, 1429, 112, 1440, -484, 808, -684, -420, -677, -747, -662, -809, -525, -1401, -134)
+
+[connection signal="enemy_killed" from="EnemySpawner" to="EnemySpawner/PickupSpawner" method="spawn_pickup"]

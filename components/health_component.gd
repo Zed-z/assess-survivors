@@ -11,7 +11,6 @@ signal max_health_changed(new_value: float)
 @export var deplete_once: bool = true
 
 var current_health: float = 1
-var has_depleted: bool = false
 
 
 func setup(_health: float):
@@ -21,7 +20,6 @@ func setup(_health: float):
 
 func reset():
 	current_health = health
-	has_depleted = false
 
 
 func _ready() -> void:
@@ -41,7 +39,7 @@ func new_max_health(value: float):
 
 func take_damage(damage: DamageParameters) -> void:
 
-	if current_health <= 0 and deplete_once and has_depleted:
+	if current_health <= 0:
 		return
 
 	if invulnerable:
@@ -50,13 +48,10 @@ func take_damage(damage: DamageParameters) -> void:
 	current_health -= damage.damage
 	health_changed.emit(current_health)
 
-	if current_health <= 0:
+	got_hit.emit(current_health <= 0)
 
-		if deplete_once and has_depleted:
-			return
 
-		got_hit.emit(true)
-		has_depleted = true
-
-	else:
-		got_hit.emit(false)
+func heal(healing: float) -> void:
+	current_health += healing
+	current_health = clampf(current_health,0,health)
+	health_changed.emit(current_health)

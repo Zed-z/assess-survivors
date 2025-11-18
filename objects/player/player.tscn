@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ct88pvgyokerc"]
+[gd_scene load_steps=22 format=3 uid="uid://ct88pvgyokerc"]
 
 [ext_resource type="Script" uid="uid://bpko7pdk264ld" path="res://objects/player/player.gd" id="1_g7ett"]
 [ext_resource type="Script" uid="uid://tbwlmhfwlhey" path="res://objects/player/projectile_shooter.gd" id="2_ssrue"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://1ogv7wo486wd" path="res://objects/player/hurtbox/hurtbox.gd" id="8_m4kly"]
 [ext_resource type="Texture2D" uid="uid://d2khmtbsk4mom" path="res://sprites/tiles/luk.png" id="9_ylcck"]
 [ext_resource type="Texture2D" uid="uid://b8riatfslt0b8" path="res://sprites/ui/potion.png" id="11_45rsp"]
+[ext_resource type="Script" uid="uid://cq2l5rojmr1bj" path="res://objects/player/pickup/pickup_receiver.gd" id="15_ylcck"]
 
 [sub_resource type="Resource" id="Resource_dthqj"]
 script = ExtResource("7_c34wb")
@@ -41,6 +42,9 @@ metadata/_custom_type_script = "uid://d1e80dp6c7ji3"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ow0dq"]
 size = Vector2(22, 22)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ylcck"]
+radius = 30.0
 
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
@@ -79,6 +83,14 @@ wait_time = 0.1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("RectangleShape2D_ow0dq")
+
+[node name="CompPickupReceiver" type="Area2D" parent="."]
+script = ExtResource("15_ylcck")
+metadata/_custom_type_script = "uid://cq2l5rojmr1bj"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CompPickupReceiver"]
+position = Vector2(1, -19)
+shape = SubResource("CircleShape2D_ylcck")
 
 [connection signal="new_level" from="Levels" to="." method="_on_levels_new_level"]
 [connection signal="got_hit" from="HealthComponent" to="." method="_on_health_component_got_hit"]

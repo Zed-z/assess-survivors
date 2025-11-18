@@ -10,12 +10,12 @@ signal new_level(level: int)
 func _ready() -> void:
 	set_new_required_ex(0)
 	await get_tree().process_frame
-	GlobalInfo.enemy_spawner.enemy_killed.connect(xp_collected)
+	GlobalInfo.enemy_spawner.enemy_killed.connect(gain_ex_from_enemy)
 	GlobalInfo.combat_ui_overlay.update_progres_bar(level, collected_xp,required_xp)
 
 
 func set_new_required_ex(_new_level: int):
-	return 1
+
 	required_xp = 10 * _new_level + 5
 
 
@@ -30,9 +30,19 @@ func _unhandled_input(event: InputEvent) -> void:
 		GlobalInfo.assess_manager.is_weight_phase = !GlobalInfo.assess_manager.is_weight_phase
 
 
-func xp_collected(enemy: Enemy) ->void:
-
+func gain_ex_from_enemy(enemy: Enemy) -> void:
 	collected_xp += 1
+
+	xp_collected()
+
+
+func gain_ex_by_value(xp_amoutn: int) -> void:
+	collected_xp += xp_amoutn
+	xp_collected()
+
+
+##internal function not supesed to be called from outside
+func xp_collected() ->void:
 
 	if collected_xp >= required_xp:
 		collected_xp -= required_xp
@@ -41,4 +51,3 @@ func xp_collected(enemy: Enemy) ->void:
 		new_level.emit(level)
 
 	GlobalInfo.combat_ui_overlay.update_progres_bar(level, collected_xp,required_xp)
-	print("current level %d: %d/%d" % [level, collected_xp,required_xp])
