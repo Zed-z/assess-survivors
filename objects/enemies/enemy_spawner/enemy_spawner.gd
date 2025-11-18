@@ -1,6 +1,8 @@
 extends Node2D
 class_name EnemySpawner
 
+signal enemy_killed(enemy: Enemy)
+
 @export var player: Player
 
 @export_group("spawn parameters")
@@ -64,8 +66,6 @@ func new_vave():
 		current_vave_data = null
 #endregion vaves
 
-signal enemy_killed(enemy: Enemy)
-
 
 func _ready() -> void:
 	enemy_spawn_timer.timeout.connect(spawn_enemy)
@@ -97,6 +97,7 @@ func remove_enemy(enemy_to_kill):
 				new_vave()
 
 	enemy_killed.emit(killed_enemy)
+
 	killed_enemy.queue_free()
 
 
