@@ -36,12 +36,12 @@ func _ready() -> void:
 	if !is_weight_phase:
 		var right = choice_single.instantiate()
 		right.setup(criterion, question.get_right())
-		right.chosen.connect(_on_button_choose_left_pressed)
+		right.chosen.connect(_on_button_choose_right_pressed)
 		%ChoiceRightContainer.add_child(right)
 	else:
 		var right = choice_multi.instantiate()
 		right.setup(criterion, question.get_right())
-		right.chosen.connect(_on_button_choose_left_pressed)
+		right.chosen.connect(_on_button_choose_right_pressed)
 		%ChoiceRightContainer.add_child(right)
 
 	#%ChoiceLeft.setup(criterion, question.get_left())
@@ -93,10 +93,11 @@ func _on_button_choose_right_pressed() -> void:
 
 func _on_button_choose_none_pressed() -> void:
 	disable_controls()
+	var answer
 	if !is_weight_phase:
-		var answer: AssessCriterion.StepAnswer = criterion.step(AssessCriterion.Answer.i)
+		answer = criterion.step(AssessCriterion.Answer.i)
 	else:
-		GlobalInfo.assess_manager.weight_step(AssessCriterion.Answer.i)
+		answer = GlobalInfo.assess_manager.weight_step(AssessCriterion.Answer.i)
 
 	#if answer.answer == AssessCriterion.Answer.p:
 		#move_to_node(%ChoiceLeft, %ChoiceFinalPosition, tween_left)

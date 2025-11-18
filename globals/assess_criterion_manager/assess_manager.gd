@@ -119,7 +119,7 @@ func weight_step(answer: AssessCriterion.Answer) -> WeightStepAnswer:
 	if (answer == AssessCriterion.Answer.q):
 		upper_bound_weight[weight_index] = criteria_weight[weight_index]
 		criteria_weight[weight_index] = (criteria_weight[weight_index] + lower_bound_weight[weight_index])/2
-		result = weight_question.get_left().get_value()
+		result = weight_question.get_right().get_value()
 
 	if (answer == AssessCriterion.Answer.i):
 		upper_bound_weight[weight_index] = criteria_weight[weight_index]
@@ -135,6 +135,7 @@ func weight_step(answer: AssessCriterion.Answer) -> WeightStepAnswer:
 	step_answer.values = result
 
 	for c in result:
+		print(result[c])
 		c.value_result.emit(result[c])
 
 	return step_answer
