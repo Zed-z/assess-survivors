@@ -5,6 +5,7 @@ class_name Player
 
 @onready var stats = $Stats
 
+@export var ENDGAMELEVEL = 10
 var last_direction: int = 1
 
 
@@ -41,10 +42,15 @@ func _physics_process(delta: float) -> void:
 
 func _on_levels_new_level(level: int) -> void:
 	GlobalInfo.score_manager.score_increase(1000)
-	var choice_panel: ChoicePanel = ObjectManager.instantiate(ObjectManager.OBJ_CHOICE_PANEL)
-	choice_panel.criterion = GlobalInfo.assess_manager.get_criterion()
-	choice_panel.question = choice_panel.criterion.get_question()
-	GlobalInfo.combat_ui_overlay.add_child(choice_panel)
+	GlobalInfo.assess_manager.init_choice_panel()
+
+	#if level < ENDGAMELEVEL:
+		#choice_panel.criterion = GlobalInfo.assess_manager.get_criterion()
+		#choice_panel.question = choice_panel.criterion.get_question()
+
+	#else:
+		#choice_panel.question = GlobalInfo.assess_manager.get_weight_question()
+		#choice_panel.criterion = GlobalInfo.assess_manager.get_weight_criterion()
 
 
 func _on_health_component_got_hit(depleted: bool) -> void:

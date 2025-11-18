@@ -12,7 +12,7 @@ signal chosen()
 @export_range(0, 360, 0.1, "radians_as_degrees") var lottery_roll_speed: float = 0
 
 
-func setup(_criterion: AssessCriterion, _choice: Lottery):
+func setup(_criterion: AssessCriterion, _choice: SingleLottery):
 	criterion = _criterion
 	choice = _choice
 
