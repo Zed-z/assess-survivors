@@ -4,6 +4,9 @@ class_name ChoicePanel
 var choice_single: PackedScene = preload("res://objects/ui/choice_panel/choice_panel_choice.tscn")
 var choice_multi: PackedScene = preload("res://objects/ui/choice_panel_weight/choice_panel_choice_weight.tscn")
 
+var choice_left: ChoicePanelCard
+var choice_right: ChoicePanelCard
+
 var criterion: AssessCriterion
 var question: Question
 var is_weight_phase: bool
@@ -23,31 +26,24 @@ func _ready() -> void:
 	is_weight_phase = ! question.get_left() is SingleLottery
 
 	if !is_weight_phase:
-		var left = choice_single.instantiate()
-		left.setup(criterion, question.get_left())
-		left.chosen.connect(_on_button_choose_left_pressed)
-		%ChoiceLeftContainer.add_child(left)
+		choice_left = choice_single.instantiate()
+		choice_left.setup(criterion, question.get_left())
 	else:
-		var left = choice_multi.instantiate()
-		left.setup(criterion, question.get_left())
-		left.chosen.connect(_on_button_choose_left_pressed)
-		%ChoiceLeftContainer.add_child(left)
+		choice_left = choice_multi.instantiate()
+		choice_left.setup(criterion, question.get_left())
+
+	choice_left.chosen.connect(_on_button_choose_left_pressed)
+	%ChoiceLeftContainer.add_child(choice_left)
 
 	if !is_weight_phase:
-		var right = choice_single.instantiate()
-		right.setup(criterion, question.get_right())
-		right.chosen.connect(_on_button_choose_right_pressed)
-		%ChoiceRightContainer.add_child(right)
+		choice_right = choice_single.instantiate()
+		choice_right.setup(criterion, question.get_right())
 	else:
-		var right = choice_multi.instantiate()
-		right.setup(criterion, question.get_right())
-		right.chosen.connect(_on_button_choose_right_pressed)
-		%ChoiceRightContainer.add_child(right)
+		choice_right = choice_multi.instantiate()
+		choice_right.setup(criterion, question.get_right())
 
-	#%ChoiceLeft.setup(criterion, question.get_left())
-	#%ChoiceLeft.chosen.connect(_on_button_choose_left_pressed)
-	#%ChoiceRight.setup(criterion, question.get_right())
-	#%ChoiceRight.chosen.connect(_on_button_choose_right_pressed)
+	choice_right.chosen.connect(_on_button_choose_right_pressed)
+	%ChoiceRightContainer.add_child(choice_right)
 
 	%ButtonChooseNone.text = tr("CHOICE_PANEL_NONE")
 	%LabelName.text = tr(criterion.criterion_name)
@@ -64,12 +60,12 @@ func _on_button_choose_left_pressed() -> void:
 	else:
 		GlobalInfo.assess_manager.weight_step(AssessCriterion.Answer.p)
 
-	#%ChoiceLeft.lottery_roll_speed = PI/10
+	choice_left.lottery_roll_speed = PI/10
 #
-	#move_to_node(%ChoiceLeft, %ChoiceFinalPosition, tween_left)
-	#move_to_node(%ChoiceRight, %ChoiceOffscreen, tween_right)
-	#move_to_node(%ButtonChooseNone, %ChoiceOffscreen, tween_indifferent)
-	#move_to_node(%LabelOr, %ChoiceOffscreen, tween_or)
+	move_to_node(choice_left, %ChoiceFinalPosition, tween_left)
+	move_to_node(choice_right, %ChoiceOffscreen, tween_right)
+	move_to_node(%ButtonChooseNone, %ChoiceOffscreen, tween_indifferent)
+	move_to_node(%LabelOr, %ChoiceOffscreen, tween_or)
 
 	$Timer.start()
 
@@ -81,12 +77,12 @@ func _on_button_choose_right_pressed() -> void:
 	else:
 		GlobalInfo.assess_manager.weight_step(AssessCriterion.Answer.q)
 
-	#%ChoiceRight.lottery_roll_speed = PI/10
+	choice_right.lottery_roll_speed = PI/10
 #
-	#move_to_node(%ChoiceRight, %ChoiceFinalPosition, tween_right)
-	#move_to_node(%ChoiceLeft, %ChoiceOffscreen, tween_left)
-	#move_to_node(%ButtonChooseNone, %ChoiceOffscreen, tween_indifferent)
-	#move_to_node(%LabelOr, %ChoiceOffscreen, tween_or)
+	move_to_node(choice_right, %ChoiceFinalPosition, tween_right)
+	move_to_node(choice_left, %ChoiceOffscreen, tween_left)
+	move_to_node(%ButtonChooseNone, %ChoiceOffscreen, tween_indifferent)
+	move_to_node(%LabelOr, %ChoiceOffscreen, tween_or)
 
 	$Timer.start()
 
@@ -99,17 +95,17 @@ func _on_button_choose_none_pressed() -> void:
 	else:
 		answer = GlobalInfo.assess_manager.weight_step(AssessCriterion.Answer.i)
 
-	#if answer.answer == AssessCriterion.Answer.p:
-		#move_to_node(%ChoiceLeft, %ChoiceFinalPosition, tween_left)
-		#move_to_node(%ChoiceRight, %ChoiceOffscreen, tween_right)
-		#move_to_node(%ButtonChooseNone, %ChoiceOffscreen, tween_indifferent)
-		#move_to_node(%LabelOr, %ChoiceOffscreen, tween_or)
+	if answer.answer == AssessCriterion.Answer.p:
+		move_to_node(choice_left, %ChoiceFinalPosition, tween_left)
+		move_to_node(choice_right, %ChoiceOffscreen, tween_right)
+		move_to_node(%ButtonChooseNone, %ChoiceOffscreen, tween_indifferent)
+		move_to_node(%LabelOr, %ChoiceOffscreen, tween_or)
 
-	#else:
-		#move_to_node(%ChoiceRight, %ChoiceFinalPosition, tween_right)
-		#move_to_node(%ChoiceLeft, %ChoiceOffscreen, tween_left)
-		#move_to_node(%ButtonChooseNone, %ChoiceOffscreen, tween_indifferent)
-		#move_to_node(%LabelOr, %ChoiceOffscreen, tween_or)
+	else:
+		move_to_node(choice_right, %ChoiceFinalPosition, tween_right)
+		move_to_node(choice_left, %ChoiceOffscreen, tween_left)
+		move_to_node(%ButtonChooseNone, %ChoiceOffscreen, tween_indifferent)
+		move_to_node(%LabelOr, %ChoiceOffscreen, tween_or)
 
 	$Timer.start()
 
@@ -119,10 +115,9 @@ func _on_timer_timeout() -> void:
 
 
 func disable_controls() -> void:
-	pass
-	#%ChoiceLeft.disabled = true
-	#%ChoiceRight.disabled = true
-	#%ButtonChooseNone.disabled = true
+	choice_left.disabled = true
+	choice_right.disabled = true
+	%ButtonChooseNone.disabled = true
 
 
 func move_to_node(node: Control, target: Control, tween: Tween):
@@ -132,8 +127,8 @@ func move_to_node(node: Control, target: Control, tween: Tween):
 	tween = create_tween().set_ease(Tween.EASE_OUT_IN)
 	tween.tween_property(
 		node,
-		"position",
-		target.position - node.size / 2,
+		"global_position",
+		target.global_position - node.size / 2,
 		0.25)
 
 	tween.play()

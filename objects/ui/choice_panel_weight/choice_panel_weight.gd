@@ -5,6 +5,9 @@ class_name ChoicePanelWeight
 
 
 func setup(_criterion: AssessCriterion, _choice: MultiLottery):
+
+	%LotteryProgress.value = _choice.win_probability
+
 	if (_choice.win_probability == 1):
 		%SureOption.visible = true
 		%Lottery.visible = false
