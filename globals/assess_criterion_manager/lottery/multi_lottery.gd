@@ -2,11 +2,11 @@ extends Lottery
 
 class_name MultiLottery
 
-var win_array: Dictionary[String, float]
-var loss_array: Dictionary[String, float]
+var win_array: Dictionary[AssessCriterion, float]
+var loss_array: Dictionary[AssessCriterion, float]
 
 
-func _init(win_val: Dictionary[String, float], win_prob: float, loss_val: Dictionary[String, float]) -> void:
+func _init(win_val: Dictionary[AssessCriterion, float], win_prob: float, loss_val: Dictionary[AssessCriterion, float]) -> void:
 	win_array = win_val
 	win_probability = win_prob
 	loss_array = loss_val
@@ -43,7 +43,7 @@ func _to_string() -> String:
 	return "L(%s, %.02f%%, %s)" % [win_string, (win_probability*100), loss_string]
 
 
-func get_value() -> Dictionary[String,float]:
+func get_value() -> Dictionary[AssessCriterion,float]:
 	var random_float: float = randf_range(0.0, 1.0)
 
 	if random_float <= win_probability:

@@ -26,6 +26,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		set_new_required_ex(level)
 		new_level.emit(level)
 
+	if event.is_action_pressed("force_endgame"):
+		GlobalInfo.assess_manager.is_weight_phase = !GlobalInfo.assess_manager.is_weight_phase
+
 
 func gain_ex_from_enemy(enemy: Enemy) -> void:
 	collected_xp += 1
