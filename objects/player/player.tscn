@@ -76,6 +76,7 @@ script = ExtResource("7_m4kly")
 metadata/_custom_type_script = "uid://008ins25r0w8"
 
 [node name="Hurtbox" type="Area2D" parent="."]
+visible = false
 script = ExtResource("8_m4kly")
 
 [node name="Timer" type="Timer" parent="Hurtbox"]
@@ -85,6 +86,7 @@ wait_time = 0.1
 shape = SubResource("RectangleShape2D_ow0dq")
 
 [node name="CompPickupReceiver" type="Area2D" parent="."]
+visible = false
 script = ExtResource("15_ylcck")
 metadata/_custom_type_script = "uid://cq2l5rojmr1bj"
 

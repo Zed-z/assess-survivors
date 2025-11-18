@@ -149,6 +149,11 @@ func spawn_enemy():
 	e.vave_number = current_vave_index
 
 
+func is_position_inside_area(pos: Vector2) ->bool:
+
+	return Geometry2D.is_point_in_polygon(to_local(pos),spawnable_area.polygon)
+
+
 func _process(_delta: float) -> void:
 	if current_vave_data:
 		GlobalInfo.combat_ui_overlay.wave_label.text = current_vave_data.get_status(counted_enemies,timer.time_left if timer else 0.0)
