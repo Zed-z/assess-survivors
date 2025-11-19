@@ -15,7 +15,7 @@ on:
           - all
 env:
   GODOT_VERSION: 4.5.1
-  GODOT_PROJECT_LOCATION: project.godot
+  GODOT_PROJECT_LOCATION: .
   EXPORT_FOLDER_WINDOWS: export/windows
   EXPORT_FOLDER_LINUX: export/linux
   EXPORT_FOLDER_HTML: export/html
