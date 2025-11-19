@@ -82,7 +82,7 @@ jobs:
           mkdir -p ${{ env.EXPORT_FOLDER_HTML }}
           chmod +x ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64
           ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 --import ${{ env.GODOT_PROJECT_LOCATION }} --quiet --headless --export-debug "HTML" ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_HTML }}
-      - Upload HTML artifact
+      - name: Upload HTML artifact
         if: ${{ github.event.inputs.job_target == 'html' }} || ${{ github.event.inputs.job_target == 'all' }}
         uses: actions/upload-artifact@v4
         with:
