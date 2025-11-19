@@ -1,7 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://dv3lq6de6l1a8"]
+[gd_scene load_steps=12 format=3 uid="uid://epsr1o1tk6ur"]
 
-[ext_resource type="Script" uid="uid://gohumc4rt4ne" path="res://objects/enemies/test_enemy/enemy.gd" id="1_d6f65"]
-[ext_resource type="Script" uid="uid://bfk4pro2k5bf6" path="res://objects/enemies/test_enemy/enemy_hurt_box.gd" id="3_dm3ug"]
+[ext_resource type="Script" uid="uid://gohumc4rt4ne" path="res://objects/enemies/enemy.gd" id="1_d6f65"]
+[ext_resource type="Script" uid="uid://bfk4pro2k5bf6" path="res://objects/enemies/enemy_hurt_box.gd" id="3_dm3ug"]
 [ext_resource type="AudioStream" uid="uid://rid2phrdy8wc" path="res://sounds/game/hurt.wav" id="4_d6f65"]
 [ext_resource type="Script" uid="uid://008ins25r0w8" path="res://components/health_component.gd" id="4_lijck"]
 [ext_resource type="AudioStream" uid="uid://dv1dkq7k5kku0" path="res://sounds/game/die.wav" id="5_gpstc"]

@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://dnears1tiwond"]
 
-[ext_resource type="PackedScene" uid="uid://epsr1o1tk6ur" path="res://objects/enemies/test_enemy/enemy_scenes/base_enemy.tscn" id="1_o4p7e"]
+[ext_resource type="PackedScene" uid="uid://epsr1o1tk6ur" path="res://objects/enemies/enemy_scenes/base_enemy.tscn" id="1_o4p7e"]
 [ext_resource type="Texture2D" uid="uid://eawq50uwgn24" path="res://sprites/mobs/spider.png" id="2_4q77u"]
-[ext_resource type="Script" uid="uid://cnwb66k0tvq7m" path="res://objects/enemies/test_enemy/move_controller/ranger_move_controller.gd" id="3_wp2wx"]
+[ext_resource type="Script" uid="uid://cnwb66k0tvq7m" path="res://objects/enemies/move_controller/ranger_move_controller.gd" id="3_wp2wx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w84hb"]
 atlas = ExtResource("2_4q77u")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dmtshlqm6061i"]
 
-[ext_resource type="PackedScene" uid="uid://epsr1o1tk6ur" path="res://objects/enemies/test_enemy/enemy_scenes/base_enemy.tscn" id="1_k50q8"]
-[ext_resource type="Script" uid="uid://r84uspc8jmiv" path="res://objects/enemies/test_enemy/move_controller/stright_line_move_controller.gd" id="2_ia6ut"]
+[ext_resource type="PackedScene" uid="uid://epsr1o1tk6ur" path="res://objects/enemies/enemy_scenes/base_enemy.tscn" id="1_k50q8"]
+[ext_resource type="Script" uid="uid://r84uspc8jmiv" path="res://objects/enemies/move_controller/stright_line_move_controller.gd" id="2_ia6ut"]
 [ext_resource type="Texture2D" uid="uid://cigsdewro07vk" path="res://icon.svg" id="2_n6ykq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_troyk"]
