@@ -46,7 +46,7 @@ jobs:
           unzip godot_export_templates.tpz -d ~/.local/share/godot/export_templates/${{ env.GODOT_VERSION }}.stable
           mv ~/.local/share/godot/export_templates/${{ env.GODOT_VERSION }}.stable/templates/* ~/.local/share/godot/export_templates/${{ env.GODOT_VERSION }}.stable/
           chmod +x ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64
-          sed -i 's/config\/version="[^"]*"/config\/version="${{ env.DATE }}-debug"/' $${{ env.GODOT_PROJECT_LOCATION }}
+          sed -i 's/config\/version="[^"]*"/config\/version="${{ env.DATE }}-debug"/' ${{ env.GODOT_PROJECT_LOCATION }}
       - name: Build Linux
         if: ${{ github.event.inputs.job_target == 'linux' }} || ${{ github.event.inputs.job_target == 'all' }}
         run: |
