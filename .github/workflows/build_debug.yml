@@ -39,7 +39,7 @@ jobs:
           submodules: recursive
       - name: Prepare Godot
         run: |
-          wget -q -O godot_linux.zip https://github.com/godotengine/gotod-builds/releases/download/${{ env.GODOT_VERSION }}-stable/Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64.zip
+          wget -q -O godot_linux.zip https://github.com/godotengine/godot-builds/releases/download/${{ env.GODOT_VERSION }}-stable/Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64.zip
           unzip godot_linux.zip
           wget -q -O godot_export_templates.tpz https://github.com/godotengine/godot-builds/releases/download/${{ env.GODOT_VERSION }}-stable/Godot_v${{ env.GODOT_VERSION }}-stable_export_templates.tpz
           mkdir -p ~/.local/share/godot/export_templates/${{ env.GODOT_VERSION }}.stable
@@ -76,3 +76,15 @@ jobs:
         with:
           name: ${{ env.APPLICATION_NAME }}_windows_debug_${{ env.DATE }}
           path: ${{ env.EXPORT_FOLDER_WINDOWS }}/
+      - name: Build HTML
+        if: ${{ github.event.inputs.job_target == 'html' }} || ${{ github.event.inputs.job_target == 'all' }}
+        run: |
+          mkdir -p ${{ env.EXPORT_FOLDER_HTML }}
+          chmod +x ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64
+          ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 --import ${{ env.GODOT_PROJECT_LOCATION }} --quiet --headless --export-debug "HTML" ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_HTML }}
+      - Upload HTML artifact
+        if: ${{ github.event.inputs.job_target == 'html' }} || ${{ github.event.inputs.job_target == 'all' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.APPLICATION_NAME }}_html_debug_${{ env.DATE }}
+          path: ${{ env.EXPORT_FOLDER_HTML }}/
