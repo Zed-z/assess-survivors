@@ -53,7 +53,7 @@ jobs:
         if: ${{ github.event.inputs.job_target == 'linux' }} || ${{ github.event.inputs.job_target == 'all' }}
         run: |
           mkdir -p ${{ env.EXPORT_FOLDER_LINUX }}
-          ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 ${{ env.GODOT_PROJECT_FOLDER }} --headless --export-debug Linux ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_LINUX }}/${{ env.APPLICATION_NAME }}.x86_64
+          ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 --headless --path ${{ env.GODOT_PROJECT_FOLDER }} --export-debug Linux ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_LINUX }}/${{ env.APPLICATION_NAME }}.x86_64
           chmod +x ${{ env.EXPORT_FOLDER_LINUX }}/${{ env.APPLICATION_NAME }}.sh
           chmod +x ${{ env.EXPORT_FOLDER_LINUX }}/${{ env.APPLICATION_NAME }}.x86_64
       - name: Tar files
@@ -70,7 +70,7 @@ jobs:
         if: ${{ github.event.inputs.job_target == 'windows' }} || ${{ github.event.inputs.job_target == 'all' }}
         run: |
           mkdir -p ${{ env.EXPORT_FOLDER_WINDOWS }}
-          ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 ${{ env.GODOT_PROJECT_FOLDER }} --headless --export-debug Windows ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_WINDOWS }}/${{ env.APPLICATION_NAME }}.exe
+          ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 --headless --path ${{ env.GODOT_PROJECT_FOLDER }} --export-debug Windows ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_WINDOWS }}/${{ env.APPLICATION_NAME }}.exe
       - name: Upload windows artifact
         if: ${{ github.event.inputs.job_target == 'windows' }} || ${{ github.event.inputs.job_target == 'all' }}
         uses: actions/upload-artifact@v4
@@ -81,7 +81,7 @@ jobs:
         if: ${{ github.event.inputs.job_target == 'html' }} || ${{ github.event.inputs.job_target == 'all' }}
         run: |
           mkdir -p ${{ env.EXPORT_FOLDER_HTML }}
-          ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 ${{ env.GODOT_PROJECT_FOLDER }} --headless --export-debug "HTML" ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_HTML }}
+          ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 --headless --path ${{ env.GODOT_PROJECT_FOLDER }} --export-debug "HTML" ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_HTML }}
       - name: Upload HTML artifact
         if: ${{ github.event.inputs.job_target == 'html' }} || ${{ github.event.inputs.job_target == 'all' }}
         uses: actions/upload-artifact@v4
