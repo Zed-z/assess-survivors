@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://hf78mlyq324k"]
+
+[ext_resource type="Script" uid="uid://bp02iki1ite0j" path="res://objects/decoration/small_bush.gd" id="1_hdd2l"]
+[ext_resource type="Texture2D" uid="uid://dfrsdrjwfftik" path="res://sprites/tiles/lil_bush.png" id="1_wxd3x"]
+[ext_resource type="Texture2D" uid="uid://ckeb0idhn6oti" path="res://sprites/tiles/another_bush.png" id="2_hdd2l"]
+
+[node name="SmallBush" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_hdd2l")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -29)
+texture = ExtResource("1_wxd3x")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(0, -29)
+texture = ExtResource("2_hdd2l")
