@@ -24,14 +24,25 @@ alignment = 1
 [node name="OptionContainer" type="CenterContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="SureOption" type="PanelContainer" parent="VBoxContainer/OptionContainer"]
+[node name="SureOption" type="Control" parent="VBoxContainer/OptionContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 
 [node name="LotteryBackground" type="TextureRect" parent="VBoxContainer/OptionContainer/SureOption"]
 custom_minimum_size = Vector2(400, 400)
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -200.0
+offset_right = 200.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 texture = ExtResource("4_npp0o")
 expand_mode = 1
@@ -39,15 +50,42 @@ stretch_mode = 4
 
 [node name="LotteryBackground2" type="TextureRect" parent="VBoxContainer/OptionContainer/SureOption"]
 custom_minimum_size = Vector2(400, 400)
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -200.0
+offset_right = 200.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 texture = ExtResource("5_l1uyb")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="SureContainer" type="VBoxContainer" parent="VBoxContainer/OptionContainer/SureOption"]
+[node name="SureIcon" type="TextureRect" parent="VBoxContainer/OptionContainer/SureOption"]
 unique_name_in_owner = true
-layout_mode = 2
+custom_minimum_size = Vector2(160, 160)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -80.0
+offset_right = 80.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+texture = ExtResource("8_fbqpx")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="Lottery" type="Control" parent="VBoxContainer/OptionContainer"]
 unique_name_in_owner = true
@@ -117,18 +155,28 @@ texture = ExtResource("8_fbqpx")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/OptionContainer/Lottery"]
-layout_mode = 0
-offset_right = 400.0
-offset_bottom = 400.0
+[node name="LotteryContainer" type="HBoxContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
 
-[node name="WinContainer" type="VBoxContainer" parent="VBoxContainer/OptionContainer/Lottery/HBoxContainer"]
+[node name="WinContainer" type="VBoxContainer" parent="VBoxContainer/LotteryContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="LossContainer" type="VBoxContainer" parent="VBoxContainer/OptionContainer/Lottery/HBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/LotteryContainer"]
+layout_mode = 2
+text = "or..."
+
+[node name="LossContainer" type="VBoxContainer" parent="VBoxContainer/LotteryContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+
+[node name="SureContainer" type="VBoxContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="Button" type="Button" parent="VBoxContainer"]
 unique_name_in_owner = true
