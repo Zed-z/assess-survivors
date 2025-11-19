@@ -34,7 +34,12 @@ jobs:
       - name: Install dependencies
         run: |
           apt-get update
-          apt-get install -y wget unzip git libx11-6 libxext6 libasound2 libpulse0 libglib2.0-0 fontconfig
+          apt-get install -y \
+            wget unzip git fontconfig \
+            libx11-6 libxext6 libxi6 libxrandr2 libxcursor1 \
+            libxinerama1 libxxf86vm1 libglu1-mesa \
+            libasound2 libpulse0 libglib2.0-0 \
+            ca-certificates
       - name: Checkout submodules
         uses: actions/checkout@v4
         with:
