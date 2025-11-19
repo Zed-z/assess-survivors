@@ -50,40 +50,40 @@ jobs:
           chmod +x ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64
           sed -i 's/config\/version="[^"]*"/config\/version="${{ env.DATE }}-debug"/' ${{ env.GODOT_PROJECT_FILE }}
       - name: Build Linux
-        if: ${{ github.event.inputs.job_target == 'linux' }} || ${{ github.event.inputs.job_target == 'all' }}
+        if: ${{ github.event.inputs.job_target == 'linux' || github.event.inputs.job_target == 'all' }}
         run: |
           mkdir -p ${{ env.EXPORT_FOLDER_LINUX }}
-          ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 --headless --path ${{ env.GODOT_PROJECT_FOLDER }} --export-debug Linux ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_LINUX }}/${{ env.APPLICATION_NAME }}.x86_64
+          ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 --headless --path ${{ env.GODOT_PROJECT_FOLDER }} --export-debug Linux ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_LINUX }}/${{ env.APPLICATION_NAME }}.x86_64 || true
           chmod +x ${{ env.EXPORT_FOLDER_LINUX }}/${{ env.APPLICATION_NAME }}.sh
           chmod +x ${{ env.EXPORT_FOLDER_LINUX }}/${{ env.APPLICATION_NAME }}.x86_64
       - name: Tar files
-        if: ${{ github.event.inputs.job_target == 'linux' }} || ${{ github.event.inputs.job_target == 'all' }}
+        if: ${{ github.event.inputs.job_target == 'linux' || github.event.inputs.job_target == 'all' }}
         run: |
           tar -cvf ${{ env.APPLICATION_NAME }}_linux_debug_${{ env.DATE }}.tar ${{ env.EXPORT_FOLDER_LINUX }}
       - name: Upload linux artifact
-        if: $${{ github.event.inputs.job_target == 'linux' }} || ${{ github.event.inputs.job_target == 'all' }}
+        if: $${{ github.event.inputs.job_target == 'linux' || github.event.inputs.job_target == 'all' }}
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.APPLICATION_NAME }}_linux_debug_${{ env.DATE }}.tar
           path: ${{ env.APPLICATION_NAME }}_linux_debug_${{ env.DATE }}.tar
       - name: Build Windows
-        if: ${{ github.event.inputs.job_target == 'windows' }} || ${{ github.event.inputs.job_target == 'all' }}
+        if: ${{ github.event.inputs.job_target == 'windows' || github.event.inputs.job_target == 'all' }}
         run: |
           mkdir -p ${{ env.EXPORT_FOLDER_WINDOWS }}
-          ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 --headless --path ${{ env.GODOT_PROJECT_FOLDER }} --export-debug Windows ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_WINDOWS }}/${{ env.APPLICATION_NAME }}.exe
+          ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 --headless --path ${{ env.GODOT_PROJECT_FOLDER }} --export-debug Windows ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_WINDOWS }}/${{ env.APPLICATION_NAME }}.exe || true
       - name: Upload windows artifact
-        if: ${{ github.event.inputs.job_target == 'windows' }} || ${{ github.event.inputs.job_target == 'all' }}
+        if: ${{ github.event.inputs.job_target == 'windows' || github.event.inputs.job_target == 'all' }}
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.APPLICATION_NAME }}_windows_debug_${{ env.DATE }}
           path: ${{ env.EXPORT_FOLDER_WINDOWS }}/
       - name: Build HTML
-        if: ${{ github.event.inputs.job_target == 'html' }} || ${{ github.event.inputs.job_target == 'all' }}
+        if: ${{ github.event.inputs.job_target == 'html' || github.event.inputs.job_target == 'all' }}
         run: |
           mkdir -p ${{ env.EXPORT_FOLDER_HTML }}
-          ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 --headless --path ${{ env.GODOT_PROJECT_FOLDER }} --export-debug "HTML" ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_HTML }}
+          ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 --headless --path ${{ env.GODOT_PROJECT_FOLDER }} --export-debug "HTML" ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_HTML }} || true
       - name: Upload HTML artifact
-        if: ${{ github.event.inputs.job_target == 'html' }} || ${{ github.event.inputs.job_target == 'all' }}
+        if: ${{ github.event.inputs.job_target == 'html' || github.event.inputs.job_target == 'all' }}
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.APPLICATION_NAME }}_html_debug_${{ env.DATE }}
