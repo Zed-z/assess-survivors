@@ -6,7 +6,7 @@ on:
       job_target:
         description: "Platform"
         required: true
-        default: "windows"
+        default: "all"
         type: choice
         options:
           - windows
