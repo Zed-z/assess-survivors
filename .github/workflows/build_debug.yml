@@ -19,7 +19,7 @@ env:
   EXPORT_FOLDER_WINDOWS: export/windows
   EXPORT_FOLDER_LINUX: export/linux
   EXPORT_FOLDER_HTML: export/html
-  APPLICATION_NAME: AssessSurvivors
+  APPLICATION_NAME: assess_survivors
 jobs:
   build:
     runs-on: ubuntu-latest
