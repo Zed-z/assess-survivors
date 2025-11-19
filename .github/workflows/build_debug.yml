@@ -24,7 +24,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: archlinux:latest
+      image: ubuntu:22.04
     steps:
       - name: Set extra variables
         run: |
@@ -32,7 +32,8 @@ jobs:
           echo "MAIN_FOLDER=$(pwd)" >> $GITHUB_ENV
       - name: Install dependencies
         run: |
-          pacman -Syu --noconfirm git bash yasm python python-pip scons gcc diffutils make wget unzip tar mingw-w64 fontconfig
+          apt-get update
+          apt-get install -y wget unzip git libx11-6 libxext6 libasound2 libpulse0 libglib2.0-0 fontconfig
       - name: Checkout submodules
         uses: actions/checkout@v4
         with:
