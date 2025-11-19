@@ -31,8 +31,8 @@ jobs:
           echo "MAIN_FOLDER=$(pwd)" >> $GITHUB_ENV
       - name: Install dependencies
         run: |
-          apt-get update
-          apt-get install -y \
+          sudo apt-get update
+          sudo apt-get install -y \
             wget unzip git fontconfig \
             libx11-6 libxext6 libxi6 libxrandr2 libxcursor1 \
             libxinerama1 libxxf86vm1 libglu1-mesa \
