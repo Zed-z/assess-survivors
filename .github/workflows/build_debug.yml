@@ -9,17 +9,17 @@ on:
         default: "all"
         type: choice
         options:
+          - all
           - windows
           - linux
-          - html
-          - all
+          - web
 env:
   GODOT_VERSION: 4.5.1
   GODOT_PROJECT_FOLDER: .
   GODOT_PROJECT_FILE: ./project.godot
   EXPORT_FOLDER_WINDOWS: export/windows
   EXPORT_FOLDER_LINUX: export/linux
-  EXPORT_FOLDER_HTML: export/html
+  EXPORT_FOLDER_WEB: export/web
   APPLICATION_NAME: assess_survivors
 jobs:
   build:
@@ -61,7 +61,7 @@ jobs:
         run: |
           tar -cvf ${{ env.APPLICATION_NAME }}_linux_debug_${{ env.DATE }}.tar ${{ env.EXPORT_FOLDER_LINUX }}
       - name: Upload linux artifact
-        if: $${{ github.event.inputs.job_target == 'linux' || github.event.inputs.job_target == 'all' }}
+        if: ${{ github.event.inputs.job_target == 'linux' || github.event.inputs.job_target == 'all' }}
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.APPLICATION_NAME }}_linux_debug_${{ env.DATE }}.tar
@@ -80,11 +80,11 @@ jobs:
       - name: Build HTML
         if: ${{ github.event.inputs.job_target == 'html' || github.event.inputs.job_target == 'all' }}
         run: |
-          mkdir -p ${{ env.EXPORT_FOLDER_HTML }}
-          ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 --headless --path ${{ env.GODOT_PROJECT_FOLDER }} --export-debug "HTML" ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_HTML }} || true
+          mkdir -p ${{ env.EXPORT_FOLDER_WEB }}
+          ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 --headless --path ${{ env.GODOT_PROJECT_FOLDER }} --export-debug Web ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_WEB }}/index.html || true
       - name: Upload HTML artifact
         if: ${{ github.event.inputs.job_target == 'html' || github.event.inputs.job_target == 'all' }}
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.APPLICATION_NAME }}_html_debug_${{ env.DATE }}
-          path: ${{ env.EXPORT_FOLDER_HTML }}/
+          path: ${{ env.EXPORT_FOLDER_WEB }}/
