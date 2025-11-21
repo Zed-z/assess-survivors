@@ -136,3 +136,16 @@ jobs:
         with:
           name: ${{ env.APPLICATION_NAME }}_web_${{ env.BUILD_MODE }}_${{ env.VERSION }}
           path: ${{ env.EXPORT_FOLDER_WEB }}/
+
+      - name: Create release
+        if: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v') }}
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: Release ${{ github.ref_name }}
+          files: |
+            ${{ env.APPLICATION_NAME }}_linux_${{ env.BUILD_MODE }}_${{ env.VERSION }}.tar
+            ${{ env.EXPORT_FOLDER_WINDOWS }}/
+            ${{ env.EXPORT_FOLDER_WEB }}/
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
