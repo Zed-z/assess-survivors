@@ -1,5 +1,6 @@
 name: Multi-Platform Debug/Release Build
-run-name: Build ${{ github.event.inputs.job_target }} [${{ github.event.inputs.build_mode }}]${{ github.event.inputs.run_tests == 'true' && '+ Tests' || '' }}
+run-name: >
+  ${{ github.event_name == 'workflow_dispatch' && format('Manual build: {0} [{1}]', github.event.inputs.build_target, github.event.inputs.build_mode) || format('Tagged release: {0}', github.ref_name) }}
 
 on:
   push:
@@ -8,7 +9,7 @@ on:
 
   workflow_dispatch:
     inputs:
-      job_target:
+      build_target:
         description: "Platform"
         required: true
         default: "all"
@@ -58,6 +59,11 @@ jobs:
           fi
           echo "VERSION=$VERSION" >> $GITHUB_ENV
 
+          # Build parameters from inputs or defaults for tagged releases
+          echo "BUILD_TARGET=${{ github.event.inputs.build_target || 'all' }}" >> $GITHUB_ENV   # All platforms for tagged builds
+          echo "BUILD_MODE=${{ github.event.inputs.build_mode || 'release' }}" >> $GITHUB_ENV   # Release for tagged builds
+          echo "RUN_TESTS=${{ github.event.inputs.run_tests || 'false' }}" >> $GITHUB_ENV       # False by default due to crashing issues
+
       - name: Install dependencies
         run: |
           sudo apt-get update
@@ -77,10 +83,10 @@ jobs:
           unzip godot_export_templates.tpz -d ~/.local/share/godot/export_templates/${{ env.GODOT_VERSION }}.stable
           mv ~/.local/share/godot/export_templates/${{ env.GODOT_VERSION }}.stable/templates/* ~/.local/share/godot/export_templates/${{ env.GODOT_VERSION }}.stable/
           chmod +x ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64
-          sed -i 's/config\/version="[^"]*"/config\/version="${{ env.VERSION }}-${{ github.event.inputs.build_mode }}"/' ${{ env.GODOT_PROJECT_FILE }}
+          sed -i 's/config\/version="[^"]*"/config\/version="${{ env.VERSION }}-${{ env.BUILD_MODE }}"/' ${{ env.GODOT_PROJECT_FILE }}
 
       - name: Run GDUnit4 Tests
-        if: ${{ github.event.inputs.run_tests == 'true' }}
+        if: ${{ env.RUN_TESTS == 'true' }}
         uses: MikeSchulze/gdUnit4-action@v1
         with:
           godot-version: ${{ env.GODOT_VERSION }}
@@ -88,45 +94,45 @@ jobs:
           timeout: 10
 
       - name: Build Linux
-        if: ${{ github.event.inputs.job_target == 'linux' || github.event.inputs.job_target == 'all' }}
+        if: ${{ env.BUILD_TARGET == 'linux' || env.BUILD_TARGET == 'all' }}
         run: |
           mkdir -p ${{ env.EXPORT_FOLDER_LINUX }}
-          ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 --headless --path ${{ env.GODOT_PROJECT_FOLDER }} --export-${{ github.event.inputs.build_mode }} Linux ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_LINUX }}/${{ env.APPLICATION_NAME }}.x86_64 || true
+          ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 --headless --path ${{ env.GODOT_PROJECT_FOLDER }} --export-${{ env.BUILD_MODE }} Linux ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_LINUX }}/${{ env.APPLICATION_NAME }}.x86_64 || true
           chmod +x ${{ env.EXPORT_FOLDER_LINUX }}/${{ env.APPLICATION_NAME }}.x86_64
-          if [ "${{ github.event.inputs.build_mode }}" = "debug" ]; then
+          if [ "${{ env.BUILD_MODE }}" = "debug" ]; then
             chmod +x ${{ env.EXPORT_FOLDER_LINUX }}/${{ env.APPLICATION_NAME }}.sh
           fi
-          tar -cvf ${{ env.APPLICATION_NAME }}_linux_${{ github.event.inputs.build_mode }}_${{ env.VERSION }}.tar ${{ env.EXPORT_FOLDER_LINUX }}
+          tar -cvf ${{ env.APPLICATION_NAME }}_linux_${{ env.BUILD_MODE }}_${{ env.VERSION }}.tar ${{ env.EXPORT_FOLDER_LINUX }}
 
       - name: Upload Linux artifact
-        if: ${{ github.event.inputs.job_target == 'linux' || github.event.inputs.job_target == 'all' }}
+        if: ${{ env.BUILD_TARGET == 'linux' || env.BUILD_TARGET == 'all' }}
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ env.APPLICATION_NAME }}_linux_${{ github.event.inputs.build_mode }}_${{ env.VERSION }}.tar
-          path: ${{ env.APPLICATION_NAME }}_linux_${{ github.event.inputs.build_mode }}_${{ env.VERSION }}.tar
+          name: ${{ env.APPLICATION_NAME }}_linux_${{ env.BUILD_MODE }}_${{ env.VERSION }}.tar
+          path: ${{ env.APPLICATION_NAME }}_linux_${{ env.BUILD_MODE }}_${{ env.VERSION }}.tar
 
       - name: Build Windows
-        if: ${{ github.event.inputs.job_target == 'windows' || github.event.inputs.job_target == 'all' }}
+        if: ${{ env.BUILD_TARGET == 'windows' || env.BUILD_TARGET == 'all' }}
         run: |
           mkdir -p ${{ env.EXPORT_FOLDER_WINDOWS }}
-          ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 --headless --path ${{ env.GODOT_PROJECT_FOLDER }} --export-${{ github.event.inputs.build_mode }} Windows ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_WINDOWS }}/${{ env.APPLICATION_NAME }}.exe || true
+          ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 --headless --path ${{ env.GODOT_PROJECT_FOLDER }} --export-${{ env.BUILD_MODE }} Windows ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_WINDOWS }}/${{ env.APPLICATION_NAME }}.exe || true
 
       - name: Upload Windows artifact
-        if: ${{ github.event.inputs.job_target == 'windows' || github.event.inputs.job_target == 'all' }}
+        if: ${{ env.BUILD_TARGET == 'windows' || env.BUILD_TARGET == 'all' }}
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ env.APPLICATION_NAME }}_windows_${{ github.event.inputs.build_mode }}_${{ env.VERSION }}
+          name: ${{ env.APPLICATION_NAME }}_windows_${{ env.BUILD_MODE }}_${{ env.VERSION }}
           path: ${{ env.EXPORT_FOLDER_WINDOWS }}/
 
       - name: Build Web
-        if: ${{ github.event.inputs.job_target == 'web' || github.event.inputs.job_target == 'all' }}
+        if: ${{ env.BUILD_TARGET == 'web' || env.BUILD_TARGET == 'all' }}
         run: |
           mkdir -p ${{ env.EXPORT_FOLDER_WEB }}
-          ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 --headless --path ${{ env.GODOT_PROJECT_FOLDER }} --export-${{ github.event.inputs.build_mode }} Web ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_WEB }}/index.html || true
+          ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 --headless --path ${{ env.GODOT_PROJECT_FOLDER }} --export-${{ env.BUILD_MODE }} Web ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_WEB }}/index.html || true
 
       - name: Upload Web artifact
-        if: ${{ github.event.inputs.job_target == 'web' || github.event.inputs.job_target == 'all' }}
+        if: ${{ env.BUILD_TARGET == 'web' || env.BUILD_TARGET == 'all' }}
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ env.APPLICATION_NAME }}_web_${{ github.event.inputs.build_mode }}_${{ env.VERSION }}
+          name: ${{ env.APPLICATION_NAME }}_web_${{ env.BUILD_MODE }}_${{ env.VERSION }}
           path: ${{ env.EXPORT_FOLDER_WEB }}/
