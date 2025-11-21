@@ -22,7 +22,6 @@ func after_test():
 	criterion.question.get_left().free()
 	criterion.question.get_right().free()
 	criterion.question.free()
-	criterion.free()
 
 
 func test_answer_p():

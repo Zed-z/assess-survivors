@@ -1,4 +1,5 @@
 extends Button
+class_name SceneChangeButton
 
 @export var scene: String
 

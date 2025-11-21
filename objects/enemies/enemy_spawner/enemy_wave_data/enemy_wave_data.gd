@@ -1,8 +1,8 @@
 extends Resource
-class_name VaveData
+class_name WaveData
 
 
-##class that represents a vave data
+##class that represents a wave data
 ##all keys should sum up to one
 #TODO: make unit test for keys == 1
 
@@ -14,14 +14,14 @@ class_name VaveData
 ## is there a speficic limit to spawned enemies
 @export var enemies_to_spawn: int = -1
 
-##should all enemies be killed to proceed to next vave
+##should all enemies be killed to proceed to next wave
 @export var kill_all_enemies: bool = false
 
-##what is the duration of current vave
-@export var vave_duration: float
+##what is the duration of current wave
+@export var wave_duration: float
 
 ##the aray of enemies and their probabilities
-@export var enemies: Array[VaveTouple] = []
+@export var enemies: Array[WaveTouple] = []
 
 
 func get_status(enemies_killed: int, time: float) -> String:

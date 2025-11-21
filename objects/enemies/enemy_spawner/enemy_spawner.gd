@@ -8,13 +8,13 @@ signal enemy_killed(enemy: Enemy)
 @export_group("spawn parameters")
 @export var min_radius: float = 100
 @export var max_radius: float = 200
-#region vaves
+#region waves
 @export_group("enemy veaves ")
 ## key is level at whitch it is beeing spawned
 ##value is value data representing probability of certain enemiy to spawn
-@export var vaves: VaveCollection
-var current_vave_index = 0
-var current_vave_data: VaveData
+@export var waves: WaveCollection
+var current_wave_index = 0
+var current_wave_data: WaveData
 var cached_probabilities: Array[float]
 var timer: SceneTreeTimer
 var counted_enemies = 0
@@ -27,19 +27,19 @@ var enemies_array: SwapbackArray
 
 func create_enemy()->Enemy:
 	var index = MathUtils.choices_1f(cached_probabilities)
-	return current_vave_data.enemies[index].scene.instantiate()
+	return current_wave_data.enemies[index].scene.instantiate()
 
 
-func new_vave():
+func new_wave():
 
-	var data = vaves.vaves.get(current_vave_index)
+	var data = waves.waves.get(current_wave_index)
 
 	if data != null:
 
-		current_vave_data = data
+		current_wave_data = data
 		cached_probabilities = []
 
-		for value:VaveTouple in current_vave_data.enemies:
+		for value: WaveTouple in current_wave_data.enemies:
 			cached_probabilities.append(value.probability)
 
 		if timer:
@@ -49,22 +49,22 @@ func new_vave():
 
 		if data.kill_all_enemies:
 			pass
-		elif data.vave_duration > 0:
-			timer = get_tree().create_timer(data.vave_duration)
+		elif data.wave_duration > 0:
+			timer = get_tree().create_timer(data.wave_duration)
 			timer.timeout.connect(
 
 
 				func x():
-					current_vave_index +=1
-					new_vave()
+					current_wave_index +=1
+					new_wave()
 					)
 
-		enemy_spawn_timer.wait_time = 60.0 / current_vave_data.enemies_per_minute
+		enemy_spawn_timer.wait_time = 60.0 / current_wave_data.enemies_per_minute
 		enemy_spawn_timer.start()
 
 	else:
-		current_vave_data = null
-#endregion vaves
+		current_wave_data = null
+#endregion waves
 
 
 func _ready() -> void:
@@ -72,13 +72,13 @@ func _ready() -> void:
 	enemies_array = SwapbackArray.new(50)
 	GlobalInfo.enemy_spawner = self
 
-	current_vave_data = vaves.vaves[0]
+	current_wave_data = waves.waves[0]
 	cached_probabilities = []
 
-	for value:VaveTouple in current_vave_data.enemies:
+	for value: WaveTouple in current_wave_data.enemies:
 		cached_probabilities.append(value.probability)
 
-	new_vave()
+	new_wave()
 
 
 func remove_enemy(enemy_to_kill):
@@ -87,14 +87,14 @@ func remove_enemy(enemy_to_kill):
 	if not killed_enemy:
 		return
 
-	if killed_enemy.vave_number == current_vave_index:
+	if killed_enemy.wave_number == current_wave_index:
 		counted_enemies += 1
 
-		if current_vave_data.kill_all_enemies:
+		if current_wave_data.kill_all_enemies:
 
-			if counted_enemies >= current_vave_data.enemies_to_spawn:
-				current_vave_index+=1
-				new_vave()
+			if counted_enemies >= current_wave_data.enemies_to_spawn:
+				current_wave_index+=1
+				new_wave()
 
 	enemy_killed.emit(killed_enemy)
 
@@ -103,16 +103,16 @@ func remove_enemy(enemy_to_kill):
 
 func spawn_enemy():
 
-	#we fuinished all the vaves so we cannot spawn anything
-	if current_vave_data == null:
+	#we fuinished all the waves so we cannot spawn anything
+	if current_wave_data == null:
 		return
 
 	#we  reched the maximum number of enemies on the screen
-	if not enemies_array.size() < current_vave_data.enemy_cap:
+	if not enemies_array.size() < current_wave_data.enemy_cap:
 		return
 
-	#all enemies that belonged to the vave have been spawned
-	if spawned_enemies >= current_vave_data.enemies_to_spawn and current_vave_data.enemies_to_spawn > 0:
+	#all enemies that belonged to the wave have been spawned
+	if spawned_enemies >= current_wave_data.enemies_to_spawn and current_wave_data.enemies_to_spawn > 0:
 		return
 
 	spawned_enemies += 1
@@ -146,7 +146,7 @@ func spawn_enemy():
 	call_deferred("add_child",e)
 	enemies_array.append(e)
 	e.global_position = enemy_location
-	e.vave_number = current_vave_index
+	e.wave_number = current_wave_index
 
 
 func is_position_inside_area(pos: Vector2) ->bool:
@@ -155,7 +155,7 @@ func is_position_inside_area(pos: Vector2) ->bool:
 
 
 func _process(_delta: float) -> void:
-	if current_vave_data:
-		GlobalInfo.combat_ui_overlay.wave_label.text = current_vave_data.get_status(counted_enemies,timer.time_left if timer else 0.0)
+	if current_wave_data:
+		GlobalInfo.combat_ui_overlay.wave_label.text = "wave %d\n%s" % [current_wave_index, current_wave_data.get_status(counted_enemies,timer.time_left if timer else 0.0)]
 	else:
-		GlobalInfo.combat_ui_overlay.wave_label.text = "all wawes finished"
+		GlobalInfo.combat_ui_overlay.wave_label.text = "all waves finished"
