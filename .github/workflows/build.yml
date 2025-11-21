@@ -24,6 +24,11 @@ on:
           - debug
           - release
 
+      run_tests:
+        description: "Run GDUnit tests"
+        type: boolean
+        default: true
+
 env:
   GODOT_VERSION: 4.5.1
   GODOT_PROJECT_FOLDER: .
@@ -62,6 +67,14 @@ jobs:
           mv ~/.local/share/godot/export_templates/${{ env.GODOT_VERSION }}.stable/templates/* ~/.local/share/godot/export_templates/${{ env.GODOT_VERSION }}.stable/
           chmod +x ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64
           sed -i 's/config\/version="[^"]*"/config\/version="${{ env.DATE }}-${{ github.event.inputs.build_mode }}"/' ${{ env.GODOT_PROJECT_FILE }}
+
+      - name: Run GDUnit4 Tests
+        if: ${{ github.event.inputs.run_tests == true }}
+        uses: MikeSchulze/gdUnit4-action@v1
+        with:
+          godot-version: ${{ env.GODOT_VERSION }}
+          paths: "res://test"
+          timeout: 10
 
       - name: Build Linux
         if: ${{ github.event.inputs.job_target == 'linux' || github.event.inputs.job_target == 'all' }}
