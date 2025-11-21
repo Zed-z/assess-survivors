@@ -68,8 +68,10 @@ jobs:
         run: |
           mkdir -p ${{ env.EXPORT_FOLDER_LINUX }}
           ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 --headless --path ${{ env.GODOT_PROJECT_FOLDER }} --export-${{ github.event.inputs.build_mode }} Linux ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_LINUX }}/${{ env.APPLICATION_NAME }}.x86_64 || true
-          chmod +x ${{ env.EXPORT_FOLDER_LINUX }}/${{ env.APPLICATION_NAME }}.sh
           chmod +x ${{ env.EXPORT_FOLDER_LINUX }}/${{ env.APPLICATION_NAME }}.x86_64
+          if [ "${{ github.event.inputs.build_mode }}" = "debug" ]; then
+            chmod +x ${{ env.EXPORT_FOLDER_LINUX }}/${{ env.APPLICATION_NAME }}.sh
+          fi
           tar -cvf ${{ env.APPLICATION_NAME }}_linux_${{ github.event.inputs.build_mode }}_${{ env.DATE }}.tar ${{ env.EXPORT_FOLDER_LINUX }}
 
       - name: Upload Linux artifact
