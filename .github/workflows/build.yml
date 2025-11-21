@@ -1,5 +1,5 @@
 name: Multi-Platform Debug/Release Build
-run-name: Building debug/release version for multiple platforms
+run-name: Build ${{ github.event.inputs.job_target }} [${{ github.event.inputs.build_mode }}]${{ github.event.inputs.run_tests == 'true' && '+ Tests' || '' }}
 
 on:
   workflow_dispatch:
@@ -69,7 +69,7 @@ jobs:
           sed -i 's/config\/version="[^"]*"/config\/version="${{ env.DATE }}-${{ github.event.inputs.build_mode }}"/' ${{ env.GODOT_PROJECT_FILE }}
 
       - name: Run GDUnit4 Tests
-        if: ${{ github.event.inputs.run_tests == true }}
+        if: ${{ github.event.inputs.run_tests == 'true' }}
         uses: MikeSchulze/gdUnit4-action@v1
         with:
           godot-version: ${{ env.GODOT_VERSION }}
