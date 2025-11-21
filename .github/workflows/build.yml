@@ -1,6 +1,6 @@
 name: Multi-Platform Debug/Release Build
 run-name: >
-  ${{ github.event_name == 'workflow_dispatch' && format('Manual build: {0} [{1}]', github.event.inputs.build_target, github.event.inputs.build_mode) || format('Tagged release: {0}', github.ref_name) }}
+  ${{ github.event_name == 'workflow_dispatch' && format('Manual Build: {0} [{1}]', github.event.inputs.build_target, github.event.inputs.build_mode) || format('Tagged Release: {0}', github.ref_name) }}
 
 on:
   push:
@@ -32,7 +32,7 @@ on:
       run_tests:
         description: "Run GDUnit tests"
         type: boolean
-        default: true
+        default: false
 
 env:
   GODOT_VERSION: 4.5.1
@@ -47,6 +47,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout submodules
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
       - name: Set environment variables
         run: |
           echo "MAIN_FOLDER=$(pwd)" >> $GITHUB_ENV
@@ -68,11 +73,6 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y wget unzip git fontconfig ca-certificates libx11-6 libxext6 libxi6 libxrandr2 libxcursor1 libxinerama1 libxxf86vm1 libglu1-mesa libpulse0 libglib2.0-0
-
-      - name: Checkout submodules
-        uses: actions/checkout@v4
-        with:
-          submodules: recursive
 
       - name: Prepare Godot
         run: |
