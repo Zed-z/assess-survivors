@@ -177,10 +177,12 @@ _data = {
 script = ExtResource("1_d6f65")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_ck1x7")
 disabled = true
 
 [node name="HurtBox" type="Area2D" parent="."]
+visible = false
 script = ExtResource("3_dm3ug")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]

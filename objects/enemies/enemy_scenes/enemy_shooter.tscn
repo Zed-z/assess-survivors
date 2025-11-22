@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://b1mu2h3vyj3my"]
+
+[ext_resource type="PackedScene" uid="uid://epsr1o1tk6ur" path="res://objects/enemies/enemy_scenes/base_enemy.tscn" id="1_m7o5d"]
+[ext_resource type="Texture2D" uid="uid://dbofyxlntl8x6" path="res://sprites/tiles/bricks_gray.png" id="2_psjsc"]
+[ext_resource type="PackedScene" uid="uid://dx5qo5th2pi3w" path="res://objects/enemies/shooter_component/baisic_shoter.tscn" id="2_q6il4"]
+[ext_resource type="Script" uid="uid://cnwb66k0tvq7m" path="res://objects/enemies/move_controller/ranger_move_controller.gd" id="4_psjsc"]
+[ext_resource type="PackedScene" uid="uid://brubyva6r1d3c" path="res://objects/enemies/enemy_scenes/enemy_projectiles/enemy_projectile1.tscn" id="5_l6adf"]
+
+[node name="Enemy" node_paths=PackedStringArray("move_controller") instance=ExtResource("1_m7o5d")]
+move_controller = NodePath("RangerMoveControler")
+
+[node name="RangerMoveControler" type="Node2D" parent="." index="0"]
+script = ExtResource("4_psjsc")
+speed = 40.0
+metadata/_custom_type_script = "uid://cnwb66k0tvq7m"
+
+[node name="Sprite2D" type="Sprite2D" parent="SpriteContainer" index="0"]
+texture = ExtResource("2_psjsc")
+
+[node name="BasicShooter" parent="." index="8" instance=ExtResource("2_q6il4")]
+projectile = ExtResource("5_l6adf")
+shoot_coldown = 1.5
+projectile_speed = 100

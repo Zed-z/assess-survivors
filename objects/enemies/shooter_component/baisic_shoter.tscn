@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dx5qo5th2pi3w"]
+
+[ext_resource type="Script" uid="uid://bxrtysv8dyqbb" path="res://objects/enemies/shooter_component/baisic_shooter.gd" id="1_mda0l"]
+
+[node name="BasicShooter" type="Node2D"]
+script = ExtResource("1_mda0l")
+shoot_coldown = 0.5
+
+[node name="Timer" type="Timer" parent="."]
