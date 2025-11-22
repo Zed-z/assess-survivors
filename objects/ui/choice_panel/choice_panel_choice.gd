@@ -21,3 +21,8 @@ func setup(_criterion: AssessCriterion, _choice: SingleLottery):
 
 	%SureIcon.texture = criterion.icon
 	%LotteryIcon.texture = criterion.icon
+
+
+func stop_lottery_animation(win: bool) -> void:
+	super.stop_lottery_animation(win)
+	%LotteryResult.text = "WIN" if win else "LOSE"

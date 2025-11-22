@@ -23,3 +23,11 @@ func _physics_process(delta: float) -> void:
 
 func _on_button_pressed() -> void:
 	chosen.emit()
+
+
+func start_lottery_animation() -> void:
+	lottery_roll_speed = PI/10
+
+
+func stop_lottery_animation(win: bool) -> void:
+	lottery_roll_speed = 0

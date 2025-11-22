@@ -48,11 +48,11 @@ var right_bound: float
 
 class StepAnswer:
 	var answer: Answer
-	var value: float
+	var value: SingleLottery.SingleLotteryResult
 
 
 func step(answer: Answer) -> StepAnswer:
-	var result: float
+	var result: SingleLottery.SingleLotteryResult
 
 	var ret: StepAnswer = StepAnswer.new()
 	ret.answer = answer
@@ -87,7 +87,7 @@ func step(answer: Answer) -> StepAnswer:
 
 	do_change_question()
 
-	value_result.emit(result)
+	value_result.emit(result.value)
 
 	ret.value = result
 	return ret
