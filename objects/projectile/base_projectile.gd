@@ -5,6 +5,10 @@ var direction: Vector2
 var damage: int
 
 
+func _ready() -> void:
+	area_entered.connect(_on_area_entered)
+
+
 func initiate_projectile(vec: Vector2) -> void:
 	direction = vec
 
@@ -15,5 +19,6 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_area_entered(area: Area2D) -> void:
-	if area is BaseHurtbox and area is not PlayerHurtbox:
+	print(area.name)
+	if area is BaseHurtbox and area is not EnemyHurtbox:
 		area.got_hit(DamageParameters.new(damage))

@@ -9,9 +9,9 @@ y_sort_enabled = true
 script = ExtResource("1_hdd2l")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -29)
 texture = ExtResource("1_wxd3x")
+offset = Vector2(0, -20)
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(0, -29)
 texture = ExtResource("2_hdd2l")
+offset = Vector2(0, -20)
