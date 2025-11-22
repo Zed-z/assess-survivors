@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dy5ethtxehiga"
-path="res://.godot/imported/stoper.png-07bef76fdba1bf1a91fbe76c004deda8.ctex"
+uid="uid://cokvpbbqcmpbu"
+path="res://.godot/imported/tree.png-bc2c2af9d3f5cb0c116fd74560b9c234.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/ui/stoper.png"
-dest_files=["res://.godot/imported/stoper.png-07bef76fdba1bf1a91fbe76c004deda8.ctex"]
+source_file="res://sprites/decoration/tree.png"
+dest_files=["res://.godot/imported/tree.png-bc2c2af9d3f5cb0c116fd74560b9c234.ctex"]
 
 [params]
 

@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://c0p4rc4vy31m"]
 
-[ext_resource type="Script" uid="uid://brpv4cyt6hyn7" path="res://objects/projectile/enemy_targeting_projectile.gd" id="1_6yivw"]
-[ext_resource type="Texture2D" uid="uid://buuaf3wdlshc0" path="res://sprites/tiles/flower.png" id="2_ctmtx"]
+[ext_resource type="Script" uid="uid://cwk6p34u4437e" path="res://objects/projectile/projectile_player.gd" id="1_hmrrn"]
+[ext_resource type="Texture2D" uid="uid://buuaf3wdlshc0" path="res://sprites/flower.png" id="2_eutpu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4d8bg"]
 radius = 24.0
 
 [node name="TestProjectile" type="Area2D"]
-script = ExtResource("1_6yivw")
+script = ExtResource("1_hmrrn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(0.6340952, 0.6340952)
@@ -16,6 +16,6 @@ shape = SubResource("CircleShape2D_4d8bg")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(3, 2)
 scale = Vector2(0.21484375, 0.21484375)
-texture = ExtResource("2_ctmtx")
+texture = ExtResource("2_eutpu")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

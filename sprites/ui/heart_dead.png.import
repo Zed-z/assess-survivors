@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfrsdrjwfftik"
-path="res://.godot/imported/lil_bush.png-be36240d1f9ec901595932b8b4ab6f88.ctex"
+uid="uid://cvslcla1vbn8t"
+path="res://.godot/imported/heart_dead.png-ad6849532ae4b2fff06d1719aa07d59e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/tiles/lil_bush.png"
-dest_files=["res://.godot/imported/lil_bush.png-be36240d1f9ec901595932b8b4ab6f88.ctex"]
+source_file="res://sprites/ui/heart_dead.png"
+dest_files=["res://.godot/imported/heart_dead.png-ad6849532ae4b2fff06d1719aa07d59e.ctex"]
 
 [params]
 

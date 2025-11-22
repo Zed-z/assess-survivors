@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bh5tkxvg8jh42"]
+[gd_scene load_steps=8 format=3 uid="uid://bh5tkxvg8jh42"]
 
 [ext_resource type="Theme" uid="uid://df2r57b2stnof" path="res://themes/ui.tres" id="1_n8r28"]
 [ext_resource type="Script" uid="uid://2850i5pp8lmf" path="res://scenes/combat_scenes/combat_ui/combat_overlay.gd" id="1_ylltj"]
 [ext_resource type="Texture2D" uid="uid://b7tm4yxs73v82" path="res://sprites/ui/progressbar_bg.png" id="3_cxf21"]
+[ext_resource type="Texture2D" uid="uid://dy5ethtxehiga" path="res://sprites/ui/wave/stoper.png" id="3_m7cs0"]
 [ext_resource type="Script" uid="uid://dvlwdde65sqw2" path="res://scenes/combat_scenes/combat_ui/helth_bar.gd" id="4_1bpvo"]
 [ext_resource type="Texture2D" uid="uid://clplrbt37inet" path="res://sprites/ui/progressbar_white.png" id="4_m7cs0"]
 [ext_resource type="PackedScene" uid="uid://cwenam73fitmy" path="res://objects/ui/stat_panel/stat_panel.tscn" id="5_hdsv1"]
@@ -38,20 +39,31 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 mouse_filter = 2
 
-[node name="WaveLabel" type="Label" parent="Control/MarginContainer/Control"]
+[node name="WaveInfo" type="HBoxContainer" parent="Control/MarginContainer/Control"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -140.0
-offset_top = -37.0
+offset_left = -40.0
+offset_top = -40.0
 grow_horizontal = 0
 grow_vertical = 0
+alignment = 1
+
+[node name="WaveLabel" type="Label" parent="Control/MarginContainer/Control/WaveInfo"]
+layout_mode = 2
 text = "WAVE STATUS"
 horizontal_alignment = 2
-vertical_alignment = 2
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/Control/WaveInfo"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("3_m7cs0")
+expand_mode = 5
 
 [node name="ScoreLabel" type="Label" parent="Control/MarginContainer/Control"]
 layout_mode = 1

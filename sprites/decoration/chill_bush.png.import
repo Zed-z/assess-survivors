@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dd1t6v6ehx4ix"
-path="res://.godot/imported/test.png-56f39376cb625d3316cc5d78d3f2ec2d.ctex"
+uid="uid://csjp6ate5ksd7"
+path="res://.godot/imported/chill_bush.png-e41596df59189e946d53d72af6ed3886.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/tiles/test.png"
-dest_files=["res://.godot/imported/test.png-56f39376cb625d3316cc5d78d3f2ec2d.ctex"]
+source_file="res://sprites/decoration/chill_bush.png"
+dest_files=["res://.godot/imported/chill_bush.png-e41596df59189e946d53d72af6ed3886.ctex"]
 
 [params]
 

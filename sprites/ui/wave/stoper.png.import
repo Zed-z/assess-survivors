@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckeb0idhn6oti"
-path="res://.godot/imported/another_bush.png-bf260d7493cd2f7e84fd9e5d9c64e3b0.ctex"
+uid="uid://dy5ethtxehiga"
+path="res://.godot/imported/stoper.png-458e2d4e7558f18262552feea3fe5211.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/tiles/another_bush.png"
-dest_files=["res://.godot/imported/another_bush.png-bf260d7493cd2f7e84fd9e5d9c64e3b0.ctex"]
+source_file="res://sprites/ui/wave/stoper.png"
+dest_files=["res://.godot/imported/stoper.png-458e2d4e7558f18262552feea3fe5211.ctex"]
 
 [params]
 

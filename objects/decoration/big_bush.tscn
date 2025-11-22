@@ -1,10 +1,10 @@
 [gd_scene load_steps=2 format=3 uid="uid://buqqxg1nykgry"]
 
-[ext_resource type="Texture2D" uid="uid://csjp6ate5ksd7" path="res://sprites/tiles/chill_bush.png" id="1_umd47"]
+[ext_resource type="Texture2D" uid="uid://csjp6ate5ksd7" path="res://sprites/decoration/chill_bush.png" id="1_umd47"]
 
 [node name="BigBush" type="Node2D"]
 y_sort_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -29)
 texture = ExtResource("1_umd47")
+offset = Vector2(0, -35)

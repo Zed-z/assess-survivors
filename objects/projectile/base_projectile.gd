@@ -1,12 +1,12 @@
 extends Area2D
-class_name BaseEnemProjectile
+class_name BaseProjectile
 
 var direction: Vector2
 var damage: int
 
 
 func _ready() -> void:
-	connect("area_entered",_on_area_entered)
+	area_entered.connect(_on_area_entered)
 
 
 func initiate_projectile(vec: Vector2) -> void:
