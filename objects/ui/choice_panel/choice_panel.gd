@@ -52,6 +52,28 @@ func _exit_tree() -> void:
 	get_tree().paused = false
 
 
+func anim_choose_left(answer) -> void:
+	move_to_node(choice_left, %ChoiceFinalPosition, tween_left)
+	move_to_node(choice_right, %ChoiceOffscreen, tween_right)
+	move_to_node(%ButtonChooseNone, %ChoiceOffscreen, tween_indifferent)
+	move_to_node(%LabelOr, %ChoiceOffscreen, tween_or)
+
+	choice_left.start_lottery_animation()
+	await get_tree().create_timer(0.5).timeout
+	choice_left.stop_lottery_animation(answer.value.win)
+
+
+func anim_choose_right(answer) -> void:
+	move_to_node(choice_right, %ChoiceFinalPosition, tween_right)
+	move_to_node(choice_left, %ChoiceOffscreen, tween_left)
+	move_to_node(%ButtonChooseNone, %ChoiceOffscreen, tween_indifferent)
+	move_to_node(%LabelOr, %ChoiceOffscreen, tween_or)
+
+	choice_right.start_lottery_animation()
+	await get_tree().create_timer(0.5).timeout
+	choice_right.stop_lottery_animation(answer.value.win)
+
+
 func _on_button_choose_left_pressed() -> void:
 	disable_controls()
 
@@ -61,15 +83,7 @@ func _on_button_choose_left_pressed() -> void:
 	else:
 		answer = GlobalInfo.assess_manager.weight_step(AssessCriterion.Answer.p)
 #
-	move_to_node(choice_left, %ChoiceFinalPosition, tween_left)
-	move_to_node(choice_right, %ChoiceOffscreen, tween_right)
-	move_to_node(%ButtonChooseNone, %ChoiceOffscreen, tween_indifferent)
-	move_to_node(%LabelOr, %ChoiceOffscreen, tween_or)
-
-	choice_left.start_lottery_animation()
-	await get_tree().create_timer(1).timeout
-	choice_left.stop_lottery_animation(answer.value.win)
-
+	anim_choose_left(answer)
 	$Timer.start()
 
 
@@ -82,15 +96,7 @@ func _on_button_choose_right_pressed() -> void:
 	else:
 		answer = GlobalInfo.assess_manager.weight_step(AssessCriterion.Answer.q)
 #
-	move_to_node(choice_right, %ChoiceFinalPosition, tween_right)
-	move_to_node(choice_left, %ChoiceOffscreen, tween_left)
-	move_to_node(%ButtonChooseNone, %ChoiceOffscreen, tween_indifferent)
-	move_to_node(%LabelOr, %ChoiceOffscreen, tween_or)
-
-	choice_right.start_lottery_animation()
-	await get_tree().create_timer(1).timeout
-	choice_right.stop_lottery_animation(answer.value.win)
-
+	anim_choose_right(answer)
 	$Timer.start()
 
 
@@ -104,22 +110,9 @@ func _on_button_choose_none_pressed() -> void:
 		answer = GlobalInfo.assess_manager.weight_step(AssessCriterion.Answer.i)
 
 	if answer.answer == AssessCriterion.Answer.p:
-		move_to_node(choice_left, %ChoiceFinalPosition, tween_left)
-		move_to_node(choice_right, %ChoiceOffscreen, tween_right)
-		move_to_node(%ButtonChooseNone, %ChoiceOffscreen, tween_indifferent)
-		move_to_node(%LabelOr, %ChoiceOffscreen, tween_or)
-		choice_left.start_lottery_animation()
-		await get_tree().create_timer(1).timeout
-		choice_left.stop_lottery_animation(answer.value.win)
-
+		anim_choose_left(answer)
 	else:
-		move_to_node(choice_right, %ChoiceFinalPosition, tween_right)
-		move_to_node(choice_left, %ChoiceOffscreen, tween_left)
-		move_to_node(%ButtonChooseNone, %ChoiceOffscreen, tween_indifferent)
-		move_to_node(%LabelOr, %ChoiceOffscreen, tween_or)
-		choice_right.start_lottery_animation()
-		await get_tree().create_timer(1).timeout
-		choice_right.stop_lottery_animation(answer.value.win)
+		anim_choose_right(answer)
 
 	$Timer.start()
 

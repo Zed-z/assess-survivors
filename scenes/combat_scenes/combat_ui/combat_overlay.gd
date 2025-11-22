@@ -4,6 +4,7 @@ class_name UIOverley
 @onready var health_bar: Range = %HealthBar
 @onready var wave_icon: TextureRect = %WaveInfo/TextureRect
 @onready var wave_label: Label = %WaveInfo/WaveLabel
+@onready var wave_number_label: Label = %WaveNumberLabel
 @onready var stat_panel: StatPanel = $MarginContainer/Control/StatPanel
 
 
@@ -21,7 +22,8 @@ func set_score(score: int):
 func update_progres_bar(level: int, curent: int, max_value: int):
 	progress_bar.value = curent
 	progress_bar.max_value = max_value
-	progress_bar.get_node("Label").text = tr("GAMEPLAY_LEVEL_BAR") % [level + 1, curent, max_value]
+	var label: Label = progress_bar.get_node("Label")
+	label.text = tr("GAMEPLAY_LEVEL_BAR") % [level + 1, curent, max_value]
 
 
 func _on_pause_button_pressed() -> void:

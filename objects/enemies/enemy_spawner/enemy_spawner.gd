@@ -162,7 +162,10 @@ func _process(_delta: float) -> void:
 		GlobalInfo.combat_ui_overlay.wave_icon.visible = true
 		GlobalInfo.combat_ui_overlay.wave_icon.texture = icon_wave_time
 
+		GlobalInfo.combat_ui_overlay.wave_number_label.text = "Wave %s" % [current_wave_index + 1]
+
 		GlobalInfo.combat_ui_overlay.wave_label.text = current_wave_data.get_status(counted_enemies,timer.time_left if timer else 0.0)
 	else:
 		GlobalInfo.combat_ui_overlay.wave_icon.visible = false
+		GlobalInfo.combat_ui_overlay.wave_number_label.visible = false
 		GlobalInfo.combat_ui_overlay.wave_label.text = "all waves finished"

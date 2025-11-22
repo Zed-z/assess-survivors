@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bh5tkxvg8jh42"]
+[gd_scene load_steps=13 format=3 uid="uid://bh5tkxvg8jh42"]
 
 [ext_resource type="Theme" uid="uid://df2r57b2stnof" path="res://themes/ui.tres" id="1_n8r28"]
 [ext_resource type="Script" uid="uid://2850i5pp8lmf" path="res://scenes/combat_scenes/combat_ui/combat_overlay.gd" id="1_ylltj"]
@@ -7,6 +7,45 @@
 [ext_resource type="Script" uid="uid://dvlwdde65sqw2" path="res://scenes/combat_scenes/combat_ui/helth_bar.gd" id="4_1bpvo"]
 [ext_resource type="Texture2D" uid="uid://clplrbt37inet" path="res://sprites/ui/progressbar_white.png" id="4_m7cs0"]
 [ext_resource type="PackedScene" uid="uid://cwenam73fitmy" path="res://objects/ui/stat_panel/stat_panel.tscn" id="5_hdsv1"]
+[ext_resource type="Texture2D" uid="uid://cvslcla1vbn8t" path="res://sprites/ui/heart_dead.png" id="7_i8c66"]
+[ext_resource type="Texture2D" uid="uid://djws4c08ttrcd" path="res://sprites/ui/heart.png" id="8_a2tx3"]
+
+[sub_resource type="Animation" id="Animation_i8c66"]
+resource_name = "beat"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_a2tx3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7l55q"]
+_data = {
+&"RESET": SubResource("Animation_a2tx3"),
+&"beat": SubResource("Animation_i8c66")
+}
 
 [node name="CombatUIOverlay" type="CanvasLayer"]
 
@@ -39,6 +78,23 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 mouse_filter = 2
 
+[node name="WaveNumberLabel" type="Label" parent="Control/MarginContainer/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -170.0
+offset_top = -85.0
+offset_bottom = -48.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "GAMEPLAY_WAVE_NUMBER"
+horizontal_alignment = 2
+vertical_alignment = 1
+
 [node name="WaveInfo" type="HBoxContainer" parent="Control/MarginContainer/Control"]
 unique_name_in_owner = true
 layout_mode = 1
@@ -70,63 +126,66 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -170.0
-offset_bottom = 37.0
+offset_left = -266.0
+offset_right = -96.0
+offset_bottom = 77.0
 grow_horizontal = 0
 text = "GAMEPLAY_SCORE_COUNTER"
 horizontal_alignment = 2
 
 [node name="LevelBar" type="ProgressBar" parent="Control/MarginContainer/Control"]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(200, 26)
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -382.0
-offset_top = 24.0
-offset_right = 382.0
-offset_bottom = 59.0
-grow_horizontal = 2
+offset_left = 56.0
+offset_top = 8.0
+offset_right = 820.0
+offset_bottom = 34.0
+value = 50.0
 show_percentage = false
 
 [node name="Label" type="Label" parent="Control/MarginContainer/Control/LevelBar"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -18.5
-offset_right = 20.0
-offset_bottom = 18.5
-grow_horizontal = 2
+offset_left = 16.0
+offset_top = -10.0
+offset_right = 212.0
+offset_bottom = 14.0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 20
 text = "GAMEPLAY_LEVEL_BAR"
-horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Icon" type="Label" parent="Control/MarginContainer/Control/LevelBar"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -18.5
+offset_right = -8.0
+offset_bottom = 18.5
+grow_vertical = 2
+text = "XP"
 
 [node name="PauseButton" type="Button" parent="Control/MarginContainer/Control"]
 layout_mode = 1
-offset_right = 98.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -77.0
 offset_bottom = 85.0
-text = "PAUSE"
+grow_horizontal = 0
+text = "| |"
 
 [node name="HealthBar" type="TextureProgressBar" parent="Control/MarginContainer/Control"]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -230.0
-offset_top = -42.0
-offset_right = 230.0
-offset_bottom = -10.0
-grow_horizontal = 2
-grow_vertical = 0
+offset_left = 56.0
+offset_top = 48.0
+offset_right = 516.0
+offset_bottom = 74.0
 value = 50.0
 nine_patch_stretch = true
 stretch_margin_left = 10
@@ -140,15 +199,53 @@ script = ExtResource("4_1bpvo")
 
 [node name="Label" type="Label" parent="Control/MarginContainer/Control/HealthBar"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 16.0
+offset_top = -10.0
+offset_right = 155.0
+offset_bottom = 14.0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 20
 text = "GAMEPLAY_HEALTH"
-horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Icon" type="TextureRect" parent="Control/MarginContainer/Control/HealthBar"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = -22.0
+offset_right = -12.0
+offset_bottom = 18.0
+grow_vertical = 2
+pivot_offset = Vector2(20, 20)
+texture = ExtResource("8_a2tx3")
+expand_mode = 1
+
+[node name="IconDead" type="TextureRect" parent="Control/MarginContainer/Control/HealthBar/Icon"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_i8c66")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/MarginContainer/Control/HealthBar"]
+libraries = {
+&"": SubResource("AnimationLibrary_7l55q")
+}
+autoplay = "beat"
 
 [node name="StatPanel" parent="Control/MarginContainer/Control" instance=ExtResource("5_hdsv1")]
 layout_mode = 1

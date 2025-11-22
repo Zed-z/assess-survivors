@@ -30,7 +30,8 @@ SETTINGS_TAB_CREDITS,Credits,Autorzy,Credits,クレジット
 SETTINGS_TITLE_CREDITS,Credits,Autorzy,Credits,クレジット
 GAMEPLAY_LEVEL_BAR,Level %s (%s / %s XP),Poziom %s (%s / %s PD),Level %s (%s / %s XP),レベル %s (%s / %s XP)
 GAMEPLAY_SCORE_COUNTER,Score\n%08d,Wynik\n%08d,Punktzahl\n%08d,結果\n%08d
-GAMEPLAY_HEALTH,Health: %s / %s,Zdrowie: %s / %s,Gesundheit: %s / %s,ヘルス: %s / %s
+GAMEPLAY_HEALTH,%s / %s HP,%s / %s HP,%s / %s HP,%s / %s HP
+GAMEPLAY_WAVE_NUMBER,Wave %s,Fala %s,Welle %s,波 %s
 LOADING,Loading...,Ładowanie...,Laden...,ロード中。。。
 QUIT,Quit,Wyjdź,Beenden,終了
 PAUSE,Pause,Pauza,?????????????????????????????,?????????????????????????????

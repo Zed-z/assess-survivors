@@ -16,7 +16,7 @@ func _ready() -> void:
 
 func shoot_projectile():
 	var dir = (GlobalInfo.player.global_position - global_position).normalized() * projectile_speed
-	var proj:BaseEnemProjectile= projectile.instantiate()
+	var proj: ProjectileEnemy = projectile.instantiate()
 	proj.initiate_projectile(dir)
 	proj.damage = damage
 	proj.global_position = global_position
