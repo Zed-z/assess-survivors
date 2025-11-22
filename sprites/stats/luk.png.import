@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfrsdrjwfftik"
-path="res://.godot/imported/lil_bush.png-be36240d1f9ec901595932b8b4ab6f88.ctex"
+uid="uid://d2khmtbsk4mom"
+path="res://.godot/imported/luk.png-c5bfadaa30272ff8edd85c27c04236b7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/tiles/lil_bush.png"
-dest_files=["res://.godot/imported/lil_bush.png-be36240d1f9ec901595932b8b4ab6f88.ctex"]
+source_file="res://sprites/stats/luk.png"
+dest_files=["res://.godot/imported/luk.png-c5bfadaa30272ff8edd85c27c04236b7.ctex"]
 
 [params]
 

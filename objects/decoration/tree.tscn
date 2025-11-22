@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bndei1083xpll"]
 
-[ext_resource type="Texture2D" uid="uid://cokvpbbqcmpbu" path="res://sprites/tiles/tree.png" id="1_ryp3a"]
+[ext_resource type="Texture2D" uid="uid://cokvpbbqcmpbu" path="res://sprites/decoration/tree.png" id="1_ryp3a"]
 
 [node name="Tree" type="Node2D"]
 y_sort_enabled = true

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2khmtbsk4mom"
-path="res://.godot/imported/luk.png-2895daf4c46a959e314e3691b2104e25.ctex"
+uid="uid://csjp6ate5ksd7"
+path="res://.godot/imported/chill_bush.png-e41596df59189e946d53d72af6ed3886.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/tiles/luk.png"
-dest_files=["res://.godot/imported/luk.png-2895daf4c46a959e314e3691b2104e25.ctex"]
+source_file="res://sprites/decoration/chill_bush.png"
+dest_files=["res://.godot/imported/chill_bush.png-e41596df59189e946d53d72af6ed3886.ctex"]
 
 [params]
 
