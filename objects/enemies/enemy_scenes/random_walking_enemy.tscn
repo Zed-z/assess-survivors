@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://okfi5m2lwkuj"]
+
+[ext_resource type="PackedScene" uid="uid://epsr1o1tk6ur" path="res://objects/enemies/enemy_scenes/base_enemy.tscn" id="1_cqr8j"]
+[ext_resource type="Script" uid="uid://b5y86khqllqlw" path="res://objects/enemies/move_controller/random_walker.gd" id="2_1207v"]
+[ext_resource type="Texture2D" uid="uid://c0etbwkxnyqv6" path="res://reports/report_1/css/logo.png" id="2_hnld1"]
+
+[node name="Enemy" node_paths=PackedStringArray("move_controller") instance=ExtResource("1_cqr8j")]
+move_controller = NodePath("RandomWalker")
+
+[node name="RandomWalker" type="Node2D" parent="." index="0"]
+script = ExtResource("2_1207v")
+metadata/_custom_type_script = "uid://b5y86khqllqlw"
+
+[node name="Sprite2D" type="Sprite2D" parent="SpriteContainer" index="0"]
+texture = ExtResource("2_hnld1")

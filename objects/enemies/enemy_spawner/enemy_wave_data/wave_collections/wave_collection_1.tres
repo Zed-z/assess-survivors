@@ -1,12 +1,11 @@
-[gd_resource type="Resource" script_class="WaveCollection" load_steps=6 format=3 uid="uid://cqoxrismskjsx"]
+[gd_resource type="Resource" script_class="WaveCollection" load_steps=5 format=3 uid="uid://cqoxrismskjsx"]
 
 [ext_resource type="Script" uid="uid://dv2tcw31lol1u" path="res://objects/enemies/enemy_spawner/enemy_wave_data/vave_data_collection.gd" id="1_a237g"]
 [ext_resource type="Script" uid="uid://cd06aok4ajl3c" path="res://objects/enemies/enemy_spawner/enemy_wave_data/enemy_wave_data.gd" id="2_joac3"]
-[ext_resource type="Resource" uid="uid://bpldckhruqqgl" path="res://objects/enemies/enemy_spawner/enemy_wave_data/waves/wave_1.tres" id="3_2lvju"]
 [ext_resource type="Resource" uid="uid://xwlx3voi5wuu" path="res://objects/enemies/enemy_spawner/enemy_wave_data/waves/wave_2.tres" id="4_2lvju"]
 [ext_resource type="Resource" uid="uid://blf1wta1anqyg" path="res://objects/enemies/enemy_spawner/enemy_wave_data/waves/wave_3.tres" id="5_hjg5i"]
 
 [resource]
 script = ExtResource("1_a237g")
-waves = Array[ExtResource("2_joac3")]([ExtResource("3_2lvju"), ExtResource("4_2lvju"), ExtResource("5_hjg5i")])
+waves = Array[ExtResource("2_joac3")]([ExtResource("4_2lvju"), ExtResource("4_2lvju"), ExtResource("5_hjg5i")])
 metadata/_custom_type_script = "uid://dv2tcw31lol1u"
