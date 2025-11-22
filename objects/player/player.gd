@@ -1,12 +1,16 @@
 extends CharacterBody2D
 class_name Player
 
-@export var SPEED:float = 200.0
-
 @onready var stats = $Stats
 
 @export var ENDGAMELEVEL = 10
 var last_direction: int = 1
+
+var speed: float
+
+
+func set_speed(spd: float) -> void:
+	speed = spd
 
 
 func _ready() -> void:
@@ -19,11 +23,14 @@ func _ready() -> void:
 
 	stats.get_stat_raw("STAT_HP").value_changed.connect($HealthComponent.new_max_health)
 
+	speed = stats.get_stat_raw("STAT_SPD").value
+	stats.get_stat_raw("STAT_SPD").value_changed.connect(set_speed)
+
 
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_vector("game_left","game_right","game_up","game_down").normalized()
 	direction.y *= 0.75
-	velocity = direction * SPEED;
+	velocity = direction * speed;
 
 	if velocity.x > 0:
 		last_direction = 1

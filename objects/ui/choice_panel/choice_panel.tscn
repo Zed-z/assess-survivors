@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bgiawodt7wvts"]
+[gd_scene load_steps=6 format=3 uid="uid://bgiawodt7wvts"]
 
 [ext_resource type="Theme" uid="uid://df2r57b2stnof" path="res://themes/ui.tres" id="1_1p5cp"]
 [ext_resource type="Script" uid="uid://dp4fsgcjkh8hc" path="res://objects/ui/choice_panel/choice_panel.gd" id="2_w0mb8"]
+[ext_resource type="Texture2D" uid="uid://2wwjeawdk71n" path="res://sprites/ui/cubes.png" id="3_w0mb8"]
 
 [sub_resource type="Animation" id="Animation_w0mb8"]
 resource_name = "choose_left"
@@ -79,20 +80,22 @@ horizontal_alignment = 1
 
 [node name="ButtonChooseNone" type="Button" parent="MarginContainer/Control"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 0)
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -110.0
-offset_top = -85.0
-offset_right = 110.0
+anchor_bottom = 0.5
+offset_left = -60.227264
+offset_top = 51.0
+offset_right = 60.227295
+offset_bottom = 157.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 size_flags_horizontal = 4
-text = "CHOICE_PANEL_SAFE"
+icon = ExtResource("3_w0mb8")
+icon_alignment = 1
+expand_icon = true
 
 [node name="ChoiceFinalPosition" type="Control" parent="MarginContainer/Control"]
 unique_name_in_owner = true

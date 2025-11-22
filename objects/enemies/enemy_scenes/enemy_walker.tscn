@@ -11,5 +11,10 @@ move_controller = NodePath("RandomWalker")
 script = ExtResource("2_fleyd")
 metadata/_custom_type_script = "uid://b5y86khqllqlw"
 
+[node name="HurtBox" parent="." index="2"]
+position = Vector2(0, -12)
+
 [node name="Sprite2D" type="Sprite2D" parent="SpriteContainer" index="0"]
+position = Vector2(4.7683716e-07, -35)
+scale = Vector2(0.38476563, 0.38476563)
 texture = ExtResource("3_f5ikl")

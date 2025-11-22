@@ -15,8 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://hf78mlyq324k" path="res://objects/decoration/small_bush.tscn" id="10_o1s56"]
 [ext_resource type="Script" uid="uid://cewtwidc4lwar" path="res://scenes/combat_scenes/pickup_spawner.gd" id="12_8btbg"]
 [ext_resource type="PackedScene" uid="uid://dcoqxmxne62pu" path="res://objects/player/pickup/instances/health_pickup.tscn" id="13_6iaqk"]
-[ext_resource type="Resource" uid="uid://cqoxrismskjsx" path="res://objects/enemies/enemy_spawner/enemy_vave_data/vave_collections/wave_collection_1.tres" id="14_131tw"]
 [ext_resource type="PackedScene" uid="uid://bayobo3ev4nkp" path="res://objects/player/pickup/instances/xp_pickup.tscn" id="14_ars3e"]
+[ext_resource type="Resource" uid="uid://cqoxrismskjsx" path="res://objects/enemies/enemy_spawner/enemy_wave_data/wave_collections/wave_collection_1.tres" id="14_nstv8"]
 
 [node name="TestScene" type="Node2D"]
 y_sort_enabled = true
@@ -177,7 +177,7 @@ scale = Vector2(0.998866, 0.986525)
 player = NodePath("../Player")
 min_radius = 500.0
 max_radius = 600.0
-vaves = ExtResource("14_131tw")
+waves = ExtResource("14_nstv8")
 
 [node name="PickupSpawner" type="Node2D" parent="EnemySpawner"]
 script = ExtResource("12_8btbg")

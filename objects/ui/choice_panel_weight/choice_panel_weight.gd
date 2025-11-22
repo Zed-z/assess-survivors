@@ -39,3 +39,12 @@ func fill_container(dict: Dictionary[AssessCriterion, float], probability: float
 		item.criterion = key
 		item.val = dict[key]
 		container.add_child(item)
+
+
+func stop_lottery_animation(win: bool) -> void:
+	super.stop_lottery_animation(win)
+	$VBoxContainer/LotteryContainer/Label.queue_free()
+	if win:
+		%LossContainer.queue_free()
+	else:
+		%WinContainer.queue_free()

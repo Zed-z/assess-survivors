@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ct88pvgyokerc"]
+[gd_scene load_steps=25 format=3 uid="uid://ct88pvgyokerc"]
 
 [ext_resource type="Script" uid="uid://bpko7pdk264ld" path="res://objects/player/player.gd" id="1_g7ett"]
 [ext_resource type="Script" uid="uid://tbwlmhfwlhey" path="res://objects/player/projectile_shooter.gd" id="2_ssrue"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://1ogv7wo486wd" path="res://objects/player/hurtbox/hurtbox.gd" id="8_m4kly"]
 [ext_resource type="Texture2D" uid="uid://d2khmtbsk4mom" path="res://sprites/tiles/luk.png" id="9_ylcck"]
 [ext_resource type="Texture2D" uid="uid://b8riatfslt0b8" path="res://sprites/ui/potion.png" id="11_45rsp"]
+[ext_resource type="Texture2D" uid="uid://cigsdewro07vk" path="res://icon.svg" id="12_x5bgp"]
 [ext_resource type="Script" uid="uid://cq2l5rojmr1bj" path="res://objects/player/pickup/pickup_receiver.gd" id="15_ylcck"]
 
 [sub_resource type="Resource" id="Resource_dthqj"]
@@ -38,6 +39,18 @@ criterion = SubResource("Resource_45rsp")
 starting_value = 10
 name = "STAT_HP"
 icon = ExtResource("11_45rsp")
+metadata/_custom_type_script = "uid://d1e80dp6c7ji3"
+
+[sub_resource type="Resource" id="Resource_x5bgp"]
+script = ExtResource("7_c34wb")
+metadata/_custom_type_script = "uid://dxavujg1j5jr5"
+
+[sub_resource type="Resource" id="Resource_xlkbi"]
+script = ExtResource("7_45urx")
+criterion = SubResource("Resource_x5bgp")
+starting_value = 100
+name = "STAT_SPD"
+icon = ExtResource("12_x5bgp")
 metadata/_custom_type_script = "uid://d1e80dp6c7ji3"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ow0dq"]
@@ -66,7 +79,8 @@ invulnerable_color = Color(1, 1, 1, 0.2509804)
 script = ExtResource("5_gnkmh")
 stats = Dictionary[String, ExtResource("6_psowp")]({
 "STAT_ATK": SubResource("Resource_ylcck"),
-"STAT_HP": SubResource("Resource_l55sg")
+"STAT_HP": SubResource("Resource_l55sg"),
+"STAT_SPD": SubResource("Resource_xlkbi")
 })
 
 [node name="Levels" type="Node" parent="."]

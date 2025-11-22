@@ -2,9 +2,9 @@ extends CharacterBody2D
 class_name Enemy
 var target: Player
 
-var vave_number: int
-
 @export var move_controller: MoveController
+
+var wave_number: int
 
 
 func get_contact_dmg() -> int:

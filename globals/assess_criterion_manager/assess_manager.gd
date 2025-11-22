@@ -102,13 +102,13 @@ func get_weight_criterion() -> AssessCriterion:
 
 
 class WeightStepAnswer:
-	var values: Dictionary[AssessCriterion, float]
+	var value: MultiLottery.MultiLotteryResult
 	var answer: AssessCriterion.Answer
 
 
 func weight_step(answer: AssessCriterion.Answer) -> WeightStepAnswer:
 	var step_answer: WeightStepAnswer = WeightStepAnswer.new()
-	var result: Dictionary[AssessCriterion, float]
+	var result: MultiLottery.MultiLotteryResult
 	step_answer.answer = answer
 
 	if (answer == AssessCriterion.Answer.p):
@@ -132,10 +132,10 @@ func weight_step(answer: AssessCriterion.Answer) -> WeightStepAnswer:
 			result = weight_question.get_right().get_value()
 			step_answer.answer = AssessCriterion.Answer.q
 
-	step_answer.values = result
+	step_answer.value = result
 
-	for c in result:
-		print(result[c])
-		c.value_result.emit(result[c])
+	for c in result.values:
+		print(result.values[c])
+		c.value_result.emit(result.values[c])
 
 	return step_answer

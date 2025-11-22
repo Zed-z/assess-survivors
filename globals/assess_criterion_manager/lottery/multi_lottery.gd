@@ -43,10 +43,20 @@ func _to_string() -> String:
 	return "L(%s, %.02f%%, %s)" % [win_string, (win_probability*100), loss_string]
 
 
-func get_value() -> Dictionary[AssessCriterion,float]:
+class MultiLotteryResult:
+	var values: Dictionary[AssessCriterion, float]
+	var win: bool
+
+
+	func _init(_values: Dictionary[AssessCriterion, float], _win: bool) -> void:
+		values = _values
+		win = _win
+
+
+func get_value() -> MultiLotteryResult:
 	var random_float: float = randf_range(0.0, 1.0)
 
 	if random_float <= win_probability:
-		return win_array
+		return MultiLotteryResult.new(win_array, true)
 
-	return loss_array
+	return MultiLotteryResult.new(loss_array, false)

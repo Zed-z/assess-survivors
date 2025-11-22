@@ -31,10 +31,20 @@ func _to_pretty_string() -> String:
 	return "%.02f %.02f%%\n%.02f %.02f%%" % [win_value, (win_probability * 100), loss_value, (loss_probability * 100)]
 
 
-func get_value() -> float:
+class SingleLotteryResult:
+	var value: float
+	var win: bool
+
+
+	func _init(_value: float, _win: bool) -> void:
+		value = _value
+		win = _win
+
+
+func get_value() -> SingleLotteryResult:
 	var random_float: float = randf_range(0.0, 1.0)
 
 	if random_float <= win_probability:
-		return win_value
+		return SingleLotteryResult.new(win_value, true)
 
-	return loss_value
+	return SingleLotteryResult.new(loss_value, false)
