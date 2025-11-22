@@ -10,3 +10,4 @@ func _ready():
 
 func got_hit(params: DamageParameters):
 	hit.emit(params)
+	print("hit")
