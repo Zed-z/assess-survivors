@@ -4,16 +4,16 @@
 [ext_resource type="Texture2D" uid="uid://b8riatfslt0b8" path="res://sprites/stats/potion.png" id="2_cug6n"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5nn20"]
+radius = 5.588182
 
 [node name="Area2D" type="Area2D"]
 script = ExtResource("1_osidw")
 pickup_type = "health"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 scale = Vector2(3.2258499, 3.2930222)
 shape = SubResource("CircleShape2D_5nn20")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_cug6n")

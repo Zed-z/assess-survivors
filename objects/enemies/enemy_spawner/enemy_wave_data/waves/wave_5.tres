@@ -26,7 +26,7 @@ metadata/_custom_type_script = "uid://dmbi1icxkymxl"
 
 [resource]
 script = ExtResource("5_yu7b2")
-enemies_per_minute = 20
+enemies_per_minute = 40
 enemy_cap = 20
 enemies_to_spawn = 60
 wave_duration = 90.0
