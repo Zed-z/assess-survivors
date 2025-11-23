@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="WaveData" load_steps=11 format=3 uid="uid://b05m0t3a3esnq"]
+
+[ext_resource type="Script" uid="uid://dmbi1icxkymxl" path="res://objects/enemies/enemy_spawner/enemy_wave_data/wave_touple.gd" id="1_y23y8"]
+[ext_resource type="PackedScene" uid="uid://b6mxutcmgdjsk" path="res://objects/enemies/enemy_scenes/enemy_slime.tscn" id="2_kknye"]
+[ext_resource type="PackedScene" uid="uid://dnears1tiwond" path="res://objects/enemies/enemy_scenes/enemy_spider.tscn" id="3_f7xlv"]
+[ext_resource type="PackedScene" uid="uid://dmtshlqm6061i" path="res://objects/enemies/enemy_scenes/enemy_bat.tscn" id="4_gbgs1"]
+[ext_resource type="Script" uid="uid://cd06aok4ajl3c" path="res://objects/enemies/enemy_spawner/enemy_wave_data/enemy_wave_data.gd" id="5_65o7x"]
+[ext_resource type="PackedScene" uid="uid://b1mu2h3vyj3my" path="res://objects/enemies/enemy_scenes/enemy_shooter.tscn" id="5_kknye"]
+
+[sub_resource type="Resource" id="Resource_bctpy"]
+script = ExtResource("1_y23y8")
+probability = 0.25
+scene = ExtResource("2_kknye")
+metadata/_custom_type_script = "uid://dmbi1icxkymxl"
+
+[sub_resource type="Resource" id="Resource_6tp4c"]
+script = ExtResource("1_y23y8")
+probability = 0.25
+scene = ExtResource("3_f7xlv")
+metadata/_custom_type_script = "uid://dmbi1icxkymxl"
+
+[sub_resource type="Resource" id="Resource_ssb0l"]
+script = ExtResource("1_y23y8")
+probability = 0.25
+scene = ExtResource("4_gbgs1")
+metadata/_custom_type_script = "uid://dmbi1icxkymxl"
+
+[sub_resource type="Resource" id="Resource_f7xlv"]
+script = ExtResource("1_y23y8")
+probability = 0.25
+scene = ExtResource("5_kknye")
+metadata/_custom_type_script = "uid://dmbi1icxkymxl"
+
+[resource]
+script = ExtResource("5_65o7x")
+enemies_per_minute = 20
+enemy_cap = 20
+enemies_to_spawn = 60
+wave_duration = 90.0
+enemies = Array[ExtResource("1_y23y8")]([SubResource("Resource_bctpy"), SubResource("Resource_6tp4c"), SubResource("Resource_ssb0l"), SubResource("Resource_f7xlv")])
+metadata/_custom_type_script = "uid://cd06aok4ajl3c"

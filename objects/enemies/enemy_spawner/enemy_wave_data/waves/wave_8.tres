@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="WaveData" load_steps=9 format=3 uid="uid://brfkx26vambfs"]
+
+[ext_resource type="Script" uid="uid://dmbi1icxkymxl" path="res://objects/enemies/enemy_spawner/enemy_wave_data/wave_touple.gd" id="1_4w4je"]
+[ext_resource type="PackedScene" uid="uid://b6mxutcmgdjsk" path="res://objects/enemies/enemy_scenes/enemy_slime.tscn" id="2_4nhoy"]
+[ext_resource type="PackedScene" uid="uid://dnears1tiwond" path="res://objects/enemies/enemy_scenes/enemy_spider.tscn" id="3_4xrko"]
+[ext_resource type="PackedScene" uid="uid://b1mu2h3vyj3my" path="res://objects/enemies/enemy_scenes/enemy_shooter.tscn" id="5_cs11f"]
+[ext_resource type="Script" uid="uid://cd06aok4ajl3c" path="res://objects/enemies/enemy_spawner/enemy_wave_data/enemy_wave_data.gd" id="6_xqfew"]
+
+[sub_resource type="Resource" id="Resource_bctpy"]
+script = ExtResource("1_4w4je")
+probability = 0.25
+scene = ExtResource("2_4nhoy")
+metadata/_custom_type_script = "uid://dmbi1icxkymxl"
+
+[sub_resource type="Resource" id="Resource_6tp4c"]
+script = ExtResource("1_4w4je")
+probability = 0.25
+scene = ExtResource("3_4xrko")
+metadata/_custom_type_script = "uid://dmbi1icxkymxl"
+
+[sub_resource type="Resource" id="Resource_f7xlv"]
+script = ExtResource("1_4w4je")
+probability = 0.5
+scene = ExtResource("5_cs11f")
+metadata/_custom_type_script = "uid://dmbi1icxkymxl"
+
+[resource]
+script = ExtResource("6_xqfew")
+enemies_per_minute = 30
+enemy_cap = 20
+enemies_to_spawn = 60
+wave_duration = 120.0
+enemies = Array[ExtResource("1_4w4je")]([SubResource("Resource_bctpy"), SubResource("Resource_6tp4c"), SubResource("Resource_f7xlv")])
+metadata/_custom_type_script = "uid://cd06aok4ajl3c"
