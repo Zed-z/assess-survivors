@@ -19,6 +19,8 @@
 
 [sub_resource type="Resource" id="Resource_dthqj"]
 script = ExtResource("7_c34wb")
+value_step = 0.0
+value_mult = 2.0
 metadata/_custom_type_script = "uid://dxavujg1j5jr5"
 
 [sub_resource type="Resource" id="Resource_ylcck"]
@@ -31,6 +33,8 @@ metadata/_custom_type_script = "uid://d1e80dp6c7ji3"
 
 [sub_resource type="Resource" id="Resource_45rsp"]
 script = ExtResource("7_c34wb")
+value_step = 0.0
+value_mult = 2.0
 metadata/_custom_type_script = "uid://dxavujg1j5jr5"
 
 [sub_resource type="Resource" id="Resource_l55sg"]
@@ -43,12 +47,14 @@ metadata/_custom_type_script = "uid://d1e80dp6c7ji3"
 
 [sub_resource type="Resource" id="Resource_x5bgp"]
 script = ExtResource("7_c34wb")
+value_step = 20.0
+initial_max_value = 20.0
 metadata/_custom_type_script = "uid://dxavujg1j5jr5"
 
 [sub_resource type="Resource" id="Resource_xlkbi"]
 script = ExtResource("7_45urx")
 criterion = SubResource("Resource_x5bgp")
-starting_value = 100
+starting_value = 150
 name = "STAT_SPD"
 icon = ExtResource("12_x5bgp")
 metadata/_custom_type_script = "uid://d1e80dp6c7ji3"
@@ -95,7 +101,7 @@ visible = false
 script = ExtResource("8_m4kly")
 
 [node name="Timer" type="Timer" parent="Hurtbox"]
-wait_time = 0.1
+wait_time = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("RectangleShape2D_ow0dq")
