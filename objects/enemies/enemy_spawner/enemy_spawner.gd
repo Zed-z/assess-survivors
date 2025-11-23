@@ -46,6 +46,7 @@ func new_wave():
 			timer.unreference()
 
 		counted_enemies = 0
+		spawned_enemies = 0
 
 		if data.kill_all_enemies:
 			pass
