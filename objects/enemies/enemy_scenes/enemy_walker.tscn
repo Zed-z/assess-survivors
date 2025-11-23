@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://epsr1o1tk6ur" path="res://objects/enemies/enemy_scenes/base_enemy.tscn" id="1_dh0gh"]
 [ext_resource type="Script" uid="uid://b5y86khqllqlw" path="res://objects/enemies/move_controller/random_walker.gd" id="2_fleyd"]
-[ext_resource type="Texture2D" uid="uid://cqj5hrblavq46" path="res://objects/enemies/enemy_scenes/walker.png" id="3_f5ikl"]
+[ext_resource type="Texture2D" uid="uid://n2gf4obg3knm" path="res://sprites/mobs/chill_worm.png" id="3_d24hj"]
 
 [node name="Enemy" node_paths=PackedStringArray("move_controller") instance=ExtResource("1_dh0gh")]
 move_controller = NodePath("RandomWalker")
@@ -11,10 +11,17 @@ move_controller = NodePath("RandomWalker")
 script = ExtResource("2_fleyd")
 metadata/_custom_type_script = "uid://b5y86khqllqlw"
 
+[node name="CollisionShape2D" parent="." index="1"]
+visible = true
+
 [node name="HurtBox" parent="." index="2"]
+visible = true
 position = Vector2(0, -12)
 
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2(0, -2)
+
 [node name="Sprite2D" type="Sprite2D" parent="SpriteContainer" index="0"]
-position = Vector2(4.7683716e-07, -35)
+position = Vector2(4.7683716e-07, -15)
 scale = Vector2(0.38476563, 0.38476563)
-texture = ExtResource("3_f5ikl")
+texture = ExtResource("3_d24hj")

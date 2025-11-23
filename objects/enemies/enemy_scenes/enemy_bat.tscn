@@ -2,13 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://epsr1o1tk6ur" path="res://objects/enemies/enemy_scenes/base_enemy.tscn" id="1_k50q8"]
 [ext_resource type="Script" uid="uid://r84uspc8jmiv" path="res://objects/enemies/move_controller/stright_line_move_controller.gd" id="2_ia6ut"]
-[ext_resource type="Texture2D" uid="uid://cigsdewro07vk" path="res://icon.svg" id="2_n6ykq"]
+[ext_resource type="Texture2D" uid="uid://bacg3ku6aisog" path="res://sprites/mobs/netoperek.png" id="3_rjc0k"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_troyk"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_n6ykq")
+"texture": ExtResource("3_rjc0k")
 }],
 "loop": true,
 "name": &"default",
@@ -22,6 +22,15 @@ move_controller = NodePath("MoveController")
 script = ExtResource("2_ia6ut")
 speed = 30.0
 metadata/_custom_type_script = "uid://r84uspc8jmiv"
+
+[node name="CollisionShape2D" parent="." index="1"]
+visible = true
+
+[node name="HurtBox" parent="." index="2"]
+visible = true
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2(0, -8.999998)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SpriteContainer" index="0"]
 sprite_frames = SubResource("SpriteFrames_troyk")
