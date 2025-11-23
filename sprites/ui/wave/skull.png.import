@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dwfgw434pgtlt"
-path="res://.godot/imported/skull.png-d3f3f9ee9d73aab448cb49cbdd0d657f.ctex"
+path="res://.godot/imported/skull.png-72cc32a28fd616fb45fdcf94a1ae15fc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/ui/skull.png"
-dest_files=["res://.godot/imported/skull.png-d3f3f9ee9d73aab448cb49cbdd0d657f.ctex"]
+source_file="res://sprites/ui/wave/skull.png"
+dest_files=["res://.godot/imported/skull.png-72cc32a28fd616fb45fdcf94a1ae15fc.ctex"]
 
 [params]
 

@@ -155,13 +155,14 @@ func is_position_inside_area(pos: Vector2) ->bool:
 	return Geometry2D.is_point_in_polygon(to_local(pos),spawnable_area.polygon)
 
 var icon_wave_time: CompressedTexture2D = preload("res://sprites/ui/wave/stoper.png")
-var icon_wave_kill: CompressedTexture2D = preload("res://sprites/ui/wave/stoper.png")
+var icon_wave_kill: CompressedTexture2D = preload("res://sprites/ui/wave/skull.png")
 
 
 func _process(_delta: float) -> void:
 	if current_wave_data:
 		GlobalInfo.combat_ui_overlay.wave_icon.visible = true
-		GlobalInfo.combat_ui_overlay.wave_icon.texture = icon_wave_time
+
+		GlobalInfo.combat_ui_overlay.wave_icon.texture = icon_wave_time if timer else icon_wave_kill
 
 		GlobalInfo.combat_ui_overlay.wave_number_label.text = "Wave %s" % [current_wave_index + 1]
 

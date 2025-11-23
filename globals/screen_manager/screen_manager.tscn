@@ -3,4 +3,5 @@
 [ext_resource type="Script" uid="uid://cyy8oxh4pwx7v" path="res://globals/screen_manager/screen_manager.gd" id="1_jt7gq"]
 
 [node name="ScreenManager" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_jt7gq")

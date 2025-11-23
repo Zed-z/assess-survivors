@@ -1,14 +1,30 @@
-[gd_scene load_steps=13 format=3 uid="uid://bh5tkxvg8jh42"]
+[gd_scene load_steps=14 format=3 uid="uid://bh5tkxvg8jh42"]
 
 [ext_resource type="Theme" uid="uid://df2r57b2stnof" path="res://themes/ui.tres" id="1_n8r28"]
 [ext_resource type="Script" uid="uid://2850i5pp8lmf" path="res://scenes/combat_scenes/combat_ui/combat_overlay.gd" id="1_ylltj"]
 [ext_resource type="Texture2D" uid="uid://b7tm4yxs73v82" path="res://sprites/ui/progressbar_bg.png" id="3_cxf21"]
 [ext_resource type="Texture2D" uid="uid://dy5ethtxehiga" path="res://sprites/ui/wave/stoper.png" id="3_m7cs0"]
 [ext_resource type="Script" uid="uid://dvlwdde65sqw2" path="res://scenes/combat_scenes/combat_ui/helth_bar.gd" id="4_1bpvo"]
+[ext_resource type="Texture2D" uid="uid://cqqnj748bj1hu" path="res://sprites/ui/star.png" id="4_a2tx3"]
 [ext_resource type="Texture2D" uid="uid://clplrbt37inet" path="res://sprites/ui/progressbar_white.png" id="4_m7cs0"]
 [ext_resource type="PackedScene" uid="uid://cwenam73fitmy" path="res://objects/ui/stat_panel/stat_panel.tscn" id="5_hdsv1"]
 [ext_resource type="Texture2D" uid="uid://cvslcla1vbn8t" path="res://sprites/ui/heart_dead.png" id="7_i8c66"]
 [ext_resource type="Texture2D" uid="uid://djws4c08ttrcd" path="res://sprites/ui/heart.png" id="8_a2tx3"]
+
+[sub_resource type="Animation" id="Animation_a2tx3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_i8c66"]
 resource_name = "beat"
@@ -24,21 +40,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_a2tx3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Icon:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7l55q"]
@@ -126,12 +127,24 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -266.0
+offset_left = -173.0
 offset_right = -96.0
 offset_bottom = 77.0
 grow_horizontal = 0
 text = "GAMEPLAY_SCORE_COUNTER"
 horizontal_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/Control/ScoreLabel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -44.0
+offset_bottom = -4.0
+grow_vertical = 0
+texture = ExtResource("4_a2tx3")
+expand_mode = 1
 
 [node name="LevelBar" type="ProgressBar" parent="Control/MarginContainer/Control"]
 custom_minimum_size = Vector2(200, 26)
