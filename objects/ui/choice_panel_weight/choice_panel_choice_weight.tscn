@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ckv4mh3qx236v"]
+[gd_scene load_steps=9 format=3 uid="uid://ckv4mh3qx236v"]
 
 [ext_resource type="Theme" uid="uid://df2r57b2stnof" path="res://themes/ui.tres" id="1_20hsg"]
 [ext_resource type="Script" uid="uid://c234700a4utit" path="res://objects/ui/choice_panel_weight/choice_panel_weight.gd" id="2_0jnjm"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bw1bh7nrw8mfl" path="res://sprites/ui/spinwheel/spinwheel_white_circle.png" id="5_l1uyb"]
 [ext_resource type="Texture2D" uid="uid://d2pjho51i0wsg" path="res://sprites/ui/spinwheel/spinwheel_nail.png" id="6_7y4kg"]
 [ext_resource type="Texture2D" uid="uid://4wwixrigdus3" path="res://sprites/ui/spinwheel/spinwheel_cursor.png" id="7_ncamr"]
+[ext_resource type="PackedScene" uid="uid://rligncl36ry1" path="res://objects/ui/choice_panel_weight/miscellaneous/icon_collage.tscn" id="8_7y4kg"]
 [ext_resource type="Texture2D" uid="uid://cigsdewro07vk" path="res://icon.svg" id="8_fbqpx"]
 
 [node name="ChoicePanelWeight" type="PanelContainer"]
@@ -141,20 +142,6 @@ texture = ExtResource("7_ncamr")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="LotteryIcon" type="TextureRect" parent="VBoxContainer/OptionContainer/Lottery"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(160, 160)
-layout_mode = 0
-offset_left = 120.0
-offset_top = 120.0
-offset_right = 280.0
-offset_bottom = 280.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("8_fbqpx")
-expand_mode = 1
-stretch_mode = 4
-
 [node name="Label" type="Label" parent="VBoxContainer/OptionContainer/Lottery"]
 layout_mode = 1
 anchors_preset = 8
@@ -170,6 +157,13 @@ grow_horizontal = 2
 grow_vertical = 2
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="LotteryIcon" parent="VBoxContainer/OptionContainer/Lottery" instance=ExtResource("8_7y4kg")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+offset_right = 181.0
+offset_bottom = 194.0
 
 [node name="LotteryContainer" type="HBoxContainer" parent="VBoxContainer"]
 unique_name_in_owner = true

@@ -15,6 +15,7 @@ func setup(_criterion: AssessCriterion, _choice: MultiLottery):
 		%LotteryContainer.visible = false
 		%Lottery.visible = false
 		%Button.text = tr("CHOICE_PANEL_SAFE")
+		%SureIcon.texture = _criterion.icon
 		fill_container(_choice.win_array, 1, %SureContainer)
 	else:
 		%SureOption.visible = false
@@ -22,6 +23,11 @@ func setup(_criterion: AssessCriterion, _choice: MultiLottery):
 		%SureContainer.visible = false
 		%LotteryContainer.visible = true
 		%Button.text = tr("CHOICE_PANEL_SPIN")
+
+		for key in _choice.win_array:
+			%LotteryIcon.icons.append(key.icon)
+
+		%LotteryIcon.fill()
 		fill_container(_choice.win_array,_choice.win_probability, %WinContainer)
 		fill_container(_choice.loss_array,_choice.loss_probability, %LossContainer)
 
