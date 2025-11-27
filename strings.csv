@@ -1,9 +1,9 @@
 key,en,pl,de,ja
 GAME_TITLE,The Indecision of\nArthur Sess,Niezdecydowanie\nArtura Sessa,Die Unentschlossenheit\nvon Arthur Sess,アーサーセッスの\n優柔不断 
-MENU_BACK,Back,Wstecz,Zurück,バック 
-MAIN_MENU_PLAY,Play,Graj,Spielen,プレー 
+MENU_BACK,Back,Wstecz,Zurück,バック
+MAIN_MENU_PLAY,Play,Graj,Spielen,プレー
 MAIN_MENU_QUIT,Quit,Wyjdź,Beenden,終了
-MAIN_MENU_SETTINGS,Settings,Ustawienia,Einstellungen,せってい
+MAIN_MENU_SETTINGS,Settings,Ustawienia,Einstellungen,設定
 MAIN_MENU_ASSESS,ASSESS,ASSESS,ASSESS,アッセッス
 MAIN_MENU_COPYRIGHT,© 2025,© 2025,© 2025,© 2025
 ASSESS_TEST_PREFER_LEFT,Prefer Left,Preferuj Lewe,Bevor Links, 左の好む
