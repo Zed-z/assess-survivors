@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://rligncl36ry1"]
+
+[ext_resource type="Script" uid="uid://deeu8eer2ssc3" path="res://objects/ui/choice_panel_weight/miscellaneous/icon_collage.gd" id="1_36m8o"]
+
+[node name="IconCollage" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_36m8o")
+
+[node name="Container" type="GridContainer" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 0
+offset_right = 160.0
+offset_bottom = 160.0
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
