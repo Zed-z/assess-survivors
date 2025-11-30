@@ -49,8 +49,11 @@ func fill_container(dict: Dictionary[AssessCriterion, float], probability: float
 
 func stop_lottery_animation(win: bool) -> void:
 	super.stop_lottery_animation(win)
-	$VBoxContainer/LotteryContainer/Label.queue_free()
+	%LotteryResult.text = "WIN" if win else "LOSE"
+
+	$VBoxContainer/LotteryContainer/Label.modulate = Color(1, 1, 1, 0.5)
+
 	if win:
-		%LossContainer.queue_free()
+		%LossContainer.modulate = Color(1, 1, 1, 0.5)
 	else:
-		%WinContainer.queue_free()
+		%WinContainer.modulate = Color(1, 1, 1, 0.5)
