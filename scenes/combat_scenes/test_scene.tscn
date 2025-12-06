@@ -182,6 +182,8 @@ min_radius = 500.0
 max_radius = 600.0
 waves = ExtResource("14_nstv8")
 
+[node name="WaveTimer" type="Timer" parent="EnemySpawner"]
+
 [node name="PickupSpawner" type="Node2D" parent="EnemySpawner"]
 script = ExtResource("12_8btbg")
 pickups = Array[PackedScene]([ExtResource("13_6iaqk"), ExtResource("14_ars3e")])

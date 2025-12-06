@@ -7,6 +7,9 @@ signal enemy_killed(enemy: Enemy)
 @export_group("spawn parameters")
 @export var min_radius: float = 100
 @export var max_radius: float = 200
+@onready var timer: Timer = $WaveTimer
+var use_timer : bool
+
 #region waves
 @export_group("enemy veaves ")
 ## key is level at whitch it is beeing spawned
@@ -15,7 +18,6 @@ signal enemy_killed(enemy: Enemy)
 var current_wave_index = 0
 var current_wave_data: WaveData
 var cached_probabilities: Array[float]
-var timer: SceneTreeTimer
 var counted_enemies = 0
 var spawned_enemies =0
 
@@ -29,12 +31,14 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("force_next_wave"):
 		current_wave_index+=1
 		current_wave_index = clamp(current_wave_index,0,len(waves.waves))
+		print(current_wave_index)
 		new_wave()
 
 	if event.is_action("restart_wave"):
 		new_wave()
 		for enemy:Enemy in enemies_array:
-			enemy.wave_number = -1
+			if is_instance_valid(enemy):
+				enemy.wave_number = -1
 
 	if event.is_action("previous_wave"):
 		current_wave_index-=1
@@ -42,7 +46,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		new_wave()
 
 		for enemy:Enemy in enemies_array:
-			enemy.wave_number = -1
+			if is_instance_valid(enemy):
+				enemy.wave_number = -1
 
 
 func create_enemy()->Enemy:
@@ -62,23 +67,14 @@ func new_wave():
 		for value: WaveTouple in current_wave_data.enemies:
 			cached_probabilities.append(value.probability)
 
-		if timer:
-			timer.unreference()
-
 		counted_enemies = 0
 		spawned_enemies = 0
 
 		if data.kill_all_enemies:
-			pass
+			use_timer = false
 		elif data.wave_duration > 0:
-			timer = get_tree().create_timer(data.wave_duration)
-			timer.timeout.connect(
-
-
-				func x():
-					current_wave_index +=1
-					new_wave()
-					)
+			use_timer = true
+			timer.wait_time = data.wave_duration
 
 		enemy_spawn_timer.wait_time = 60.0 / current_wave_data.enemies_per_minute
 		enemy_spawn_timer.start()
@@ -98,6 +94,14 @@ func _ready() -> void:
 
 	for value: WaveTouple in current_wave_data.enemies:
 		cached_probabilities.append(value.probability)
+
+	timer.timeout.connect(
+
+
+				func x():
+					current_wave_index +=1
+					new_wave()
+					)
 
 	new_wave()
 
@@ -179,7 +183,7 @@ func _process(_delta: float) -> void:
 	if current_wave_data:
 		GlobalInfo.combat_ui_overlay.wave_icon.visible = true
 
-		GlobalInfo.combat_ui_overlay.wave_icon.texture = icon_wave_time if timer else icon_wave_kill
+		GlobalInfo.combat_ui_overlay.wave_icon.texture = icon_wave_time if use_timer else icon_wave_kill
 
 		GlobalInfo.combat_ui_overlay.wave_number_label.text = "Wave %s" % [current_wave_index + 1]
 
