@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://fnao1rs5haap"]
+[gd_scene load_steps=20 format=4 uid="uid://fnao1rs5haap"]
 
 [ext_resource type="PackedScene" uid="uid://ct88pvgyokerc" path="res://objects/player/player.tscn" id="1_41wyt"]
 [ext_resource type="PackedScene" uid="uid://blfd7tomoo2ky" path="res://globals/holders/projectile_holder/projectile_holder.tscn" id="1_gyrba"]
@@ -17,6 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://dcoqxmxne62pu" path="res://objects/player/pickup/instances/health_pickup.tscn" id="13_6iaqk"]
 [ext_resource type="PackedScene" uid="uid://bayobo3ev4nkp" path="res://objects/player/pickup/instances/xp_pickup.tscn" id="14_ars3e"]
 [ext_resource type="Resource" uid="uid://cqoxrismskjsx" path="res://objects/enemies/enemy_spawner/enemy_wave_data/wave_collections/wave_collection_1.tres" id="14_nstv8"]
+[ext_resource type="PackedScene" uid="uid://dt1hcj81rn16p" path="res://objects/area_bounds/area_bounds.tscn" id="18_k5p8g"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_o1s56"]
 
 [node name="TestScene" type="Node2D"]
 y_sort_enabled = true
@@ -186,5 +189,26 @@ pickups = Array[PackedScene]([ExtResource("13_6iaqk"), ExtResource("14_ars3e")])
 [node name="SpawnableArea" type="CollisionPolygon2D" parent="EnemySpawner"]
 visible = false
 polygon = PackedVector2Array(-1012, 356, -640, 447, 858, 500, 1247, 373, 1429, 112, 1440, -484, 808, -684, -420, -677, -891, -647, -1120, -593, -1253, -433, -1401, -134, -1243, 129)
+
+[node name="AreaBounds" parent="." instance=ExtResource("18_k5p8g")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaBounds"]
+position = Vector2(0, 1000)
+shape = SubResource("WorldBoundaryShape2D_o1s56")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="AreaBounds"]
+position = Vector2(0, -1000)
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_o1s56")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="AreaBounds"]
+position = Vector2(2000, 0)
+rotation = 4.712389
+shape = SubResource("WorldBoundaryShape2D_o1s56")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="AreaBounds"]
+position = Vector2(-2000, 0)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_o1s56")
 
 [connection signal="enemy_killed" from="EnemySpawner" to="EnemySpawner/PickupSpawner" method="spawn_pickup"]

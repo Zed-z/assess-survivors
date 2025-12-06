@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dt1hcj81rn16p"]
+
+[ext_resource type="Script" uid="uid://fu3nvwltoek5" path="res://objects/area_bounds/area_bounds.gd" id="1_fwcae"]
+
+[node name="AreaBounds" type="Area2D"]
+script = ExtResource("1_fwcae")
