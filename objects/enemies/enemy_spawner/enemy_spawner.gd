@@ -4,7 +4,6 @@ class_name EnemySpawner
 signal enemy_killed(enemy: Enemy)
 
 @export var player: Player
-
 @export_group("spawn parameters")
 @export var min_radius: float = 100
 @export var max_radius: float = 200
@@ -23,6 +22,27 @@ var spawned_enemies =0
 var enemies_array: SwapbackArray
 @onready var enemy_spawn_timer: Timer = $EnemySpawnTimer
 @onready var spawnable_area: CollisionPolygon2D = $SpawnableArea
+
+
+func _unhandled_input(event: InputEvent) -> void:
+
+	if event.is_action_pressed("force_next_wave"):
+		current_wave_index+=1
+		current_wave_index = clamp(current_wave_index,0,len(waves.waves))
+		new_wave()
+
+	if event.is_action("restart_wave"):
+		new_wave()
+		for enemy:Enemy in enemies_array:
+			enemy.wave_number = -1
+
+	if event.is_action("previous_wave"):
+		current_wave_index-=1
+		current_wave_index = clamp(current_wave_index,0,len(waves.waves))
+		new_wave()
+
+		for enemy:Enemy in enemies_array:
+			enemy.wave_number = -1
 
 
 func create_enemy()->Enemy:
