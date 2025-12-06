@@ -50,9 +50,6 @@ animations = [{
 [node name="Enemy" node_paths=PackedStringArray("move_controller") instance=ExtResource("1_o4p7e")]
 move_controller = NodePath("MoveController")
 
-[node name="HealthComponent" parent="." index="2"]
-health = 1.0
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SpriteContainer" index="0"]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_fni1j")
