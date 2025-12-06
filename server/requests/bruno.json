@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "Assess Survivors",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

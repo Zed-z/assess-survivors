@@ -1,0 +1,38 @@
+const express = require('express');
+const router = express.Router();
+
+const db = require('../databaseHandler.js');
+
+router.get('/get_leaderboard', async (req, res) => {
+
+	console.log(`${req.socket.remoteAddress}: /get_leaderboard\
+		${JSON.stringify(req.body).substring(0,30)}...`);
+
+	try {
+
+		const stats = await db.gameStats.findAll({
+			limit: 10,
+			order: [['score', 'DESC']]
+		}).catch((e) => {
+			console.log(e);
+			return null;
+		});
+
+		const leaderboard = stats.map((entry, i) => ({
+			number: i + 1,
+			player: entry.playerName,
+			score: entry.score
+		}));
+
+		console.log(leaderboard);
+
+		console.log(`\tOperation success.`);
+		return res.status(200).send(leaderboard);
+
+	} catch (error) {
+		res.status(400).send('Unknown error.');
+		console.log(error);
+	}
+});
+
+module.exports = router;

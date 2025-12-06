@@ -1,0 +1,15 @@
+meta {
+  name: register_results
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:3000/register_results
+  body: json
+  auth: none
+}
+
+body:json {
+  {"playerName": "Player", "score": 100}
+}
