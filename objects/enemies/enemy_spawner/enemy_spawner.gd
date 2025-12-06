@@ -153,9 +153,6 @@ func spawn_enemy():
 		if not Geometry2D.is_point_in_polygon(to_local(enemy_location),spawnable_area.polygon):
 			enemy_location = player.global_position - offset
 
-			if not Geometry2D.is_point_in_polygon(to_local(enemy_location),spawnable_area.polygon):
-				continue
-
 		spawn_try_tally += 1
 
 		if spawn_try_tally > 10:
