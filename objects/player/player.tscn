@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://ct88pvgyokerc"]
+[gd_scene load_steps=28 format=3 uid="uid://ct88pvgyokerc"]
 
 [ext_resource type="Script" uid="uid://bpko7pdk264ld" path="res://objects/player/player.gd" id="1_g7ett"]
 [ext_resource type="Script" uid="uid://tbwlmhfwlhey" path="res://objects/player/projectile_shooter.gd" id="2_ssrue"]
@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://d2khmtbsk4mom" path="res://sprites/stats/luk.png" id="9_ylcck"]
 [ext_resource type="Texture2D" uid="uid://b8riatfslt0b8" path="res://sprites/stats/potion.png" id="11_45rsp"]
 [ext_resource type="Texture2D" uid="uid://d1gvq0yvjdtgx" path="res://sprites/stats/speed.png" id="12_x5bgp"]
+[ext_resource type="Texture2D" uid="uid://cigsdewro07vk" path="res://icon.svg" id="13_xlkbi"]
+[ext_resource type="Script" uid="uid://ccj8rhd6knfds" path="res://objects/player/Stats/const_stat.gd" id="14_l55sg"]
 [ext_resource type="Script" uid="uid://cq2l5rojmr1bj" path="res://objects/player/pickup/pickup_receiver.gd" id="15_ylcck"]
 
 [sub_resource type="Resource" id="Resource_dthqj"]
@@ -59,6 +61,13 @@ name = "STAT_SPD"
 icon = ExtResource("12_x5bgp")
 metadata/_custom_type_script = "uid://d1e80dp6c7ji3"
 
+[sub_resource type="Resource" id="Resource_28utn"]
+script = ExtResource("14_l55sg")
+const_value = 2.0
+name = "Pierce"
+icon = ExtResource("13_xlkbi")
+metadata/_custom_type_script = "uid://ccj8rhd6knfds"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ow0dq"]
 size = Vector2(22, 22)
 
@@ -86,6 +95,7 @@ script = ExtResource("5_gnkmh")
 stats = Dictionary[String, ExtResource("6_psowp")]({
 "STAT_ATK": SubResource("Resource_ylcck"),
 "STAT_HP": SubResource("Resource_l55sg"),
+"STAT_PIERCE": SubResource("Resource_28utn"),
 "STAT_SPD": SubResource("Resource_xlkbi")
 })
 
