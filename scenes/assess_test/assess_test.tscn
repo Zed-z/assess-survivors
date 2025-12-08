@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://55kp84v1di83" path="res://globals/assess_criterion_manager/assess_manager.tscn" id="3_6yb16"]
 [ext_resource type="Script" uid="uid://brabuaqkcg3c6" path="res://globals/assess_criterion_manager/criteria/assess_criterion.gd" id="4_o6syu"]
 [ext_resource type="Script" uid="uid://dxavujg1j5jr5" path="res://globals/assess_criterion_manager/criteria/assess_criterion_variable_probability.gd" id="5_23xs6"]
-[ext_resource type="Script" uid="uid://bfn4l4e5i8p0j" path="res://objects/ui/scene_change_button.gd" id="5_cxtxd"]
+[ext_resource type="Script" path="res://objects/ui/scene_change_button.gd" id="5_cxtxd"]
 [ext_resource type="Texture2D" uid="uid://cigsdewro07vk" path="res://icon.svg" id="7_o6syu"]
 
 [sub_resource type="Resource" id="Resource_og7m7"]

@@ -55,3 +55,9 @@ func heal(healing: float) -> void:
 	current_health += healing
 	current_health = clampf(current_health,0,health)
 	health_changed.emit(current_health)
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action("force_kill"):
+		var damage: DamageParameters = DamageParameters.new(ceil(current_health))
+		take_damage(damage)

@@ -66,5 +66,10 @@ func _on_health_component_got_hit(depleted: bool) -> void:
 
 	if depleted:
 		print("You Died")
-		var end_screen: EndScreen = ObjectManager.instantiate(ObjectManager.OBJ_END_SCREEN)
+		#var end_screen: EndScreen = ObjectManager.instantiate(ObjectManager.OBJ_END_SCREEN)
+		var end = preload("res://objects/ui/assess_info/assess_info.tscn")
+		var end_screen: Assess_Info = end.instantiate()
+		end_screen.assessmanger = GlobalInfo.assess_manager
+		end_screen.initialize_children()
+
 		GlobalInfo.combat_ui_overlay.add_child(end_screen)

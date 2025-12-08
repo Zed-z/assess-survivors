@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cu78d8juxtctw"]
+
+[ext_resource type="Script" uid="uid://b7o8v6owjr8hl" path="res://objects/ui/assess_info/assess_info.gd" id="1_tj60n"]
+
+[sub_resource type="Theme" id="Theme_iekma"]
+
+[node name="AssessInfo" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_tj60n")
+
+[node name="CriteriaContainer" type="GridContainer" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 160)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = SubResource("Theme_iekma")
+columns = 2
