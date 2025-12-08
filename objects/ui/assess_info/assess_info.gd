@@ -1,4 +1,4 @@
-extends Control
+extends PanelContainer
 class_name Assess_Info
 
 @export var assessmanger: AssessManagerClass

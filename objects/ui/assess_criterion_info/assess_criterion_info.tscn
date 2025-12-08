@@ -1,26 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://cijdfnfabxr3e"]
+[gd_scene load_steps=4 format=3 uid="uid://cijdfnfabxr3e"]
 
+[ext_resource type="Theme" uid="uid://df2r57b2stnof" path="res://themes/ui.tres" id="1_d6nc5"]
 [ext_resource type="Script" uid="uid://15b31i2j3p66" path="res://objects/ui/assess_criterion_info/assess_criterion_info.gd" id="1_qsvm6"]
-[ext_resource type="Texture2D" uid="uid://cv42njjkdhl2l" path="res://addons/icon.png" id="2_xd0vk"]
+[ext_resource type="Texture2D" uid="uid://cigsdewro07vk" path="res://icon.svg" id="3_d6nc5"]
 
-[node name="AssessCriterionInfo" type="Control"]
-layout_mode = 3
-anchors_preset = 0
+[node name="AssessCriterionInfo" type="PanelContainer"]
+custom_minimum_size = Vector2(80, 80)
+offset_right = 253.0
+offset_bottom = 160.0
+theme = ExtResource("1_d6nc5")
 script = ExtResource("1_qsvm6")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("1_d6nc5")
 
 [node name="Icon" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
-texture = ExtResource("2_xd0vk")
+texture = ExtResource("3_d6nc5")
 expand_mode = 1
 stretch_mode = 4
 
