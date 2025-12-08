@@ -200,7 +200,7 @@ func _area_under_graph() -> float:
 
 
 func _area_under_line():
-	return(point_list[-1].x - point_list[0].x) * 1 / 2
+	return(point_list[-1].x - point_list[0].x) * UTILITY_MAX / 2
 
 
 func _calculate_risk_factor(method: RiskCalculationMode) -> float:
@@ -210,7 +210,7 @@ func _calculate_risk_factor(method: RiskCalculationMode) -> float:
 
 		RiskCalculationMode.area_minus_perfectline_over_perfectline:
 			var perfectline: float = _area_under_line()
-			return _area_under_line() - perfectline / perfectline
+			return(_area_under_line() - perfectline) / perfectline
 
 	return 0.0
 
