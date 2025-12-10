@@ -49,6 +49,9 @@ var right_bound: float
 class StepAnswer:
 	var answer: Answer
 	var value: SingleLottery.SingleLotteryResult
+#METRIC is a counter LIMIT is, well limit of that counter (negative == no limit)
+var METRIC_expand_count: int = 0
+@export var LIMIT_expand_count: int = 3
 
 
 func step(answer: Answer) -> StepAnswer:
@@ -96,6 +99,7 @@ func step(answer: Answer) -> StepAnswer:
 func do_point_append():
 	point_append()
 	points_changed.emit(point_list)
+	METRIC_expand_count += 1
 
 
 func point_append():

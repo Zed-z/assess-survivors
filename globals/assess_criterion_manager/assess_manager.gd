@@ -21,6 +21,11 @@ func init_choice_panel() -> void:
 
 	if !is_weight_phase:
 		choice_panel.criterion = get_criterion()
+
+		if choice_panel.criterion == null:
+			choice_panel.queue_free()
+			return
+
 		choice_panel.question = choice_panel.criterion.get_question()
 	else:
 		choice_panel.question = get_weight_question()
@@ -52,7 +57,12 @@ func init_add_criterion(stat: AssessStat, criterion: AssessCriterion):
 
 
 func get_criterion() -> AssessCriterion:
-	return criteria[algorithm.decide()]
+	var val = algorithm.decide()
+
+	if val >= 0:
+		return criteria[val]
+	else:
+		return null
 
 
 func get_least_u_on_all() -> Dictionary[AssessCriterion, float]:
