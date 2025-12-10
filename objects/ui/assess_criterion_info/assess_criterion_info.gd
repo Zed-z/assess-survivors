@@ -46,6 +46,7 @@ func _ready() -> void:
 	%Weight.text = "Weight:" + str(weight)
 
 	var chart: ChartVisualizer = ObjectManager.instantiate(ObjectManager.OBJ_CHART_VISUALIZER)
+	chart.show_title = false
 	chart.set_title(assesscriterion.criterion_name)
 	%ChartContainer.add_child(chart)
 

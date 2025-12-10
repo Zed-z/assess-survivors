@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://bx0v4ik3jf2f7"]
+
+[ext_resource type="Theme" uid="uid://df2r57b2stnof" path="res://themes/ui.tres" id="1_11ya5"]
+[ext_resource type="Script" uid="uid://jebeck47y17o" path="res://objects/ui/assess_info/assess_info_panel.gd" id="1_r7f6q"]
+[ext_resource type="PackedScene" uid="uid://cu78d8juxtctw" path="res://objects/ui/assess_info/assess_info.tscn" id="2_11ya5"]
+
+[node name="AssessInfoPanel" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_11ya5")
+script = ExtResource("1_r7f6q")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.298039)
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"LightPanel"
+
+[node name="AssessInfo" parent="PanelContainer" instance=ExtResource("2_11ya5")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ButtonBack" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -169.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = 109.0
+grow_horizontal = 0
+text = "MENU_BACK"
+
+[connection signal="pressed" from="ButtonBack" to="." method="_on_button_back_pressed"]

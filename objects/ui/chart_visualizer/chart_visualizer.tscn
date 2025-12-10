@@ -11,6 +11,7 @@ offset_bottom = 100.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_gele2")
+show_title = null
 auto_xaxis = true
 auto_yaxis = true
 

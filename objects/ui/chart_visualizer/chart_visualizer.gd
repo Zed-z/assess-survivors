@@ -9,6 +9,11 @@ var action: Callable = update_chart
 
 @export_category("Data")
 
+@export var show_title: bool = true:
+	set(val):
+		show_title = val
+		update_chart()
+
 @export var title: String = "Title":
 	set(val):
 		title = val
@@ -104,6 +109,7 @@ func update_chart():
 		return
 
 	# Title
+	%Title.visible = show_title
 	%Title.text = title
 
 	# Colors

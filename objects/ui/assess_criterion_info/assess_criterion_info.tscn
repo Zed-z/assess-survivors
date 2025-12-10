@@ -11,14 +11,22 @@ offset_bottom = 160.0
 theme = ExtResource("1_d6nc5")
 script = ExtResource("1_qsvm6")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_d6nc5")
+alignment = 1
 
-[node name="Icon" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+[node name="Icon" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
@@ -26,20 +34,21 @@ texture = ExtResource("3_d6nc5")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="Name" type="Label" parent="VBoxContainer/HBoxContainer"]
+[node name="Name" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Criterion_name"
 
-[node name="ChartContainer" type="GridContainer" parent="VBoxContainer"]
+[node name="ChartContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
 
-[node name="Weight" type="Label" parent="VBoxContainer"]
+[node name="Weight" type="Label" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Weight"
 
-[node name="RiskFactor" type="Label" parent="VBoxContainer"]
+[node name="RiskFactor" type="Label" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
