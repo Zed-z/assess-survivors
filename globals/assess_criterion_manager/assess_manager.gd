@@ -22,12 +22,12 @@ func init_choice_panel() -> void:
 	if !is_weight_phase:
 		choice_panel.criterion = get_criterion()
 
-		if choice_panel.criterion == null:
-			choice_panel.queue_free()
-			return
+		if choice_panel.criterion != null:
+			choice_panel.question = choice_panel.criterion.get_question()
+		else:
+			is_weight_phase = true
 
-		choice_panel.question = choice_panel.criterion.get_question()
-	else:
+	if is_weight_phase:
 		choice_panel.question = get_weight_question()
 		choice_panel.criterion = get_weight_criterion()
 
