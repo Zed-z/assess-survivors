@@ -23,8 +23,11 @@ exports.gameStats = sequelize.define('game_stats', {
 	score: {
 		type: Sequelize.INTEGER,
 		allowNull: false,
-		defaultValue: 0,
-	}
+	},
+	won: {
+		type: Sequelize.BOOLEAN,
+		allowNull: false,
+	},
 });
 
 sequelize.sync();

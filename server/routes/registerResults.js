@@ -16,6 +16,7 @@ router.post('/register_results', async (req, res) => {
 			gameGuid: crypto.randomUUID(),
 			playerName: req.body.playerName,
 			score: req.body.score,
+			won: req.body.won,
 		}).catch((e) => {
 			console.log(e);
 			throw e;

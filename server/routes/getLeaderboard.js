@@ -21,7 +21,8 @@ router.get('/get_leaderboard', async (req, res) => {
 		const leaderboard = stats.map((entry, i) => ({
 			number: i + 1,
 			player: entry.playerName,
-			score: entry.score
+			score: entry.score,
+			won: entry.won,
 		}));
 
 		console.log(leaderboard);

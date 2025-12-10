@@ -11,5 +11,9 @@ post {
 }
 
 body:json {
-  {"playerName": "Player", "score": 100}
+  {
+    "playerName": "{{$randomUserName}}",
+    "score": "{{$randomInt}}",
+    "won": "{{$randomBoolean}}"
+  }
 }
