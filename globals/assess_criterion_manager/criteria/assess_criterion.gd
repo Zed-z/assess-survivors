@@ -214,7 +214,7 @@ func _calculate_risk_factor(method: RiskCalculationMode) -> float:
 
 		RiskCalculationMode.area_minus_perfectline_over_perfectline:
 			var perfectline: float = _area_under_line()
-			return(_area_under_line() - perfectline) / perfectline
+			return(_area_under_graph() - perfectline) / perfectline
 
 	return 0.0
 

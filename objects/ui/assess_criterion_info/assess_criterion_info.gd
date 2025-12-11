@@ -5,28 +5,6 @@ var assesscriterion: AssessCriterion
 var weight: float
 
 
-func _risk_into_string(value: float, method: AssessCriterion.RiskCalculationMode):
-	var label = ""
-
-	match method:
-		AssessCriterion.RiskCalculationMode.area_minus_perfectline:
-			label = "Not implemented"
-
-		AssessCriterion.RiskCalculationMode.area_minus_perfectline_over_perfectline:
-			if abs(value) > 0.75:
-				label = "very" + ("risky" if sign(value) == -1 else "safe")
-			elif abs(value) >= 0.25:
-
-				label = ("risky" if sign(value) == -1 else "safe")
-			elif abs(value) >= 0.1:
-
-				label = "slightly" + ("risky" if sign(value) == -1 else "safe")
-			else:
-				label = "balanced"
-
-	return label
-
-
 func _risk_into_verbose_string(value: float, method: AssessCriterion.RiskCalculationMode):
 	var label: String = ""
 
@@ -62,4 +40,4 @@ func _ready() -> void:
 		AssessCriterion.RiskCalculationMode.area_minus_perfectline_over_perfectline:
 			method_used = "(area - perfect line) / (perfect line)"
 
-	%RiskFactor.text = "Riskiniess:" + _risk_into_string(assesscriterion.risk_factor, assesscriterion.risk_method)
+	%RiskFactor.text = "Riskiniess:" + Utils.risk_to_string(assesscriterion.risk_factor, assesscriterion.risk_method)

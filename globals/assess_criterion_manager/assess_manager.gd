@@ -168,7 +168,7 @@ func summary()-> Node:
 	mostimportant_label.text = "your most important stat is:" + important_criterion.criterion_name
 	n.add_child(mostimportant_label)
 
-	#find riskiness (yest i know that they use diffrent measure but for now this will suffice 
+	#find riskiness (yest i know that they use diffrent measure but for now this will suffice
 
 	var numerator: float = 0
 	var denominator: float = 0
@@ -179,17 +179,6 @@ func summary()-> Node:
 
 	var value: float = numerator/denominator
 	var risk_label: Label = Label.new()
-
-	if abs(value) > 0.75:
-		risk_label.text = "very" + ("risky" if sign(value) == -1 else "safe")
-	elif abs(value) >= 0.25:
-
-		risk_label.text = ("risky" if sign(value) == -1 else "safe")
-	elif abs(value) >= 0.1:
-
-		risk_label.text = "slightly" + ("risky" if sign(value) == -1 else "safe")
-	else:
-		risk_label.text = "balanced"
-
+	risk_label.text = Utils.risk_to_string(value)
 	n.add_child(risk_label)
 	return n
