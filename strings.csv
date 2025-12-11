@@ -1,15 +1,17 @@
 key,en,pl,de,ja
-GAME_TITLE,The Indecision of\nArthur Sess,Niezdecydowanie\nArtura Sessa,Die Unentschlossenheit\nvon Arthur Sess,アーサーセッスの\n優柔不断 
+GAME_TITLE,The Indecision of\nArthur Sess,Niezdecydowanie\nArtura Sessa,Die Unentschlossenheit\nvon Arthur Sess,アーサーセッスの\n優柔不断
 MENU_BACK,Back,Wstecz,Zurück,バック
 MAIN_MENU_PLAY,Play,Graj,Spielen,プレー
 MAIN_MENU_QUIT,Quit,Wyjdź,Beenden,終了
 MAIN_MENU_SETTINGS,Settings,Ustawienia,Einstellungen,設定
 MAIN_MENU_ASSESS,ASSESS,ASSESS,ASSESS,アッセッス
 MAIN_MENU_COPYRIGHT,© 2025,© 2025,© 2025,© 2025
-ASSESS_TEST_PREFER_LEFT,Prefer Left,Preferuj Lewe,Bevor Links, 左の好む
-ASSESS_TEST_PREFER_RIGHT,Prefer Right,Preferuj Prawe,Bevor Rechts, みぎの好む 
+ASSESS_TEST_PREFER_LEFT,Prefer Left,Preferuj Lewe,Bevor Links,左の好む
+ASSESS_TEST_PREFER_RIGHT,Prefer Right,Preferuj Prawe,Bevor Rechts,右の好む
 ASSESS_TEST_INDIFFERENT,Indifferent,Obojętnie Mi,Egal,私は気にしない
-ASSESS_TEST_SCENARIO,Test Scenario,Scenariusz Testowy,Testszenario, テストのシナリオ 
+ASSESS_TEST_SCENARIO,Test Scenario,Scenariusz Testowy,Testszenario,テストのシナリオ
+ASSESS_TEST_GET_QUESTION,Get Question,Pobierz Pytanie,?????????????????????????????,?????????????????????????????
+ASSESS_TEST_START_WEIGHTS,Start Weights,Rozpocznij Wagi,?????????????????????????????,?????????????????????????????
 AUDIO_BUS_MASTER,Master,Ogólny,Gesamt,一般
 AUDIO_BUS_MUSIC,Music,Muzyka,Musik,音楽
 AUDIO_BUS_EFFECTS,Effects,Efekty,Effekte,音響効果

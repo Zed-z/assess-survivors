@@ -1,24 +1,33 @@
-[gd_scene load_steps=11 format=3 uid="uid://cd2dgvodr3u8k"]
+[gd_scene load_steps=18 format=4 uid="uid://cd2dgvodr3u8k"]
 
 [ext_resource type="Script" uid="uid://dqjtx2pjfltf0" path="res://scenes/assess_test/assess_test.gd" id="1_mafoi"]
 [ext_resource type="Theme" uid="uid://df2r57b2stnof" path="res://themes/ui.tres" id="1_uts2w"]
 [ext_resource type="PackedScene" uid="uid://55kp84v1di83" path="res://globals/assess_criterion_manager/assess_manager.tscn" id="3_6yb16"]
+[ext_resource type="Material" uid="uid://bahv2nf1ouhdy" path="res://materials/water.tres" id="3_67qic"]
+[ext_resource type="Material" uid="uid://d1581d5ay26af" path="res://materials/grass.tres" id="4_c6aqy"]
 [ext_resource type="Script" uid="uid://brabuaqkcg3c6" path="res://globals/assess_criterion_manager/criteria/assess_criterion.gd" id="4_o6syu"]
 [ext_resource type="Script" uid="uid://dxavujg1j5jr5" path="res://globals/assess_criterion_manager/criteria/assess_criterion_variable_probability.gd" id="5_23xs6"]
 [ext_resource type="Script" uid="uid://bfn4l4e5i8p0j" path="res://objects/ui/scene_change_button.gd" id="5_cxtxd"]
+[ext_resource type="TileSet" uid="uid://cld71m6mttjlh" path="res://tilesets/tileset.tres" id="5_na47r"]
+[ext_resource type="Texture2D" uid="uid://djws4c08ttrcd" path="res://sprites/ui/heart.png" id="5_og7m7"]
 [ext_resource type="PackedScene" uid="uid://cu78d8juxtctw" path="res://objects/ui/assess_info/assess_info.tscn" id="6_23xs6"]
-[ext_resource type="Texture2D" uid="uid://cigsdewro07vk" path="res://icon.svg" id="7_o6syu"]
+[ext_resource type="PackedScene" uid="uid://bndei1083xpll" path="res://objects/decoration/tree.tscn" id="6_qgwg8"]
+[ext_resource type="Texture2D" uid="uid://cqqnj748bj1hu" path="res://sprites/ui/star.png" id="7_lm43g"]
+[ext_resource type="PackedScene" uid="uid://buqqxg1nykgry" path="res://objects/decoration/big_bush.tscn" id="7_vxiuc"]
+[ext_resource type="PackedScene" uid="uid://hf78mlyq324k" path="res://objects/decoration/small_bush.tscn" id="8_sspib"]
 
 [sub_resource type="Resource" id="Resource_og7m7"]
 script = ExtResource("5_23xs6")
-criterion_name = "Criterion 1"
+criterion_name = "Criterion A"
+icon = ExtResource("5_og7m7")
 value_mult = 2.0
 LIMIT_expand_count = -1
 metadata/_custom_type_script = "uid://dxavujg1j5jr5"
 
 [sub_resource type="Resource" id="Resource_6yb16"]
 script = ExtResource("5_23xs6")
-criterion_name = "Criterion 2"
+criterion_name = "Criterion B"
+icon = ExtResource("7_lm43g")
 LIMIT_expand_count = -1
 metadata/_custom_type_script = "uid://dxavujg1j5jr5"
 
@@ -31,6 +40,56 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_uts2w")
 script = ExtResource("1_mafoi")
+
+[node name="Background" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+z_index = -2
+material = ExtResource("3_67qic")
+layout_mode = 0
+offset_left = -3710.0
+offset_top = -2269.0
+offset_right = 3821.0
+offset_bottom = 2201.0
+mouse_filter = 2
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Background"]
+z_index = -1
+y_sort_enabled = true
+material = ExtResource("4_c6aqy")
+position = Vector2(18, -70)
+tile_map_data = PackedByteArray("AAD+/wcACAABAAAAAAD+/wgACAABAAAAAAD+/wkACAABAAAAAAD+/woACAABAAAAAAD+/wsACAABAAAAAAD+/w0ACAABAAAAAAD//wMACAABAAAAAAD//wQACAABAAAAAAD//wUACAABAAAAAAD//wYACAABAAAAAAD//wcACAABAAAAAAD//wgACAABAAAAAAD//wkACAABAAAAAAD//woACAABAAAAAAD//wsACAACAAAAAAD//wwACAABAAAAAAD//w0ACAABAAAAAAD//w4ACAABAAAAAAD//w8ACAABAAAAAAD//xAACAABAAAAAAD//xEACAABAAAAAAAAAAMACAABAAAAAAAAAAQACAABAAAAAAAAAAUACAABAAAAAAAAAAYACAABAAAAAAAAAAcACAABAAAAAAAAAAgACAABAAAAAAAAAAkACAABAAAAAAAAAAoACAABAAAAAAAAAAsACAABAAAAAAAAAAwACAABAAAAAAAAAA0ACAABAAAAAAAAAA4ACAABAAAAAAAAAA8ACAABAAAAAAAAABAACAAEAAAAAAAAABEACAABAAAAAAABAAEACAABAAAAAAABAAIACAABAAAAAAABAAMACAABAAAAAAABAAQACAABAAAAAAABAAUACAABAAAAAAABAAYACAABAAAAAAABAAcACAABAAAAAAABAAgACAABAAAAAAABAAkACAABAAAAAAABAAoACAABAAAAAAABAAsACAABAAAAAAABAAwACAABAAAAAAABAA0ACAABAAAAAAABAA4ACAABAAAAAAABAA8ACAABAAAAAAABABAACAABAAAAAAABABEACAABAAAAAAACAAEACAABAAAAAAACAAIACAABAAAAAAACAAMACAABAAAAAAACAAQACAABAAAAAAACAAUACAABAAAAAAACAAYACAABAAAAAAACAAcACAABAAAAAAACAAgACAABAAAAAAACAAkACAABAAAAAAACAAoACAADAAAAAAACAAsACAABAAAAAAACAAwACAABAAAAAAACAA0ACAABAAAAAAACAA4ACAABAAAAAAACAA8ACAABAAAAAAACABAACAABAAAAAAACABEACAABAAAAAAADAAEACAABAAAAAAADAAIACAABAAAAAAADAAMACAACAAAAAAADAAQACAABAAAAAAADAAUACAABAAAAAAADAAYACAABAAAAAAADAAcACAABAAAAAAADAAgACAABAAAAAAADAAkACAABAAAAAAADAAoACAABAAAAAAADAAsACAABAAAAAAADAAwACAABAAAAAAADAA0ACAABAAAAAAADAA4ACAABAAAAAAADAA8ACAABAAEAAAADABAACAABAAEAAAADABEACAABAAEAAAAEAAEACAABAAAAAAAEAAIACAABAAAAAAAEAAMACAABAAAAAAAEAAQACAABAAAAAAAEAAUACAABAAAAAAAEAAYACAABAAAAAAAEAAcACAABAAAAAAAEAAgACAABAAAAAAAEAAkACAABAAAAAAAEAAoACAABAAAAAAAEAAsACAAEAAAAAAAEAAwACAABAAAAAAAEAA0ACAABAAEAAAAEAA4ACAABAAEAAAAEAA8ACAABAAEAAAAEABAACAABAAEAAAAEABEACAABAAEAAAAFAAAACAABAAAAAAAFAAEACAABAAAAAAAFAAIACAABAAAAAAAFAAMACAABAAAAAAAFAAQACAABAAAAAAAFAAUACAABAAAAAAAFAAYACAABAAAAAAAFAAcACAABAAAAAAAFAAgACAABAAAAAAAFAAkACAABAAAAAAAFAAoACAABAAAAAAAFAAsACAABAAAAAAAFAAwACAABAAAAAAAFAA0ACAABAAEAAAAFAA4ACAABAAEAAAAFAA8ACAABAAEAAAAFABAACAABAAEAAAAFABEACAABAAEAAAAGAAAACAABAAAAAAAGAAEACAADAAAAAAAGAAIACAABAAAAAAAGAAMACAABAAAAAAAGAAQACAABAAAAAAAGAAUACAABAAAAAAAGAAYACAABAAAAAAAGAAcACAACAAAAAAAGAAgACAABAAAAAAAGAAkACAABAAAAAAAGAAoACAABAAAAAAAGAAsACAABAAAAAAAGAAwACAABAAEAAAAGAA0ACAABAAEAAAAGAA4ACAABAAEAAAAGAA8ACAABAAEAAAAGABAACAABAAEAAAAHAAAACAABAAAAAAAHAAEACAABAAAAAAAHAAIACAABAAAAAAAHAAMACAABAAAAAAAHAAQACAABAAAAAAAHAAUACAABAAAAAAAHAAYACAABAAAAAAAHAAcACAABAAAAAAAHAAgACAABAAAAAAAHAAkACAABAAAAAAAHAAoACAABAAAAAAAHAAsACAABAAAAAAAHAAwACAABAAEAAAAHAA0ACAABAAEAAAAHAA4ACAABAAEAAAAHAA8ACAABAAEAAAAHABAACAABAAEAAAAIAAEACAABAAAAAAAIAAIACAABAAAAAAAIAAMACAABAAAAAAAIAAQACAABAAAAAAAIAAUACAABAAAAAAAIAAYACAABAAAAAAAIAAcACAADAAAAAAAIAAgACAABAAAAAAAIAAkACAABAAAAAAAIAAoACAABAAAAAAAIAAsACAABAAEAAAAIAAwACAABAAEAAAAIAA0ACAABAAEAAAAIAA4ACAABAAEAAAAJAAEACAABAAAAAAAJAAIACAABAAAAAAAJAAMACAABAAAAAAAJAAQACAABAAAAAAAJAAUACAABAAAAAAAJAAYACAABAAAAAAAJAAcACAABAAAAAAAJAAgACAABAAAAAAAJAAkACAABAAAAAAAJAAoACAABAAAAAAAJAAsACAABAAEAAAAJAAwACAABAAEAAAAJAA0ACAABAAEAAAAJAA4ACAABAAEAAAAKAAQACAABAAAAAAAKAAUACAABAAAAAAAKAAYACAABAAAAAAAKAAgACAABAAAAAAD+/wMACAABAAAAAAD+/wQACAABAAAAAAD+/wUACAABAAAAAAD+/wYACAAEAAAAAAD/////CAABAAAAAAD//wAACAABAAAAAAD//wEACAABAAAAAAD//wIACAABAAAAAAAAAP//CAABAAAAAAAAAAAACAABAAAAAAAAAAEACAABAAAAAAAAAAIACAABAAAAAAABAP3/CAABAAAAAAABAP7/CAABAAAAAAABAP//CAABAAAAAAABAAAACAABAAAAAAACAP3/CAABAAAAAAACAP7/CAABAAAAAAACAP//CAACAAAAAAACAAAACAABAAAAAAADAP3/CAABAAAAAAADAP7/CAABAAAAAAADAP//CAABAAAAAAADAAAACAABAAAAAAAEAP3/CAABAAAAAAAEAP7/CAABAAAAAAAEAP//CAABAAAAAAAEAAAACAABAAAAAAAFAPz/CAABAAAAAAAFAP3/CAABAAAAAAAFAP7/CAACAAAAAAAFAP//CAABAAAAAAAGAPz/CAABAAAAAAAGAP3/CAABAAAAAAAGAP7/CAABAAAAAAAGAP//CAABAAAAAAAHAPz/CAABAAAAAAAHAP3/CAABAAAAAAAHAP7/CAABAAAAAAAHAP//CAABAAAAAAAIAP3/CAABAAAAAAAIAP7/CAABAAAAAAAIAP//CAACAAAAAAAIAAAACAABAAAAAAAJAP3/CAABAAAAAAAJAP7/CAABAAAAAAAJAP//CAABAAAAAAAJAAAACAABAAAAAAAKAAAACAABAAAAAAAKAAEACAABAAAAAAAKAAIACAABAAAAAAAKAAMACAABAAAAAAA=")
+tile_set = ExtResource("5_na47r")
+
+[node name="Tree" parent="Background" instance=ExtResource("6_qgwg8")]
+position = Vector2(148, 434)
+
+[node name="BigBush" parent="Background" instance=ExtResource("7_vxiuc")]
+position = Vector2(319, 193)
+
+[node name="Tree2" parent="Background" instance=ExtResource("6_qgwg8")]
+position = Vector2(1131, 108)
+
+[node name="Tree3" parent="Background" instance=ExtResource("6_qgwg8")]
+position = Vector2(994, 234)
+
+[node name="SmallBush" parent="Background" instance=ExtResource("8_sspib")]
+position = Vector2(486, 114)
+
+[node name="SmallBush2" parent="Background" instance=ExtResource("8_sspib")]
+position = Vector2(1187, 230)
+
+[node name="SmallBush3" parent="Background" instance=ExtResource("8_sspib")]
+position = Vector2(428, 393)
+
+[node name="Tree4" parent="Background" instance=ExtResource("6_qgwg8")]
+position = Vector2(143, 118)
+
+[node name="BigBush2" parent="Background" instance=ExtResource("7_vxiuc")]
+position = Vector2(808, 95)
 
 [node name="AssessManager" parent="." instance=ExtResource("3_6yb16")]
 criteria = Array[ExtResource("4_o6syu")]([SubResource("Resource_og7m7"), SubResource("Resource_6yb16")])
@@ -59,12 +118,6 @@ layout_mode = 2
 size_flags_vertical = 3
 assessmanger = NodePath("../../../../AssessManager")
 
-[node name="AssessQuestion" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "ASSESS QUESTION"
-horizontal_alignment = 1
-
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 alignment = 1
@@ -77,11 +130,12 @@ scene = "main_menu"
 
 [node name="ButtonQuestion" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
 layout_mode = 2
-text = "q q q q q q q q q q"
+text = "ASSESS_TEST_GET_QUESTION"
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(-299, 349)
-scale = Vector2(1, 9999)
-texture = ExtResource("7_o6syu")
+[node name="ButtonWeights" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "ASSESS_TEST_START_WEIGHTS"
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/ButtonQuestion" to="." method="_on_button_question_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/HBoxContainer/ButtonWeights" to="." method="_on_button_weights_pressed"]
