@@ -31,13 +31,4 @@ func _ready() -> void:
 	assesscriterion.points_changed.connect(chart.set_points)
 	chart.set_points(assesscriterion.point_list)
 
-	var method_used: String = ""
-
-	match assesscriterion.risk_method:
-		AssessCriterion.RiskCalculationMode.area_minus_perfectline:
-			method_used = "area - perfect line"
-
-		AssessCriterion.RiskCalculationMode.area_minus_perfectline_over_perfectline:
-			method_used = "(area - perfect line) / (perfect line)"
-
-	%RiskFactor.text = "Riskiniess:" + Utils.risk_to_string(assesscriterion.risk_factor, assesscriterion.risk_method)
+	%RiskFactor.text = Utils.risk_to_string(assesscriterion.risk_factor, assesscriterion.risk_method)
