@@ -5,9 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://cigsdewro07vk" path="res://icon.svg" id="3_d6nc5"]
 
 [node name="AssessCriterionInfo" type="PanelContainer"]
-custom_minimum_size = Vector2(80, 80)
-offset_right = 253.0
-offset_bottom = 160.0
+custom_minimum_size = Vector2(300, 320)
+offset_right = 273.0
+offset_bottom = 284.0
 theme = ExtResource("1_d6nc5")
 script = ExtResource("1_qsvm6")
 

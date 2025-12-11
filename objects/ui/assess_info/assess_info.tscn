@@ -5,14 +5,18 @@
 [sub_resource type="Theme" id="Theme_iekma"]
 
 [node name="AssessInfo" type="VBoxContainer"]
-offset_right = 160.0
-offset_bottom = 207.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_tj60n")
 
 [node name="CriteriaContainer" type="GridContainer" parent="."]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(160, 160)
 layout_mode = 2
+size_flags_vertical = 3
 theme = SubResource("Theme_iekma")
 columns = 2
 
