@@ -8,6 +8,8 @@
 custom_minimum_size = Vector2(300, 320)
 offset_right = 273.0
 offset_bottom = 284.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = ExtResource("1_d6nc5")
 script = ExtResource("1_qsvm6")
 
@@ -43,12 +45,16 @@ text = "Criterion_name"
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 120)
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="Weight" type="Label" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Weight"
+horizontal_alignment = 1
 
 [node name="RiskFactor" type="Label" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+text = "risk factor"
+horizontal_alignment = 1
