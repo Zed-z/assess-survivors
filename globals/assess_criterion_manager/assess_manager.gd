@@ -149,3 +149,40 @@ func weight_step(answer: AssessCriterion.Answer) -> WeightStepAnswer:
 		c.value_result.emit(result.values[c])
 
 	return step_answer
+
+
+func summary()-> Node:
+	var n: Node = Node.new()
+
+	# find the criteria with biggest weight
+	var index:int = criteria_weight.find(criteria_weight.max())
+	var important_criterion = criteria[index]
+	var mostimportant_label: Label = Label.new()
+	mostimportant_label.text = "your most important stat is:" + important_criterion.criterion_name
+	n.add_child(mostimportant_label)
+
+	#find riskiness (yest i know that they use diffrent measure but for now this will suffice 
+
+	var numerator: float = 0
+	var denominator: float = 0
+
+	for i in range(criteria):
+		numerator += criteria_weight[i]*criteria[i].risk_factor
+		denominator += criteria_weight[i]
+
+	var value: float = numerator/denominator
+	var risk_label: Label = Label.new()
+
+	if abs(value) > 0.75:
+		risk_label.text = "very" + ("risky" if sign(value) == -1 else "safe")
+	elif abs(value) >= 0.25:
+
+		risk_label.text = ("risky" if sign(value) == -1 else "safe")
+	elif abs(value) >= 0.1:
+
+		risk_label.text = "slightly" + ("risky" if sign(value) == -1 else "safe")
+	else:
+		risk_label.text = "balanced"
+
+	n.add_child(risk_label)
+	return n
