@@ -13,3 +13,8 @@ func setup(assess_manager: AssessManagerClass):
 		item.assesscriterion = assessmanger.criteria[i]
 		item.weight = assessmanger.criteria_weight[i]
 		%CriteriaContainer.add_child(item)
+
+
+func _ready() -> void:
+	if assessmanger != null:
+		setup(assessmanger)

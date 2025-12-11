@@ -49,15 +49,8 @@ func _physics_process(delta: float) -> void:
 
 func _on_levels_new_level(level: int) -> void:
 	GlobalInfo.score_manager.score_increase(1000)
-	GlobalInfo.assess_manager.init_choice_panel()
-
-	#if level < ENDGAMELEVEL:
-		#choice_panel.criterion = GlobalInfo.assess_manager.get_criterion()
-		#choice_panel.question = choice_panel.criterion.get_question()
-
-	#else:
-		#choice_panel.question = GlobalInfo.assess_manager.get_weight_question()
-		#choice_panel.criterion = GlobalInfo.assess_manager.get_weight_criterion()
+	GlobalInfo.combat_ui_overlay.add_child(
+		GlobalInfo.assess_manager.init_choice_panel())
 
 
 func _on_health_component_got_hit(depleted: bool) -> void:

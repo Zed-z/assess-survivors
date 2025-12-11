@@ -7,7 +7,7 @@ var algorithm: AssessAlgorithm
 var weight_algorithm: AssessAlgorithm
 
 @export var criteria: Array[AssessCriterion] = []
-var criteria_weight: Array[float] = []
+@export var criteria_weight: Array[float] = []
 var lower_bound_weight: Array[float] = []
 var upper_bound_weight: Array[float] = []
 var weight_question: Question
@@ -16,7 +16,7 @@ var weight_index: int
 var is_weight_phase: bool = false
 
 
-func init_choice_panel() -> void:
+func init_choice_panel() -> ChoicePanel:
 	var choice_panel: ChoicePanel = ObjectManager.instantiate(ObjectManager.OBJ_CHOICE_PANEL)
 
 	if !is_weight_phase:
@@ -32,13 +32,16 @@ func init_choice_panel() -> void:
 		choice_panel.criterion = get_weight_criterion()
 
 	choice_panel.is_weight_phase = is_weight_phase
-	GlobalInfo.combat_ui_overlay.add_child(choice_panel)
+	return choice_panel
 
 
 func _ready() -> void:
 	GlobalInfo.assess_manager = self
 
 	algorithm = algorithm_script.new(criteria)
+
+	for criterion: AssessCriterion in criteria:
+		register_criterion(criterion)
 
 
 func display_choice(criterion: AssessCriterion) -> String:
@@ -49,6 +52,10 @@ func init_add_criterion(stat: AssessStat, criterion: AssessCriterion):
 	criteria.append(criterion)
 	criterion.criterion_name = stat.name
 	criterion.icon = stat.icon
+	register_criterion(criterion)
+
+
+func register_criterion(criterion: AssessCriterion) -> void:
 	algorithm = algorithm_script.new(criteria)
 	criteria_weight.append(0.5)
 	lower_bound_weight.append(0)
