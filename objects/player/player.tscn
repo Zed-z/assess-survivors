@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://d1gvq0yvjdtgx" path="res://sprites/stats/speed.png" id="12_x5bgp"]
 [ext_resource type="Texture2D" uid="uid://cigsdewro07vk" path="res://icon.svg" id="13_xlkbi"]
 [ext_resource type="Script" uid="uid://ccj8rhd6knfds" path="res://objects/player/Stats/const_stat.gd" id="14_l55sg"]
-[ext_resource type="Script" uid="uid://cq2l5rojmr1bj" path="res://objects/player/pickup/pickup_receiver.gd" id="15_ylcck"]
+[ext_resource type="PackedScene" uid="uid://0exdkv4oiw4t" path="res://objects/player/pickup/pickup_receiver.tscn" id="18_xlkbi"]
 
 [sub_resource type="Resource" id="Resource_dthqj"]
 script = ExtResource("7_c34wb")
@@ -117,12 +117,9 @@ wait_time = 2.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("RectangleShape2D_ow0dq")
 
-[node name="CompPickupReceiver" type="Area2D" parent="."]
-visible = false
-script = ExtResource("15_ylcck")
-metadata/_custom_type_script = "uid://cq2l5rojmr1bj"
+[node name="PickupReceiver" parent="." instance=ExtResource("18_xlkbi")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CompPickupReceiver"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupReceiver"]
 position = Vector2(1, -19)
 shape = SubResource("CircleShape2D_ylcck")
 

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://0exdkv4oiw4t"]
+
+[ext_resource type="Script" uid="uid://cq2l5rojmr1bj" path="res://objects/player/pickup/pickup_receiver.gd" id="1_x6w43"]
+[ext_resource type="AudioStream" uid="uid://co5j1yyhpl0cb" path="res://sounds/game/xp_get.wav" id="2_wgebw"]
+
+[node name="PickupReceiver" type="Area2D"]
+script = ExtResource("1_x6w43")
+
+[node name="SoundPickup" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_wgebw")
+bus = &"Effects"

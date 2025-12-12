@@ -26,6 +26,8 @@ func _on_area_entered(area: Area2D) -> void:
 	if area is not CompPickup:
 		return
 
+	$SoundPickup.play()
+
 	var pickup := area as CompPickup
 
 	received_pickup.emit(pickup.pickup_type)
