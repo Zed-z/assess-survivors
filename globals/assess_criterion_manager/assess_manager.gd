@@ -61,6 +61,7 @@ func register_criterion(criterion: AssessCriterion) -> void:
 	lower_bound_weight.append(0)
 	upper_bound_weight.append(1)
 	weight_algorithm = weight_algorithm_script.new(criteria)
+	criterion.setup()
 
 
 func get_criterion() -> AssessCriterion:
