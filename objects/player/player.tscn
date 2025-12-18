@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://ct88pvgyokerc"]
+[gd_scene load_steps=32 format=3 uid="uid://ct88pvgyokerc"]
 
 [ext_resource type="Script" uid="uid://bpko7pdk264ld" path="res://objects/player/player.gd" id="1_g7ett"]
 [ext_resource type="PackedScene" uid="uid://dqcwtt15lk5ay" path="res://objects/player/projectile_shooter.tscn" id="2_xlkbi"]
@@ -23,6 +23,21 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xlkbi"]
 size = Vector2(32.32664, 20)
 
+[sub_resource type="Resource" id="Resource_yyeqs"]
+script = ExtResource("7_c34wb")
+value_step = 0.1
+initial_max_value = 0.1
+metadata/_custom_type_script = "uid://dxavujg1j5jr5"
+
+[sub_resource type="Resource" id="Resource_u8bnf"]
+script = ExtResource("7_45urx")
+criterion = SubResource("Resource_yyeqs")
+starting_value = 49
+accumulation_mode = 2
+name = "STAT_COOLDOWN"
+icon = ExtResource("9_ylcck")
+metadata/_custom_type_script = "uid://d1e80dp6c7ji3"
+
 [sub_resource type="Resource" id="Resource_dthqj"]
 script = ExtResource("7_c34wb")
 value_step = 0.0
@@ -34,21 +49,6 @@ script = ExtResource("7_45urx")
 criterion = SubResource("Resource_dthqj")
 starting_value = 50
 name = "STAT_ATK"
-icon = ExtResource("9_ylcck")
-metadata/_custom_type_script = "uid://d1e80dp6c7ji3"
-
-[sub_resource type="Resource" id="Resource_yyeqs"]
-script = ExtResource("7_c34wb")
-value_step = 0.1
-initial_max_value = 0.1
-metadata/_custom_type_script = "uid://dxavujg1j5jr5"
-
-[sub_resource type="Resource" id="Resource_u8bnf"]
-script = ExtResource("7_45urx")
-criterion = SubResource("Resource_yyeqs")
-starting_value = 1
-accumulation_mode = 2
-name = "STAT_COOLDOWN"
 icon = ExtResource("9_ylcck")
 metadata/_custom_type_script = "uid://d1e80dp6c7ji3"
 
