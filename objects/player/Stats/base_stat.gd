@@ -5,6 +5,8 @@ signal value_changed(value: Variant)
 
 @export var name = "Stat"
 @export var icon: CompressedTexture2D
+@export var hidden: bool = false
+
 var value: Variant:
 	get:
 		return value

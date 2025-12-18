@@ -37,10 +37,7 @@ var risk_factor: float:
 	get:
 		return _calculate_risk_factor(risk_method)
 
-var point_list: Array[Vector2] = [
-	Vector2(min_value, UTILITY_MIN),
-	Vector2(initial_max_value, UTILITY_MAX)
-]
+var point_list: Array[Vector2]
 var question: Question
 var left_bound: float
 var right_bound: float
@@ -214,12 +211,17 @@ func _calculate_risk_factor(method: RiskCalculationMode) -> float:
 
 		RiskCalculationMode.area_minus_perfectline_over_perfectline:
 			var perfectline: float = _area_under_line()
-			return(_area_under_line() - perfectline) / perfectline
+			return(_area_under_graph() - perfectline) / perfectline
 
 	return 0.0
 
 
-func _init() -> void:
+func setup() -> void:
+	point_list = [
+		Vector2(min_value, UTILITY_MIN),
+		Vector2(initial_max_value, UTILITY_MAX)
+	]
+
 	do_point_inbetween()
 	_question_init()
 	#print(point_list)

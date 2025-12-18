@@ -26,6 +26,7 @@ GlobalInfo="*res://globals/global_info/global_info.gd"
 ScreenManager="*res://globals/screen_manager/screen_manager.tscn"
 SettingsManager="*res://globals/settings_manager/settings_manager.tscn"
 ObjectManager="*res://globals/object_manager/object_manager.tscn"
+Utils="*res://globals/utils.gd"
 
 [debug]
 

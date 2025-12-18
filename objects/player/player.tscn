@@ -1,7 +1,7 @@
-[gd_scene load_steps=32 format=3 uid="uid://ct88pvgyokerc"]
+[gd_scene load_steps=30 format=3 uid="uid://ct88pvgyokerc"]
 
 [ext_resource type="Script" uid="uid://bpko7pdk264ld" path="res://objects/player/player.gd" id="1_g7ett"]
-[ext_resource type="Script" uid="uid://tbwlmhfwlhey" path="res://objects/player/projectile_shooter.gd" id="2_ssrue"]
+[ext_resource type="PackedScene" uid="uid://dqcwtt15lk5ay" path="res://objects/player/projectile_shooter.tscn" id="2_xlkbi"]
 [ext_resource type="PackedScene" uid="uid://c0p4rc4vy31m" path="res://objects/projectile/projectile_instances/projectile_player_1.tscn" id="3_jnjyq"]
 [ext_resource type="Script" uid="uid://bou23i73tsv7q" path="res://objects/player/melee/MeleeAtacker.gd" id="4_l55sg"]
 [ext_resource type="PackedScene" uid="uid://61ygvpbmpjum" path="res://objects/player/player_sprite.tscn" id="5_45rsp"]
@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://d1gvq0yvjdtgx" path="res://sprites/stats/speed.png" id="12_x5bgp"]
 [ext_resource type="Texture2D" uid="uid://cigsdewro07vk" path="res://icon.svg" id="13_xlkbi"]
 [ext_resource type="Script" uid="uid://ccj8rhd6knfds" path="res://objects/player/Stats/const_stat.gd" id="14_l55sg"]
-[ext_resource type="Script" uid="uid://cq2l5rojmr1bj" path="res://objects/player/pickup/pickup_receiver.gd" id="15_ylcck"]
+[ext_resource type="PackedScene" uid="uid://0exdkv4oiw4t" path="res://objects/player/pickup/pickup_receiver.tscn" id="18_xlkbi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xlkbi"]
 size = Vector2(32.32664, 20)
@@ -34,6 +34,21 @@ script = ExtResource("7_45urx")
 criterion = SubResource("Resource_dthqj")
 starting_value = 50
 name = "STAT_ATK"
+icon = ExtResource("9_ylcck")
+metadata/_custom_type_script = "uid://d1e80dp6c7ji3"
+
+[sub_resource type="Resource" id="Resource_yyeqs"]
+script = ExtResource("7_c34wb")
+value_step = 0.1
+initial_max_value = 0.1
+metadata/_custom_type_script = "uid://dxavujg1j5jr5"
+
+[sub_resource type="Resource" id="Resource_u8bnf"]
+script = ExtResource("7_45urx")
+criterion = SubResource("Resource_yyeqs")
+starting_value = 1
+accumulation_mode = 2
+name = "STAT_COOLDOWN"
 icon = ExtResource("9_ylcck")
 metadata/_custom_type_script = "uid://d1e80dp6c7ji3"
 
@@ -54,8 +69,9 @@ metadata/_custom_type_script = "uid://d1e80dp6c7ji3"
 [sub_resource type="Resource" id="Resource_28utn"]
 script = ExtResource("14_l55sg")
 const_value = 2.0
-name = "Pierce"
+name = "STAT_PIERCE"
 icon = ExtResource("13_xlkbi")
+hidden = true
 metadata/_custom_type_script = "uid://ccj8rhd6knfds"
 
 [sub_resource type="Resource" id="Resource_x5bgp"]
@@ -72,17 +88,6 @@ name = "STAT_SPD"
 icon = ExtResource("12_x5bgp")
 metadata/_custom_type_script = "uid://d1e80dp6c7ji3"
 
-[sub_resource type="Resource" id="Resource_yyeqs"]
-script = ExtResource("7_c34wb")
-metadata/_custom_type_script = "uid://dxavujg1j5jr5"
-
-[sub_resource type="Resource" id="Resource_u8bnf"]
-script = ExtResource("7_45urx")
-criterion = SubResource("Resource_yyeqs")
-starting_value = 20
-name = "melee"
-metadata/_custom_type_script = "uid://d1e80dp6c7ji3"
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ow0dq"]
 size = Vector2(22, 22)
 
@@ -95,9 +100,9 @@ motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_g7ett")
 
-[node name="ProjectileShooter" type="Node2D" parent="."]
-script = ExtResource("2_ssrue")
+[node name="ProjectileShooter" parent="." node_paths=PackedStringArray("stats") instance=ExtResource("2_xlkbi")]
 projectile = ExtResource("3_jnjyq")
+stats = NodePath("../Stats")
 
 [node name="MeleAtacker" type="Node2D" parent="."]
 script = ExtResource("4_l55sg")
@@ -121,6 +126,7 @@ script = ExtResource("5_gnkmh")
 stats = Dictionary[String, ExtResource("6_psowp")]({
 "MELEE_STAT": SubResource("Resource_u8bnf"),
 "STAT_ATK": SubResource("Resource_ylcck"),
+"STAT_COOLDOWN": SubResource("Resource_u8bnf"),
 "STAT_HP": SubResource("Resource_l55sg"),
 "STAT_PIERCE": SubResource("Resource_28utn"),
 "STAT_SPD": SubResource("Resource_xlkbi")
@@ -143,12 +149,9 @@ wait_time = 2.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("RectangleShape2D_ow0dq")
 
-[node name="CompPickupReceiver" type="Area2D" parent="."]
-visible = false
-script = ExtResource("15_ylcck")
-metadata/_custom_type_script = "uid://cq2l5rojmr1bj"
+[node name="PickupReceiver" parent="." instance=ExtResource("18_xlkbi")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CompPickupReceiver"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupReceiver"]
 position = Vector2(1, -19)
 shape = SubResource("CircleShape2D_ylcck")
 

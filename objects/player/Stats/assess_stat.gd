@@ -4,9 +4,24 @@ class_name AssessStat
 @export var criterion: AssessCriterion
 @export var starting_value: int
 
+enum AccumulationMode {
+	Replace,
+	Add,
+	Subtract
+}
+@export var accumulation_mode: AccumulationMode = AccumulationMode.Add
+
 
 func increment(val: float) -> void:
-	value += val
+	match accumulation_mode:
+		AccumulationMode.Replace:
+			value = val
+
+		AccumulationMode.Add:
+			value += val
+
+		AccumulationMode.Subtract:
+			value -= val
 
 
 func init() -> void:
