@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="WaveData" load_steps=5 format=3 uid="uid://bpldckhruqqgl"]
 
 [ext_resource type="Script" uid="uid://dmbi1icxkymxl" path="res://objects/enemies/enemy_spawner/enemy_wave_data/wave_touple.gd" id="1_mdp22"]
-[ext_resource type="PackedScene" uid="uid://bbp8p6r1nw1f0" path="res://objects/enemies/enemy_scenes/enemy_walker.tscn" id="2_6dqu5"]
+[ext_resource type="PackedScene" uid="uid://b878cclpdkau" path="res://objects/enemies/enemy_scenes/enemy_bush.tscn" id="2_6dqu5"]
 [ext_resource type="Script" uid="uid://cd06aok4ajl3c" path="res://objects/enemies/enemy_spawner/enemy_wave_data/enemy_wave_data.gd" id="2_iauqp"]
 
 [sub_resource type="Resource" id="Resource_tuyln"]
