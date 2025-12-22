@@ -1,19 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://b878cclpdkau"]
+[gd_scene load_steps=6 format=3 uid="uid://b878cclpdkau"]
 
 [ext_resource type="PackedScene" uid="uid://epsr1o1tk6ur" path="res://objects/enemies/enemy_scenes/base_enemy.tscn" id="1_5mbmq"]
 [ext_resource type="Script" uid="uid://bgb2oual2bgw" path="res://objects/enemies/move_controller/walking_bush_move_controler.gd" id="2_q0efr"]
+[ext_resource type="Script" uid="uid://qhldu4phre5" path="res://objects/enemies/enemy_scenes/sooter_with_consent.gd" id="2_wmlyl"]
 [ext_resource type="Texture2D" uid="uid://c3fvhi874wwoe" path="res://sprites/mobs/bush.jpeg" id="3_b3iac"]
+[ext_resource type="PackedScene" uid="uid://brubyva6r1d3c" path="res://objects/projectile/projectile_instances/projectile_enemy_1.tscn" id="3_px1n8"]
 
 [node name="Enemy" node_paths=PackedStringArray("move_controller") instance=ExtResource("1_5mbmq")]
 move_controller = NodePath("WalkingBushMoveCantroler")
 
-[node name="WalkingBushMoveCantroler" type="Node2D" parent="." index="0"]
+[node name="shooter_with_consent" type="Node2D" parent="." index="0"]
+script = ExtResource("2_wmlyl")
+projectile = ExtResource("3_px1n8")
+shoot_coldown = 4.0
+metadata/_custom_type_script = "uid://bxrtysv8dyqbb"
+
+[node name="Timer" type="Timer" parent="shooter_with_consent" index="0"]
+
+[node name="WalkingBushMoveCantroler" type="Node2D" parent="." index="1"]
 script = ExtResource("2_q0efr")
 speed = 30.0
 debug_view = true
 metadata/_custom_type_script = "uid://bgb2oual2bgw"
 
-[node name="HurtBox" parent="." index="2"]
+[node name="HurtBox" parent="." index="3"]
 visible = true
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]

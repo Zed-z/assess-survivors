@@ -7,6 +7,7 @@ class_name WalkingBushMoveCantroler
 
 @export var debug_view: bool
 var target: Player
+var can_shoot: bool
 
 
 func _ready() -> void:
@@ -22,12 +23,14 @@ func get_velocity() -> Vector2:
 	var dist_diff = dist - ideal_radius
 
 	if (absf(dist_diff) > allowed_radius_deviation):
+		can_shoot = false
 
 		if dist_diff > 0:
 			return velo
 		else:
 			return -velo
 
+	can_shoot = true
 	return Vector2.ZERO
 
 
