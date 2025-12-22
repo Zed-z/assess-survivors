@@ -105,7 +105,9 @@ jobs:
           if [ "${{ env.BUILD_MODE }}" = "debug" ]; then
             chmod +x ${{ env.EXPORT_FOLDER_LINUX }}/${{ env.APPLICATION_NAME }}.sh
           fi
-          tar -cvf ${{ env.APPLICATION_NAME }}_linux_${{ env.BUILD_MODE }}_${{ env.VERSION }}.tar ${{ env.EXPORT_FOLDER_LINUX }}
+          pushd ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_LINUX }}
+          tar -cvf ${{ env.APPLICATION_NAME }}_linux_${{ env.BUILD_MODE }}_${{ env.VERSION }}.tar .
+          popd
 
       - name: Upload Linux artifact
         if: ${{ env.BUILD_TARGET == 'linux' || env.BUILD_TARGET == 'all' }}
@@ -153,8 +155,8 @@ jobs:
           tag_name: ${{ github.ref_name }}
           name: Release ${{ github.ref_name }}
           files: |
-            ${{ env.APPLICATION_NAME }}_linux_${{ env.BUILD_MODE }}_${{ env.VERSION }}.tar
-            ${{ env.APPLICATION_NAME }}_windows_${{ env.BUILD_MODE }}_${{ env.VERSION }}.zip
-            ${{ env.APPLICATION_NAME }}_web_${{ env.BUILD_MODE }}_${{ env.VERSION }}.zip
+            ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_LINUX }}/${{ env.APPLICATION_NAME }}_linux_${{ env.BUILD_MODE }}_${{ env.VERSION }}.tar
+            ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_WINDOWS }}/${{ env.APPLICATION_NAME }}_windows_${{ env.BUILD_MODE }}_${{ env.VERSION }}.zip
+            ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_WEB }}/${{ env.APPLICATION_NAME }}_web_${{ env.BUILD_MODE }}_${{ env.VERSION }}.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
