@@ -119,7 +119,7 @@ jobs:
         run: |
           mkdir -p ${{ env.EXPORT_FOLDER_WINDOWS }}
           ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 --headless --path ${{ env.GODOT_PROJECT_FOLDER }} --export-${{ env.BUILD_MODE }} Windows ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_WINDOWS }}/${{ env.APPLICATION_NAME }}.exe || true
-          pushd ${{ env.EXPORT_FOLDER_WINDOWS }}
+          pushd ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_WINDOWS }}
           zip -r ${{ env.APPLICATION_NAME }}_windows_${{ env.BUILD_MODE }}_${{ env.VERSION }}.zip .
           popd
 
@@ -135,7 +135,7 @@ jobs:
         run: |
           mkdir -p ${{ env.EXPORT_FOLDER_WEB }}
           ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 --headless --path ${{ env.GODOT_PROJECT_FOLDER }} --export-${{ env.BUILD_MODE }} Web ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_WEB }}/index.html || true
-          pushd ${{ env.EXPORT_FOLDER_WEB }}
+          pushd ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_WEB }}
           zip -r ${{ env.APPLICATION_NAME }}_web_${{ env.BUILD_MODE }}_${{ env.VERSION }}.zip .
           popd
 
