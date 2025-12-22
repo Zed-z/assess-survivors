@@ -133,7 +133,7 @@ jobs:
         run: |
           mkdir -p ${{ env.EXPORT_FOLDER_WEB }}
           ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 --headless --path ${{ env.GODOT_PROJECT_FOLDER }} --export-${{ env.BUILD_MODE }} Web ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_WEB }}/index.html || true
-          zip -r ${{ env.APPLICATION_NAME }}_web_${{ env.BUILD_MODE }}_${{ env.VERSION }}.zip ${{ env.EXPORT_FOLDER_WINDOWS }}
+          zip -r ${{ env.APPLICATION_NAME }}_web_${{ env.BUILD_MODE }}_${{ env.VERSION }}.zip ${{ env.EXPORT_FOLDER_WEB }}
 
       - name: Upload Web artifact
         if: ${{ env.BUILD_TARGET == 'web' || env.BUILD_TARGET == 'all' }}
