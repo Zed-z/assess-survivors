@@ -14,6 +14,37 @@ body:json {
   {
     "playerName": "{{$randomUserName}}",
     "score": "{{$randomInt}}",
-    "won": "{{$randomBoolean}}"
+    "won": "{{$randomBoolean}}",
+    "stats": [
+      {
+        "name": "STAT_ATK",
+        "value": {{$randomInt}},
+        "weight": {{randWeight0}},
+        "riskiness": {{randRiskiness0}}
+      },
+      {
+        "name": "STAT_HP",
+        "value": {{$randomInt}},
+        "weight": {{randWeight1}},
+        "riskiness": {{randRiskiness1}}
+      }
+    ]
   }
+}
+
+script:pre-request {
+  function randFloat(min, max) {
+    return Math.random() * (max - min) + min;
+  }
+  
+  const randWeight0 = randFloat(0.0, 1.0);
+  const randWeight1 = 1.0 - randWeight0;
+  const randRiskiness0 = randFloat(-1.0, 1.0);
+  const randRiskiness1 = randFloat(-1.0, 1.0);
+  
+  bru.setVar("randWeight0", randWeight0);
+  bru.setVar("randWeight1", randWeight1);
+  bru.setVar("randRiskiness0", randRiskiness0);
+  bru.setVar("randRiskiness1", randRiskiness1);
+  
 }

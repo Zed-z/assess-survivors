@@ -17,7 +17,7 @@ exports.gameStats = sequelize.define('game_stats', {
 		type: Sequelize.STRING,
 		allowNull: false,
 		validate: {
-			is: /^[a-zA-Z0-9_]+$/
+			is: /^[a-zA-Z0-9_.\-]+$/
 		}
 	},
 	score: {
@@ -26,6 +26,37 @@ exports.gameStats = sequelize.define('game_stats', {
 	},
 	won: {
 		type: Sequelize.BOOLEAN,
+		allowNull: false,
+	},
+	averageRiskiness: {
+		type: Sequelize.FLOAT,
+		allowNull: true,
+	},
+	mostWeightStat: {
+		type: Sequelize.STRING,
+		allowNull: true,
+	},
+});
+
+exports.playerPreferences = sequelize.define('player_preferences', {
+	gameGuid: {
+		type: Sequelize.STRING,
+		allowNull: false,
+	},
+	name: {
+		type: Sequelize.STRING,
+		allowNull: false,
+	},
+	value: {
+		type: Sequelize.FLOAT,
+		allowNull: false,
+	},
+	weight: {
+		type: Sequelize.FLOAT,
+		allowNull: false,
+	},
+	riskiness: {
+		type: Sequelize.FLOAT,
 		allowNull: false,
 	},
 });
