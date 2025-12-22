@@ -99,6 +99,7 @@ y_sort_enabled = true
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_g7ett")
+ENDGAMELEVEL = null
 
 [node name="ProjectileShooter" parent="." node_paths=PackedStringArray("stats") instance=ExtResource("2_xlkbi")]
 projectile = ExtResource("3_jnjyq")
