@@ -3,6 +3,7 @@ class_name Enemy
 var target: Player
 
 @export var move_controller: MoveController
+@onready var move_animation: AnimationPlayer = $MoveAnimation
 
 var wave_number: int
 
@@ -17,6 +18,12 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	velocity = move_controller.get_velocity()
+
+	if velocity.length_squared() > 0.0001:
+		move_animation.play("walk")
+	else:
+		move_animation.play("idle")
+
 	move_and_slide()
 
 

@@ -1,10 +1,64 @@
-[gd_scene load_steps=6 format=3 uid="uid://b878cclpdkau"]
+[gd_scene load_steps=10 format=3 uid="uid://b878cclpdkau"]
 
 [ext_resource type="PackedScene" uid="uid://epsr1o1tk6ur" path="res://objects/enemies/enemy_scenes/base_enemy.tscn" id="1_5mbmq"]
 [ext_resource type="Script" uid="uid://bgb2oual2bgw" path="res://objects/enemies/move_controller/walking_bush_move_controler.gd" id="2_q0efr"]
 [ext_resource type="Script" uid="uid://qhldu4phre5" path="res://objects/enemies/enemy_scenes/sooter_with_consent.gd" id="2_wmlyl"]
 [ext_resource type="Texture2D" uid="uid://c3fvhi874wwoe" path="res://sprites/mobs/bush.jpeg" id="3_b3iac"]
 [ext_resource type="PackedScene" uid="uid://brubyva6r1d3c" path="res://objects/projectile/projectile_instances/projectile_enemy_1.tscn" id="3_px1n8"]
+
+[sub_resource type="Animation" id="Animation_ivhw8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteContainer/Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ef3f8"]
+resource_name = "walk"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteContainer/Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 3.2, 7.133333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.86829257, 0.9113867, 1, 1), Color(0.8666667, 0.03529412, 0.050980393, 1), Color(0.86829257, 0.9113867, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_px1n8"]
+resource_name = "idle"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteContainer/Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.1333334, 8.066667),
+"transitions": PackedFloat32Array(1, 1.0000024, 1),
+"update": 0,
+"values": [Color(0.86829257, 0.9113867, 1, 1), Color(0, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ivhw8"]
+_data = {
+&"RESET": SubResource("Animation_ivhw8"),
+&"idle": SubResource("Animation_px1n8"),
+&"walk": SubResource("Animation_ef3f8")
+}
 
 [node name="Enemy" node_paths=PackedStringArray("move_controller") instance=ExtResource("1_5mbmq")]
 move_controller = NodePath("WalkingBushMoveCantroler")
@@ -32,3 +86,9 @@ scale = Vector2(10.180746, 10.069604)
 [node name="Sprite2D" type="Sprite2D" parent="SpriteContainer" index="0"]
 scale = Vector2(0.15924767, 0.10566163)
 texture = ExtResource("3_b3iac")
+
+[node name="MoveAnimation" parent="." index="7"]
+libraries = {
+&"": SubResource("AnimationLibrary_ivhw8")
+}
+autoplay = "walk"
