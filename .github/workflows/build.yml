@@ -56,7 +56,7 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Set environment variables
+      - name: Prepare build environment
         run: |
           if [[ "${GITHUB_REF_TYPE}" == "tag" ]]; then
             VERSION="${GITHUB_REF_NAME}"
@@ -67,10 +67,14 @@ jobs:
           fi
           echo "VERSION=$VERSION" >> $GITHUB_ENV
 
-          # Build parameters from inputs or defaults for tagged releases
           echo "BUILD_TARGET=${{ github.event.inputs.build_target || 'all' }}" >> $GITHUB_ENV   # All platforms for tagged builds
           echo "BUILD_MODE=${{ github.event.inputs.build_mode || 'release' }}" >> $GITHUB_ENV   # Release for tagged builds
           echo "RUN_TESTS=${{ github.event.inputs.run_tests || 'false' }}" >> $GITHUB_ENV       # False by default due to crashing issues
+
+          mkdir -p ${{ env.EXPORT_FOLDER_WINDOWS }}
+          mkdir -p ${{ env.EXPORT_FOLDER_LINUX }}
+          mkdir -p ${{ env.EXPORT_FOLDER_WEB }}
+          mkdir -p ${{ env.EXPORT_FOLDER_OUTPUT }}
 
       - name: Install dependencies
         run: |
@@ -99,8 +103,10 @@ jobs:
       - name: Build Linux
         if: ${{ env.BUILD_TARGET == 'linux' || env.BUILD_TARGET == 'all' }}
         run: |
-          mkdir -p ${{ env.EXPORT_FOLDER_LINUX }}
-          ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 --headless --path ${{ env.GODOT_PROJECT_FOLDER }} --export-${{ env.BUILD_MODE }} Linux ${{ env.EXPORT_FOLDER_LINUX }}/${{ env.APPLICATION_NAME }}.x86_64 || true
+          ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 \
+            --headless \
+            --path ${{ env.GODOT_PROJECT_FOLDER }} \
+            --export-${{ env.BUILD_MODE }} Linux ${{ env.EXPORT_FOLDER_LINUX }}/${{ env.APPLICATION_NAME }}.x86_64 || true
           chmod +x ${{ env.EXPORT_FOLDER_LINUX }}/${{ env.APPLICATION_NAME }}.x86_64
           if [ "${{ env.BUILD_MODE }}" = "debug" ]; then
             chmod +x ${{ env.EXPORT_FOLDER_LINUX }}/${{ env.APPLICATION_NAME }}.sh
@@ -120,8 +126,10 @@ jobs:
       - name: Build Windows
         if: ${{ env.BUILD_TARGET == 'windows' || env.BUILD_TARGET == 'all' }}
         run: |
-          mkdir -p ${{ env.EXPORT_FOLDER_WINDOWS }}
-          ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 --headless --path ${{ env.GODOT_PROJECT_FOLDER }} --export-${{ env.BUILD_MODE }} Windows ${{ env.EXPORT_FOLDER_WINDOWS }}/${{ env.APPLICATION_NAME }}.exe || true
+          ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 \
+            --headless \
+            --path ${{ env.GODOT_PROJECT_FOLDER }} \
+            --export-${{ env.BUILD_MODE }} Windows ${{ env.EXPORT_FOLDER_WINDOWS }}/${{ env.APPLICATION_NAME }}.exe || true
           pushd ${{ env.EXPORT_FOLDER_WINDOWS }}
           zip -r ${{ env.APPLICATION_NAME }}_windows_${{ env.BUILD_MODE }}_${{ env.VERSION }}.zip .
           popd
@@ -137,8 +145,10 @@ jobs:
       - name: Build Web
         if: ${{ env.BUILD_TARGET == 'web' || env.BUILD_TARGET == 'all' }}
         run: |
-          mkdir -p ${{ env.EXPORT_FOLDER_WEB }}
-          ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 --headless --path ${{ env.GODOT_PROJECT_FOLDER }} --export-${{ env.BUILD_MODE }} Web ${{ env.EXPORT_FOLDER_WEB }}/index.html || true
+          ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 \
+            --headless \
+            --path ${{ env.GODOT_PROJECT_FOLDER }} \
+            --export-${{ env.BUILD_MODE }} Web ${{ env.EXPORT_FOLDER_WEB }}/index.html || true
           pushd ${{ env.EXPORT_FOLDER_WEB }}
           zip -r ${{ env.APPLICATION_NAME }}_web_${{ env.BUILD_MODE }}_${{ env.VERSION }}.zip .
           popd
