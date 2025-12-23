@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Player
 
-@onready var stats = $Stats
+@onready var stats: PlayerStats = $Stats
 
 @export var ENDGAMELEVEL = 10
 var last_direction: int = 1
@@ -14,6 +14,8 @@ func set_speed(spd: float) -> void:
 
 
 func _ready() -> void:
+	GlobalInfo.player = self
+
 	$HealthComponent.setup($Stats.stats["STAT_HP"].get_stat())
 
 	GlobalInfo.combat_ui_overlay.health_bar.setup($HealthComponent.current_health, $HealthComponent.health)

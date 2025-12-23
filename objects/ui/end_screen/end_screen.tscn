@@ -65,6 +65,14 @@ text = "END_SCREEN_SCORE_COUNTER"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="LabelNotes" type="Label" parent="MarginContainer/Control/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 46
+text = "notes"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control"]
 layout_mode = 1
 anchors_preset = 7
@@ -88,4 +96,12 @@ text = "END_SCREEN_MAIN_MENU"
 script = ExtResource("3_ml61n")
 scene = "main_menu"
 
+[node name="ButtonSubmit" type="Button" parent="MarginContainer/Control/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "SEND"
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
 [connection signal="pressed" from="MarginContainer/Control/HBoxContainer/ButtonAssessInfo" to="." method="_on_button_assess_info_pressed"]
+[connection signal="pressed" from="MarginContainer/Control/HBoxContainer/ButtonSubmit" to="." method="_on_button_2_pressed"]

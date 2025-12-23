@@ -39,11 +39,12 @@ on:
 
 env:
   GODOT_VERSION: 4.5.1
-  GODOT_PROJECT_FOLDER: .
-  GODOT_PROJECT_FILE: ./project.godot
-  EXPORT_FOLDER_WINDOWS: export/windows
-  EXPORT_FOLDER_LINUX: export/linux
-  EXPORT_FOLDER_WEB: export/web
+  GODOT_PROJECT_FOLDER: ${{ github.workspace }}
+  GODOT_PROJECT_FILE: ${{ github.workspace }}/project.godot
+  EXPORT_FOLDER_WINDOWS: ${{ github.workspace }}/export/windows
+  EXPORT_FOLDER_LINUX: ${{ github.workspace }}/export/linux
+  EXPORT_FOLDER_WEB: ${{ github.workspace }}/export/web
+  EXPORT_FOLDER_OUTPUT: ${{ github.workspace }}/export/output
   APPLICATION_NAME: assess_survivors
 
 jobs:
@@ -55,9 +56,8 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Set environment variables
+      - name: Prepare build environment
         run: |
-          echo "MAIN_FOLDER=$(pwd)" >> $GITHUB_ENV
           if [[ "${GITHUB_REF_TYPE}" == "tag" ]]; then
             VERSION="${GITHUB_REF_NAME}"
           else
@@ -67,10 +67,14 @@ jobs:
           fi
           echo "VERSION=$VERSION" >> $GITHUB_ENV
 
-          # Build parameters from inputs or defaults for tagged releases
           echo "BUILD_TARGET=${{ github.event.inputs.build_target || 'all' }}" >> $GITHUB_ENV   # All platforms for tagged builds
           echo "BUILD_MODE=${{ github.event.inputs.build_mode || 'release' }}" >> $GITHUB_ENV   # Release for tagged builds
           echo "RUN_TESTS=${{ github.event.inputs.run_tests || 'false' }}" >> $GITHUB_ENV       # False by default due to crashing issues
+
+          mkdir -p ${{ env.EXPORT_FOLDER_WINDOWS }}
+          mkdir -p ${{ env.EXPORT_FOLDER_LINUX }}
+          mkdir -p ${{ env.EXPORT_FOLDER_WEB }}
+          mkdir -p ${{ env.EXPORT_FOLDER_OUTPUT }}
 
       - name: Install dependencies
         run: |
@@ -99,48 +103,63 @@ jobs:
       - name: Build Linux
         if: ${{ env.BUILD_TARGET == 'linux' || env.BUILD_TARGET == 'all' }}
         run: |
-          mkdir -p ${{ env.EXPORT_FOLDER_LINUX }}
-          ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 --headless --path ${{ env.GODOT_PROJECT_FOLDER }} --export-${{ env.BUILD_MODE }} Linux ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_LINUX }}/${{ env.APPLICATION_NAME }}.x86_64 || true
+          ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 \
+            --headless \
+            --path ${{ env.GODOT_PROJECT_FOLDER }} \
+            --export-${{ env.BUILD_MODE }} Linux ${{ env.EXPORT_FOLDER_LINUX }}/${{ env.APPLICATION_NAME }}.x86_64 || true
           chmod +x ${{ env.EXPORT_FOLDER_LINUX }}/${{ env.APPLICATION_NAME }}.x86_64
           if [ "${{ env.BUILD_MODE }}" = "debug" ]; then
             chmod +x ${{ env.EXPORT_FOLDER_LINUX }}/${{ env.APPLICATION_NAME }}.sh
           fi
-          tar -cvf ${{ env.APPLICATION_NAME }}_linux_${{ env.BUILD_MODE }}_${{ env.VERSION }}.tar ${{ env.EXPORT_FOLDER_LINUX }}
+          pushd ${{ env.EXPORT_FOLDER_LINUX }}
+          tar -cvf ${{ env.APPLICATION_NAME }}_linux_${{ env.BUILD_MODE }}_${{ env.VERSION }}.tar .
+          popd
+          mv ${{ env.EXPORT_FOLDER_LINUX }}/*.tar ${{ env.EXPORT_FOLDER_OUTPUT }}/
 
       - name: Upload Linux artifact
         if: ${{ env.BUILD_TARGET == 'linux' || env.BUILD_TARGET == 'all' }}
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ env.APPLICATION_NAME }}_linux_${{ env.BUILD_MODE }}_${{ env.VERSION }}.tar
-          path: ${{ env.APPLICATION_NAME }}_linux_${{ env.BUILD_MODE }}_${{ env.VERSION }}.tar
+          name: ${{ env.APPLICATION_NAME }}_linux_${{ env.BUILD_MODE }}_${{ env.VERSION }}
+          path: ${{ env.EXPORT_FOLDER_OUTPUT }}/${{ env.APPLICATION_NAME }}_linux_${{ env.BUILD_MODE }}_${{ env.VERSION }}.tar
 
       - name: Build Windows
         if: ${{ env.BUILD_TARGET == 'windows' || env.BUILD_TARGET == 'all' }}
         run: |
-          mkdir -p ${{ env.EXPORT_FOLDER_WINDOWS }}
-          ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 --headless --path ${{ env.GODOT_PROJECT_FOLDER }} --export-${{ env.BUILD_MODE }} Windows ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_WINDOWS }}/${{ env.APPLICATION_NAME }}.exe || true
-          zip -r ${{ env.APPLICATION_NAME }}_windows_${{ env.BUILD_MODE }}_${{ env.VERSION }}.zip ${{ env.EXPORT_FOLDER_WINDOWS }}
+          ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 \
+            --headless \
+            --path ${{ env.GODOT_PROJECT_FOLDER }} \
+            --export-${{ env.BUILD_MODE }} Windows ${{ env.EXPORT_FOLDER_WINDOWS }}/${{ env.APPLICATION_NAME }}.exe || true
+          pushd ${{ env.EXPORT_FOLDER_WINDOWS }}
+          zip -r ${{ env.APPLICATION_NAME }}_windows_${{ env.BUILD_MODE }}_${{ env.VERSION }}.zip .
+          popd
+          mv ${{ env.EXPORT_FOLDER_WINDOWS }}/*.zip ${{ env.EXPORT_FOLDER_OUTPUT }}/
 
       - name: Upload Windows artifact
         if: ${{ env.BUILD_TARGET == 'windows' || env.BUILD_TARGET == 'all' }}
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ env.APPLICATION_NAME }}_windows_${{ env.BUILD_MODE }}_${{ env.VERSION }}.zip
-          path: ${{ env.APPLICATION_NAME }}_windows_${{ env.BUILD_MODE }}_${{ env.VERSION }}.zip
+          name: ${{ env.APPLICATION_NAME }}_windows_${{ env.BUILD_MODE }}_${{ env.VERSION }}
+          path: ${{ env.EXPORT_FOLDER_WINDOWS }}
 
       - name: Build Web
         if: ${{ env.BUILD_TARGET == 'web' || env.BUILD_TARGET == 'all' }}
         run: |
-          mkdir -p ${{ env.EXPORT_FOLDER_WEB }}
-          ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 --headless --path ${{ env.GODOT_PROJECT_FOLDER }} --export-${{ env.BUILD_MODE }} Web ${{ env.MAIN_FOLDER }}/${{ env.EXPORT_FOLDER_WEB }}/index.html || true
-          zip -r ${{ env.APPLICATION_NAME }}_web_${{ env.BUILD_MODE }}_${{ env.VERSION }}.zip ${{ env.EXPORT_FOLDER_WINDOWS }}
+          ./Godot_v${{ env.GODOT_VERSION }}-stable_linux.x86_64 \
+            --headless \
+            --path ${{ env.GODOT_PROJECT_FOLDER }} \
+            --export-${{ env.BUILD_MODE }} Web ${{ env.EXPORT_FOLDER_WEB }}/index.html || true
+          pushd ${{ env.EXPORT_FOLDER_WEB }}
+          zip -r ${{ env.APPLICATION_NAME }}_web_${{ env.BUILD_MODE }}_${{ env.VERSION }}.zip .
+          popd
+          mv ${{ env.EXPORT_FOLDER_WEB }}/*.zip ${{ env.EXPORT_FOLDER_OUTPUT }}/
 
       - name: Upload Web artifact
         if: ${{ env.BUILD_TARGET == 'web' || env.BUILD_TARGET == 'all' }}
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ env.APPLICATION_NAME }}_web_${{ env.BUILD_MODE }}_${{ env.VERSION }}.zip
-          path: ${{ env.APPLICATION_NAME }}_web_${{ env.BUILD_MODE }}_${{ env.VERSION }}.zip
+          name: ${{ env.APPLICATION_NAME }}_web_${{ env.BUILD_MODE }}_${{ env.VERSION }}
+          path: ${{ env.EXPORT_FOLDER_WEB }}
 
       - name: Create release
         if: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v') }}
@@ -149,8 +168,8 @@ jobs:
           tag_name: ${{ github.ref_name }}
           name: Release ${{ github.ref_name }}
           files: |
-            ${{ env.APPLICATION_NAME }}_linux_${{ env.BUILD_MODE }}_${{ env.VERSION }}.tar
-            ${{ env.APPLICATION_NAME }}_windows_${{ env.BUILD_MODE }}_${{ env.VERSION }}.zip
-            ${{ env.APPLICATION_NAME }}_web_${{ env.BUILD_MODE }}_${{ env.VERSION }}.zip
+            ${{ env.EXPORT_FOLDER_OUTPUT }}/${{ env.APPLICATION_NAME }}_linux_${{ env.BUILD_MODE }}_${{ env.VERSION }}.tar
+            ${{ env.EXPORT_FOLDER_OUTPUT }}/${{ env.APPLICATION_NAME }}_windows_${{ env.BUILD_MODE }}_${{ env.VERSION }}.zip
+            ${{ env.EXPORT_FOLDER_OUTPUT }}/${{ env.APPLICATION_NAME }}_web_${{ env.BUILD_MODE }}_${{ env.VERSION }}.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
