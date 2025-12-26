@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bpko7pdk264ld" path="res://objects/player/player.gd" id="1_g7ett"]
 [ext_resource type="PackedScene" uid="uid://dqcwtt15lk5ay" path="res://objects/player/projectile_shooter.tscn" id="2_xlkbi"]
 [ext_resource type="PackedScene" uid="uid://c0p4rc4vy31m" path="res://objects/projectile/projectile_instances/projectile_player_1.tscn" id="3_jnjyq"]
-[ext_resource type="Script" uid="uid://bou23i73tsv7q" path="res://objects/player/melee/MeleeAtacker.gd" id="4_l55sg"]
+[ext_resource type="PackedScene" uid="uid://dfxh2ni5dx8pr" path="res://objects/player/melee/melee_atacker.tscn" id="4_l55sg"]
 [ext_resource type="PackedScene" uid="uid://61ygvpbmpjum" path="res://objects/player/player_sprite.tscn" id="5_45rsp"]
 [ext_resource type="Script" uid="uid://bdbniel8jt6tc" path="res://objects/player/sprite_modulation.gd" id="5_c34wb"]
 [ext_resource type="Script" uid="uid://cqu2r76doy8h5" path="res://objects/player/Stats/player_stats.gd" id="5_gnkmh"]
@@ -20,7 +20,7 @@
 [ext_resource type="Script" uid="uid://ccj8rhd6knfds" path="res://objects/player/Stats/const_stat.gd" id="14_l55sg"]
 [ext_resource type="PackedScene" uid="uid://0exdkv4oiw4t" path="res://objects/player/pickup/pickup_receiver.tscn" id="18_xlkbi"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xlkbi"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_28utn"]
 size = Vector2(32.32664, 20)
 
 [sub_resource type="Resource" id="Resource_yyeqs"]
@@ -105,16 +105,16 @@ ENDGAMELEVEL = null
 projectile = ExtResource("3_jnjyq")
 stats = NodePath("../Stats")
 
-[node name="MeleAtacker" type="Node2D" parent="."]
-script = ExtResource("4_l55sg")
-damage = 50
+[node name="MeleeAtacker" parent="." node_paths=PackedStringArray("attack_area", "stats") instance=ExtResource("4_l55sg")]
+attack_area = NodePath("AttackArea2")
+stats = NodePath("../Stats")
 
-[node name="AttackArea" type="Area2D" parent="MeleAtacker"]
+[node name="AttackArea2" type="Area2D" parent="MeleeAtacker"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MeleAtacker/AttackArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MeleeAtacker/AttackArea2"]
 position = Vector2(80.91786, 0)
 scale = Vector2(5.0164285, -4.6363144)
-shape = SubResource("RectangleShape2D_xlkbi")
+shape = SubResource("RectangleShape2D_28utn")
 
 [node name="Sprite2D" type="Node2D" parent="."]
 script = ExtResource("5_c34wb")
