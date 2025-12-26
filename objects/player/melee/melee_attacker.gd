@@ -23,7 +23,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				if !is_instance_valid(target):
 					continue;
 
-				target.hit.emit(DamageParameters.new(stats.get_stat("MELEE_STAT")))
+				target.hit.emit(DamageParameters.new(stats.get_stat("STAT_MELEE")))
 
 
 func _process(delta: float) -> void:

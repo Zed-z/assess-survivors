@@ -8,6 +8,13 @@ class_name AssessInfo
 func setup(assess_manager: AssessManagerClass):
 	assessmanger = assess_manager
 
+	if len(assessmanger.criteria) >= 5:
+		%CriteriaContainer.columns = 3
+	elif len(assessmanger.criteria) >= 2:
+		%CriteriaContainer.columns = 2
+	else:
+		%CriteriaContainer.columns = 1
+
 	for i in range(len(assessmanger.criteria)):
 		var item: AssessCriterionInfo = item_scene.instantiate()
 		item.assesscriterion = assessmanger.criteria[i]

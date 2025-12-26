@@ -62,6 +62,11 @@ func anim_choose_left(answer) -> void:
 	await get_tree().create_timer(0.5).timeout
 	choice_left.stop_lottery_animation(answer.value.win)
 
+	if choice_left.choice.win_probability == 1:
+		play_sound_safe()
+	else:
+		play_sound_lottery(answer.value.win)
+
 
 func anim_choose_right(answer) -> void:
 	move_to_node(choice_right, %ChoiceFinalPosition, tween_right)
@@ -72,6 +77,22 @@ func anim_choose_right(answer) -> void:
 	choice_right.start_lottery_animation()
 	await get_tree().create_timer(0.5).timeout
 	choice_right.stop_lottery_animation(answer.value.win)
+
+	if choice_right.choice.win_probability == 1:
+		play_sound_safe()
+	else:
+		play_sound_lottery(answer.value.win)
+
+
+func play_sound_safe():
+	$SoundSafe.play()
+
+
+func play_sound_lottery(win: bool):
+	if win:
+		$SoundLotteryWin.play()
+	else:
+		$SoundLotteryLose.play()
 
 
 func _on_button_choose_left_pressed() -> void:
