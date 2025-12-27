@@ -3,7 +3,7 @@ class_name Enemy
 var target: Player
 
 @export var move_controller: MoveController
-@onready var move_animation: AnimationPlayer = $MoveAnimation
+@export var move_animation: AnimatedSprite2D
 
 var wave_number: int
 
@@ -13,6 +13,7 @@ func get_contact_dmg() -> int:
 
 
 func _ready() -> void:
+	assert(is_instance_valid(move_animation), name + " does not have animation assigned")
 	target = GlobalInfo.get_player()
 
 
