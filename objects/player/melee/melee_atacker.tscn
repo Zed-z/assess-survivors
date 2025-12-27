@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfxh2ni5dx8pr"]
+
+[ext_resource type="Script" uid="uid://bou23i73tsv7q" path="res://objects/player/melee/melee_attacker.gd" id="1_ybmmr"]
+[ext_resource type="AudioStream" uid="uid://cqn68g0miobsg" path="res://sounds/game/swing.wav" id="2_pfiti"]
+
+[node name="MeleeAtacker" type="Node2D"]
+script = ExtResource("1_ybmmr")
+
+[node name="SoundAttack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_pfiti")
+bus = &"Effects"

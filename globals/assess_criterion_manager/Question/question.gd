@@ -16,11 +16,11 @@ func _to_string() -> String:
 
 
 func get_left() -> Lottery:
-	return left
+	return left.copy()
 
 
 func get_right() -> Lottery:
-	return right
+	return right.copy()
 
 
 func set_left(l: Lottery):

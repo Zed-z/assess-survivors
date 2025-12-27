@@ -3,14 +3,23 @@ extends Control
 
 func _ready() -> void:
 	get_tree().paused = true
+	$SoundOpenClose.play()
 
 
 func _on_tree_exiting() -> void:
 	get_tree().paused = false
 
 
-func _on_button_continue_pressed() -> void:
+func close() -> void:
+	visible = false
+	get_tree().paused = false
+	$SoundOpenClose.play()
+	await $SoundOpenClose.finished
 	queue_free()
+
+
+func _on_button_continue_pressed() -> void:
+	close()
 
 
 func _on_button_settings_pressed() -> void:
@@ -21,7 +30,7 @@ func _on_button_settings_pressed() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		get_viewport().set_input_as_handled()
-		queue_free()
+		close()
 
 
 func _on_button_assess_info_pressed() -> void:

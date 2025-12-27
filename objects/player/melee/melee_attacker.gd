@@ -1,15 +1,20 @@
 extends Node2D
 class_name MeleAtacker
 
-@onready var attack_area: Area2D = $AttackArea
-@onready var stats: PlayerStats = $"../Stats"
+@export var attack_area: Area2D
+@export var stats: PlayerStats
 
-@export var damage : int
+
+func _ready() -> void:
+	assert(is_instance_valid(attack_area))
+	assert(is_instance_valid(stats))
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.is_pressed() and event.button_index == MOUSE_BUTTON_RIGHT:
+			$SoundAttack.play()
+
 			var targets = attack_area.get_overlapping_areas()
 
 			for target in targets:
@@ -18,7 +23,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				if !is_instance_valid(target):
 					continue;
 
-				target.hit.emit(DamageParameters.new(stats.get_stat("MELEE_STAT")))
+				target.hit.emit(DamageParameters.new(stats.get_stat("STAT_MELEE")))
 
 
 func _process(delta: float) -> void:

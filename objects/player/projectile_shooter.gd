@@ -26,3 +26,5 @@ func shoot_projectile(direction: Vector2):
 	GlobalInfo.projectile_holder.add_child(proj)
 	proj.global_position = global_position
 	proj.initiate_projectile(direction)
+
+	$SoundShoot.play()
