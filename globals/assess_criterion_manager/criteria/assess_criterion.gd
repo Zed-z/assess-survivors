@@ -17,7 +17,11 @@ signal question_changed(question: Question)
 #do not touch those values unless, you know what you are doing
 var UTILITY_MIN: float = 0
 var UTILITY_MAX: float = 1
-var weight: float = 0.0
+
+var weight: float = 0.5
+var lower_bound_weight: float = 0.0
+var upper_bound_weight: float = 1.0
+
 var CUR_phase: int = 0
 var last_significant_index: int = 0
 

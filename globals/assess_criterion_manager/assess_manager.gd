@@ -7,9 +7,6 @@ var algorithm: AssessAlgorithm
 var weight_algorithm: AssessAlgorithm
 
 @export var criteria: Array[AssessCriterion] = []
-@export var criteria_weight: Array[float] = []
-var lower_bound_weight: Array[float] = []
-var upper_bound_weight: Array[float] = []
 var weight_question: Question
 var weight_index: int
 
@@ -60,9 +57,6 @@ func init_add_criterion(stat: AssessStat, criterion: AssessCriterion):
 
 func register_criterion(criterion: AssessCriterion) -> void:
 	algorithm = algorithm_script.new(criteria)
-	criteria_weight.append(0.5)
-	lower_bound_weight.append(0)
-	upper_bound_weight.append(1)
 	weight_algorithm = weight_algorithm_script.new(criteria)
 	weight_algorithm.weight = true
 	criterion.setup()
@@ -112,16 +106,17 @@ func get_weight_question() -> Question:
 	weight_index = weight_algorithm.decide()
 
 	if weight_index == -1:
-		print("uh oh")
 		return null
 	else:
 		criteria[weight_index].METRIC_count_weight += 1
 
 	var win_val_right: Dictionary[AssessCriterion, float] = get_most_u_on_all()
-	var loss_val_right: Dictionary[AssessCriterion, float] = get_least_u_on_all()
+	var loss_val_both: Dictionary[AssessCriterion, float] = get_least_u_on_all()
 	var win_val_left: Dictionary[AssessCriterion, float] = get_most_u_on_criterion(criteria[weight_index].criterion_name)
-	var left_lottery: MultiLottery = MultiLottery.new(win_val_left, 1, loss_val_right)
-	var right_lottery: MultiLottery = MultiLottery.new(win_val_right, criteria_weight[weight_index], loss_val_right)
+
+	var left_lottery: MultiLottery = MultiLottery.new(win_val_left, 1, loss_val_both)
+	var right_lottery: MultiLottery = MultiLottery.new(win_val_right, criteria[weight_index].weight, loss_val_both)
+
 	weight_question = Question.new(left_lottery, right_lottery)
 	return weight_question
 
@@ -141,18 +136,26 @@ func weight_step(answer: AssessCriterion.Answer) -> WeightStepAnswer:
 	step_answer.answer = answer
 
 	if (answer == AssessCriterion.Answer.p):
-		lower_bound_weight[weight_index] = criteria_weight[weight_index]
-		criteria_weight[weight_index] = (criteria_weight[weight_index] + upper_bound_weight[weight_index])/2
+		#new
+		criteria[weight_index].lower_bound_weight = criteria[weight_index].weight
+		criteria[weight_index].weight += criteria[weight_index].upper_bound_weight
+		criteria[weight_index].weight /= 2
+
 		result = weight_question.get_left().get_value()
 
 	if (answer == AssessCriterion.Answer.q):
-		upper_bound_weight[weight_index] = criteria_weight[weight_index]
-		criteria_weight[weight_index] = (criteria_weight[weight_index] + lower_bound_weight[weight_index])/2
+		#new
+		criteria[weight_index].upper_bound_weight = criteria[weight_index].weight
+		criteria[weight_index].weight += criteria[weight_index].lower_bound_weight
+		criteria[weight_index].weight /= 2
 		result = weight_question.get_right().get_value()
 
 	if (answer == AssessCriterion.Answer.i):
-		upper_bound_weight[weight_index] = criteria_weight[weight_index]
-		lower_bound_weight[weight_index] = criteria_weight[weight_index]
+		#new
+		criteria[weight_index].upper_bound_weight = criteria[weight_index].weight
+		criteria[weight_index].lower_bound_weight = criteria[weight_index].weight
+		#weight is set
+		criteria[weight_index].METRIC_count_weight += criteria[weight_index].LIMIT_expand_count
 
 		if randf() <= 0.5:
 			result = weight_question.get_left().get_value()
@@ -167,28 +170,12 @@ func weight_step(answer: AssessCriterion.Answer) -> WeightStepAnswer:
 		print(result.values[c])
 		c.value_result.emit(result.values[c])
 
+	#print("TIME FOR WEIGHTS TO SHOW UP WHAT THEY GOT")
+	#for x in criteria:
+		#print("==========`")
+		#print(x.criterion_name)
+		#print(x.lower_bound_weight)
+		#print(x.weight)
+		#print(x.upper_bound_weight)
+
 	return step_answer
-
-
-func summary()-> Node:
-	var n: Node = Node.new()
-
-	# find the criteria with biggest weight
-	var index:int = criteria_weight.find(criteria_weight.max())
-	var important_criterion = criteria[index]
-	var mostimportant_label: Label = Label.new()
-	mostimportant_label.text = "your most important stat is:" + important_criterion.criterion_name
-	n.add_child(mostimportant_label)
-
-	var numerator: float = 0
-	var denominator: float = 0
-
-	for i in range(criteria):
-		numerator += criteria_weight[i]*criteria[i].risk_factor
-		denominator += criteria_weight[i]
-
-	var value: float = numerator/denominator
-	var risk_label: Label = Label.new()
-	risk_label.text = Utils.risk_to_string(value)
-	n.add_child(risk_label)
-	return n
