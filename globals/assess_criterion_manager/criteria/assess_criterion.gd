@@ -17,6 +17,7 @@ signal question_changed(question: Question)
 #do not touch those values unless, you know what you are doing
 var UTILITY_MIN: float = 0
 var UTILITY_MAX: float = 1
+var weight: float = 0.0
 var CUR_phase: int = 0
 var last_significant_index: int = 0
 
@@ -48,7 +49,9 @@ class StepAnswer:
 	var value: SingleLottery.SingleLotteryResult
 #METRIC is a counter LIMIT is, well limit of that counter (negative == no limit)
 var METRIC_expand_count: int = 0
+var METRIC_count_weight: int = 0
 @export var LIMIT_expand_count: int = 3
+@export var LIMIT_count_weight: int = 3
 
 
 func step(answer: Answer) -> StepAnswer:
