@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://fnao1rs5haap"]
+[gd_scene load_steps=21 format=4 uid="uid://fnao1rs5haap"]
 
 [ext_resource type="PackedScene" uid="uid://ct88pvgyokerc" path="res://objects/player/player.tscn" id="1_41wyt"]
 [ext_resource type="PackedScene" uid="uid://blfd7tomoo2ky" path="res://globals/holders/projectile_holder/projectile_holder.tscn" id="1_gyrba"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://bayobo3ev4nkp" path="res://objects/player/pickup/instances/xp_pickup.tscn" id="14_ars3e"]
 [ext_resource type="Resource" uid="uid://cqoxrismskjsx" path="res://objects/enemies/enemy_spawner/enemy_wave_data/wave_collections/wave_collection_1.tres" id="14_nstv8"]
 [ext_resource type="PackedScene" uid="uid://dt1hcj81rn16p" path="res://objects/area_bounds/area_bounds.tscn" id="18_k5p8g"]
+[ext_resource type="Script" uid="uid://b50csmsp4it8e" path="res://scenes/combat_scenes/area_damage_dealer.gd" id="18_o1s56"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_o1s56"]
 
@@ -189,8 +190,10 @@ script = ExtResource("12_8btbg")
 pickups = Array[PackedScene]([ExtResource("13_6iaqk"), ExtResource("14_ars3e")])
 
 [node name="SpawnableArea" type="CollisionPolygon2D" parent="EnemySpawner"]
-visible = false
-polygon = PackedVector2Array(-1012, 356, -640, 447, 858, 500, 1247, 373, 1429, 112, 1440, -484, 808, -684, -420, -677, -891, -647, -1120, -593, -1253, -433, -1401, -134, -1243, 129)
+polygon = PackedVector2Array(-1012, 356, -711, 496, 791, 526, 1247, 373, 1429, 112, 1461, -516, 808, -684, -416, -697, -891, -647, -1120, -593, -1287, -452, -1362, -348, -1401, -134, -1370, 23, -1268, 136)
+
+[node name="AreaDamageDealer" type="Node" parent="."]
+script = ExtResource("18_o1s56")
 
 [node name="AreaBounds" parent="." instance=ExtResource("18_k5p8g")]
 

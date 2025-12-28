@@ -1,8 +1,8 @@
 extends RefCounted
 class_name DamageParameters
 
-var damage: int = 1
+var damage: float = 1
 
 
-func _init(dmg:int) -> void:
+func _init(dmg:float) -> void:
 	damage = dmg
