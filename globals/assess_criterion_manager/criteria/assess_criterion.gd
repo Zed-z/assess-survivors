@@ -21,7 +21,7 @@ var weight: float = 0.0
 var CUR_phase: int = 0
 var last_significant_index: int = 0
 
-var MAX_dialog_answers: int = 2
+@export var MAX_dialog_answers: int = 2
 var dialog_answers_count: int = 0
 
 enum Answer {
