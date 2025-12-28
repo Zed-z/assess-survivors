@@ -39,6 +39,9 @@ func _ready() -> void:
 	GlobalInfo.assess_manager = self
 
 	algorithm = algorithm_script.new(criteria)
+	algorithm.weight = false
+	weight_algorithm = weight_algorithm_script.new(criteria)
+	weight_algorithm.weight = true
 
 	for criterion: AssessCriterion in criteria:
 		register_criterion(criterion)
@@ -61,6 +64,7 @@ func register_criterion(criterion: AssessCriterion) -> void:
 	lower_bound_weight.append(0)
 	upper_bound_weight.append(1)
 	weight_algorithm = weight_algorithm_script.new(criteria)
+	weight_algorithm.weight = true
 	criterion.setup()
 
 
@@ -106,6 +110,13 @@ func get_most_u_on_criterion(criterion_name: String)-> Dictionary[AssessCriterio
 
 func get_weight_question() -> Question:
 	weight_index = weight_algorithm.decide()
+
+	if weight_index == -1:
+		print("uh oh")
+		return null
+	else:
+		criteria[weight_index].METRIC_count_weight += 1
+
 	var win_val_right: Dictionary[AssessCriterion, float] = get_most_u_on_all()
 	var loss_val_right: Dictionary[AssessCriterion, float] = get_least_u_on_all()
 	var win_val_left: Dictionary[AssessCriterion, float] = get_most_u_on_criterion(criteria[weight_index].criterion_name)
