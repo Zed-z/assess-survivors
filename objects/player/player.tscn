@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://ct88pvgyokerc"]
+[gd_scene load_steps=16 format=3 uid="uid://ct88pvgyokerc"]
 
 [ext_resource type="Script" uid="uid://bpko7pdk264ld" path="res://objects/player/player.gd" id="1_g7ett"]
 [ext_resource type="PackedScene" uid="uid://dqcwtt15lk5ay" path="res://objects/player/projectile_shooter.tscn" id="2_xlkbi"]
@@ -7,101 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://61ygvpbmpjum" path="res://objects/player/player_sprite.tscn" id="5_45rsp"]
 [ext_resource type="Script" uid="uid://bdbniel8jt6tc" path="res://objects/player/sprite_modulation.gd" id="5_c34wb"]
 [ext_resource type="Script" uid="uid://cqu2r76doy8h5" path="res://objects/player/Stats/player_stats.gd" id="5_gnkmh"]
-[ext_resource type="Script" uid="uid://bui6h7p4lincd" path="res://objects/player/Stats/base_stat.gd" id="6_psowp"]
-[ext_resource type="Script" uid="uid://d1e80dp6c7ji3" path="res://objects/player/Stats/assess_stat.gd" id="7_45urx"]
-[ext_resource type="Script" uid="uid://dxavujg1j5jr5" path="res://globals/assess_criterion_manager/criteria/assess_criterion_variable_probability.gd" id="7_c34wb"]
 [ext_resource type="Script" uid="uid://008ins25r0w8" path="res://components/health_component.gd" id="7_m4kly"]
 [ext_resource type="Script" uid="uid://s8o7eln2esn0" path="res://objects/player/levels.gd" id="7_ow0dq"]
+[ext_resource type="Resource" uid="uid://b8gbijdgc21wh" path="res://objects/player/Stats/player_stats_default.tres" id="8_45urx"]
 [ext_resource type="Script" uid="uid://1ogv7wo486wd" path="res://objects/player/hurtbox/hurtbox.gd" id="8_m4kly"]
-[ext_resource type="Texture2D" uid="uid://d2khmtbsk4mom" path="res://sprites/stats/luk.png" id="9_ylcck"]
-[ext_resource type="Texture2D" uid="uid://bq7q5ii2d7bsq" path="res://sprites/stats/sword.png" id="10_28utn"]
-[ext_resource type="Texture2D" uid="uid://b8riatfslt0b8" path="res://sprites/stats/potion.png" id="11_45rsp"]
-[ext_resource type="Texture2D" uid="uid://d1gvq0yvjdtgx" path="res://sprites/stats/speed.png" id="12_x5bgp"]
-[ext_resource type="Texture2D" uid="uid://cigsdewro07vk" path="res://icon.svg" id="13_xlkbi"]
-[ext_resource type="Script" uid="uid://ccj8rhd6knfds" path="res://objects/player/Stats/const_stat.gd" id="14_l55sg"]
 [ext_resource type="PackedScene" uid="uid://0exdkv4oiw4t" path="res://objects/player/pickup/pickup_receiver.tscn" id="18_xlkbi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_28utn"]
 size = Vector2(32.32664, 20)
-
-[sub_resource type="Resource" id="Resource_lc6id"]
-script = ExtResource("7_c34wb")
-value_step = 0.0
-value_mult = 2.0
-metadata/_custom_type_script = "uid://dxavujg1j5jr5"
-
-[sub_resource type="Resource" id="Resource_tmow5"]
-script = ExtResource("7_45urx")
-criterion = SubResource("Resource_lc6id")
-starting_value = 10
-name = "STAT_MELEE"
-icon = ExtResource("10_28utn")
-metadata/_custom_type_script = "uid://d1e80dp6c7ji3"
-
-[sub_resource type="Resource" id="Resource_dthqj"]
-script = ExtResource("7_c34wb")
-value_step = 0.0
-value_mult = 2.0
-metadata/_custom_type_script = "uid://dxavujg1j5jr5"
-
-[sub_resource type="Resource" id="Resource_ylcck"]
-script = ExtResource("7_45urx")
-criterion = SubResource("Resource_dthqj")
-starting_value = 50
-name = "STAT_ATK"
-icon = ExtResource("9_ylcck")
-metadata/_custom_type_script = "uid://d1e80dp6c7ji3"
-
-[sub_resource type="Resource" id="Resource_yyeqs"]
-script = ExtResource("7_c34wb")
-value_step = 0.1
-initial_max_value = 0.1
-metadata/_custom_type_script = "uid://dxavujg1j5jr5"
-
-[sub_resource type="Resource" id="Resource_u8bnf"]
-script = ExtResource("7_45urx")
-criterion = SubResource("Resource_yyeqs")
-starting_value = 1
-accumulation_mode = 2
-name = "STAT_COOLDOWN"
-icon = ExtResource("9_ylcck")
-metadata/_custom_type_script = "uid://d1e80dp6c7ji3"
-
-[sub_resource type="Resource" id="Resource_45rsp"]
-script = ExtResource("7_c34wb")
-value_step = 0.0
-value_mult = 2.0
-metadata/_custom_type_script = "uid://dxavujg1j5jr5"
-
-[sub_resource type="Resource" id="Resource_l55sg"]
-script = ExtResource("7_45urx")
-criterion = SubResource("Resource_45rsp")
-starting_value = 10
-name = "STAT_HP"
-icon = ExtResource("11_45rsp")
-metadata/_custom_type_script = "uid://d1e80dp6c7ji3"
-
-[sub_resource type="Resource" id="Resource_28utn"]
-script = ExtResource("14_l55sg")
-const_value = 2.0
-name = "STAT_PIERCE"
-icon = ExtResource("13_xlkbi")
-hidden = true
-metadata/_custom_type_script = "uid://ccj8rhd6knfds"
-
-[sub_resource type="Resource" id="Resource_x5bgp"]
-script = ExtResource("7_c34wb")
-value_step = 20.0
-initial_max_value = 20.0
-metadata/_custom_type_script = "uid://dxavujg1j5jr5"
-
-[sub_resource type="Resource" id="Resource_xlkbi"]
-script = ExtResource("7_45urx")
-criterion = SubResource("Resource_x5bgp")
-starting_value = 150
-name = "STAT_SPD"
-icon = ExtResource("12_x5bgp")
-metadata/_custom_type_script = "uid://d1e80dp6c7ji3"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ow0dq"]
 size = Vector2(22, 22)
@@ -114,7 +27,6 @@ y_sort_enabled = true
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_g7ett")
-ENDGAMELEVEL = null
 
 [node name="ProjectileShooter" parent="." node_paths=PackedStringArray("stats") instance=ExtResource("2_xlkbi")]
 projectile = ExtResource("3_jnjyq")
@@ -139,14 +51,7 @@ invulnerable_color = Color(1, 1, 1, 0.2509804)
 
 [node name="Stats" type="Node" parent="."]
 script = ExtResource("5_gnkmh")
-stats = Dictionary[String, ExtResource("6_psowp")]({
-"STAT_ATK": SubResource("Resource_ylcck"),
-"STAT_COOLDOWN": SubResource("Resource_u8bnf"),
-"STAT_HP": SubResource("Resource_l55sg"),
-"STAT_MELEE": SubResource("Resource_tmow5"),
-"STAT_PIERCE": SubResource("Resource_28utn"),
-"STAT_SPD": SubResource("Resource_xlkbi")
-})
+stats = ExtResource("8_45urx")
 
 [node name="Levels" type="Node" parent="."]
 script = ExtResource("7_ow0dq")

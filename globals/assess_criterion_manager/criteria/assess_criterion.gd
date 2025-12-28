@@ -17,10 +17,11 @@ signal question_changed(question: Question)
 #do not touch those values unless, you know what you are doing
 var UTILITY_MIN: float = 0
 var UTILITY_MAX: float = 1
+var weight: float = 0.0
 var CUR_phase: int = 0
 var last_significant_index: int = 0
 
-var MAX_dialog_answers: int = 2
+@export var MAX_dialog_answers: int = 2
 var dialog_answers_count: int = 0
 
 enum Answer {
@@ -28,14 +29,10 @@ enum Answer {
 	p, # Prefer left
 	q, # prefer right
 }
-enum RiskCalculationMode{
-	area_minus_perfectline,
-	area_minus_perfectline_over_perfectline
-}
-@export var risk_method: RiskCalculationMode = RiskCalculationMode.area_minus_perfectline_over_perfectline
+
 var risk_factor: float:
 	get:
-		return _calculate_risk_factor(risk_method)
+		return _calculate_risk_factor()
 
 var point_list: Array[Vector2]
 var question: Question
@@ -48,7 +45,9 @@ class StepAnswer:
 	var value: SingleLottery.SingleLotteryResult
 #METRIC is a counter LIMIT is, well limit of that counter (negative == no limit)
 var METRIC_expand_count: int = 0
+var METRIC_count_weight: int = 0
 @export var LIMIT_expand_count: int = 3
+@export var LIMIT_count_weight: int = 3
 
 
 func step(answer: Answer) -> StepAnswer:
@@ -204,16 +203,9 @@ func _area_under_line():
 	return(point_list[-1].x - point_list[0].x) * UTILITY_MAX / 2
 
 
-func _calculate_risk_factor(method: RiskCalculationMode) -> float:
-	match method:
-		RiskCalculationMode.area_minus_perfectline:
-			return _area_under_graph() - _area_under_line()
-
-		RiskCalculationMode.area_minus_perfectline_over_perfectline:
-			var perfectline: float = _area_under_line()
-			return(_area_under_graph() - perfectline) / perfectline
-
-	return 0.0
+func _calculate_risk_factor() -> float:
+	var perfectline: float = _area_under_line()
+	return(_area_under_graph() - perfectline) / perfectline
 
 
 func setup() -> void:

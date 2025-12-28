@@ -6,6 +6,8 @@ var prob_display: Label
 
 
 func setup(_criterion: AssessCriterion, _choice: MultiLottery):
+	criterion = _criterion
+	choice = _choice
 
 	%LotteryProgress.value = _choice.win_probability
 
