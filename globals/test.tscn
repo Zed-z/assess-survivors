@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://tc5ugb23whwv"]
+
+[ext_resource type="Script" uid="uid://brh1ujbxrk8ru" path="res://globals/polynomial_calculator.gd" id="1_fbqiu"]
+
+[node name="Test" type="Node2D"]
+script = ExtResource("1_fbqiu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="coefs" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="weigths" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
