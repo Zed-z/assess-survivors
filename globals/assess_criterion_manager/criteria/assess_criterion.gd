@@ -28,14 +28,10 @@ enum Answer {
 	p, # Prefer left
 	q, # prefer right
 }
-enum RiskCalculationMode{
-	area_minus_perfectline,
-	area_minus_perfectline_over_perfectline
-}
-@export var risk_method: RiskCalculationMode = RiskCalculationMode.area_minus_perfectline_over_perfectline
+
 var risk_factor: float:
 	get:
-		return _calculate_risk_factor(risk_method)
+		return _calculate_risk_factor()
 
 var point_list: Array[Vector2]
 var question: Question
@@ -204,16 +200,9 @@ func _area_under_line():
 	return(point_list[-1].x - point_list[0].x) * UTILITY_MAX / 2
 
 
-func _calculate_risk_factor(method: RiskCalculationMode) -> float:
-	match method:
-		RiskCalculationMode.area_minus_perfectline:
-			return _area_under_graph() - _area_under_line()
-
-		RiskCalculationMode.area_minus_perfectline_over_perfectline:
-			var perfectline: float = _area_under_line()
-			return(_area_under_graph() - perfectline) / perfectline
-
-	return 0.0
+func _calculate_risk_factor() -> float:
+	var perfectline: float = _area_under_line()
+	return(_area_under_graph() - perfectline) / perfectline
 
 
 func setup() -> void:

@@ -169,8 +169,6 @@ func summary()-> Node:
 	mostimportant_label.text = "your most important stat is:" + important_criterion.criterion_name
 	n.add_child(mostimportant_label)
 
-	#find riskiness (yest i know that they use diffrent measure but for now this will suffice
-
 	var numerator: float = 0
 	var denominator: float = 0
 
