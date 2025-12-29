@@ -14,7 +14,7 @@ func get_contact_dmg() -> int:
 
 func _ready() -> void:
 	assert(is_instance_valid(move_animation), name + " does not have animation assigned")
-	target = GlobalInfo.get_player()
+	target = GlobalInfo.player
 
 
 func _physics_process(_delta: float) -> void:

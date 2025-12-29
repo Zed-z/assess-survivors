@@ -11,7 +11,7 @@ var can_shoot: bool
 
 
 func _ready() -> void:
-	target = GlobalInfo.get_player()
+	target = GlobalInfo.player
 
 
 func get_velocity() -> Vector2:

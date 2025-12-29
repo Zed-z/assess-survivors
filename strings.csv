@@ -6,6 +6,9 @@ MAIN_MENU_QUIT,Quit,Wyjdź,Beenden,終了
 MAIN_MENU_SETTINGS,Settings,Ustawienia,Einstellungen,設定
 MAIN_MENU_ASSESS,ASSESS,ASSESS,ASSESS,アッセッス
 MAIN_MENU_COPYRIGHT,© 2025,© 2025,© 2025,© 2025
+GAME_START_PROMPT,Choose game type,Wybierz typ gry,Wähle Spieltyp,ゲームタイプを選択
+GAME_START_QUICK_GAME,Quick Game,Szybka Gra,Schnelles Spiel,クイックゲーム
+GAME_START_NORMAL_GAME,Normal Game,Normalna Gra,Normales Spiel,ノーマルゲーム
 ASSESS_TEST_PREFER_LEFT,Prefer Left,Preferuj Lewe,Bevor Links,左の好む
 ASSESS_TEST_PREFER_RIGHT,Prefer Right,Preferuj Prawe,Bevor Rechts,右の好む
 ASSESS_TEST_INDIFFERENT,Indifferent,Obojętnie Mi,Egal,私は気にしない

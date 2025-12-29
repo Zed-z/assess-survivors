@@ -7,7 +7,7 @@ var direction
 
 
 func _ready() -> void:
-	target = GlobalInfo.get_player()
+	target = GlobalInfo.player
 	var pos = target.global_position + Vector2(randi_range(-200,200), randi_range(-200,200))
 	direction = (pos - global_position).normalized()
 
