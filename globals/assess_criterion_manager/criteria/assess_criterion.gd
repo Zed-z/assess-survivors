@@ -227,7 +227,7 @@ func setup() -> void:
 		Vector2(min_value, UTILITY_MIN),
 		Vector2(initial_max_value, UTILITY_MAX)
 	]
-
+	CUR_phase = 0
 	do_point_inbetween()
 	_question_init()
 	#print(point_list)
