@@ -152,3 +152,5 @@ position = Vector2(0, -8.999998)
 sprite_frames = SubResource("SpriteFrames_troyk")
 autoplay = "default"
 frame_progress = 0.7013132
+
+[connection signal="area_entered" from="HurtBox" to="MoveController" method="_on_hurt_box_area_entered"]

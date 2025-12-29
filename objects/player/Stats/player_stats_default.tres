@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="PlayerStatsResource" load_steps=22 format=3 uid="uid://b8gbijdgc21wh"]
 
-[ext_resource type="Script" path="res://objects/player/Stats/player_stats_resource.gd" id="1_io2c6"]
+[ext_resource type="Script" uid="uid://br5c8626f18ew" path="res://objects/player/Stats/player_stats_resource.gd" id="1_io2c6"]
 [ext_resource type="Script" uid="uid://bui6h7p4lincd" path="res://objects/player/Stats/base_stat.gd" id="2_ocdua"]
 [ext_resource type="Script" uid="uid://dxavujg1j5jr5" path="res://globals/assess_criterion_manager/criteria/assess_criterion_variable_probability.gd" id="3_cqqfb"]
 [ext_resource type="Texture2D" uid="uid://d2khmtbsk4mom" path="res://sprites/stats/luk.png" id="4_m2bst"]

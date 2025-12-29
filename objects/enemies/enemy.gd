@@ -18,7 +18,6 @@ func _ready() -> void:
 	var x: int
 
 
-
 func _physics_process(_delta: float) -> void:
 	velocity = move_controller.get_velocity()
 
