@@ -18,7 +18,12 @@ signal question_changed(question: Question)
 var UTILITY_MIN: float = 0
 var UTILITY_MAX: float = 1
 
-var weight: float = 0.5
+signal weight_changed(weight: float)
+var weight: float = 0.5:
+	set(value):
+		weight = value
+		weight_changed.emit(weight)
+
 var lower_bound_weight: float = 0.0
 var upper_bound_weight: float = 1.0
 
@@ -34,6 +39,7 @@ enum Answer {
 	q, # prefer right
 }
 
+signal risk_changed(risk: float)
 var risk_factor: float:
 	get:
 		return _calculate_risk_factor()
@@ -99,6 +105,7 @@ func step(answer: Answer) -> StepAnswer:
 func do_point_append():
 	point_append()
 	points_changed.emit(point_list)
+	risk_changed.emit(risk_factor)
 	METRIC_expand_count += 1
 
 
@@ -124,6 +131,7 @@ func do_point_inbetween() -> void:
 	point_inbetween()
 	CUR_phase += 1
 	points_changed.emit(point_list)
+	risk_changed.emit(risk_factor)
 
 
 func point_inbetween() -> void:
@@ -144,6 +152,7 @@ func point_inbetween() -> void:
 func do_preferred_left():
 	preferred_left()
 	points_changed.emit(point_list)
+	risk_changed.emit(risk_factor)
 
 
 func preferred_left():
@@ -153,6 +162,7 @@ func preferred_left():
 func do_preferred_right():
 	preferred_right()
 	points_changed.emit(point_list)
+	risk_changed.emit(risk_factor)
 
 
 func preferred_right():

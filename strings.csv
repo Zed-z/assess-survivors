@@ -64,3 +64,4 @@ RISKINESS_BALANCED,Balanced,Zrównoważony,Ausgeglichen,バランス
 RISKINESS_SAFE,Safe,Bezpieczny,Sicher,安全
 RISKINESS_SLIGHTLY_SAFE,Slightly Safe,Nieco Bezpieczny,Etwas Sicher,やや安全
 RISKINESS_VERY_SAFE,Very Safe,Bardzo Bezpieczny,Sehr Sicher,とても安全
+ASSESS_WEIGHT,Weight: %s,Waga: %s,Gewicht: %s,重さ: %s
