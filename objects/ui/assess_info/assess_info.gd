@@ -18,7 +18,6 @@ func setup(assess_manager: AssessManagerClass):
 	for i in range(len(assessmanger.criteria)):
 		var item: AssessCriterionInfo = item_scene.instantiate()
 		item.assesscriterion = assessmanger.criteria[i]
-		item.weight = assessmanger.criteria_weight[i]
 		%CriteriaContainer.add_child(item)
 
 
