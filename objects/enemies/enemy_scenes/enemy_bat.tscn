@@ -131,8 +131,9 @@ animations = [{
 "speed": 16.0
 }]
 
-[node name="Bat" node_paths=PackedStringArray("move_controller") instance=ExtResource("1_k50q8")]
+[node name="Bat" node_paths=PackedStringArray("move_controller", "move_animation") instance=ExtResource("1_k50q8")]
 move_controller = NodePath("MoveController")
+move_animation = NodePath("SpriteContainer/AnimatedSprite2D")
 
 [node name="MoveController" type="Node2D" parent="." index="0"]
 script = ExtResource("2_ia6ut")

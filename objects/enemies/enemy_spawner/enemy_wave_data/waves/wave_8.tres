@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dmbi1icxkymxl" path="res://objects/enemies/enemy_spawner/enemy_wave_data/wave_touple.gd" id="1_4w4je"]
 [ext_resource type="PackedScene" uid="uid://b6mxutcmgdjsk" path="res://objects/enemies/enemy_scenes/enemy_slime.tscn" id="2_4nhoy"]
 [ext_resource type="PackedScene" uid="uid://dnears1tiwond" path="res://objects/enemies/enemy_scenes/enemy_spider.tscn" id="3_4xrko"]
-[ext_resource type="PackedScene" uid="uid://b1mu2h3vyj3my" path="res://objects/enemies/enemy_scenes/enemy_shooter.tscn" id="5_cs11f"]
+[ext_resource type="PackedScene" uid="uid://b878cclpdkau" path="res://objects/enemies/enemy_scenes/enemy_bush.tscn" id="4_a3dx6"]
 [ext_resource type="Script" uid="uid://cd06aok4ajl3c" path="res://objects/enemies/enemy_spawner/enemy_wave_data/enemy_wave_data.gd" id="6_xqfew"]
 
 [sub_resource type="Resource" id="Resource_bctpy"]
@@ -21,7 +21,7 @@ metadata/_custom_type_script = "uid://dmbi1icxkymxl"
 [sub_resource type="Resource" id="Resource_f7xlv"]
 script = ExtResource("1_4w4je")
 probability = 0.5
-scene = ExtResource("5_cs11f")
+scene = ExtResource("4_a3dx6")
 metadata/_custom_type_script = "uid://dmbi1icxkymxl"
 
 [resource]

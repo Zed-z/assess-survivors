@@ -1,17 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://b878cclpdkau"]
+[gd_scene load_steps=7 format=3 uid="uid://b878cclpdkau"]
 
 [ext_resource type="PackedScene" uid="uid://epsr1o1tk6ur" path="res://objects/enemies/enemy_scenes/base_enemy.tscn" id="1_5mbmq"]
 [ext_resource type="Script" uid="uid://bgb2oual2bgw" path="res://objects/enemies/move_controller/walking_bush_move_controler.gd" id="2_q0efr"]
 [ext_resource type="Script" uid="uid://qhldu4phre5" path="res://objects/enemies/enemy_scenes/sooter_with_consent.gd" id="2_wmlyl"]
-[ext_resource type="Texture2D" uid="uid://c3fvhi874wwoe" path="res://sprites/mobs/bush.jpeg" id="3_b3iac"]
 [ext_resource type="PackedScene" uid="uid://brubyva6r1d3c" path="res://objects/projectile/projectile_instances/projectile_enemy_1.tscn" id="3_px1n8"]
-[ext_resource type="Texture2D" uid="uid://n2gf4obg3knm" path="res://sprites/mobs/chill_worm.png" id="5_ivhw8"]
+[ext_resource type="Texture2D" uid="uid://csjp6ate5ksd7" path="res://sprites/decoration/chill_bush.png" id="6_ef3f8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ef3f8"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_ivhw8")
+"texture": ExtResource("6_ef3f8")
 }],
 "loop": true,
 "name": &"idle",
@@ -19,7 +18,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_b3iac")
+"texture": ExtResource("6_ef3f8")
 }],
 "loop": true,
 "name": &"walk",
@@ -40,8 +39,7 @@ metadata/_custom_type_script = "uid://bxrtysv8dyqbb"
 
 [node name="WalkingBushMoveCantroler" type="Node2D" parent="." index="1"]
 script = ExtResource("2_q0efr")
-speed = 30.0
-debug_view = true
+speed = 100.0
 metadata/_custom_type_script = "uid://bgb2oual2bgw"
 
 [node name="HurtBox" parent="." index="3"]
