@@ -16,13 +16,20 @@ func _ready() -> void:
 	assert(is_instance_valid(move_animation), name + " does not have animation assigned")
 	target = GlobalInfo.player
 
+
 func _physics_process(_delta: float) -> void:
 	velocity = move_controller.get_velocity()
 
 	if velocity.length_squared() > 0.0001:
-		move_animation.play("walk")
+		if move_animation.sprite_frames.has_animation("walk"):
+			move_animation.play("walk")
+		else:
+			move_animation.play("default")
 	else:
-		move_animation.play("idle")
+		if move_animation.sprite_frames.has_animation("idle"):
+			move_animation.play("idle")
+		else:
+			move_animation.play("default")
 
 	move_and_slide()
 
