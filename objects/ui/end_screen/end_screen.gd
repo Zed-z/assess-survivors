@@ -26,7 +26,7 @@ func send_data():
 		"stats": []
 	}
 
-	for s: BaseStat in GlobalInfo.player.stats.stats.values():
+	for s: BaseStat in GlobalInfo.player.stats.values():
 		if s is not AssessStat:
 			continue
 
