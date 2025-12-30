@@ -71,7 +71,12 @@ animations = [{
 [node name="Enemy" node_paths=PackedStringArray("move_controller") instance=ExtResource("1_m7o5d")]
 move_controller = NodePath("RangerMoveControler")
 
-[node name="RangerMoveControler" type="Node2D" parent="." index="0"]
+[node name="BasicShooter" parent="." index="0" instance=ExtResource("2_q6il4")]
+projectile = ExtResource("5_l6adf")
+shoot_coldown = 1.5
+projectile_speed = 100
+
+[node name="RangerMoveControler" type="Node2D" parent="." index="1"]
 script = ExtResource("4_psjsc")
 speed = 40.0
 metadata/_custom_type_script = "uid://cnwb66k0tvq7m"
@@ -79,8 +84,3 @@ metadata/_custom_type_script = "uid://cnwb66k0tvq7m"
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SpriteContainer" index="0"]
 sprite_frames = SubResource("SpriteFrames_psjsc")
 animation = &"idle"
-
-[node name="BasicShooter" parent="." index="8" instance=ExtResource("2_q6il4")]
-projectile = ExtResource("5_l6adf")
-shoot_coldown = 1.5
-projectile_speed = 100
