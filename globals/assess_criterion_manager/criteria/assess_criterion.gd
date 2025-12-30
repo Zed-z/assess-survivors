@@ -227,7 +227,18 @@ func setup() -> void:
 		Vector2(min_value, UTILITY_MIN),
 		Vector2(initial_max_value, UTILITY_MAX)
 	]
+	# i hope this will reset things completely
 	CUR_phase = 0
+	dialog_answers_count = 0
+	last_significant_index = 0
+
+	lower_bound_weight = 0
+	weight = 0.5
+	upper_bound_weight = 1
+
+	METRIC_count_weight = 0
+	METRIC_expand_count = 0
+
 	do_point_inbetween()
 	_question_init()
 	#print(point_list)
