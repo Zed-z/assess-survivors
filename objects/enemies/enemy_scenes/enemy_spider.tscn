@@ -49,7 +49,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Enemy" node_paths=PackedStringArray("move_controller", "move_animation") instance=ExtResource("1_o4p7e")]
+[node name="EnemySpider" node_paths=PackedStringArray("move_controller", "move_animation") instance=ExtResource("1_o4p7e")]
 move_controller = NodePath("RangerMoveController")
 move_animation = NodePath("SpriteContainer/AnimatedSprite2D")
 
@@ -58,7 +58,7 @@ scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_fni1j")
 autoplay = "default"
 
-[node name="RangerMoveController" type="Node2D" parent="." index="5"]
+[node name="RangerMoveController" type="Node2D" parent="." index="7"]
 script = ExtResource("3_wp2wx")
 speed = 75.0
 escape_radius = 200.0
