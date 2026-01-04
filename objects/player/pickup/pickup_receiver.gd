@@ -19,7 +19,7 @@ func hard_coded_pickups(type: String):
 			$"../HealthComponent".heal($"../HealthComponent".health * 0.1)
 
 		"xp":
-			$"../Levels".gain_ex_by_value(5)
+			$"../Levels".gain_level(1)
 
 
 func _on_area_entered(area: Area2D) -> void:

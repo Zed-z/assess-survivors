@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://epsr1o1tk6ur" path="res://objects/enemies/enemy_scenes/base_enemy.tscn" id="1_5mbmq"]
 [ext_resource type="Script" uid="uid://bgb2oual2bgw" path="res://objects/enemies/move_controller/walking_bush_move_controler.gd" id="2_q0efr"]
 [ext_resource type="Script" uid="uid://qhldu4phre5" path="res://objects/enemies/enemy_scenes/sooter_with_consent.gd" id="2_wmlyl"]
-[ext_resource type="PackedScene" uid="uid://brubyva6r1d3c" path="res://objects/projectile/projectile_instances/projectile_enemy_1.tscn" id="3_px1n8"]
+[ext_resource type="PackedScene" uid="uid://ccfhcgw5yxqpf" path="res://objects/projectile/projectile_instances/projectile_enemy_bush.tscn" id="3_8sbqi"]
 [ext_resource type="Texture2D" uid="uid://c80gbit0i46n7" path="res://sprites/mobs/sus_bush_attack.png" id="5_8sbqi"]
 [ext_resource type="Texture2D" uid="uid://cyycgts70o0nx" path="res://sprites/mobs/sus_bush_get_up.png" id="6_hjj62"]
 [ext_resource type="Texture2D" uid="uid://bf1gtkuoxb55g" path="res://sprites/mobs/sus_bush_hide.png" id="7_blmet"]
@@ -1263,7 +1263,7 @@ move_animation = NodePath("SpriteContainer/AnimatedSprite2D")
 
 [node name="shooter_with_consent" type="Node2D" parent="." index="0"]
 script = ExtResource("2_wmlyl")
-projectile = ExtResource("3_px1n8")
+projectile = ExtResource("3_8sbqi")
 shoot_coldown = 4.0
 metadata/_custom_type_script = "uid://bxrtysv8dyqbb"
 

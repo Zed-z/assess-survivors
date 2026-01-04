@@ -21,10 +21,7 @@ func set_new_required_ex(_new_level: int):
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("force_level"):
-		collected_xp = 0
-		level += 1
-		set_new_required_ex(level)
-		new_level.emit(level)
+		gain_level(1)
 
 	if event.is_action_pressed("force_endgame"):
 		GlobalInfo.assess_manager.is_weight_phase = !GlobalInfo.assess_manager.is_weight_phase
@@ -32,13 +29,21 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func gain_ex_from_enemy(enemy: Enemy) -> void:
 	collected_xp += 1
-
 	xp_collected()
 
 
 func gain_ex_by_value(xp_amoutn: int) -> void:
 	collected_xp += xp_amoutn
 	xp_collected()
+
+
+func gain_level(levels: int = 1) -> void:
+
+	for i in range(levels):
+		collected_xp = 0
+		level += 1
+		set_new_required_ex(level)
+		new_level.emit(level)
 
 
 ##internal function not supesed to be called from outside

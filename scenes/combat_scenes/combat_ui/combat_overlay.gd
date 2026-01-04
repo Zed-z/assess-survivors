@@ -16,7 +16,7 @@ func _ready() -> void:
 
 
 func set_score(score: int):
-	$MarginContainer/Control/ScoreLabel.text = tr("GAMEPLAY_SCORE_COUNTER") % score
+	%ScoreLabel.text = tr("GAMEPLAY_SCORE_COUNTER") % score
 
 
 func update_progres_bar(level: int, curent: int, max_value: int):

@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="PlayerStatsResource" load_steps=22 format=3 uid="uid://dyf6lydkpb7fl"]
+[gd_resource type="Resource" script_class="PlayerStatsResource" load_steps=23 format=3 uid="uid://dyf6lydkpb7fl"]
 
 [ext_resource type="Script" uid="uid://br5c8626f18ew" path="res://objects/player/Stats/player_stats_resource.gd" id="1_oawer"]
 [ext_resource type="Script" uid="uid://bui6h7p4lincd" path="res://objects/player/Stats/base_stat.gd" id="2_xicf2"]
 [ext_resource type="Script" uid="uid://dxavujg1j5jr5" path="res://globals/assess_criterion_manager/criteria/assess_criterion_variable_probability.gd" id="3_m0bic"]
 [ext_resource type="Texture2D" uid="uid://d2khmtbsk4mom" path="res://sprites/stats/luk.png" id="4_tfd18"]
 [ext_resource type="Script" uid="uid://d1e80dp6c7ji3" path="res://objects/player/Stats/assess_stat.gd" id="5_wqi4l"]
+[ext_resource type="Texture2D" uid="uid://pjs46st5j74n" path="res://sprites/ui/cooldown.png" id="6_xicf2"]
 [ext_resource type="Texture2D" uid="uid://b8riatfslt0b8" path="res://sprites/stats/potion.png" id="6_xqpe3"]
 [ext_resource type="Texture2D" uid="uid://bq7q5ii2d7bsq" path="res://sprites/stats/sword.png" id="7_phrff"]
 [ext_resource type="Texture2D" uid="uid://cigsdewro07vk" path="res://icon.svg" id="8_5t26x"]
@@ -43,7 +44,7 @@ criterion = SubResource("Resource_yyeqs")
 starting_value = 1
 accumulation_mode = 2
 name = "STAT_COOLDOWN"
-icon = ExtResource("4_tfd18")
+icon = ExtResource("6_xicf2")
 metadata/_custom_type_script = "uid://d1e80dp6c7ji3"
 
 [sub_resource type="Resource" id="Resource_45rsp"]

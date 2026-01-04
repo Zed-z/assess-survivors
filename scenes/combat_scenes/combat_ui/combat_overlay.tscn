@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bh5tkxvg8jh42"]
+[gd_scene load_steps=16 format=3 uid="uid://bh5tkxvg8jh42"]
 
 [ext_resource type="Theme" uid="uid://df2r57b2stnof" path="res://themes/ui.tres" id="1_n8r28"]
 [ext_resource type="Script" uid="uid://2850i5pp8lmf" path="res://scenes/combat_scenes/combat_ui/combat_overlay.gd" id="1_ylltj"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://cqqnj748bj1hu" path="res://sprites/ui/star.png" id="4_a2tx3"]
 [ext_resource type="Texture2D" uid="uid://clplrbt37inet" path="res://sprites/ui/progressbar_white.png" id="4_m7cs0"]
 [ext_resource type="PackedScene" uid="uid://cwenam73fitmy" path="res://objects/ui/stat_panel/stat_panel.tscn" id="5_hdsv1"]
+[ext_resource type="Texture2D" uid="uid://bcai3olpp2hol" path="res://sprites/ui/pause_button.png" id="5_ph4w1"]
+[ext_resource type="Texture2D" uid="uid://bfw5n6mfu1ekt" path="res://sprites/ui/pause_button_active.png" id="6_6b3w6"]
 [ext_resource type="Texture2D" uid="uid://cvslcla1vbn8t" path="res://sprites/ui/heart_dead.png" id="7_i8c66"]
 [ext_resource type="Texture2D" uid="uid://djws4c08ttrcd" path="res://sprites/ui/heart.png" id="8_a2tx3"]
 
@@ -122,30 +124,6 @@ layout_mode = 2
 texture = ExtResource("3_m7cs0")
 expand_mode = 5
 
-[node name="ScoreLabel" type="Label" parent="Control/MarginContainer/Control"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -173.0
-offset_right = -96.0
-offset_bottom = 77.0
-grow_horizontal = 0
-text = "GAMEPLAY_SCORE_COUNTER"
-horizontal_alignment = 2
-
-[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/Control/ScoreLabel"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = -44.0
-offset_bottom = -4.0
-grow_vertical = 0
-texture = ExtResource("4_a2tx3")
-expand_mode = 1
-
 [node name="LevelBar" type="ProgressBar" parent="Control/MarginContainer/Control"]
 custom_minimum_size = Vector2(200, 26)
 layout_mode = 1
@@ -182,15 +160,42 @@ offset_bottom = 18.5
 grow_vertical = 2
 text = "XP"
 
-[node name="PauseButton" type="Button" parent="Control/MarginContainer/Control"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/Control"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -77.0
-offset_bottom = 85.0
+offset_left = -40.0
+offset_bottom = 40.0
 grow_horizontal = 0
-text = "| |"
+
+[node name="ScoreLabel" type="Label" parent="Control/MarginContainer/Control/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "GAMEPLAY_SCORE_COUNTER"
+horizontal_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/Control/HBoxContainer/ScoreLabel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -44.0
+offset_bottom = -4.0
+grow_vertical = 0
+texture = ExtResource("4_a2tx3")
+expand_mode = 1
+
+[node name="PauseButton" type="TextureButton" parent="Control/MarginContainer/Control/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = ExtResource("5_ph4w1")
+texture_pressed = ExtResource("5_ph4w1")
+texture_hover = ExtResource("6_6b3w6")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="HealthBar" type="TextureProgressBar" parent="Control/MarginContainer/Control"]
 unique_name_in_owner = true
@@ -270,4 +275,4 @@ offset_top = -100.0
 offset_bottom = 0.0
 grow_vertical = 0
 
-[connection signal="pressed" from="Control/MarginContainer/Control/PauseButton" to="Control" method="_on_pause_button_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/Control/HBoxContainer/PauseButton" to="Control" method="_on_pause_button_pressed"]
