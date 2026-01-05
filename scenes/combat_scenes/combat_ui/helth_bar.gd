@@ -23,5 +23,5 @@ func set_max_health(_max_health: float):
 func update_label():
 	value = health
 	max_value = max_health
-	$Label.text = tr("GAMEPLAY_HEALTH") % [health, max_health]
+	$Label.text = tr("GAMEPLAY_HEALTH") % ["%0.2f" % max(0, health), "%0.2f" % max_health]
 	$Icon/IconDead.visible = value / max_value < 0.3

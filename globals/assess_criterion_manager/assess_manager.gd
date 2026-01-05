@@ -179,3 +179,8 @@ func weight_step(answer: AssessCriterion.Answer) -> WeightStepAnswer:
 		#print(x.upper_bound_weight)
 
 	return step_answer
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("force_endgame"):
+		GlobalInfo.assess_manager.is_weight_phase = !GlobalInfo.assess_manager.is_weight_phase

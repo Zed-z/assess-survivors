@@ -4,6 +4,7 @@ var level: int =0
 var required_xp: int = 0
 var collected_xp: int = 0
 
+signal xp_changed(level: int, xp: int)
 signal new_level(level: int)
 
 
@@ -11,11 +12,11 @@ func _ready() -> void:
 	set_new_required_ex(0)
 	await get_tree().process_frame
 	GlobalInfo.enemy_spawner.enemy_killed.connect(gain_ex_from_enemy)
-	GlobalInfo.combat_ui_overlay.update_progres_bar(level, collected_xp,required_xp)
+
+	_xp_changed()
 
 
 func set_new_required_ex(_new_level: int):
-
 	required_xp = 10 * _new_level + 5
 
 
@@ -23,18 +24,15 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("force_level"):
 		gain_level(1)
 
-	if event.is_action_pressed("force_endgame"):
-		GlobalInfo.assess_manager.is_weight_phase = !GlobalInfo.assess_manager.is_weight_phase
-
 
 func gain_ex_from_enemy(enemy: Enemy) -> void:
 	collected_xp += 1
-	xp_collected()
+	_xp_changed()
 
 
 func gain_ex_by_value(xp_amoutn: int) -> void:
 	collected_xp += xp_amoutn
-	xp_collected()
+	_xp_changed()
 
 
 func gain_level(levels: int = 1) -> void:
@@ -45,9 +43,11 @@ func gain_level(levels: int = 1) -> void:
 		set_new_required_ex(level)
 		new_level.emit(level)
 
+	_xp_changed()
+
 
 ##internal function not supesed to be called from outside
-func xp_collected() ->void:
+func _xp_changed() ->void:
 
 	if collected_xp >= required_xp:
 		collected_xp -= required_xp
@@ -55,4 +55,5 @@ func xp_collected() ->void:
 		set_new_required_ex(level)
 		new_level.emit(level)
 
+	xp_changed.emit(level, collected_xp)
 	GlobalInfo.combat_ui_overlay.update_progres_bar(level, collected_xp,required_xp)
