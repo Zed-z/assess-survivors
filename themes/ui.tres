@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=40 format=3 uid="uid://df2r57b2stnof"]
+[gd_resource type="Theme" load_steps=43 format=3 uid="uid://df2r57b2stnof"]
 
 [ext_resource type="FontFile" uid="uid://ccu7qrtecogan" path="res://fonts/smallburg_font_1_04/TrueType (.ttf)/smallburg-Regular.ttf" id="1_h6ia1"]
 [ext_resource type="Texture2D" uid="uid://s2ls5uy6e3f2" path="res://sprites/ui/panel_background.png" id="2_bhwv2"]
@@ -185,6 +185,18 @@ expand_margin_bottom = 30.0
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0oa1y"]
+bg_color = Color(0.3882353, 0.64705884, 0.34509805, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_41f1y"]
+bg_color = Color(0.49019608, 0.6666667, 0.28235295, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4efn8"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 8
+border_width_right = 8
+border_color = Color(0, 0, 0, 1)
+
 [resource]
 Button/colors/font_outline_color = Color(0, 0, 0, 1)
 Button/constants/outline_size = 4
@@ -241,3 +253,7 @@ TitleLabel/colors/font_outline_color = Color(0.26666668, 0.26666668, 0.1764706, 
 TitleLabel/constants/outline_size = 64
 TitleLabel/fonts/font = ExtResource("15_sds01")
 VBoxContainer/constants/separation = 10
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_0oa1y")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_41f1y")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_41f1y")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_4efn8")
