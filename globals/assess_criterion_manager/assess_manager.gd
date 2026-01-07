@@ -11,12 +11,17 @@ var weight_question: Question
 var weight_index: int
 
 var is_weight_phase: bool = false
+var is_third_phase: bool = false
+
+enum GamePhases {CRITERION, WEIGHTS, FINAL}
+
+var phase: GamePhases = GamePhases.CRITERION
 
 
 func init_choice_panel() -> ChoicePanel:
 	var choice_panel: ChoicePanel = ObjectManager.instantiate(ObjectManager.OBJ_CHOICE_PANEL)
 
-	if !is_weight_phase:
+	if !is_weight_phase and !is_third_phase:
 		choice_panel.criterion = get_criterion()
 
 		if choice_panel.criterion != null:
@@ -26,9 +31,22 @@ func init_choice_panel() -> ChoicePanel:
 
 	if is_weight_phase:
 		choice_panel.question = get_weight_question()
-		choice_panel.criterion = get_weight_criterion()
+
+		if choice_panel.question != null:
+			choice_panel.criterion = get_weight_criterion()
+		else:
+
+			is_third_phase = true
+
+	if is_third_phase:
+		#TODO after bairstow
+		print("achived third phase")
+		var l = get_most_u_on_all()
+		choice_panel.question = Question.new(MultiLottery.new(l,1,l),MultiLottery.new(l,1,l))
+		choice_panel.criterion = criteria[0]
 
 	choice_panel.is_weight_phase = is_weight_phase
+	choice_panel.is_third_phase = is_third_phase
 	return choice_panel
 
 
@@ -155,7 +173,7 @@ func weight_step(answer: AssessCriterion.Answer) -> WeightStepAnswer:
 		criteria[weight_index].upper_bound_weight = criteria[weight_index].weight
 		criteria[weight_index].lower_bound_weight = criteria[weight_index].weight
 		#weight is set
-		criteria[weight_index].METRIC_count_weight += criteria[weight_index].LIMIT_expand_count
+		criteria[weight_index].METRIC_count_weight += criteria[weight_index].LIMIT_count_weight
 
 		if randf() <= 0.5:
 			result = weight_question.get_left().get_value()
@@ -167,16 +185,18 @@ func weight_step(answer: AssessCriterion.Answer) -> WeightStepAnswer:
 	step_answer.value = result
 
 	for c in result.values:
-		print(result.values[c])
+		#print(result.values[c])
 		c.value_result.emit(result.values[c])
 
-	#print("TIME FOR WEIGHTS TO SHOW UP WHAT THEY GOT")
-	#for x in criteria:
-		#print("==========`")
-		#print(x.criterion_name)
+	print("TIME FOR WEIGHTS TO SHOW UP WHAT THEY GOT")
+	for x in criteria:
+		print("==========`")
+		print(x.criterion_name)
 		#print(x.lower_bound_weight)
 		#print(x.weight)
 		#print(x.upper_bound_weight)
+		print(x.LIMIT_count_weight)
+		print(x.METRIC_count_weight)
 
 	return step_answer
 

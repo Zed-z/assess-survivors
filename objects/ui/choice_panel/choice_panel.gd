@@ -10,6 +10,7 @@ var choice_right: ChoicePanelCard
 var criterion: AssessCriterion
 var question: Question
 var is_weight_phase: bool
+var is_third_phase: bool
 var tween_left: Tween
 var tween_right: Tween
 var tween_indifferent: Tween

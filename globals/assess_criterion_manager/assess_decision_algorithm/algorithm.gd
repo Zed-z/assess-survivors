@@ -18,4 +18,4 @@ func _init(criteria_list: Array[AssessCriterion]) -> void:
 
 
 func decide() -> int:
-	return 0
+	return -1

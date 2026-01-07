@@ -11,7 +11,7 @@ func decide() -> int:
 	decide_value %= len(criteria)
 	var criterion: AssessCriterion = criteria[decide_value]
 
-	if is_choice_invalid(criteria[decide_value]):
+	if is_choice_invalid(criterion):
 		decide_value = decide()
 
 	return decide_value
