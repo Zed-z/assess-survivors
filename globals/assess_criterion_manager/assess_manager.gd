@@ -10,43 +10,38 @@ var weight_algorithm: AssessAlgorithm
 var weight_question: Question
 var weight_index: int
 
-var is_weight_phase: bool = false
-var is_third_phase: bool = false
-
 enum GamePhases {CRITERION, WEIGHTS, FINAL}
-
 var phase: GamePhases = GamePhases.CRITERION
 
 
 func init_choice_panel() -> ChoicePanel:
 	var choice_panel: ChoicePanel = ObjectManager.instantiate(ObjectManager.OBJ_CHOICE_PANEL)
 
-	if !is_weight_phase and !is_third_phase:
-		choice_panel.criterion = get_criterion()
+	match phase:
+		GamePhases.CRITERION:
+			choice_panel.criterion = get_criterion()
 
-		if choice_panel.criterion != null:
-			choice_panel.question = choice_panel.criterion.get_question()
-		else:
-			is_weight_phase = true
+			if choice_panel.criterion != null:
+				choice_panel.question = choice_panel.criterion.get_question()
+			else:
+				phase = GamePhases.WEIGHTS
 
-	if is_weight_phase:
-		choice_panel.question = get_weight_question()
+		GamePhases.WEIGHTS:
+			choice_panel.question = get_weight_question()
 
-		if choice_panel.question != null:
-			choice_panel.criterion = get_weight_criterion()
-		else:
+			if choice_panel.question != null:
+				choice_panel.criterion = get_weight_criterion()
+			else:
+				phase = GamePhases.FINAL
 
-			is_third_phase = true
+		GamePhases.FINAL:
+			#TODO after bairstow
+			print("achived third phase")
+			var l = get_most_u_on_all()
+			choice_panel.question = Question.new(MultiLottery.new(l,1,l),MultiLottery.new(l,1,l))
+			choice_panel.criterion = criteria[0]
 
-	if is_third_phase:
-		#TODO after bairstow
-		print("achived third phase")
-		var l = get_most_u_on_all()
-		choice_panel.question = Question.new(MultiLottery.new(l,1,l),MultiLottery.new(l,1,l))
-		choice_panel.criterion = criteria[0]
-
-	choice_panel.is_weight_phase = is_weight_phase
-	choice_panel.is_third_phase = is_third_phase
+	choice_panel.phase = phase
 	return choice_panel
 
 
@@ -203,4 +198,15 @@ func weight_step(answer: AssessCriterion.Answer) -> WeightStepAnswer:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("force_endgame"):
-		GlobalInfo.assess_manager.is_weight_phase = !GlobalInfo.assess_manager.is_weight_phase
+		print("switched to next phase")
+		match phase:
+			GamePhases.CRITERION:
+				GlobalInfo.assess_manager.phase = GamePhases.WEIGHTS
+
+			GamePhases.WEIGHTS:
+				GlobalInfo.assess_manager.phase = GamePhases.FINAL
+
+			GamePhases.FINAL:
+				pass
+				# I don't know if switching back would be cool
+				# so I'm not implementing it here
