@@ -5,12 +5,17 @@ var target: Player
 @export var move_controller: MoveController
 @export var move_animation: AnimatedSprite2D
 
+@export var contact_dmg: int = 1
+
 var wave_number: int
 
 
 func get_contact_dmg() -> int:
-	return 1
+	return contact_dmg
 
+
+func scale_enemy(scaler : BaseEnemyScaler):
+	contact_dmg *= scaler.get_attack_scale()
 
 func _ready() -> void:
 	assert(is_instance_valid(move_animation), name + " does not have animation assigned")

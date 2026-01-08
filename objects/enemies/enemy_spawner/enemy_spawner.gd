@@ -70,7 +70,9 @@ func new_wave():
 		counted_enemies = 0
 		spawned_enemies = 0
 
-		if data.kill_all_enemies:
+		if data.is_endless:
+			use_timer = false
+		elif data.kill_all_enemies:
 			use_timer = false
 		elif data.wave_duration > 0:
 			use_timer = true
@@ -115,7 +117,7 @@ func remove_enemy(enemy_to_kill):
 	if killed_enemy.wave_number == current_wave_index:
 		counted_enemies += 1
 
-		if current_wave_data.kill_all_enemies:
+		if current_wave_data.kill_all_enemies and not current_wave_data.is_endless:
 
 			if counted_enemies >= current_wave_data.enemies_to_spawn:
 				current_wave_index+=1
@@ -144,6 +146,10 @@ func spawn_enemy():
 	var e: Enemy = create_enemy()
 
 	var enemy_location
+
+	var scaler = current_wave_data.scaling
+
+
 
 	#a crude way of making enemies appear only on land
 	#ALERT: will not work when map is small
