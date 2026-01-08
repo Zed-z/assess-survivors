@@ -23,6 +23,10 @@ class_name WaveData
 ##the aray of enemies and their probabilities
 @export var enemies: Array[WaveTouple] = []
 
+@export var is_endless: bool
+
+@export var scaling: BaseEnemyScaler
+
 
 func get_status(enemies_killed: int, time: float) -> String:
 	if kill_all_enemies:

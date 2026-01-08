@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=4 uid="uid://fnao1rs5haap"]
+[gd_scene load_steps=22 format=4 uid="uid://fnao1rs5haap"]
 
 [ext_resource type="PackedScene" uid="uid://ct88pvgyokerc" path="res://objects/player/player.tscn" id="1_41wyt"]
 [ext_resource type="PackedScene" uid="uid://blfd7tomoo2ky" path="res://globals/holders/projectile_holder/projectile_holder.tscn" id="1_gyrba"]
 [ext_resource type="PackedScene" uid="uid://c218rscg2tadk" path="res://objects/score_manager/score_manager.tscn" id="1_hosda"]
 [ext_resource type="Material" uid="uid://bahv2nf1ouhdy" path="res://materials/water.tres" id="1_p4055"]
+[ext_resource type="Script" uid="uid://bmj4swwdanc7i" path="res://scenes/combat_scenes/test_scene.gd" id="1_ui2sr"]
 [ext_resource type="Material" uid="uid://d1581d5ay26af" path="res://materials/grass.tres" id="2_gyrba"]
 [ext_resource type="TileSet" uid="uid://cld71m6mttjlh" path="res://tilesets/tileset.tres" id="3_gyrba"]
 [ext_resource type="PackedScene" uid="uid://dh1jrdfgruvqn" path="res://objects/enemies/enemy_spawner/enemy_spawner.tscn" id="3_vqmlp"]
@@ -24,6 +25,7 @@
 
 [node name="TestScene" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_ui2sr")
 
 [node name="ScoreManager" parent="." instance=ExtResource("1_hosda")]
 
