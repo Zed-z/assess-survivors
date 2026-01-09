@@ -14,8 +14,9 @@ func get_contact_dmg() -> int:
 	return contact_dmg
 
 
-func scale_enemy(scaler : BaseEnemyScaler):
+func scale_enemy(scaler: BaseEnemyScaler):
 	contact_dmg *= scaler.get_attack_scale()
+
 
 func _ready() -> void:
 	assert(is_instance_valid(move_animation), name + " does not have animation assigned")
