@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bb2rnkf7uc1gc"]
+
+[ext_resource type="PackedScene" uid="uid://cg068o0hw2swp" path="res://popup/base_popup.tscn" id="1_053hu"]
+[ext_resource type="Script" uid="uid://xqhgpxtcdyjt" path="res://popup/yesno_popup.gd" id="2_d2iof"]
+
+[node name="BasePopup" instance=ExtResource("1_053hu")]
+script = ExtResource("2_d2iof")
+
+[node name="MarginContainer2" type="MarginContainer" parent="PopupMargin/VBoxContainer" index="2"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PopupMargin/VBoxContainer/MarginContainer2" index="0"]
+layout_mode = 2
+alignment = 1
+
+[node name="ButtonYes" type="Button" parent="PopupMargin/VBoxContainer/MarginContainer2/HBoxContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Yes"
+
+[node name="ButtonNo" type="Button" parent="PopupMargin/VBoxContainer/MarginContainer2/HBoxContainer" index="1"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "No"
