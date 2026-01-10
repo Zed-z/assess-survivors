@@ -1,6 +1,6 @@
 extends Node2D
 
-var default_settings: Dictionary = {
+var settings: Dictionary = {
 	"audio": {
 		"volume_Master": 1.0,
 		"volume_Music": 1.0,
@@ -18,12 +18,8 @@ var default_settings: Dictionary = {
 	}
 }
 
-var settings = default_settings.copy()
-
 
 func from_json(data: Dictionary, path_prefix: String = ""):
-
-	default_settings.copy()
 
 	for key in data:
 		var key_path = path_prefix + key
@@ -74,10 +70,6 @@ func get_setting(path: String) -> Variant:
 		key = key.get(p)
 
 	return key
-
-
-func reset_setting(path: String) -> void:
-	ersdfghjkl
 
 
 func save(path: String = "user://settings.json"):
