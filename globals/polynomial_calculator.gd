@@ -70,6 +70,40 @@ func arrays_without_n(arr: Array, n: int) -> Array:
 	return all_combs
 
 
+func generate_variant(ctierion_array: Array[AssessCriterion]) -> Dictionary[AssessCriterion, float]:
+	var variant: Dictionary[AssessCriterion, float] = {}
+
+	for criterion in ctierion_array:
+		var value: float = randf_range(criterion.point_list[0].x, criterion.point_list[-1].x)
+		variant[criterion] = value
+
+	return variant
+
+
+#calculates u(x)
+func calculate_partial_usefullness(criterion: AssessCriterion, value: float):
+	var points: Array[Vector2] = criterion.point_list
+	var left_index: int = 0
+	var right_index: int = len(points) - 1
+
+	var is_falling: bool = (points[left_index] > points[right_index])
+
+	if !is_falling:
+		pass
+	else:
+		pass
+
+
+#calculates U(x)
+func calculate_global_usefullness(K: float, variant: Dictionary[AssessCriterion, float]):
+	var p: float = 1.0
+
+	for key in variant:
+		p *= (K * key.weight * calculate_partial_usefullness(key, variant[key]) + 1)
+
+	return(1/K) * (p - 1)
+
+
 #sums elements of an array
 func sum(arr: Array) -> float:
 	var s: float = 0
@@ -85,7 +119,7 @@ func product(arr: Array) -> float:
 	var p: float = 1
 
 	for x in arr:
-		p*= x
+		p *= x
 
 	return p
 
