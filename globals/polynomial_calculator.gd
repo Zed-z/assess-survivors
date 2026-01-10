@@ -81,24 +81,33 @@ func generate_variant(ctierion_array: Array[AssessCriterion]) -> Dictionary[Asse
 
 
 #calculates u(x)
-func calculate_partial_usefullness(criterion: AssessCriterion, value: float) -> float:
-	var points: Array[Vector2] = criterion.point_list
+func calculate_partial_usefullness(u_graph: Array[Vector2], value: float) -> float:
+	var graph = u_graph.duplicate()
 	var left_index: int = 0
-	var right_index: int = len(points) - 1
+	var right_index: int = len(graph) - 1
 
-	var is_falling: bool = (points[left_index].x > points[right_index].x)
+	var is_falling: bool = (graph[left_index].x > graph[right_index].x)
 
 	#if value is below minimum or above maximum
-	if max(points[left_index].x, points[right_index].x) < value or\
-	 min(points[left_index].x, points[right_index].x) > value:
+	if max(graph[left_index].x, graph[right_index].x) < value or\
+	 min(graph[left_index].x, graph[right_index].x) > value:
 		return -12
 
 	if is_falling:
-		pass
-	else:
-		pass
+		graph.reverse()
 
-	return 1.0
+	while abs(left_index - right_index) != 1:
+		var middle_index = int(left_index + floor(float(right_index - left_index)/2))
+
+		if graph[middle_index].x < value:
+			left_index = middle_index
+		elif graph[middle_index].x > value:
+			right_index = middle_index
+		else:
+			return graph[middle_index].y
+
+	var t = (value - graph[left_index].x) / (graph[right_index].x - graph[left_index].x)
+	return graph[left_index].y * (1-t) + graph[right_index].y * t
 
 
 #calculates U(x)
@@ -106,7 +115,7 @@ func calculate_global_usefullness(K: float, variant: Dictionary[AssessCriterion,
 	var p: float = 1.0
 
 	for key in variant:
-		p *= (K * key.weight * calculate_partial_usefullness(key, variant[key]) + 1)
+		p *= (K * key.weight * calculate_partial_usefullness(key.point_list, variant[key]) + 1)
 
 	return(1/K) * (p - 1)
 
@@ -243,7 +252,7 @@ func polydiv(dividend: Array[float], divisor: Array[float]) -> Array[Array]:
 func _ready():
 	#var x: Array[float] = [1,2,3,4]
 	#%weigths.text ="weights: " + " , ".join(x)
-
+#
 	#var poly: Array = create_polynomial(x)
 	#%coefs.text ="coefs: " + " , ".join(poly)
 
@@ -251,5 +260,9 @@ func _ready():
 	#var divisor: Array[float] = [2,1,3]
 	#%result.text = "result: " + str(polydiv(dividend, divisor))
 
-	var barszczow: Array[float] = [-4, 6, 2,0]
-	%result.text = "result: " + " , ".join(bairstow(barszczow))
+	#var barszczow: Array[float] = [-4, 6, 2,0]
+	#%result.text = "result: " + " , ".join(bairstow(barszczow))
+
+	var t: Array[Vector2] = [Vector2(10.0, 0.0), Vector2(6.0, 0.2),Vector2(2.0, 0.6),Vector2(1.0, 0.7),Vector2(0.0, 1.0)]
+
+	%weigths.text = str(calculate_partial_usefullness(t,5.0))
