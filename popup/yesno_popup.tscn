@@ -5,20 +5,24 @@
 
 [node name="BasePopup" instance=ExtResource("1_053hu")]
 script = ExtResource("2_d2iof")
+show_background = true
 
-[node name="MarginContainer2" type="MarginContainer" parent="PopupMargin/VBoxContainer" index="2"]
+[node name="Text" parent="Popup/VBoxContainer/Content/HBoxContainer" index="0"]
+text = ""
+
+[node name="MarginContainer2" type="MarginContainer" parent="Popup/VBoxContainer" index="2"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PopupMargin/VBoxContainer/MarginContainer2" index="0"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Popup/VBoxContainer/MarginContainer2" index="0"]
 layout_mode = 2
 alignment = 1
 
-[node name="ButtonYes" type="Button" parent="PopupMargin/VBoxContainer/MarginContainer2/HBoxContainer" index="0"]
+[node name="ButtonYes" type="Button" parent="Popup/VBoxContainer/MarginContainer2/HBoxContainer" index="0"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Yes"
 
-[node name="ButtonNo" type="Button" parent="PopupMargin/VBoxContainer/MarginContainer2/HBoxContainer" index="1"]
+[node name="ButtonNo" type="Button" parent="Popup/VBoxContainer/MarginContainer2/HBoxContainer" index="1"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "No"

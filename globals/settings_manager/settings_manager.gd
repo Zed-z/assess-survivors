@@ -10,7 +10,12 @@ var settings: Dictionary = {
 		"fullscreen": false,
 		"screen_shake": true,
 	},
-	"language": OS.get_locale_language()
+	"language": OS.get_locale_language(),
+	"popup": {
+		"choice_criterion": false,
+		"choice_weight": false,
+		"choice_final": false,
+	}
 }
 
 

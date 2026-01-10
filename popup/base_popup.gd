@@ -4,6 +4,12 @@ class_name BasePopup
 
 signal closed(return_value: PopupReturnValue)
 
+@export var show_background: bool = true:
+	set(val):
+		show_background = val
+
+		if %Background:
+			%Background.visible = show_background
 @export var can_be_closed: bool = true:
 	set(val):
 		can_be_closed = val
@@ -28,6 +34,7 @@ signal closed(return_value: PopupReturnValue)
 func _ready() -> void:
 
 	# Run setters
+	show_background = show_background
 	title = title
 	text = text
 	can_be_closed = can_be_closed
@@ -58,7 +65,7 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.is_pressed():
 			if titlebar_mouse_hovering:
-				titlebar_mouse_offset = get_viewport().get_mouse_position() - self.global_position
+				titlebar_mouse_offset = get_viewport().get_mouse_position() - %Popup.global_position
 				titlebar_mouse_dragging = true
 
 		if event.is_released():
@@ -80,18 +87,18 @@ func close():
 func _process(delta: float) -> void:
 	if titlebar_mouse_dragging:
 		var pos: Vector2 = get_viewport().get_mouse_position() - titlebar_mouse_offset
-		self.global_position = pos
+		%Popup.global_position = pos
 
 		var parent: Control = get_parent()
-		self.global_position.x = clamp(
-			self.global_position.x,
+		%Popup.global_position.x = clamp(
+			%Popup.global_position.x,
 			parent.global_position.x,
-			parent.global_position.x + parent.size.x - self.size.x)
+			parent.global_position.x + parent.size.x - %Popup.size.x)
 
-		self.global_position.y = clamp(
-			self.global_position.y,
+		%Popup.global_position.y = clamp(
+			%Popup.global_position.y,
 			parent.global_position.y,
-			parent.global_position.y + parent.size.y - self.size.y)
+			parent.global_position.y + parent.size.y - %Popup.size.y)
 
 
 static func instantiate(parent: Control = null) -> BasePopup:
