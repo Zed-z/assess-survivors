@@ -7,4 +7,4 @@ func _on_button_question_pressed() -> void:
 
 func _on_button_weights_pressed() -> void:
 	%ButtonWeights.disabled = true
-	GlobalInfo.assess_manager.is_weight_phase = true
+	GlobalInfo.assess_manager.next_phase()

@@ -196,17 +196,19 @@ func weight_step(answer: AssessCriterion.Answer) -> WeightStepAnswer:
 	return step_answer
 
 
+func next_phase():
+	match phase:
+		GamePhases.CRITERION:
+			phase = GamePhases.WEIGHTS
+
+		GamePhases.WEIGHTS:
+			phase = GamePhases.FINAL
+
+		GamePhases.FINAL:
+			pass
+
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("force_endgame"):
+		next_phase()
 		print("switched to next phase")
-		match phase:
-			GamePhases.CRITERION:
-				GlobalInfo.assess_manager.phase = GamePhases.WEIGHTS
-
-			GamePhases.WEIGHTS:
-				GlobalInfo.assess_manager.phase = GamePhases.FINAL
-
-			GamePhases.FINAL:
-				pass
-				# I don't know if switching back would be cool
-				# so I'm not implementing it here
