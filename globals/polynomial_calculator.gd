@@ -131,8 +131,88 @@ func product(arr: Array) -> float:
 	return p
 
 
-func bairstow():
-	pass
+func bairstow(coeffs: Array[float], max_iter: int=100) -> Array[float]:
+	coeffs = coeffs.duplicate()
+	var roots: Array[float] = []
+	var g: int = len(roots) - 1
+
+	while len(coeffs) > 0:
+		if len(coeffs) == 1: # no roots here
+			break
+		elif len(coeffs) == 2: # linear 
+			var root: float = -coeffs[1]/coeffs[0]
+			roots.append(root)
+			break
+		elif len(coeffs) == 3: # quadratic
+			var a = coeffs[0]
+			var b = coeffs[1]
+			var c = coeffs[2]
+			var D = b**2 - 4*a*c
+
+			if D < 0:
+				break
+
+			var root1 = (-b + sqrt(D)) / (2*a)
+			var root2 = (-b - sqrt(D)) / (2*a)
+			roots.append_array([root1, root2])
+			break
+		else:
+
+			var an = coeffs[g]
+			var an_1 = coeffs[g-1]
+			var an_2 = coeffs[g-2]
+			var u = an_1 / an # initial guesses could be random as well but this should lead faster to convergence
+			var v = an_2 / an
+
+			# divide polynomial by x^2 + ux + v
+			for iter in range(max_iter):
+				var ret = polydiv(coeffs, [1,u,v])# quotient and remainder
+				var quot = ret[0]
+				var rem = ret[1]
+
+				while len(rem) < 2: #TODO: napewno są lepsze alternatywy
+					rem.push_front(0)
+
+				var A = rem[-2]
+				var B = rem[-1]
+				var b = quot
+
+				while len(b) < len(coeffs)-1:
+					b = [0] + b
+
+				# jacobian matrix equivalent i think
+				var c2 = b[0]
+				var c1 = b[1] + u*c2
+				var c0 = b[2] + u*c1 + v*c2
+				var denom_jacob = c1**2 - c0*c2 # jacobian denominator
+				# newton iteration step
+				if abs(denom_jacob) < 1e-14:
+					denom_jacob = 1e-14 # avoid division by zero
+
+				var du = (A*c1 - B*c2) / denom_jacob
+				var dv = (B*c0 - A*c1) / denom_jacob
+
+				# correct the guessess
+				u -= du
+				v -= dv
+
+				if abs(A) < 1e-12 and abs(B) < 1e-12:
+					break
+
+			var D = u**2 - 4*v # delta
+			var x1 = (-u + sqrt(D)) / 2 # new roots
+			var x2 = (-u - sqrt(D)) / 2
+			roots.append_array([x1, x2])
+
+			coeffs = polydiv(coeffs, [1, u, v])[0]
+
+			while coeffs[0] == 0:
+				coeffs.pop_front() # so the degree actually decreases
+
+		if len(coeffs) == 2:
+			roots.append(-coeffs[1]/coeffs[0])
+
+	return roots
 
 
 func polydiv(dividend: Array[float], divisor: Array[float]) -> Array[Array]:
@@ -161,10 +241,15 @@ func polydiv(dividend: Array[float], divisor: Array[float]) -> Array[Array]:
 
 
 func _ready():
-	var x: Array[float] = [1,2,3,4]
-	var dividend: Array[float] = [6,5,2,4,5]
-	var divisor: Array[float] = [2,1,3]
-	%weigths.text ="weights: " + " , ".join(x)
-	var poly: Array = create_polynomial(x)
-	%coefs.text ="coefs: " + " , ".join(poly)
-	%result.text = "result: " + str(polydiv(dividend, divisor))
+	#var x: Array[float] = [1,2,3,4]
+	#%weigths.text ="weights: " + " , ".join(x)
+
+	#var poly: Array = create_polynomial(x)
+	#%coefs.text ="coefs: " + " , ".join(poly)
+
+	#var dividend: Array[float] = [6,5,2,4,5]
+	#var divisor: Array[float] = [2,1,3]
+	#%result.text = "result: " + str(polydiv(dividend, divisor))
+
+	var barszczow: Array[float] = [-4, 6, 2,0]
+	%result.text = "result: " + " , ".join(bairstow(barszczow))

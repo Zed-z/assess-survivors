@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://60atiglgkmmo"]
+[gd_scene load_steps=2 format=3 uid="uid://tc5ugb23whwv"]
 
 [ext_resource type="Script" uid="uid://brh1ujbxrk8ru" path="res://globals/polynomial_calculator.gd" id="1_fbqiu"]
 
