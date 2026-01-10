@@ -4,7 +4,6 @@ func create_polynomial(weights: Array[float]) -> Array[float]:
 	var coefs: Array[float] = []
 
 	for i in range(len(weights)):
-		print("coef %d th" % i)
 		coefs.append(create_nth_coef(weights, i))
 
 	coefs.append(0.0)
@@ -25,11 +24,12 @@ func create_nth_coef(weights: Array[float], n: int) -> float:
 	if n == 0:
 		return product(weights)
 
-	var arrs: Array = arrays_without_n(weights,n+1)
+	var arrs: Array = arrays_without_n(weights,len(weights) - n)
 	print(arrs)
 	for j in range(len(arrs)):
 			arrs[j] = product(arrs[j])
 
+	print(arrs)
 	return sum(arrs)
 
 
@@ -81,17 +81,24 @@ func generate_variant(ctierion_array: Array[AssessCriterion]) -> Dictionary[Asse
 
 
 #calculates u(x)
-func calculate_partial_usefullness(criterion: AssessCriterion, value: float):
+func calculate_partial_usefullness(criterion: AssessCriterion, value: float) -> float:
 	var points: Array[Vector2] = criterion.point_list
 	var left_index: int = 0
 	var right_index: int = len(points) - 1
 
-	var is_falling: bool = (points[left_index] > points[right_index])
+	var is_falling: bool = (points[left_index].x > points[right_index].x)
 
-	if !is_falling:
+	#if value is below minimum or above maximum
+	if max(points[left_index].x, points[right_index].x) < value or\
+	 min(points[left_index].x, points[right_index].x) > value:
+		return -12
+
+	if is_falling:
 		pass
 	else:
 		pass
+
+	return 1.0
 
 
 #calculates U(x)
@@ -122,6 +129,10 @@ func product(arr: Array) -> float:
 		p *= x
 
 	return p
+
+
+func bairstow():
+	pass
 
 
 func _ready():
