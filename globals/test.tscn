@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://tc5ugb23whwv"]
+[gd_scene load_steps=2 format=3 uid="uid://60atiglgkmmo"]
 
 [ext_resource type="Script" uid="uid://brh1ujbxrk8ru" path="res://globals/polynomial_calculator.gd" id="1_fbqiu"]
 
@@ -14,5 +14,9 @@ unique_name_in_owner = true
 layout_mode = 2
 
 [node name="weigths" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="result" type="Label" parent="VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2

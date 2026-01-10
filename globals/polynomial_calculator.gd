@@ -135,8 +135,36 @@ func bairstow():
 	pass
 
 
+func polydiv(dividend: Array[float], divisor: Array[float]) -> Array[Array]:
+	dividend = dividend.duplicate()
+	divisor = divisor.duplicate()
+	var lead_coeff = 0
+	var deg_dividend = dividend.size() - 1
+	var deg_divisor = divisor.size() - 1
+	var quotient = []
+
+	for i in range(deg_dividend-deg_divisor+1):
+		quotient.append(0)
+
+	while dividend.size() >= divisor.size():
+		lead_coeff = dividend[0]/divisor[0]
+		quotient[dividend.size()-divisor.size()] = lead_coeff
+
+		for i in range(divisor.size()):
+			dividend[i] -= lead_coeff * divisor[i]
+
+		while dividend.size() > 0 and abs(dividend[0]) < 1e-10:
+			dividend.remove_at(0)
+
+	quotient.reverse()
+	return [quotient, dividend]
+
+
 func _ready():
 	var x: Array[float] = [1,2,3,4]
+	var dividend: Array[float] = [6,5,2,4,5]
+	var divisor: Array[float] = [2,1,3]
 	%weigths.text ="weights: " + " , ".join(x)
 	var poly: Array = create_polynomial(x)
 	%coefs.text ="coefs: " + " , ".join(poly)
+	%result.text = "result: " + str(polydiv(dividend, divisor))
