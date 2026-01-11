@@ -140,113 +140,80 @@ func product(arr: Array) -> float:
 	return p
 
 
-func bairstow(coeffs: Array[float], max_iter: int=100) -> Array[float]:
-	coeffs = coeffs.duplicate()
-	var roots: Array[float] = []
-	var g: int = len(roots) - 1
+func bairstow(coeffs: Array[float], max_iter: int=100, eps: float=1e-12) -> Array:
+	var n = len(coeffs) - 1
+	var roots = []
+	var p = -1.0
+	var q = -1.0
+	var dq = 0
+	var b = coeffs.duplicate()
 
-	while len(coeffs) > 0:
-		if len(coeffs) == 1: # no roots here
-			break
-		elif len(coeffs) == 2: # linear 
-			var root: float = -coeffs[1]/coeffs[0]
-			roots.append(root)
-			break
-		elif len(coeffs) == 3: # quadratic
-			var a = coeffs[0]
-			var b = coeffs[1]
-			var c = coeffs[2]
-			var D = b**2 - 4*a*c
-
-			if D < 0:
-				break
-
-			var root1 = (-b + sqrt(D)) / (2*a)
-			var root2 = (-b - sqrt(D)) / (2*a)
-			roots.append_array([root1, root2])
-			break
+	while n > 0:
+		if n==1:
+			roots.append(-b[1]/b[0])
+			n=0
+		elif n==2:
+			p=b[1]/b[0]
+			q=b[2]/b[0]
+			n=0
 		else:
+			# do sprawdzania poprawek w iteracji
+			var pq_err = [1e63, 1e63]
 
-			var an = coeffs[g]
-			var an_1 = coeffs[g-1]
-			var an_2 = coeffs[g-2]
-			var u = an_1 / an # initial guesses could be random as well but this should lead faster to convergence
-			var v = an_2 / an
+			for i in range(max_iter):
+				# dla jasnosci:
+				# q to zmienne pomocnicze przy dzieleniu
+				# dq dp to pochodne do poprawek
+				var q0 = 0.0
+				var q1 = 0.0
+				var q2 = b[0]
+				var q3 = b[1] - p * b[0]
 
-			# divide polynomial by x^2 + ux + v
-			for iter in range(max_iter):
-				var ret = polydiv(coeffs, [1,u,v])# quotient and remainder
-				var quot = ret[0]
-				var rem = ret[1]
+				for k in range(2, n + 1):
+					var q4 = b[k] - p*q3 - q*q2
+					dq = q2 - p*q1 - q*q0
+					q0 = q1
+					q1 = dq
+					q2 = q3
+					q3 = q4
 
-				while len(rem) < 2: #TODO: napewno są lepsze alternatywy
-					rem.push_front(0)
+				var det = q1 * q1 + (q * q0 + p * q1) * q0
 
-				var A = rem[-2]
-				var B = rem[-1]
-				var b = quot
-
-				while len(b) < len(coeffs)-1:
-					b = [0] + b
-
-				# jacobian matrix equivalent i think
-				var c2 = b[0]
-				var c1 = b[1] + u*c2
-				var c0 = b[2] + u*c1 + v*c2
-				var denom_jacob = c1**2 - c0*c2 # jacobian denominator
-				# newton iteration step
-				if abs(denom_jacob) < 1e-14:
-					denom_jacob = 1e-14 # avoid division by zero
-
-				var du = (A*c1 - B*c2) / denom_jacob
-				var dv = (B*c0 - A*c1) / denom_jacob
-
-				# correct the guessess
-				u -= du
-				v -= dv
-
-				if abs(A) < 1e-12 and abs(B) < 1e-12:
+				if abs(det)<1e-18:
 					break
 
-			var D = u**2 - 4*v # delta
-			var x1 = (-u + sqrt(D)) / 2 # new roots
-			var x2 = (-u - sqrt(D)) / 2
-			roots.append_array([x1, x2])
+				var dp = (q1 * q2 - q0 * q3) / det
+				dq = ((q * q0 + p * q1) * q2 + q1 * q3) / det
 
-			coeffs = polydiv(coeffs, [1, u, v])[0]
+				if abs(dp) < eps and abs(dq) < eps:
+					p+=dp
+					q+=dq
+					break
 
-			while coeffs[0] == 0:
-				coeffs.pop_front() # so the degree actually decreases
+				if abs(dp) < pq_err[0] or abs(dq) < pq_err[1]:
+					p = p+dp
+					q = q+dq
+					pq_err = [abs(dp), abs(dq)]
+				else:
+					break
 
-		if len(coeffs) == 2:
-			roots.append(-coeffs[1]/coeffs[0])
+			var new_b = [b[0]]
 
+			if n>2:
+				new_b.append(b[1] - p * b[0])
+				for k in range(2, n - 1):
+					new_b.append(b[k] - p * new_b[k-1] - q * new_b[k-2])
+
+			b = new_b
+			n = n - 2
+
+		if n >= 0:
+			var d = p*p - 4*q
+			roots.append((-p+sqrt(d))/2)
+			roots.append((-p-sqrt(d))/2)
+
+	roots.resize(coeffs.size() - 1)
 	return roots
-
-
-func polydiv(dividend: Array[float], divisor: Array[float]) -> Array[Array]:
-	dividend = dividend.duplicate()
-	divisor = divisor.duplicate()
-	var lead_coeff = 0
-	var deg_dividend = dividend.size() - 1
-	var deg_divisor = divisor.size() - 1
-	var quotient = []
-
-	for i in range(deg_dividend-deg_divisor+1):
-		quotient.append(0)
-
-	while dividend.size() >= divisor.size():
-		lead_coeff = dividend[0]/divisor[0]
-		quotient[dividend.size()-divisor.size()] = lead_coeff
-
-		for i in range(divisor.size()):
-			dividend[i] -= lead_coeff * divisor[i]
-
-		while dividend.size() > 0 and abs(dividend[0]) < 1e-10:
-			dividend.remove_at(0)
-
-	quotient.reverse()
-	return [quotient, dividend]
 
 
 func _ready():
@@ -260,9 +227,10 @@ func _ready():
 	#var divisor: Array[float] = [2,1,3]
 	#%result.text = "result: " + str(polydiv(dividend, divisor))
 
-	#var barszczow: Array[float] = [-4, 6, 2,0]
-	#%result.text = "result: " + " , ".join(bairstow(barszczow))
+	var barszczow: Array[float] = [1, -10, 35, -50, 24]
 
-	var t: Array[Vector2] = [Vector2(10.0, 0.0), Vector2(6.0, 0.2),Vector2(2.0, 0.6),Vector2(1.0, 0.7),Vector2(0.0, 1.0)]
+	%result.text = "result: " + " , ".join(bairstow(barszczow))
 
-	%weigths.text = str(calculate_partial_usefullness(t,5.0))
+	#var t: Array[Vector2] = [Vector2(10.0, 0.0), Vector2(6.0, 0.2),Vector2(2.0, 0.6),Vector2(1.0, 0.7),Vector2(0.0, 1.0)]
+
+	#%weigths.text = str(calculate_partial_usefullness(t,5.0))
