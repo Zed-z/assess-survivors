@@ -15,8 +15,8 @@ signal question_changed(question: Question)
 @export_range(1,10,0.1,"or_greater") var value_mult: float = 1 # multiplicative value used for increasing interval
 @export var phases: Array[float] = [1/3.0, 2/3.0] # floats describing points in newly added interval
 #do not touch those values unless, you know what you are doing
-var UTILITY_MIN: float = 0
-var UTILITY_MAX: float = 1
+const UTILITY_MIN: float = 0
+const UTILITY_MAX: float = 1
 
 signal weight_changed(weight: float)
 var weight: float = 0.5:
