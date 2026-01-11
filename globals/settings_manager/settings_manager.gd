@@ -23,8 +23,6 @@ var settings = default_settings.duplicate(true)
 
 func from_json(data: Dictionary, path_prefix: String = ""):
 
-	settings = default_settings.duplicate(true)
-
 	for key in data:
 		var key_path = path_prefix + key
 		var val = data.get(key)
@@ -98,10 +96,18 @@ func save(path: String = "user://settings.json"):
 
 func load_settings(path: String = "user://settings.json"):
 
+	settings = default_settings.duplicate(true)
+
 	if not FileAccess.file_exists(path):
 		return
 
 	var file := FileAccess.open(path, FileAccess.READ)
+
+	if not file:
+		var err = FileAccess.get_open_error()
+		print("Failed to open file! Error code: ", err)
+		return
+
 	var data = JSON.parse_string(file.get_line())
 	from_json(data)
 
