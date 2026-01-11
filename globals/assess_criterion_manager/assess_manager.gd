@@ -24,8 +24,8 @@ func init_choice_panel() -> ChoicePanel:
 			if choice_panel.criterion != null:
 				choice_panel.question = choice_panel.criterion.get_question()
 
-				if not SettingsManager.get_setting("popup/choice_criterion"):
-					SettingsManager.set_setting("popup/choice_criterion", true)
+				if not SettingsManager.get_setting("tutorial/choice_criterion"):
+					SettingsManager.set_setting("tutorial/choice_criterion", true)
 					var p := OkPopup.instantiate(choice_panel)
 					#TODO: translate
 					p.title = "First phase"
@@ -41,8 +41,8 @@ func init_choice_panel() -> ChoicePanel:
 			if choice_panel.question != null:
 				choice_panel.criterion = get_weight_criterion()
 
-				if not SettingsManager.get_setting("popup/choice_weight"):
-					SettingsManager.set_setting("popup/choice_weight", true)
+				if not SettingsManager.get_setting("tutorial/choice_weight"):
+					SettingsManager.set_setting("tutorial/choice_weight", true)
 					var p := OkPopup.instantiate(choice_panel)
 					#TODO: translate
 					p.title = "Second phase"
@@ -58,8 +58,8 @@ func init_choice_panel() -> ChoicePanel:
 			choice_panel.question = Question.new(MultiLottery.new(l,1,l),MultiLottery.new(l,1,l))
 			choice_panel.criterion = criteria[0]
 
-			if not SettingsManager.get_setting("popup/choice_final"):
-					SettingsManager.set_setting("popup/choice_final", true)
+			if not SettingsManager.get_setting("tutorial/choice_final"):
+					SettingsManager.set_setting("tutorial/choice_final", true)
 					var p := OkPopup.instantiate(choice_panel)
 					#TODO: translate
 					p.title = "Final phase"

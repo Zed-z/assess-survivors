@@ -81,7 +81,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="General" type="Control" parent="Panel"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -139,6 +138,11 @@ script = ExtResource("6_nrojl")
 layout_mode = 2
 text = "SETTINGS_GENERAL_LANGUAGE_JA"
 script = ExtResource("7_cbb5h")
+
+[node name="ButtonResetTutorials" type="Button" parent="Panel/General/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "SETTINGS_GENERAL_RESET_TUTORIALS"
 
 [node name="Video" type="Control" parent="Panel"]
 visible = false
@@ -263,6 +267,7 @@ layout_mode = 2
 audio_bus = "Effects"
 
 [node name="Credits" type="Control" parent="Panel"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -537,3 +542,4 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
 [connection signal="pressed" from="Panel/General/VBoxContainer/MarginContainer/HBoxContainer/ButtonPL" to="Panel/General/VBoxContainer/MarginContainer/HBoxContainer/ButtonPL" method="_on_pressed"]
 [connection signal="pressed" from="Panel/General/VBoxContainer/MarginContainer/HBoxContainer/ButtonDE" to="Panel/General/VBoxContainer/MarginContainer/HBoxContainer/ButtonDE" method="_on_pressed"]
 [connection signal="pressed" from="Panel/General/VBoxContainer/MarginContainer/HBoxContainer/ButtonNH" to="Panel/General/VBoxContainer/MarginContainer/HBoxContainer/ButtonNH" method="_on_pressed"]
+[connection signal="pressed" from="Panel/General/VBoxContainer/ButtonResetTutorials" to="." method="_on_button_reset_tutorials_pressed"]

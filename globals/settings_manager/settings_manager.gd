@@ -1,6 +1,6 @@
 extends Node2D
 
-var settings: Dictionary = {
+var default_settings: Dictionary = {
 	"audio": {
 		"volume_Master": 1.0,
 		"volume_Music": 1.0,
@@ -11,15 +11,19 @@ var settings: Dictionary = {
 		"screen_shake": true,
 	},
 	"language": OS.get_locale_language(),
-	"popup": {
+	"tutorial": {
 		"choice_criterion": false,
 		"choice_weight": false,
 		"choice_final": false,
 	}
 }
 
+var settings = default_settings.duplicate(true)
+
 
 func from_json(data: Dictionary, path_prefix: String = ""):
+
+	settings = default_settings.duplicate(true)
 
 	for key in data:
 		var key_path = path_prefix + key
@@ -70,6 +74,21 @@ func get_setting(path: String) -> Variant:
 		key = key.get(p)
 
 	return key
+
+
+func reset_setting(path: String, _save: bool = true) -> void:
+	var path_array: PackedStringArray = path.split("/")
+	var key = settings
+	var key_default = default_settings
+
+	for p in path_array.slice(0, -1):
+		key = key.get(p)
+		key_default = key_default.get(p)
+
+	key.set(path_array[-1], key_default.get(path_array[-1]))
+
+	if _save:
+		save()
 
 
 func save(path: String = "user://settings.json"):
