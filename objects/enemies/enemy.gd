@@ -5,17 +5,23 @@ var target: Player
 @export var move_controller: MoveController
 @export var move_animation: AnimatedSprite2D
 
-@export var contact_dmg: int = 1
+@export var shooter: BasicShooter
+
+@export var contact_dmg: float = 1
 
 var wave_number: int
 
 
-func get_contact_dmg() -> int:
+func get_contact_dmg() -> float:
 	return contact_dmg
 
 
 func scale_enemy(scaler: BaseEnemyScaler):
 	contact_dmg *= scaler.get_attack_scale()
+	$HealthComponent.new_max_health($HealthComponent.health * scaler.get_health_scale())
+
+	if shooter != null:
+		shooter.damage *= scaler.get_attack_scale()
 
 
 func _ready() -> void:

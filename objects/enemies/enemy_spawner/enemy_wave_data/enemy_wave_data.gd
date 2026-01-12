@@ -27,6 +27,11 @@ class_name WaveData
 
 @export var scaling: BaseEnemyScaler
 
+@export_subgroup("endless_wave_increase")
+
+@export var enemies_per_munite_incease: int = 0
+@export var enemy_cap_increase: int =0
+
 
 func get_status(enemies_killed: int, time: float) -> String:
 	if kill_all_enemies:

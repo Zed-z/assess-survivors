@@ -5,7 +5,7 @@ class_name BasicShooter
 @export var shoot_coldown: float
 @onready var timer: Timer = $Timer
 @export var projectile_speed :int = 40
-@export var damage : int = 1
+@export var damage : float = 1
 
 
 func _ready() -> void:

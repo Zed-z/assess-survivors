@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="WaveData" load_steps=7 format=3 uid="uid://xwlx3voi5wuu"]
+[gd_resource type="Resource" script_class="WaveData" load_steps=9 format=3 uid="uid://xwlx3voi5wuu"]
 
 [ext_resource type="Script" uid="uid://dmbi1icxkymxl" path="res://objects/enemies/enemy_spawner/enemy_wave_data/wave_touple.gd" id="1_m7k4o"]
 [ext_resource type="PackedScene" uid="uid://bbp8p6r1nw1f0" path="res://objects/enemies/enemy_scenes/enemy_walker.tscn" id="2_u04lc"]
 [ext_resource type="PackedScene" uid="uid://b6mxutcmgdjsk" path="res://objects/enemies/enemy_scenes/enemy_slime.tscn" id="3_713lb"]
 [ext_resource type="Script" uid="uid://cd06aok4ajl3c" path="res://objects/enemies/enemy_spawner/enemy_wave_data/enemy_wave_data.gd" id="4_mmmdy"]
+[ext_resource type="Script" uid="uid://b3iagr3n10lfe" path="res://objects/enemies/enemy_spawner/enemy_wave_data/wave_scaling/const_wave_scalercaler.gd" id="4_u04lc"]
 
 [sub_resource type="Resource" id="Resource_epad6"]
 script = ExtResource("1_m7k4o")
@@ -17,6 +18,11 @@ probability = 0.25
 scene = ExtResource("3_713lb")
 metadata/_custom_type_script = "uid://dmbi1icxkymxl"
 
+[sub_resource type="Resource" id="Resource_713lb"]
+script = ExtResource("4_u04lc")
+health_scaling = 2.0
+metadata/_custom_type_script = "uid://b3iagr3n10lfe"
+
 [resource]
 script = ExtResource("4_mmmdy")
 enemies_per_minute = 20
@@ -24,4 +30,5 @@ enemy_cap = 10
 enemies_to_spawn = 10
 kill_all_enemies = true
 enemies = Array[ExtResource("1_m7k4o")]([SubResource("Resource_epad6"), SubResource("Resource_wxxdg")])
+scaling = SubResource("Resource_713lb")
 metadata/_custom_type_script = "uid://cd06aok4ajl3c"

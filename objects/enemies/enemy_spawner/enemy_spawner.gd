@@ -25,6 +25,8 @@ var enemies_array: SwapbackArray
 @onready var enemy_spawn_timer: Timer = $EnemySpawnTimer
 @onready var spawnable_area: CollisionPolygon2D = $SpawnableArea
 
+var endles_wave_timer : Timer
+
 
 func _unhandled_input(event: InputEvent) -> void:
 
@@ -71,7 +73,22 @@ func new_wave():
 		spawned_enemies = 0
 
 		if data.is_endless:
+			assert(not current_wave_data.kill_all_enemies, "endless wave cannot demmand player kills all enemies")
 			use_timer = false
+			endles_wave_timer = Timer.new()
+			endles_wave_timer.autostart = true
+			endles_wave_timer.wait_time = 10
+
+
+			endles_wave_timer.timeout.connect(func x():
+				current_wave_data.enemies_per_minute += current_wave_data.enemies_per_munite_incease
+				current_wave_data.enemy_cap += current_wave_data.enemy_cap_increase
+				print("values scaled")
+				enemy_spawn_timer.wait_time = 60.0 / current_wave_data.enemies_per_minute
+
+				)
+
+			add_child(endles_wave_timer)
 		elif data.kill_all_enemies:
 			use_timer = false
 		elif data.wave_duration > 0:
@@ -139,7 +156,8 @@ func spawn_enemy():
 		return
 
 	#all enemies that belonged to the wave have been spawned
-	if spawned_enemies >= current_wave_data.enemies_to_spawn and current_wave_data.enemies_to_spawn > 0:
+	if spawned_enemies >= current_wave_data.enemies_to_spawn and current_wave_data.enemies_to_spawn > 0 \
+	and current_wave_data.kill_all_enemies:
 		return
 
 	spawned_enemies += 1
@@ -149,7 +167,7 @@ func spawn_enemy():
 
 	var scaler = current_wave_data.scaling
 
-
+	e.scale_enemy(scaler)
 
 	#a crude way of making enemies appear only on land
 	#ALERT: will not work when map is small

@@ -1257,9 +1257,10 @@ animations = [{
 "speed": 8.0
 }]
 
-[node name="Enemy" node_paths=PackedStringArray("move_controller", "move_animation") instance=ExtResource("1_5mbmq")]
+[node name="Enemy" node_paths=PackedStringArray("move_controller", "move_animation", "shooter") instance=ExtResource("1_5mbmq")]
 move_controller = NodePath("WalkingBushMoveCantroler")
 move_animation = NodePath("SpriteContainer/AnimatedSprite2D")
+shooter = NodePath("shooter_with_consent")
 
 [node name="shooter_with_consent" type="Node2D" parent="." index="0"]
 script = ExtResource("2_wmlyl")

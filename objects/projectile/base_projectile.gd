@@ -2,7 +2,7 @@ extends Area2D
 class_name BaseProjectile
 
 var direction: Vector2
-var damage: int
+var damage: float
 
 @export var speed: float = 1
 @export var rotates: bool = true

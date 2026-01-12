@@ -1,8 +1,8 @@
 extends BaseEnemyScaler
 class_name ConstWaveScaler
 
-@export var health_scaling: float
-@export var attack_scaling: float
+@export var health_scaling: float = 1
+@export var attack_scaling: float = 1
 
 
 func get_health_scale() -> float:
