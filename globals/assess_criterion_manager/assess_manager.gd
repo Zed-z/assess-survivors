@@ -23,6 +23,15 @@ func init_choice_panel() -> ChoicePanel:
 
 			if choice_panel.criterion != null:
 				choice_panel.question = choice_panel.criterion.get_question()
+
+				if not SettingsManager.get_setting("tutorial/choice_criterion"):
+					SettingsManager.set_setting("tutorial/choice_criterion", true)
+					var p := OkPopup.instantiate(choice_panel)
+					#TODO: translate
+					p.title = "First phase"
+
+					p.text = "Choose your reward!\nYou'll get a bonus for one of your stats."
+
 			else:
 				phase = GamePhases.WEIGHTS
 
@@ -31,6 +40,14 @@ func init_choice_panel() -> ChoicePanel:
 
 			if choice_panel.question != null:
 				choice_panel.criterion = get_weight_criterion()
+
+				if not SettingsManager.get_setting("tutorial/choice_weight"):
+					SettingsManager.set_setting("tutorial/choice_weight", true)
+					var p := OkPopup.instantiate(choice_panel)
+					#TODO: translate
+					p.title = "Second phase"
+
+					p.text = "Choose your reward!\nYou can choose a certain award,\nor risk it for a boost of every stat!"
 			else:
 				phase = GamePhases.FINAL
 
@@ -40,6 +57,14 @@ func init_choice_panel() -> ChoicePanel:
 			var l = get_most_u_on_all()
 			choice_panel.question = Question.new(MultiLottery.new(l,1,l),MultiLottery.new(l,1,l))
 			choice_panel.criterion = criteria[0]
+
+			if not SettingsManager.get_setting("tutorial/choice_final"):
+					SettingsManager.set_setting("tutorial/choice_final", true)
+					var p := OkPopup.instantiate(choice_panel)
+					#TODO: translate
+					p.title = "Final phase"
+
+					p.text = "Choose your reward!\nNow there are many choices that affect everything!\nThe game will assist you in making a decision\nbased on your previous choices."
 
 	choice_panel.phase = phase
 	return choice_panel
@@ -196,17 +221,19 @@ func weight_step(answer: AssessCriterion.Answer) -> WeightStepAnswer:
 	return step_answer
 
 
+func next_phase():
+	match phase:
+		GamePhases.CRITERION:
+			phase = GamePhases.WEIGHTS
+
+		GamePhases.WEIGHTS:
+			phase = GamePhases.FINAL
+
+		GamePhases.FINAL:
+			pass
+
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("force_endgame"):
+		next_phase()
 		print("switched to next phase")
-		match phase:
-			GamePhases.CRITERION:
-				GlobalInfo.assess_manager.phase = GamePhases.WEIGHTS
-
-			GamePhases.WEIGHTS:
-				GlobalInfo.assess_manager.phase = GamePhases.FINAL
-
-			GamePhases.FINAL:
-				pass
-				# I don't know if switching back would be cool
-				# so I'm not implementing it here

@@ -3,16 +3,6 @@ extends Control
 
 func _ready() -> void:
 
-	var yesno := YesNoPopup.instantiate(self)
-	yesno.text = "what"
-
-	var ret: PopupReturnValue = await yesno.closed
-
-	if ret.data:
-		var ok := OkPopup.instantiate(self)
-		ok.text = "you pressed yes"
-		await ok.closed
-
 	%ButtonPlay.grab_focus()
 
 	match OS.get_name():

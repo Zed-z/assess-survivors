@@ -16,3 +16,7 @@ layout_mode = 2
 [node name="weigths" type="Label" parent="VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+
+[node name="result" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2

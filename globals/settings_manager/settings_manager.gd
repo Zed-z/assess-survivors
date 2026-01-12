@@ -1,6 +1,6 @@
 extends Node2D
 
-var settings: Dictionary = {
+var default_settings: Dictionary = {
 	"audio": {
 		"volume_Master": 1.0,
 		"volume_Music": 1.0,
@@ -10,8 +10,15 @@ var settings: Dictionary = {
 		"fullscreen": false,
 		"screen_shake": true,
 	},
-	"language": OS.get_locale_language()
+	"language": OS.get_locale_language(),
+	"tutorial": {
+		"choice_criterion": false,
+		"choice_weight": false,
+		"choice_final": false,
+	}
 }
+
+var settings = default_settings.duplicate(true)
 
 
 func from_json(data: Dictionary, path_prefix: String = ""):
@@ -67,6 +74,21 @@ func get_setting(path: String) -> Variant:
 	return key
 
 
+func reset_setting(path: String, _save: bool = true) -> void:
+	var path_array: PackedStringArray = path.split("/")
+	var key = settings
+	var key_default = default_settings
+
+	for p in path_array.slice(0, -1):
+		key = key.get(p)
+		key_default = key_default.get(p)
+
+	key.set(path_array[-1], key_default.get(path_array[-1]))
+
+	if _save:
+		save()
+
+
 func save(path: String = "user://settings.json"):
 	var file := FileAccess.open(path, FileAccess.WRITE)
 	file.store_line(to_json())
@@ -74,10 +96,18 @@ func save(path: String = "user://settings.json"):
 
 func load_settings(path: String = "user://settings.json"):
 
+	settings = default_settings.duplicate(true)
+
 	if not FileAccess.file_exists(path):
 		return
 
 	var file := FileAccess.open(path, FileAccess.READ)
+
+	if not file:
+		var err = FileAccess.get_open_error()
+		print("Failed to open file! Error code: ", err)
+		return
+
 	var data = JSON.parse_string(file.get_line())
 	from_json(data)
 

@@ -72,3 +72,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_page_down"):
 		get_viewport().set_input_as_handled()
 		tab_next()
+
+
+func _on_button_reset_tutorials_pressed() -> void:
+	SettingsManager.reset_setting("tutorial")
