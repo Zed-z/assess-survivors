@@ -33,11 +33,8 @@ func point_inbetween() -> void:
 		val -= phases[CUR_phase - 1]
 		val /= (1-phases[CUR_phase-1])
 
-	print(val)
 	var new_x = point_list[-2].x*(1-val) + point_list[-1].x*val
-	print(new_x)
 	var a: float = (new_x-point_list[-2].x)/(point_list[-1].x - point_list[-2].x)
-	print(a)
 	var point = Vector2(
 		new_x,
 		point_list[-2].y*(1-a) + point_list[-1].y*a
@@ -49,8 +46,6 @@ func point_inbetween() -> void:
 
 
 func preferred_none():
-	print("vv")
-	print(point_list)
 	point_list[-2].y = point_list[-2].y * point_list[-1].y + (1-point_list[-2].y) * point_list[-3].y
 
 
