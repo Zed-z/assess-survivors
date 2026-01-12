@@ -90,7 +90,7 @@ func step(answer: Answer) -> StepAnswer:
 			do_preferred_none()
 			dialog_answers_count = 0
 
-	if dialog_answers_count > MAX_dialog_answers:
+	if MAX_dialog_answers >= 0 and dialog_answers_count > MAX_dialog_answers:
 		do_preferred_none()
 		dialog_answers_count = 0
 

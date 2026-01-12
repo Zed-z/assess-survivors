@@ -1,12 +1,11 @@
 extends AssessCriterion
-class_name AssessCriterionLottery
+class_name AssessCriterionLotteryComparison
 @export var left_probability: float = 0.75
 
 
 func preferred_right(): #jeśli wybral L(MAX, prob_i, MIN) pogorsz prob_i
 	right_bound = point_list[-2].y
 	point_list[-2].y = (left_bound + point_list[-2].y) / 2
-	#pewniak się robi jako (min_value + pewniak) / 2
 
 
 func preferred_left(): #jeśli wybral L( x_i, LP, MIN) to polepsz prob_i 
@@ -15,7 +14,10 @@ func preferred_left(): #jeśli wybral L( x_i, LP, MIN) to polepsz prob_i
 
 
 func preferred_none(): #jesli obojetnie to przeskaluj
+	#print("lc")
+	#print(point_list)
 	point_list[-2].y /= left_probability
+	#print(point_list[-2].y)
 
 
 func set_bound():
