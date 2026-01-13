@@ -3,7 +3,7 @@ class_name Polynomials_calculator
 
 
 #function used to create polynomial coeficients from weights
-func create_polynomial(weights: Array[float]) -> Array[float]:
+static func create_polynomial(weights: Array[float]) -> Array[float]:
 	var coefs: Array[float] = []
 
 	for i in range(len(weights)):
@@ -17,7 +17,7 @@ func create_polynomial(weights: Array[float]) -> Array[float]:
 #args:
 #weights - list of weigths
 #n - ...
-func create_nth_coef(weights: Array[float], n: int) -> float:
+static func create_nth_coef(weights: Array[float], n: int) -> float:
 	if n > len(weights):
 		assert(false, "not the correct n")
 
@@ -36,7 +36,7 @@ func create_nth_coef(weights: Array[float], n: int) -> float:
 	return sum(arrs)
 
 
-func to_binary(intValue: int, bin_len: int) -> String:
+static func to_binary(intValue: int, bin_len: int) -> String:
 	var bin_str: String = ""
 
 	while intValue > 0:
@@ -50,7 +50,7 @@ func to_binary(intValue: int, bin_len: int) -> String:
 
 
 #generate combinations:
-func arrays_without_n(arr: Array, n: int) -> Array:
+static func arrays_without_n(arr: Array, n: int) -> Array:
 	var all_combs = []
 
 	for i in range(2**len(arr)):
@@ -73,7 +73,7 @@ func arrays_without_n(arr: Array, n: int) -> Array:
 	return all_combs
 
 
-func generate_variant(ctierion_array: Array[AssessCriterion]) -> Dictionary[AssessCriterion, float]:
+static func generate_variant(ctierion_array: Array[AssessCriterion]) -> Dictionary[AssessCriterion, float]:
 	var variant: Dictionary[AssessCriterion, float] = {}
 
 	for criterion in ctierion_array:
@@ -84,7 +84,7 @@ func generate_variant(ctierion_array: Array[AssessCriterion]) -> Dictionary[Asse
 
 
 #calculates u(x)
-func calculate_partial_usefullness(u_graph: Array[Vector2], value: float) -> float:
+static func calculate_partial_usefullness(u_graph: Array[Vector2], value: float) -> float:
 	var graph = u_graph.duplicate()
 	var left_index: int = 0
 	var right_index: int = len(graph) - 1
@@ -114,7 +114,7 @@ func calculate_partial_usefullness(u_graph: Array[Vector2], value: float) -> flo
 
 
 #calculates U(x)
-func calculate_global_usefullness(K: float, variant: Dictionary[AssessCriterion, float]):
+static func calculate_global_usefullness(K: float, variant: Dictionary[AssessCriterion, float]):
 	var p: float = 1.0
 
 	for key in variant:
@@ -124,7 +124,7 @@ func calculate_global_usefullness(K: float, variant: Dictionary[AssessCriterion,
 
 
 #sums elements of an array
-func sum(arr: Array) -> float:
+static func sum(arr: Array) -> float:
 	var s: float = 0
 
 	for x in arr:
@@ -134,7 +134,7 @@ func sum(arr: Array) -> float:
 
 
 # multiplies elements of an array
-func product(arr: Array) -> float:
+static func product(arr: Array) -> float:
 	var p: float = 1
 
 	for x in arr:
@@ -143,7 +143,7 @@ func product(arr: Array) -> float:
 	return p
 
 
-func bairstow(coeffs: Array[float], max_iter: int=100, eps: float=1e-12) -> Array:
+static func bairstow(coeffs: Array[float], max_iter: int=100, eps: float=1e-12) -> Array:
 	var n = len(coeffs) - 1
 	var roots = []
 	var p = -1.0

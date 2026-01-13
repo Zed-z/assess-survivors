@@ -13,12 +13,12 @@ var weight_index: int
 enum GamePhases {CRITERION, WEIGHTS, FINAL}
 var phase: GamePhases = GamePhases.CRITERION
 
-var PolynomialCalculator: Polynomials_calculator = Polynomials_calculator.new()
 var K: float
 
 
-func init_choice_panel() -> ChoicePanel:
+func init_choice_panel() -> Node:
 	var choice_panel: ChoicePanel = ObjectManager.instantiate(ObjectManager.OBJ_CHOICE_PANEL)
+	var final_panel: ChoicePanelFinal = ObjectManager.instantiate(ObjectManager.OBJ_FINAL_PANEL)
 
 	match phase:
 		GamePhases.CRITERION:
@@ -59,9 +59,10 @@ func init_choice_panel() -> ChoicePanel:
 			#TODO create view
 			var variants: Array[Dictionary]
 			for i in range(10):
-				variants.append(PolynomialCalculator.generate_variant(criteria))
-				print("======")
-				print(variants[-1])
+				variants.append(Polynomials_calculator.generate_variant(criteria))
+
+			final_panel.variants = variants
+			final_panel.K = K
 
 			if not SettingsManager.get_setting("tutorial/choice_final"):
 					SettingsManager.set_setting("tutorial/choice_final", true)
@@ -70,6 +71,8 @@ func init_choice_panel() -> ChoicePanel:
 					p.title = "Final phase"
 
 					p.text = "Choose your reward!\nNow there are many choices that affect everything!\nThe game will assist you in making a decision\nbased on your previous choices."
+
+			return final_panel
 
 	choice_panel.phase = phase
 	return choice_panel
@@ -84,8 +87,8 @@ func _init_final_phase() -> void:
 	for c in criteria:
 		weights_array.append(c.weight)
 
-	var polynomial: Array[float] = PolynomialCalculator.create_polynomial(weights_array)
-	var potential_K: Array = PolynomialCalculator.bairstow(polynomial).filter(func(x): return x != 0)
+	var polynomial: Array[float] = Polynomials_calculator.create_polynomial(weights_array)
+	var potential_K: Array = Polynomials_calculator.bairstow(polynomial).filter(func(x): return x != 0)
 	assert(len(potential_K) != 0, "No K avaialable")
 	K = potential_K[0]
 
