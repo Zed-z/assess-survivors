@@ -1,4 +1,7 @@
 extends Node
+class_name Polynomials_calculator
+
+
 #function used to create polynomial coeficients from weights
 func create_polynomial(weights: Array[float]) -> Array[float]:
 	var coefs: Array[float] = []

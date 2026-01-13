@@ -241,4 +241,7 @@ func setup() -> void:
 
 	do_point_inbetween()
 	_question_init()
-	#print(point_list)
+
+
+func _to_string() -> String:
+	return criterion_name
