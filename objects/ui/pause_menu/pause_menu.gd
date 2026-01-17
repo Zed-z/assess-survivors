@@ -2,17 +2,13 @@ extends Control
 
 
 func _ready() -> void:
-	get_tree().paused = true
+	PauseManager.pause()
 	$SoundOpenClose.play()
-
-
-func _on_tree_exiting() -> void:
-	get_tree().paused = false
 
 
 func close() -> void:
 	visible = false
-	get_tree().paused = false
+	PauseManager.unpause()
 	$SoundOpenClose.play()
 	await $SoundOpenClose.finished
 	queue_free()

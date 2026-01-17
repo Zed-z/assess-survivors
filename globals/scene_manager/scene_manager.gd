@@ -24,7 +24,7 @@ func change_scene(
 
 func _on_scene_transition_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "fade_out":
-		get_tree().paused = true
+		PauseManager.pause()
 		currently_loading = true
 
 
@@ -38,5 +38,5 @@ func _physics_process(_delta: float) -> void:
 			%SceneTransition/AnimationPlayer.play("fade_in")
 			current_scene = next_scene
 			next_scene = ""
-			get_tree().paused = false
+			PauseManager.unpause()
 			currently_loading = false

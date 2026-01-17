@@ -46,7 +46,7 @@ func _ready() -> void:
 
 	if pause_tree:
 		if not Engine.is_editor_hint():
-			get_tree().paused = true
+			PauseManager.pause()
 
 var titlebar_mouse_hovering: bool = false
 var titlebar_mouse_offset: Vector2 = Vector2.ZERO
@@ -76,7 +76,7 @@ func _input(event: InputEvent) -> void:
 func _exit_tree() -> void:
 	if pause_tree:
 		if not Engine.is_editor_hint():
-			get_tree().paused = false
+			PauseManager.unpause()
 
 
 func close():

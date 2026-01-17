@@ -17,7 +17,7 @@ var tween_or: Tween
 
 
 func _ready() -> void:
-	get_tree().paused = true
+	PauseManager.pause()
 
 	if question == null:
 		queue_free()
@@ -47,7 +47,7 @@ func _ready() -> void:
 
 
 func _exit_tree() -> void:
-	get_tree().paused = false
+	PauseManager.unpause()
 
 
 func anim_choose_left(answer) -> void:
