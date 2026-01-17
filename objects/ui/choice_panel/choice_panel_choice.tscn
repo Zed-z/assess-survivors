@@ -134,8 +134,8 @@ fill_mode = 4
 nine_patch_stretch = true
 texture_under = ExtResource("5_x37fy")
 texture_progress = ExtResource("5_x37fy")
-tint_under = Color(1, 1, 0.3764706, 1)
-tint_progress = Color(0.15294118, 0.29803923, 1, 1)
+tint_under = Color(0.30133337, 0.23515338, 0.15950441, 1)
+tint_progress = Color(0.3856095, 0.45270336, 0.28171015, 1)
 
 [node name="LotteryNail" type="TextureRect" parent="VBoxContainer/IconContainer/Lottery"]
 custom_minimum_size = Vector2(400, 400)
