@@ -222,6 +222,10 @@ func _calculate_risk_factor() -> float:
 	return(_area_under_graph() - perfectline) / perfectline
 
 
+func specific_setup()->void:
+	pass
+
+
 func setup() -> void:
 	point_list = [
 		Vector2(min_value, UTILITY_MIN),
@@ -239,6 +243,7 @@ func setup() -> void:
 	METRIC_count_weight = 0
 	METRIC_expand_count = 0
 
+	specific_setup()
 	do_point_inbetween()
 	_question_init()
 
