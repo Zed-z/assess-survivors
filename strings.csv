@@ -67,3 +67,9 @@ RISKINESS_SAFE,Safe,Bezpieczny,Sicher,安全
 RISKINESS_SLIGHTLY_SAFE,Slightly Safe,Nieco Bezpieczny,Etwas Sicher,やや安全
 RISKINESS_VERY_SAFE,Very Safe,Bardzo Bezpieczny,Sehr Sicher,とても安全
 ASSESS_WEIGHT,Weight: %s,Waga: %s,Gewicht: %s,重さ: %s
+TUTORIAL_CHOICE_CRITERION_TITLE,Criterion Choice,Wybór Kryterium,Kriterium Wahl,???
+TUTORIAL_CHOICE_CRITERION_BODY,"Choose your reward!\nYou'll get a bonus for one of your stats.",Wybierz swoją nagrodę!\nOtrzymasz bonus do jednej ze swoich statystyk.,Wähle deine Belohnung!\nDu erhältst einen Bonus für eine deiner Statistiken.,???
+TUTORIAL_CHOICE_WEIGHT_TITLE,Weight Choice,Wybór Wagi,Gewicht Wahl,???
+TUTORIAL_CHOICE_WEIGHT_BODY,"Choose your reward!\nYou can choose a certain award,\nor risk it for a boost of every stat!","Wybierz swoją nagrodę!\nMożesz wybrać pewną nagrodę,\nlub zaryzykować i otrzymać bonus do każdej statystyki!","Wähle deine Belohnung!\nDu kannst eine sichere Belohnung wählen,\noder es riskieren und einen Boost für jede Statistik erhalten!",???
+TUTORIAL_CHOICE_FINAL_TITLE,Assisted Choice,Wybór Wspomagany,Unterstützte Wahl,???
+TUTORIAL_CHOICE_FINAL_BODY,"This time, you can choose out of many\nmulti-stat rewards!\nYou will be recommended rewards\nbased on your preferences.","Tym razem możesz wybrać spośród wielu\nwielostatystycznych nagród!\nZostaną Ci polecone nagrody\nna podstawie Twoich preferencji.","Diesmal kannst du aus vielen\nmehrstatistischen Belohnungen wählen!\nDir werden Belohnungen empfohlen,\nbasierend auf deinen Vorlieben.",???

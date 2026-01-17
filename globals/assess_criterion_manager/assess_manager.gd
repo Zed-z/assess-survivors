@@ -30,10 +30,8 @@ func init_choice_panel() -> Node:
 				if SettingsManager.get_setting("tutorial_enabled") and not SettingsManager.get_setting("tutorial/choice_criterion"):
 					SettingsManager.set_setting("tutorial/choice_criterion", true)
 					var p := OkPopup.instantiate(choice_panel)
-					#TODO: translate
-					p.title = "First phase"
-
-					p.text = "Choose your reward!\nYou'll get a bonus for one of your stats."
+					p.title = tr("TUTORIAL_CHOICE_CRITERION_TITLE")
+					p.text = tr("TUTORIAL_CHOICE_CRITERION_BODY")
 
 			else:
 				phase = GamePhases.WEIGHTS
@@ -47,10 +45,9 @@ func init_choice_panel() -> Node:
 				if SettingsManager.get_setting("tutorial_enabled") and not SettingsManager.get_setting("tutorial/choice_weight"):
 					SettingsManager.set_setting("tutorial/choice_weight", true)
 					var p := OkPopup.instantiate(choice_panel)
-					#TODO: translate
-					p.title = "Second phase"
+					p.title = tr("TUTORIAL_CHOICE_WEIGHT_TITLE")
+					p.text = tr("TUTORIAL_CHOICE_WEIGHT_BODY")
 
-					p.text = "Choose your reward!\nYou can choose a certain award,\nor risk it for a boost of every stat!"
 			else:
 				phase = GamePhases.FINAL
 				_init_final_phase()
@@ -67,10 +64,8 @@ func init_choice_panel() -> Node:
 			if SettingsManager.get_setting("tutorial_enabled") and not SettingsManager.get_setting("tutorial/choice_final"):
 					SettingsManager.set_setting("tutorial/choice_final", true)
 					var p := OkPopup.instantiate(choice_panel)
-					#TODO: translate
-					p.title = "Final phase"
-
-					p.text = "Choose your reward!\nNow there are many choices that affect everything!\nThe game will assist you in making a decision\nbased on your previous choices."
+					p.title = tr("TUTORIAL_CHOICE_FINAL_TITLE")
+					p.text = tr("TUTORIAL_CHOICE_FINAL_BODY")
 
 			return final_panel
 

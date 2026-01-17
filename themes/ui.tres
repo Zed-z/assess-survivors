@@ -232,6 +232,7 @@ Label/fonts/font = ExtResource("1_h6ia1")
 LightPanel/base_type = &"Panel"
 LightPanel/styles/panel = SubResource("StyleBoxTexture_41f1y")
 Panel/styles/panel = SubResource("StyleBoxTexture_7gpds")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_41f1y")
 ProgressBar/styles/background = SubResource("StyleBoxTexture_4efn8")
 ProgressBar/styles/fill = SubResource("StyleBoxTexture_owxhb")
 TabBar/constants/h_separation = 200
