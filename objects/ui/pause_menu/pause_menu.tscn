@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://ylrjujxuk8ve"]
+[gd_scene load_steps=4 format=3 uid="uid://ylrjujxuk8ve"]
 
 [ext_resource type="Theme" uid="uid://df2r57b2stnof" path="res://themes/ui.tres" id="1_dhos7"]
 [ext_resource type="Script" uid="uid://bgy6hpaq267ue" path="res://objects/ui/pause_menu/pause_menu.gd" id="1_hax40"]
-[ext_resource type="Script" uid="uid://bfn4l4e5i8p0j" path="res://objects/ui/scene_change_button.gd" id="3_o0bnm"]
 [ext_resource type="AudioStream" uid="uid://bjynwaajtbtpf" path="res://sounds/ui/button_pressed.wav" id="4_mgf5d"]
 
 [node name="PauseMenu" type="Control"]
@@ -68,11 +67,9 @@ text = "PAUSE_MENU_SETTINGS"
 layout_mode = 2
 text = "PAUSE_MENU_ASSESS_INFO"
 
-[node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="ButtonQuit" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "PAUSE_MENU_QUIT"
-script = ExtResource("3_o0bnm")
-scene = "main_menu"
 
 [node name="SoundOpenClose" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_mgf5d")
@@ -82,3 +79,4 @@ bus = &"Effects"
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/ButtonContinue" to="." method="_on_button_continue_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/ButtonSettings" to="." method="_on_button_settings_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/ButtonAssessInfo" to="." method="_on_button_assess_info_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/ButtonQuit" to="." method="_on_button_quit_pressed"]

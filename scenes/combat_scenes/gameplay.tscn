@@ -23,7 +23,7 @@
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_o1s56"]
 
-[node name="TestScene" type="Node2D"]
+[node name="GameplayScene" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_rk5i4")
 
