@@ -11,6 +11,7 @@ var default_settings: Dictionary = {
 		"screen_shake": true,
 	},
 	"language": OS.get_locale_language(),
+	"tutorial_enabled": true,
 	"tutorial": {
 		"choice_criterion": false,
 		"choice_weight": false,

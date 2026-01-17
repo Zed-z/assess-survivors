@@ -27,7 +27,7 @@ func init_choice_panel() -> Node:
 			if choice_panel.criterion != null:
 				choice_panel.question = choice_panel.criterion.get_question()
 
-				if not SettingsManager.get_setting("tutorial/choice_criterion"):
+				if SettingsManager.get_setting("tutorial_enabled") and not SettingsManager.get_setting("tutorial/choice_criterion"):
 					SettingsManager.set_setting("tutorial/choice_criterion", true)
 					var p := OkPopup.instantiate(choice_panel)
 					#TODO: translate
@@ -44,7 +44,7 @@ func init_choice_panel() -> Node:
 			if choice_panel.question != null:
 				choice_panel.criterion = get_weight_criterion()
 
-				if not SettingsManager.get_setting("tutorial/choice_weight"):
+				if SettingsManager.get_setting("tutorial_enabled") and not SettingsManager.get_setting("tutorial/choice_weight"):
 					SettingsManager.set_setting("tutorial/choice_weight", true)
 					var p := OkPopup.instantiate(choice_panel)
 					#TODO: translate
@@ -64,7 +64,7 @@ func init_choice_panel() -> Node:
 			final_panel.variants = variants
 			final_panel.K = K
 
-			if not SettingsManager.get_setting("tutorial/choice_final"):
+			if SettingsManager.get_setting("tutorial_enabled") and not SettingsManager.get_setting("tutorial/choice_final"):
 					SettingsManager.set_setting("tutorial/choice_final", true)
 					var p := OkPopup.instantiate(choice_panel)
 					#TODO: translate

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d2xe4jjrkjnh0"]
+[gd_scene load_steps=12 format=3 uid="uid://d2xe4jjrkjnh0"]
 
 [ext_resource type="Theme" uid="uid://df2r57b2stnof" path="res://themes/ui.tres" id="1_j78aw"]
 [ext_resource type="Script" uid="uid://cyq1ux3q7slto" path="res://objects/ui/settings_menu/settings_menu.gd" id="2_p28av"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://qbw3tn4t6ack" path="res://objects/ui/settings_menu/button_de.gd" id="6_nrojl"]
 [ext_resource type="Script" uid="uid://dsr6wvf0ouvdd" path="res://objects/ui/settings_menu/fullscreen_button.gd" id="6_porcf"]
 [ext_resource type="Script" uid="uid://do5v087546avq" path="res://objects/ui/settings_menu/button_nh.gd" id="7_cbb5h"]
+[ext_resource type="Script" uid="uid://o7jc52ayptjm" path="res://objects/ui/settings_menu/tutorial_button.gd" id="8_bto1d"]
 [ext_resource type="Script" uid="uid://bkdmoalpoaho5" path="res://objects/ui/settings_menu/screen_shake_button.gd" id="9_2n5xb"]
 
 [node name="SettingsMenu" type="Control"]
@@ -139,7 +140,23 @@ layout_mode = 2
 text = "SETTINGS_GENERAL_LANGUAGE_JA"
 script = ExtResource("7_cbb5h")
 
-[node name="ButtonResetTutorials" type="Button" parent="Panel/General/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/General/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/General/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="CheckButton" type="CheckButton" parent="Panel/General/VBoxContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+text = "SETTINGS_GENERAL_TUTORIALS"
+script = ExtResource("8_bto1d")
+
+[node name="ButtonResetTutorials" type="Button" parent="Panel/General/VBoxContainer/MarginContainer2/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "SETTINGS_GENERAL_RESET_TUTORIALS"
@@ -542,4 +559,4 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
 [connection signal="pressed" from="Panel/General/VBoxContainer/MarginContainer/HBoxContainer/ButtonPL" to="Panel/General/VBoxContainer/MarginContainer/HBoxContainer/ButtonPL" method="_on_pressed"]
 [connection signal="pressed" from="Panel/General/VBoxContainer/MarginContainer/HBoxContainer/ButtonDE" to="Panel/General/VBoxContainer/MarginContainer/HBoxContainer/ButtonDE" method="_on_pressed"]
 [connection signal="pressed" from="Panel/General/VBoxContainer/MarginContainer/HBoxContainer/ButtonNH" to="Panel/General/VBoxContainer/MarginContainer/HBoxContainer/ButtonNH" method="_on_pressed"]
-[connection signal="pressed" from="Panel/General/VBoxContainer/ButtonResetTutorials" to="." method="_on_button_reset_tutorials_pressed"]
+[connection signal="pressed" from="Panel/General/VBoxContainer/MarginContainer2/HBoxContainer/ButtonResetTutorials" to="." method="_on_button_reset_tutorials_pressed"]
