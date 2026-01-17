@@ -10,13 +10,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
 script = ExtResource("1_tj60n")
 
 [node name="CriteriaContainer" type="GridContainer" parent="."]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(160, 160)
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 6
 theme = SubResource("Theme_iekma")
 columns = 2
 
