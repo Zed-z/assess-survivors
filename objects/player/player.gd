@@ -1,6 +1,7 @@
 extends CharacterBody2D
 class_name Player
 
+@onready var scene: GameplayScene = get_parent()
 @onready var stats: PlayerStats = $Stats
 
 @export var ENDGAMELEVEL = 10
@@ -61,5 +62,4 @@ func _on_health_component_got_hit(depleted: bool) -> void:
 
 	if depleted:
 		print("You Died")
-		var end_screen: EndScreen = ObjectManager.instantiate(ObjectManager.OBJ_END_SCREEN)
-		GlobalInfo.combat_ui_overlay.add_child(end_screen)
+		scene.game_end()

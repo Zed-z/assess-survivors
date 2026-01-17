@@ -33,3 +33,8 @@ func _on_button_assess_info_pressed() -> void:
 	var s: AssessInfoPanel = ObjectManager.instantiate(ObjectManager.OBJ_ASSESS_INFO_PANEL)
 	s.assess_manager = GlobalInfo.assess_manager
 	get_parent().add_child(s)
+
+
+func _on_button_quit_pressed() -> void:
+	close()
+	GlobalInfo.gameplay_scene.game_end()

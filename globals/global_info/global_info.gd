@@ -7,6 +7,7 @@ var assess_manager: AssessManagerClass
 var projectile_holder: ProjectileHolder
 var score_manager: ScoreManager
 var game_camera: GameCamera
+var gameplay_scene: GameplayScene
 
 var game_time: float
 
