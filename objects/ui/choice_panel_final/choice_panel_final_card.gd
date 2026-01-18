@@ -7,7 +7,7 @@ var rank: int
 
 
 func _ready() -> void:
-	#%Rank.text = str(rank)
+	%Rank.text = str(rank)
 
 	for stat in variant:
 		var item: WeightItem = item_display.instantiate()
