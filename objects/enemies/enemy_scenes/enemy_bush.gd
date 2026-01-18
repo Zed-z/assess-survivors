@@ -7,13 +7,17 @@ var is_up: bool = false
 enum BUSH_STATE{
 	UP,
 	DOWN,
-	SHOT_SEQUENCE
+	SHOT_SEQUENCE,
+	TAUNT
 }
 
 var current_state: BUSH_STATE = BUSH_STATE.DOWN
 var animation_state: String
 
 @export var tount_chance: float = 0.25
+@export var action_cooldown: float = 4
+
+var can_act = 0
 
 
 func _physics_process(_delta: float) -> void:
@@ -26,12 +30,20 @@ func _physics_process(_delta: float) -> void:
 		if received_velocity.length() > 0.001:
 			animation.play("walk")
 		else:
-			var behaviour = MathUtils.choices_1f([tount_chance, 1- tount_chance])
 
-			if behaviour == 0:
-				animation.play("taunt")
+			if can_act < 0:
+				can_act = action_cooldown
+				var behaviour: bool= randf_range(0,1) > tount_chance
+
+				if behaviour:
+					animation.play("get_up")
+					current_state = BUSH_STATE.SHOT_SEQUENCE
+				else:
+					animation.play("taunt")
+					current_state = BUSH_STATE.TAUNT
+
 			else:
-				animation.play("get_up")
+				can_act -=_delta
 
 		move_and_slide()
 
@@ -47,7 +59,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		animation.play(&"attack")
 	elif animation.animation == &"hide":
 		current_state = BUSH_STATE.DOWN
-		animation.play(&"walk")
+		animation.play(&"idle")
 	elif animation.animation == &"attack":
 		animation.play(&"hide")
 	elif animation.animation == &"taunt":

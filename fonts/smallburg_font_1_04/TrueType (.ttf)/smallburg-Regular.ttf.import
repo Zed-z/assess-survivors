@@ -2,7 +2,7 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://ccu7qrtecogan"
+uid="uid://dgjy7j4m2au5t"
 path="res://.godot/imported/smallburg-Regular.ttf-67b47d3bfe62278736e0789cfa3c569f.fontdata"
 
 [deps]
@@ -27,7 +27,7 @@ subpixel_positioning=4
 keep_rounding_remainders=true
 oversampling=0.0
 Fallbacks=null
-fallbacks=[Resource("uid://bfsl6dpmlda88", "res://fonts/Noto_Sans_JP/static/NotoSansJP-Regular.ttf")]
+fallbacks=[]
 Compress=null
 compress=true
 preload=[]

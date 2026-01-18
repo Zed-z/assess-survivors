@@ -844,7 +844,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yoxi6")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 17.0
 }, {
@@ -1230,7 +1230,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5li04")
 }],
-"loop": true,
+"loop": false,
 "name": &"taunt",
 "speed": 20.0
 }, {
@@ -1261,6 +1261,7 @@ animations = [{
 [node name="Enemy" node_paths=PackedStringArray("move_controller", "move_animation", "shooter") instance=ExtResource("1_5mbmq")]
 script = ExtResource("2_hjj62")
 tount_chance = 0.25
+action_cooldown = 4.0
 move_controller = NodePath("WalkingBushMoveCantroler")
 move_animation = NodePath("SpriteContainer/AnimatedSprite2D")
 shooter = NodePath("shooter_with_consent")
@@ -1291,6 +1292,6 @@ scale = Vector2(10.180746, 10.069604)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SpriteContainer" index="0"]
 sprite_frames = SubResource("SpriteFrames_ef3f8")
-animation = &"taunt"
+animation = &"walk"
 
 [connection signal="animation_finished" from="SpriteContainer/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
