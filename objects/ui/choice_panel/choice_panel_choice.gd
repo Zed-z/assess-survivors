@@ -25,4 +25,4 @@ func setup(_criterion: AssessCriterion, _choice: SingleLottery):
 
 func stop_lottery_animation(win: bool) -> void:
 	super.stop_lottery_animation(win)
-	%LotteryResult.text = "WIN" if win else "LOSE"
+	%LotteryResult.text = "WIN" if win else "LOSE"#TODO translate

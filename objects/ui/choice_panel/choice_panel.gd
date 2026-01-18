@@ -56,7 +56,7 @@ func anim_choose_left(answer) -> void:
 	move_to_node(%ButtonChooseNone, %ChoiceOffscreen, tween_indifferent)
 	move_to_node(%LabelOr, %ChoiceOffscreen, tween_or)
 
-	choice_left.start_lottery_animation()
+	choice_left.start_lottery_animation(choice_right.choice, answer.value.win, 0.5)
 	await get_tree().create_timer(0.5).timeout
 	choice_left.stop_lottery_animation(answer.value.win)
 
@@ -72,7 +72,7 @@ func anim_choose_right(answer) -> void:
 	move_to_node(%ButtonChooseNone, %ChoiceOffscreen, tween_indifferent)
 	move_to_node(%LabelOr, %ChoiceOffscreen, tween_or)
 
-	choice_right.start_lottery_animation()
+	choice_right.start_lottery_animation(choice_right.choice, answer.value.win, 0.5)
 	await get_tree().create_timer(0.5).timeout
 	choice_right.stop_lottery_animation(answer.value.win)
 
