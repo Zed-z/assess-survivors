@@ -1,14 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://dfkubp0nme5xb"]
+[gd_scene load_steps=4 format=3 uid="uid://dfkubp0nme5xb"]
 
+[ext_resource type="Theme" uid="uid://df2r57b2stnof" path="res://themes/ui.tres" id="1_0nxy0"]
 [ext_resource type="Script" uid="uid://dni3tjfjcl2vs" path="res://objects/ui/choice_panel_final/choice_panel_final.gd" id="1_7skvn"]
 
-[node name="ChoicePanelFinal" type="Control"]
-layout_mode = 3
-anchors_preset = 0
+[sub_resource type="Theme" id="Theme_0nxy0"]
+
+[node name="ChoicePanelFinal" type="MarginContainer"]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 100.0
+offset_bottom = 100.0
+theme = ExtResource("1_0nxy0")
+theme_type_variation = &"LightPanel"
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 script = ExtResource("1_7skvn")
 
 [node name="Grid" type="GridContainer" parent="."]
 unique_name_in_owner = true
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 2
+theme = SubResource("Theme_0nxy0")
