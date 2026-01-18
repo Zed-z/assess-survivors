@@ -64,7 +64,7 @@ offset_right = 75.0
 offset_bottom = 18.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "OR..."
+text = "CHOICE_PANEL_VERSUS"
 horizontal_alignment = 1
 
 [node name="LabelName" type="Label" parent="MarginContainer/Control"]

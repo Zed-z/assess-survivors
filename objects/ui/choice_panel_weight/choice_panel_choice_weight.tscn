@@ -225,7 +225,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/LotteryContainer"]
 layout_mode = 2
-text = "or..."
+text = "CHOICE_PANEL_VERSUS"
 
 [node name="LossContainer" type="VBoxContainer" parent="VBoxContainer/LotteryContainer"]
 unique_name_in_owner = true
