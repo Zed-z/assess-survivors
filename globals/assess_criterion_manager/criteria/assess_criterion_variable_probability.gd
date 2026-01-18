@@ -19,14 +19,30 @@ func set_bound():
 	right_bound = point_list[-1].x
 
 
+func point_inbetween() -> void:
+	var val: float = phases[CUR_phase]
+
+	if CUR_phase >= 1:
+		val -= phases[CUR_phase - 1]
+		val /= (1-phases[CUR_phase-1])
+
+	var new_x = point_list[-2].x*(1-val) + point_list[-1].x*val
+	var a: float = (new_x-point_list[-2].x)/(point_list[-1].x - point_list[-2].x)
+	var point = Vector2(
+		new_x,
+		point_list[-2].y*(1-a) + point_list[-1].y*a
+
+	)
+
+	point_list.insert(-1, point)
+	set_bound()
+
+
 func change_question() -> void:
 	question.get_left().free()
 	question.set_left(SingleLottery.new(point_list[-2].x, 1, -1))
 	question.get_right().free()
 	question.set_right(SingleLottery.new(point_list[-1].x, point_list[-2].y, point_list[-3].x))
-
-
-
 
 
 func _question_init() ->void:

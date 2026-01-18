@@ -27,7 +27,7 @@ func change_question() -> void:
 	question.get_right().free()
 	question.set_right(SingleLottery.new(point_list[-1].x, right_probability, point_list[-3].x))
 
-
+#override phases to only have one constant probability
 func specific_setup()->void:
 	phases = [right_probability]
 
