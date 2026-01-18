@@ -1,8 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://bh5tkxvg8jh42"]
+[gd_scene load_steps=15 format=3 uid="uid://bh5tkxvg8jh42"]
 
 [ext_resource type="Theme" uid="uid://df2r57b2stnof" path="res://themes/ui.tres" id="1_n8r28"]
 [ext_resource type="Script" uid="uid://2850i5pp8lmf" path="res://scenes/combat_scenes/combat_ui/combat_overlay.gd" id="1_ylltj"]
-[ext_resource type="Texture2D" uid="uid://b7tm4yxs73v82" path="res://sprites/ui/progressbar_bg.png" id="3_cxf21"]
 [ext_resource type="Texture2D" uid="uid://dy5ethtxehiga" path="res://sprites/ui/wave/stoper.png" id="3_m7cs0"]
 [ext_resource type="Script" uid="uid://dvlwdde65sqw2" path="res://scenes/combat_scenes/combat_ui/helth_bar.gd" id="4_1bpvo"]
 [ext_resource type="Texture2D" uid="uid://cqqnj748bj1hu" path="res://sprites/ui/star.png" id="4_a2tx3"]
@@ -211,8 +210,9 @@ stretch_margin_left = 10
 stretch_margin_top = 10
 stretch_margin_right = 10
 stretch_margin_bottom = 10
-texture_under = ExtResource("3_cxf21")
+texture_under = ExtResource("4_m7cs0")
 texture_progress = ExtResource("4_m7cs0")
+tint_under = Color(0.34796387, 0.059128024, 0.051523134, 1)
 tint_progress = Color(0.75686276, 0.1882353, 0.16470589, 1)
 script = ExtResource("4_1bpvo")
 
