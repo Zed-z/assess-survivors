@@ -1,14 +1,14 @@
 [gd_resource type="Resource" script_class="WaveData" load_steps=7 format=3 uid="uid://bpldckhruqqgl"]
 
 [ext_resource type="Script" uid="uid://dmbi1icxkymxl" path="res://objects/enemies/enemy_spawner/enemy_wave_data/wave_touple.gd" id="1_mdp22"]
-[ext_resource type="PackedScene" uid="uid://b878cclpdkau" path="res://objects/enemies/enemy_scenes/enemy_bush.tscn" id="2_6dqu5"]
 [ext_resource type="Script" uid="uid://cd06aok4ajl3c" path="res://objects/enemies/enemy_spawner/enemy_wave_data/enemy_wave_data.gd" id="2_iauqp"]
+[ext_resource type="PackedScene" uid="uid://bbp8p6r1nw1f0" path="res://objects/enemies/enemy_scenes/enemy_walker.tscn" id="2_tuyln"]
 [ext_resource type="Script" uid="uid://b3iagr3n10lfe" path="res://objects/enemies/enemy_spawner/enemy_wave_data/wave_scaling/const_wave_scalercaler.gd" id="3_tuyln"]
 
 [sub_resource type="Resource" id="Resource_tuyln"]
 script = ExtResource("1_mdp22")
 probability = 1.0
-scene = ExtResource("2_6dqu5")
+scene = ExtResource("2_tuyln")
 metadata/_custom_type_script = "uid://dmbi1icxkymxl"
 
 [sub_resource type="Resource" id="Resource_aop34"]
@@ -19,7 +19,7 @@ metadata/_custom_type_script = "uid://b3iagr3n10lfe"
 script = ExtResource("2_iauqp")
 enemies_per_minute = 15
 enemy_cap = 10
-enemies_to_spawn = 1
+enemies_to_spawn = 10
 kill_all_enemies = true
 enemies = Array[ExtResource("1_mdp22")]([SubResource("Resource_tuyln")])
 scaling = SubResource("Resource_aop34")
