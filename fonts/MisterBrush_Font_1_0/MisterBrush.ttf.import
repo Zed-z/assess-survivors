@@ -2,7 +2,7 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://cf43bv3bi7jwi"
+uid="uid://cvhc0w3laqi18"
 path="res://.godot/imported/MisterBrush.ttf-498b78cdb54eee3a1ebb8786753d635a.fontdata"
 
 [deps]
@@ -27,7 +27,7 @@ subpixel_positioning=4
 keep_rounding_remainders=true
 oversampling=0.0
 Fallbacks=null
-fallbacks=[Resource("uid://tjtgcvxuujgc", "res://fonts/Noto_Sans_JP/static/NotoSansJP-Black.ttf")]
+fallbacks=[]
 Compress=null
 compress=true
 preload=[]

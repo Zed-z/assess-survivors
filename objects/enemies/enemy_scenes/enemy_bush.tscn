@@ -1,6 +1,7 @@
-[gd_scene load_steps=184 format=3 uid="uid://b878cclpdkau"]
+[gd_scene load_steps=185 format=3 uid="uid://b878cclpdkau"]
 
 [ext_resource type="PackedScene" uid="uid://epsr1o1tk6ur" path="res://objects/enemies/enemy_scenes/base_enemy.tscn" id="1_5mbmq"]
+[ext_resource type="Script" uid="uid://888htwtabv3g" path="res://objects/enemies/enemy_scenes/enemy_bush.gd" id="2_hjj62"]
 [ext_resource type="Script" uid="uid://bgb2oual2bgw" path="res://objects/enemies/move_controller/walking_bush_move_controler.gd" id="2_q0efr"]
 [ext_resource type="Script" uid="uid://qhldu4phre5" path="res://objects/enemies/enemy_scenes/sooter_with_consent.gd" id="2_wmlyl"]
 [ext_resource type="PackedScene" uid="uid://ccfhcgw5yxqpf" path="res://objects/projectile/projectile_instances/projectile_enemy_bush.tscn" id="3_8sbqi"]
@@ -843,7 +844,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yoxi6")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 17.0
 }, {
@@ -989,7 +990,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dj0ib")
 }],
-"loop": true,
+"loop": false,
 "name": &"get_up",
 "speed": 24.0
 }, {
@@ -1108,7 +1109,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_es8if")
 }],
-"loop": true,
+"loop": false,
 "name": &"hide",
 "speed": 31.0
 }, {
@@ -1229,7 +1230,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5li04")
 }],
-"loop": true,
+"loop": false,
 "name": &"taunt",
 "speed": 20.0
 }, {
@@ -1258,6 +1259,9 @@ animations = [{
 }]
 
 [node name="Enemy" node_paths=PackedStringArray("move_controller", "move_animation", "shooter") instance=ExtResource("1_5mbmq")]
+script = ExtResource("2_hjj62")
+tount_chance = 0.25
+action_cooldown = 4.0
 move_controller = NodePath("WalkingBushMoveCantroler")
 move_animation = NodePath("SpriteContainer/AnimatedSprite2D")
 shooter = NodePath("shooter_with_consent")
@@ -1272,8 +1276,13 @@ metadata/_custom_type_script = "uid://bxrtysv8dyqbb"
 
 [node name="WalkingBushMoveCantroler" type="Node2D" parent="." index="1"]
 script = ExtResource("2_q0efr")
-speed = 100.0
+speed = 140.0
+ideal_radius = 550.0
+allowed_radius_deviation = 200
+debug_view = true
 metadata/_custom_type_script = "uid://bgb2oual2bgw"
+
+[node name="Timer" type="Timer" parent="WalkingBushMoveCantroler" index="0"]
 
 [node name="HurtBox" parent="." index="3"]
 visible = true
@@ -1283,5 +1292,6 @@ scale = Vector2(10.180746, 10.069604)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SpriteContainer" index="0"]
 sprite_frames = SubResource("SpriteFrames_ef3f8")
-animation = &"idle"
-frame_progress = 0.41033438
+animation = &"walk"
+
+[connection signal="animation_finished" from="SpriteContainer/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

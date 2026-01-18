@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=43 format=3 uid="uid://df2r57b2stnof"]
 
-[ext_resource type="FontFile" uid="uid://ccu7qrtecogan" path="res://fonts/smallburg_font_1_04/TrueType (.ttf)/smallburg-Regular.ttf" id="1_h6ia1"]
+[ext_resource type="FontFile" uid="uid://dgjy7j4m2au5t" path="res://fonts/smallburg_font_1_04/TrueType (.ttf)/smallburg-Regular.ttf" id="1_h6ia1"]
 [ext_resource type="Texture2D" uid="uid://s2ls5uy6e3f2" path="res://sprites/ui/panel_background.png" id="2_bhwv2"]
 [ext_resource type="Texture2D" uid="uid://b08v68ef7qcbc" path="res://sprites/ui/new_button_focus.png" id="2_owxhb"]
 [ext_resource type="Texture2D" uid="uid://droibt6ng3cc2" path="res://sprites/ui/tab_active.png" id="3_hbfgb"]
@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://culhnn44v0v71" path="res://sprites/ui/progressbar_on.png" id="6_jivjh"]
 [ext_resource type="Texture2D" uid="uid://qrdhtj2iamw8" path="res://sprites/ui/minipanel.png" id="10_sds01"]
 [ext_resource type="Texture2D" uid="uid://b7tm4yxs73v82" path="res://sprites/ui/progressbar_bg.png" id="12_612vp"]
-[ext_resource type="FontFile" uid="uid://cf43bv3bi7jwi" path="res://fonts/MisterBrush_Font_1_0/MisterBrush.ttf" id="15_sds01"]
+[ext_resource type="FontFile" uid="uid://cvhc0w3laqi18" path="res://fonts/MisterBrush_Font_1_0/MisterBrush.ttf" id="15_sds01"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_31w7s"]
 texture = ExtResource("3_jivjh")
