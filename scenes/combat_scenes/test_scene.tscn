@@ -193,6 +193,7 @@ script = ExtResource("12_8btbg")
 pickups = Array[PackedScene]([ExtResource("13_6iaqk"), ExtResource("14_ars3e")])
 
 [node name="SpawnableArea" type="CollisionPolygon2D" parent="EnemySpawner"]
+visible = false
 polygon = PackedVector2Array(-1107, 247, -1134, 355, -1011, 425, -938, 398, -690, 508, -243, 540, 788, 551, 972, 514, 1181, 427, 1237, 463, 1355, 395, 1376, 271, 1422, 234, 1487, 139, 1486, -516, 1368, -582, 1297, -561, 1174, -620, 1103, -597, 857, -708, -431, -714, -881, -671, -940, -644, -1013, -673, -1188, -580, -1175, -529, -1313, -449, -1292, -413, -1389, -358, -1372, -290, -1345, -254, -1451, -198, -1456, -117, -1352, -58, -1386, -25, -1388, 42, -1287, 95, -1328, 136)
 
 [node name="AreaDamageDealer" type="Node" parent="."]
