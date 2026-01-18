@@ -13,9 +13,12 @@ var weight_index: int
 enum GamePhases {CRITERION, WEIGHTS, FINAL}
 var phase: GamePhases = GamePhases.CRITERION
 
+var K: float
 
-func init_choice_panel() -> ChoicePanel:
+
+func init_choice_panel() -> Node:
 	var choice_panel: ChoicePanel = ObjectManager.instantiate(ObjectManager.OBJ_CHOICE_PANEL)
+	var final_panel: ChoicePanelFinal = ObjectManager.instantiate(ObjectManager.OBJ_FINAL_PANEL)
 
 	match phase:
 		GamePhases.CRITERION:
@@ -24,13 +27,11 @@ func init_choice_panel() -> ChoicePanel:
 			if choice_panel.criterion != null:
 				choice_panel.question = choice_panel.criterion.get_question()
 
-				if not SettingsManager.get_setting("tutorial/choice_criterion"):
+				if SettingsManager.get_setting("tutorial_enabled") and not SettingsManager.get_setting("tutorial/choice_criterion"):
 					SettingsManager.set_setting("tutorial/choice_criterion", true)
 					var p := OkPopup.instantiate(choice_panel)
-					#TODO: translate
-					p.title = "First phase"
-
-					p.text = "Choose your reward!\nYou'll get a bonus for one of your stats."
+					p.title = tr("TUTORIAL_CHOICE_CRITERION_TITLE")
+					p.text = tr("TUTORIAL_CHOICE_CRITERION_BODY")
 
 			else:
 				phase = GamePhases.WEIGHTS
@@ -41,33 +42,50 @@ func init_choice_panel() -> ChoicePanel:
 			if choice_panel.question != null:
 				choice_panel.criterion = get_weight_criterion()
 
-				if not SettingsManager.get_setting("tutorial/choice_weight"):
+				if SettingsManager.get_setting("tutorial_enabled") and not SettingsManager.get_setting("tutorial/choice_weight"):
 					SettingsManager.set_setting("tutorial/choice_weight", true)
 					var p := OkPopup.instantiate(choice_panel)
-					#TODO: translate
-					p.title = "Second phase"
+					p.title = tr("TUTORIAL_CHOICE_WEIGHT_TITLE")
+					p.text = tr("TUTORIAL_CHOICE_WEIGHT_BODY")
 
-					p.text = "Choose your reward!\nYou can choose a certain award,\nor risk it for a boost of every stat!"
 			else:
 				phase = GamePhases.FINAL
+				_init_final_phase()
 
 		GamePhases.FINAL:
-			#TODO after bairstow
-			print("achived third phase")
-			var l = get_most_u_on_all()
-			choice_panel.question = Question.new(MultiLottery.new(l,1,l),MultiLottery.new(l,1,l))
-			choice_panel.criterion = criteria[0]
+			#TODO create view
+			var variants: Array[Dictionary]
+			for i in range(10):
+				variants.append(Polynomials_calculator.generate_variant(criteria))
 
-			if not SettingsManager.get_setting("tutorial/choice_final"):
+			final_panel.variants = variants
+			final_panel.K = K
+
+			if SettingsManager.get_setting("tutorial_enabled") and not SettingsManager.get_setting("tutorial/choice_final"):
 					SettingsManager.set_setting("tutorial/choice_final", true)
 					var p := OkPopup.instantiate(choice_panel)
-					#TODO: translate
-					p.title = "Final phase"
+					p.title = tr("TUTORIAL_CHOICE_FINAL_TITLE")
+					p.text = tr("TUTORIAL_CHOICE_FINAL_BODY")
 
-					p.text = "Choose your reward!\nNow there are many choices that affect everything!\nThe game will assist you in making a decision\nbased on your previous choices."
+			return final_panel
 
 	choice_panel.phase = phase
 	return choice_panel
+
+
+#function to initialize final phase
+#creates polynomial
+#uses Bairstow to pick K
+#
+func _init_final_phase() -> void:
+	var weights_array: Array[float]
+	for c in criteria:
+		weights_array.append(c.weight)
+
+	var polynomial: Array[float] = Polynomials_calculator.create_polynomial(weights_array)
+	var potential_K: Array = Polynomials_calculator.bairstow(polynomial).filter(func(x): return x != 0)
+	assert(len(potential_K) != 0, "No K avaialable")
+	K = potential_K[0]
 
 
 func _ready() -> void:
@@ -236,4 +254,4 @@ func next_phase():
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("force_endgame"):
 		next_phase()
-		print("switched to next phase")
+		print("switched to phase: ", GamePhases.keys()[phase])

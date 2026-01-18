@@ -7,9 +7,9 @@ var weight: bool
 
 func is_choice_invalid(c) -> bool:
 	if !weight:
-		return(c.LIMIT_expand_count > 0 and c.METRIC_expand_count >= c.LIMIT_expand_count)
+		return(c.LIMIT_expand_count >= 0 and c.METRIC_expand_count >= c.LIMIT_expand_count)
 	else:
-		return(c.LIMIT_count_weight > 0
+		return(c.LIMIT_count_weight >= 0
 			and c.METRIC_count_weight >= c.LIMIT_count_weight)
 
 

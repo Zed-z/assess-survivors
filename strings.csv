@@ -14,7 +14,7 @@ ASSESS_TEST_PREFER_RIGHT,Prefer Right,Preferuj Prawe,Bevor Rechts,右の好む
 ASSESS_TEST_INDIFFERENT,Indifferent,Obojętnie Mi,Egal,私は気にしない
 ASSESS_TEST_SCENARIO,Test Scenario,Scenariusz Testowy,Testszenario,テストのシナリオ
 ASSESS_TEST_GET_QUESTION,Get Question,Pobierz Pytanie,?????????????????????????????,?????????????????????????????
-ASSESS_TEST_START_WEIGHTS,Start Weights,Rozpocznij Wagi,?????????????????????????????,?????????????????????????????
+ASSESS_TEST_NEXT_PHASE,Next Phase,Następna Faza,Nächste Phase,次のフェーズ
 AUDIO_BUS_MASTER,Master,Ogólny,Gesamt,一般
 AUDIO_BUS_MUSIC,Music,Muzyka,Musik,音楽
 AUDIO_BUS_EFFECTS,Effects,Efekty,Effekte,音響効果
@@ -25,6 +25,7 @@ SETTINGS_GENERAL_LANGUAGE_EN,English,English,English,English
 SETTINGS_GENERAL_LANGUAGE_PL,Polski,Polski,Polski,Polski
 SETTINGS_GENERAL_LANGUAGE_DE,Deutsch,Deutsch,Deutsch,Deutsch
 SETTINGS_GENERAL_LANGUAGE_JA,日本語,日本語,日本語,日本語
+SETTINGS_GENERAL_TUTORIALS,Tutorials,Samouczki,Tutorials,チュートリアル
 SETTINGS_GENERAL_RESET_TUTORIALS,Reset Tutorials,Resetuj Samouczki,Tutorials Zurücksetzen,チュートリアルをリセット
 SETTINGS_TAB_VIDEO,Video,Grafika,Grafik,グラフィックス
 SETTINGS_TITLE_VIDEO,Video Settings,Ustawienia Graficzne,Grafikeinstellungen,グラフィックスのせってい
@@ -66,3 +67,12 @@ RISKINESS_SAFE,Safe,Bezpieczny,Sicher,安全
 RISKINESS_SLIGHTLY_SAFE,Slightly Safe,Nieco Bezpieczny,Etwas Sicher,やや安全
 RISKINESS_VERY_SAFE,Very Safe,Bardzo Bezpieczny,Sehr Sicher,とても安全
 ASSESS_WEIGHT,Weight: %s,Waga: %s,Gewicht: %s,重さ: %s
+TUTORIAL_CHOICE_CRITERION_TITLE,Criterion Choice,Wybór Kryterium,Kriterium Wahl,???
+TUTORIAL_CHOICE_CRITERION_BODY,"Choose your reward!\nYou'll get a bonus for one of your stats.",Wybierz swoją nagrodę!\nOtrzymasz bonus do jednej ze swoich statystyk.,Wähle deine Belohnung!\nDu erhältst einen Bonus für eine deiner Statistiken.,???
+TUTORIAL_CHOICE_WEIGHT_TITLE,Weight Choice,Wybór Wagi,Gewicht Wahl,???
+TUTORIAL_CHOICE_WEIGHT_BODY,"Choose your reward!\nYou can choose a certain award,\nor risk it for a boost of every stat!","Wybierz swoją nagrodę!\nMożesz wybrać pewną nagrodę,\nlub zaryzykować i otrzymać bonus do każdej statystyki!","Wähle deine Belohnung!\nDu kannst eine sichere Belohnung wählen,\noder es riskieren und einen Boost für jede Statistik erhalten!",???
+TUTORIAL_CHOICE_FINAL_TITLE,Assisted Choice,Wybór Wspomagany,Unterstützte Wahl,???
+TUTORIAL_CHOICE_FINAL_BODY,"This time, you can choose out of many\nmulti-stat rewards!\nYou will be recommended rewards\nbased on your preferences.","Tym razem możesz wybrać spośród wielu\nwielostatystycznych nagród!\nZostaną Ci polecone nagrody\nna podstawie Twoich preferencji.","Diesmal kannst du aus vielen\nmehrstatistischen Belohnungen wählen!\nDir werden Belohnungen empfohlen,\nbasierend auf deinen Vorlieben.",???
+PHASE_CRITERION,Criterion Phase,Faza Kryterium,Kriterium Phase,クリテリオンフェーズ
+PHASE_WEIGHT,Weight Phase,Faza Wagowa,Gewicht Phase,ウェイトフェーズ
+PHASE_FINAL,Final Phase,Ostatnia Faza,Endphase,ファイナルフェーズ

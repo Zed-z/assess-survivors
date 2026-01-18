@@ -5,7 +5,7 @@ var uids: Dictionary[String, String] = {
 	"init": "uid://cksd53ocdjjc5",
 	"main_menu": "uid://d1sq1okbpyorw",
 	"assess_test": "uid://cd2dgvodr3u8k",
-	"test_scene": "uid://fnao1rs5haap",
+	"gameplay": "uid://fnao1rs5haap",
 	"choice_menu": "uid://bgiawodt7wvts",
 }
 
@@ -24,7 +24,7 @@ func change_scene(
 
 func _on_scene_transition_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "fade_out":
-		get_tree().paused = true
+		PauseManager.pause()
 		currently_loading = true
 
 
@@ -38,5 +38,5 @@ func _physics_process(_delta: float) -> void:
 			%SceneTransition/AnimationPlayer.play("fade_in")
 			current_scene = next_scene
 			next_scene = ""
-			get_tree().paused = false
+			PauseManager.unpause()
 			currently_loading = false

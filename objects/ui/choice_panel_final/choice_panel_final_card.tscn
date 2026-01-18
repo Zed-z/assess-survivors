@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcfbmk7lea3yd"]
+
+[ext_resource type="Script" uid="uid://c31h6uxdxbjeo" path="res://objects/ui/choice_panel_final/choice_panel_final_card.gd" id="1_6xl23"]
+
+[node name="ChoicePanelFinalCard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6xl23")
+
+[node name="Container" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 40.0
+
+[node name="Rank" type="Label" parent="Container"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "placeholder"
+
+[node name="ValuesContainer" type="VBoxContainer" parent="Container"]
+unique_name_in_owner = true
+layout_mode = 2

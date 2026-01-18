@@ -29,4 +29,4 @@ func _on_button_play_pressed() -> void:
 	var p: GameTypePopup = ObjectManager.instantiate(ObjectManager.OBJ_GAME_TYPE_POPUP)
 	get_parent().add_child(p)
 	await p.closed
-	SceneManager.change_scene("test_scene")
+	SceneManager.change_scene("gameplay")
