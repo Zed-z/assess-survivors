@@ -7,11 +7,18 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_36m8o")
 
-[node name="Container" type="GridContainer" parent="."]
+[node name="Container" type="Control" parent="."]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(40, 40)
-layout_mode = 0
-offset_right = 160.0
-offset_bottom = 160.0
-theme_override_constants/h_separation = 0
-theme_override_constants/v_separation = 0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -80.0
+offset_right = 80.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2

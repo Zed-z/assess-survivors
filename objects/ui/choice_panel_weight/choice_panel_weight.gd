@@ -39,7 +39,7 @@ func fill_container(dict: Dictionary[AssessCriterion, float], probability: float
 		pass
 	else:
 		var prob_label: Label = Label.new()
-		prob_label.text = "CHANCE: " + str(probability*100).pad_decimals(2)
+		prob_label.text = str(probability*100).pad_decimals(2) + "%"
 		container.add_child(prob_label)
 
 	for key in dict:
@@ -52,8 +52,6 @@ func fill_container(dict: Dictionary[AssessCriterion, float], probability: float
 func stop_lottery_animation(win: bool) -> void:
 	super.stop_lottery_animation(win)
 	%LotteryResult.text = "WIN" if win else "LOSE"
-
-	$VBoxContainer/LotteryContainer/Label.modulate = Color(1, 1, 1, 0.5)
 
 	if win:
 		%LossContainer.modulate = Color(1, 1, 1, 0.5)
