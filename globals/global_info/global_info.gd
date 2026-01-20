@@ -10,8 +10,3 @@ var game_camera: GameCamera
 var gameplay_scene: GameplayScene
 
 var game_time: float
-
-enum GameType {
-	Normal, Quick
-}
-var game_type = GameType

@@ -9,7 +9,6 @@ const OBJ_END_SCREEN: String = "uid://dbyunepcv1c3b"
 const OBJ_PAUSE_MENU: String = "uid://ylrjujxuk8ve"
 const OBJ_ASSESS_INFO: String = "uid://cu78d8juxtctw"
 const OBJ_ASSESS_INFO_PANEL: String = "uid://bx0v4ik3jf2f7"
-const OBJ_GAME_TYPE_POPUP: String = "uid://dnmihxjpuf5ix"
 const OBJ_FINAL_PANEL: String = "uid://dfkubp0nme5xb"
 const OBJ_FINAL_CARD: String = "uid://dcfbmk7lea3yd"
 
@@ -22,7 +21,6 @@ var _preloaded: Dictionary[String, PackedScene] = {
 	OBJ_PAUSE_MENU: preload(OBJ_PAUSE_MENU),
 	OBJ_ASSESS_INFO: preload(OBJ_ASSESS_INFO),
 	OBJ_ASSESS_INFO_PANEL: preload(OBJ_ASSESS_INFO_PANEL),
-	OBJ_GAME_TYPE_POPUP: preload(OBJ_GAME_TYPE_POPUP),
 	OBJ_FINAL_PANEL: preload(OBJ_FINAL_PANEL),
 	OBJ_FINAL_CARD: preload(OBJ_FINAL_CARD)
 }
