@@ -4,13 +4,21 @@ extends GdUnitTestSuite
 
 var tested: MultiLottery
 
+var atk: AssessCriterion = AssessCriterion.new()
+var hp: AssessCriterion = AssessCriterion.new()
+var def: AssessCriterion = AssessCriterion.new()
+
 
 #func after_test() -> void:
 	#tested.free()
 
 
 func before_test() -> void:
-	tested = MultiLottery.new({"ATK": 100, "HP":10, "DEF":10}, 0.5, {"ATK":100, "HP":100, "DEF":100})
+	atk.criterion_name = "ATK"
+	hp.criterion_name = "HP"
+	def.criterion_name = "DEF"
+
+	tested = MultiLottery.new({atk: 100, hp:10, def:10}, 0.5, {atk:100, hp:100, def:100})
 
 
 func after_test() -> void:
