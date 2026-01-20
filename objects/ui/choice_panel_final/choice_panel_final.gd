@@ -12,8 +12,15 @@ func _ready() -> void:
 
 
 func initialize_variant(v: Dictionary[AssessCriterion, float], rank: int) -> ChoicePanelFinalCard:
-	var x = ObjectManager.instantiate(ObjectManager.OBJ_FINAL_CARD)
+	var x: ChoicePanelFinalCard = ObjectManager.instantiate(ObjectManager.OBJ_FINAL_CARD)
 
 	x.rank = rank + 1
 	x.variant = v
+	x.variant_chosen.connect(chosen)
 	return x
+
+
+func chosen(variant: Dictionary[AssessCriterion, float], rank: int):
+	print(rank)
+	for c in variant:
+		c.value_result.emit(variant[c])

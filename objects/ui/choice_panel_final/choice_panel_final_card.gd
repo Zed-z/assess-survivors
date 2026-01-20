@@ -5,6 +5,8 @@ class_name ChoicePanelFinalCard
 var variant: Dictionary[AssessCriterion, float]
 var rank: int
 
+signal variant_chosen(variant: Dictionary[AssessCriterion, float],rank: int)
+
 
 func _ready() -> void:
 	%Rank.text = str(rank)
@@ -14,3 +16,7 @@ func _ready() -> void:
 		item.criterion = stat
 		item.val = variant[stat]
 		%ValuesContainer.add_child(item)
+
+
+func _on_button_pressed() -> void:
+	variant_chosen.emit(variant, rank)
