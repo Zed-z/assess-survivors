@@ -10,6 +10,8 @@ signal variant_chosen(variant: Dictionary[AssessCriterion, float],rank: int)
 
 func _ready() -> void:
 	%Rank.text = str(rank)
+	#TODO: translate
+	%Button.text = "Chose me"
 
 	for stat in variant:
 		var item: WeightItem = item_display.instantiate()
