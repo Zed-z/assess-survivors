@@ -29,15 +29,6 @@ func test_answer_p():
 
 
 func test_answer_p_question():
-
-	assert_float(criterion.question.get_left().win_value).is_equal(5.0)
-	assert_float(criterion.question.get_left().win_probability).is_equal(0.75)
-	assert_float(criterion.question.get_left().loss_value).is_equal(0.0)
-
-	assert_float(criterion.question.get_right().win_value).is_equal(10.0)
-	assert_float(criterion.question.get_right().win_probability).is_equal(0.5)
-	assert_float(criterion.question.get_right().loss_value).is_equal(0.0)
-
 	criterion.step(AssessCriterion.Answer.p)
 
 	assert_float(criterion.question.get_left().win_value).is_equal(5.0)

@@ -49,6 +49,7 @@ metadata/_custom_type_script = "uid://5b0w6k2jxyuc"
 [sub_resource type="Resource" id="Resource_rh630"]
 script = ExtResource("10_4ix0c")
 icon = ExtResource("10_qdu7c")
+phases = Array[float]([0.5])
 MAX_dialog_answers = -1
 LIMIT_expand_count = -1
 LIMIT_count_weight = -1
