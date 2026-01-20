@@ -128,10 +128,11 @@ func point_append():
 
 
 func do_point_inbetween() -> void:
-	point_inbetween()
-	CUR_phase += 1
-	points_changed.emit(point_list)
-	risk_changed.emit(risk_factor)
+	if phases != []:
+		point_inbetween()
+		CUR_phase += 1
+		points_changed.emit(point_list)
+		risk_changed.emit(risk_factor)
 
 
 func point_inbetween() -> void:

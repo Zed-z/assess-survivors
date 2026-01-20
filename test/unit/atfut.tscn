@@ -1,0 +1,60 @@
+[gd_scene load_steps=17 format=3 uid="uid://dc254ky2fvta6"]
+
+[ext_resource type="Script" uid="uid://ckuy63qskou2b" path="res://globals/assess_criterion_manager/assess_manager.gd" id="1_f4kwl"]
+[ext_resource type="Script" uid="uid://brabuaqkcg3c6" path="res://globals/assess_criterion_manager/criteria/assess_criterion.gd" id="2_rh630"]
+[ext_resource type="Texture2D" uid="uid://cqqnj748bj1hu" path="res://sprites/ui/star.png" id="3_vjoq2"]
+[ext_resource type="Texture2D" uid="uid://d1gvq0yvjdtgx" path="res://sprites/stats/speed.png" id="4_awoow"]
+[ext_resource type="Script" uid="uid://1doyvq1memo6" path="res://globals/assess_criterion_manager/criteria/assess_criterion_constant_probability.gd" id="4_mskhg"]
+[ext_resource type="Script" uid="uid://dxavujg1j5jr5" path="res://globals/assess_criterion_manager/criteria/assess_criterion_variable_probability.gd" id="6_ftwkb"]
+[ext_resource type="Texture2D" uid="uid://cw7uosh5kn58l" path="res://sprites/ui/exp.png" id="6_m5t35"]
+[ext_resource type="Texture2D" uid="uid://buuaf3wdlshc0" path="res://sprites/flower.png" id="8_5r81r"]
+[ext_resource type="Script" uid="uid://5b0w6k2jxyuc" path="res://globals/assess_criterion_manager/criteria/assess_criterion_lottery_comparison.gd" id="8_qthdb"]
+[ext_resource type="Script" uid="uid://cggagkrebotht" path="res://globals/assess_criterion_manager/criteria/assess_criterion_probability_comparison.gd" id="10_4ix0c"]
+[ext_resource type="Texture2D" uid="uid://djws4c08ttrcd" path="res://sprites/ui/heart.png" id="10_qdu7c"]
+
+[sub_resource type="Resource" id="Resource_jw2ob"]
+script = ExtResource("2_rh630")
+icon = ExtResource("3_vjoq2")
+phases = Array[float]([])
+MAX_dialog_answers = -1
+LIMIT_expand_count = -1
+LIMIT_count_weight = -1
+metadata/_custom_type_script = "uid://brabuaqkcg3c6"
+
+[sub_resource type="Resource" id="Resource_hkdbg"]
+script = ExtResource("4_mskhg")
+icon = ExtResource("4_awoow")
+MAX_dialog_answers = -1
+LIMIT_expand_count = -1
+LIMIT_count_weight = -1
+metadata/_custom_type_script = "uid://1doyvq1memo6"
+
+[sub_resource type="Resource" id="Resource_yvf1d"]
+script = ExtResource("6_ftwkb")
+icon = ExtResource("6_m5t35")
+MAX_dialog_answers = -1
+LIMIT_expand_count = -1
+LIMIT_count_weight = -1
+metadata/_custom_type_script = "uid://dxavujg1j5jr5"
+
+[sub_resource type="Resource" id="Resource_h77wk"]
+script = ExtResource("8_qthdb")
+icon = ExtResource("8_5r81r")
+phases = Array[float]([0.5])
+MAX_dialog_answers = -1
+LIMIT_expand_count = -1
+LIMIT_count_weight = -1
+metadata/_custom_type_script = "uid://5b0w6k2jxyuc"
+
+[sub_resource type="Resource" id="Resource_rh630"]
+script = ExtResource("10_4ix0c")
+icon = ExtResource("10_qdu7c")
+MAX_dialog_answers = -1
+LIMIT_expand_count = -1
+LIMIT_count_weight = -1
+metadata/_custom_type_script = "uid://cggagkrebotht"
+
+[node name="manager" type="Node2D"]
+script = ExtResource("1_f4kwl")
+criteria = Array[ExtResource("2_rh630")]([SubResource("Resource_jw2ob"), SubResource("Resource_hkdbg"), SubResource("Resource_yvf1d"), SubResource("Resource_h77wk"), SubResource("Resource_rh630")])
+metadata/_custom_type_script = "uid://ckuy63qskou2b"

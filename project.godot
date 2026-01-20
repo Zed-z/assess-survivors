@@ -52,7 +52,8 @@ enabled=PackedStringArray("res://addons/addons/SimpleFormatOnSave/plugin.cfg", "
 
 folder_colors={
 "res://globals/assess_criterion_manager/": "purple",
-"res://objects/player/Stats/": "blue"
+"res://objects/player/Stats/": "blue",
+"res://test/unit/": "teal"
 }
 
 [gdunit4]
