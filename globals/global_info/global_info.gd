@@ -13,16 +13,16 @@ var game_time: float
 const assess_all = AssessSummary.MOST_RISKY | AssessSummary.LEAST_RISKY | AssessSummary.MOST_WEIGHT | AssessSummary.LEAST_WEIGHT | AssessSummary.QUESTION_ANSWERED_TOTAL | AssessSummary.WEIGHT_QUESTION_ANSWERED_TOTAL
 const game_all = GameSummary.GAMETIME | GameSummary.SCORETOTAL
 enum AssessSummary {
-	MOST_RISKY = 0,
-	LEAST_RISKY = 1 << 0,
-	MOST_WEIGHT = 1 << 1,
-	LEAST_WEIGHT = 1 << 2,
-	QUESTION_ANSWERED_TOTAL = 1 << 3,
-	WEIGHT_QUESTION_ANSWERED_TOTAL = 1 << 4
+	MOST_RISKY = 1 << 0,
+	LEAST_RISKY = 1 << 1,
+	MOST_WEIGHT = 1 << 2,
+	LEAST_WEIGHT = 1 << 3,
+	QUESTION_ANSWERED_TOTAL = 1 << 4,
+	WEIGHT_QUESTION_ANSWERED_TOTAL = 1 << 5
 	}
 enum GameSummary {
-	GAMETIME = 0,
-	SCORETOTAL = 1 << 0
+	GAMETIME = 1 << 0,
+	SCORETOTAL = 1 << 1
 }
 
 
@@ -30,7 +30,7 @@ func has_flag(all, flag):
 	return(all & flag) != 0
 
 
-func write_summary(assess_summary: int, game_summary: int):
+func write_summary(assess_summary: int, game_summary: int, smart_mode: bool):
 	var return_string: String = ""
 	var assess_weights: Array[float] = []
 	var assess_risks: Array[float] = []
@@ -41,6 +41,15 @@ func write_summary(assess_summary: int, game_summary: int):
 		assess_weights.append(c.weight)
 		assess_risks.append(c.risk_factor)
 		question_answered += c.METRIC_question_answered
+
+	print(assess_weights)
+	print(assess_risks)
+	if smart_mode:
+		if assess_weights.min() == assess_weights.max():
+			assess_summary ^= AssessSummary.MOST_WEIGHT | AssessSummary.LEAST_WEIGHT
+
+		if assess_risks.min() == assess_risks.max():
+			assess_summary ^= AssessSummary.MOST_RISKY | AssessSummary.LEAST_RISKY
 
 	#TODO translate
 	if has_flag(assess_summary, AssessSummary.MOST_RISKY):
