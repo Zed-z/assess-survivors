@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ConstWaveScaler" load_steps=2 format=3 uid="uid://bojujeuathosb"]
+
+[ext_resource type="Script" uid="uid://b3iagr3n10lfe" path="res://objects/enemies/enemy_spawner/enemy_wave_data/wave_scaling/const_wave_scalercaler.gd" id="1_vrbk7"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_vrbk7")
+metadata/_custom_type_script = "uid://b3iagr3n10lfe"
