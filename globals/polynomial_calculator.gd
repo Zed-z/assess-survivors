@@ -10,6 +10,7 @@ static func create_polynomial(weights: Array[float]) -> Array[float]:
 		coefs.append(create_nth_coef(weights, i))
 
 	coefs.append(0.0)
+	#print("Polynomial coefs are: ", coefs)
 	return coefs
 
 
@@ -28,11 +29,11 @@ static func create_nth_coef(weights: Array[float], n: int) -> float:
 		return product(weights)
 
 	var arrs: Array = arrays_without_n(weights,len(weights) - n)
-	print(arrs)
+	#print(arrs)
 	for j in range(len(arrs)):
 			arrs[j] = product(arrs[j])
 
-	print(arrs)
+	#print(arrs)
 	return sum(arrs)
 
 
@@ -60,7 +61,7 @@ static func arrays_without_n(arr: Array, n: int) -> Array:
 
 			continue
 
-		print(bin_str)
+		#print(bin_str)
 		var new_comb: Array = []
 
 		for j in range(len(bin_str)):

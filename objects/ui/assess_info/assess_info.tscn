@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cu78d8juxtctw"]
+[gd_scene load_steps=4 format=3 uid="uid://cu78d8juxtctw"]
 
 [ext_resource type="Script" uid="uid://b7o8v6owjr8hl" path="res://objects/ui/assess_info/assess_info.gd" id="1_tj60n"]
+[ext_resource type="Theme" uid="uid://df2r57b2stnof" path="res://themes/ui.tres" id="2_cs4u7"]
 
 [sub_resource type="Theme" id="Theme_iekma"]
 
@@ -21,6 +22,10 @@ size_flags_vertical = 3
 theme = SubResource("Theme_iekma")
 columns = 2
 
-[node name="Metadata" type="Label" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme = ExtResource("2_cs4u7")
+
+[node name="KLabel" type="Label" parent="HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
