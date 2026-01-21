@@ -22,10 +22,10 @@ size_flags_vertical = 3
 theme = SubResource("Theme_iekma")
 columns = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="Metadata" type="HBoxContainer" parent="."]
 layout_mode = 2
 theme = ExtResource("2_cs4u7")
 
-[node name="KLabel" type="Label" parent="HBoxContainer"]
+[node name="KLabel" type="Label" parent="Metadata"]
 unique_name_in_owner = true
 layout_mode = 2

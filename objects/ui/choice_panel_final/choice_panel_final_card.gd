@@ -2,6 +2,11 @@ extends Control
 class_name ChoicePanelFinalCard
 
 @export var item_display: PackedScene = preload("res://objects/ui/choice_panel_weight/choice_panel_weight_item.tscn")
+@export var disabled: bool:
+	set(val):
+		disabled = val
+		%Button.disabled = disabled
+
 var variant: Dictionary[AssessCriterion, float]
 var rank: int
 
@@ -9,6 +14,7 @@ signal variant_chosen(variant: Dictionary[AssessCriterion, float],rank: int)
 
 
 func _ready() -> void:
+	disabled = disabled
 	%Rank.text = str(rank)
 	#TODO: translate
 	%Button.text = "Chose me"
