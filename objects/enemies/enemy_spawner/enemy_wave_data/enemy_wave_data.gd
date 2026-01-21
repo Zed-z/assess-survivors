@@ -25,7 +25,7 @@ class_name WaveData
 
 @export var is_endless: bool
 
-@export var scaling: BaseEnemyScaler
+@export var scaling: BaseEnemyScaler = preload("uid://bojujeuathosb")
 
 @export_subgroup("endless_wave_increase")
 

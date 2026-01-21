@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="WaveData" load_steps=9 format=3 uid="uid://csb2r7pytibj3"]
+[gd_resource type="Resource" script_class="WaveData" load_steps=10 format=3 uid="uid://csb2r7pytibj3"]
 
 [ext_resource type="Script" uid="uid://dmbi1icxkymxl" path="res://objects/enemies/enemy_spawner/enemy_wave_data/wave_touple.gd" id="1_rouei"]
 [ext_resource type="PackedScene" uid="uid://bbp8p6r1nw1f0" path="res://objects/enemies/enemy_scenes/enemy_walker.tscn" id="2_j78pb"]
 [ext_resource type="PackedScene" uid="uid://b6mxutcmgdjsk" path="res://objects/enemies/enemy_scenes/enemy_slime.tscn" id="3_urfcq"]
 [ext_resource type="PackedScene" uid="uid://dnears1tiwond" path="res://objects/enemies/enemy_scenes/enemy_spider.tscn" id="4_xdbpi"]
+[ext_resource type="Resource" uid="uid://bojujeuathosb" path="res://objects/enemies/enemy_spawner/enemy_wave_data/wave_scaling/do_not_modify.tres" id="5_j78pb"]
 [ext_resource type="Script" uid="uid://cd06aok4ajl3c" path="res://objects/enemies/enemy_spawner/enemy_wave_data/enemy_wave_data.gd" id="5_jk1wv"]
 
 [sub_resource type="Resource" id="Resource_hstu6"]
