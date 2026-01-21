@@ -8,7 +8,7 @@ func _ready() -> void:
 	%LabelScore.text = tr("END_SCREEN_SCORE_COUNTER") % GlobalInfo.score_manager.score
 	var test_value1: int = 0
 	var test_value2: int = 0
-	%LabelNotes.text = GlobalInfo.write_summary(GlobalInfo.assess_all, GlobalInfo.game_all, true)
+	%LabelNotes.text = GlobalInfo.write_summary(GlobalInfo.assess_all, GlobalInfo.GameSummary.GAMETIME, true)
 
 
 func _exit_tree() -> void:
