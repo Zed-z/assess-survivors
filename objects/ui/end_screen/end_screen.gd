@@ -6,6 +6,7 @@ func _ready() -> void:
 	PauseManager.pause()
 
 	%LabelScore.text = tr("END_SCREEN_SCORE_COUNTER") % GlobalInfo.score_manager.score
+	%LabelNotes.text = GlobalInfo.write_summary(GlobalInfo.assess_all, GlobalInfo.game_all)
 
 
 func _exit_tree() -> void:

@@ -58,6 +58,7 @@ var METRIC_expand_count: int = 0
 var METRIC_count_weight: int = 0
 @export var LIMIT_expand_count: int = 3
 @export var LIMIT_count_weight: int = 3
+var METRIC_question_answered: int = 0
 
 
 func step(answer: Answer) -> StepAnswer:
@@ -65,6 +66,7 @@ func step(answer: Answer) -> StepAnswer:
 
 	var ret: StepAnswer = StepAnswer.new()
 	ret.answer = answer
+	METRIC_question_answered += 1
 
 	match answer:
 		Answer.p:

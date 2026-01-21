@@ -192,11 +192,14 @@ class WeightStepAnswer:
 	var value: MultiLottery.MultiLotteryResult
 	var answer: AssessCriterion.Answer
 
+var METRIC_weight_question_count: int = 0
+
 
 func weight_step(answer: AssessCriterion.Answer) -> WeightStepAnswer:
 	var step_answer: WeightStepAnswer = WeightStepAnswer.new()
 	var result: MultiLottery.MultiLotteryResult
 	step_answer.answer = answer
+	METRIC_weight_question_count += 1
 
 	if (answer == AssessCriterion.Answer.p):
 		#new
