@@ -5,13 +5,6 @@ class_name PlayerStats
 
 
 func _ready() -> void:
-	match GlobalInfo.game_type:
-		GlobalInfo.GameType.Quick:
-			stats = load("res://objects/player/Stats/player_stats_quick.tres")
-
-		GlobalInfo.GameType.Normal:
-			stats = load("res://objects/player/Stats/player_stats_default.tres")
-
 	for stat in stats.stats.values():
 		stat.init()
 

@@ -84,7 +84,14 @@ func _init_final_phase() -> void:
 
 	var polynomial: Array[float] = Polynomials_calculator.create_polynomial(weights_array)
 	var potential_K: Array = Polynomials_calculator.bairstow(polynomial).filter(func(x): return x != 0)
+	const epsilon = 0.001
+	#filter out nans and close to zero values
+
+	print("our unfiltered candidates for K are: ", potential_K)
+	potential_K = potential_K.filter(func(x): return x != NAN and abs(x) > epsilon)
 	assert(len(potential_K) != 0, "No K avaialable")
+
+	print("our candidates for K are: ", potential_K)
 	K = potential_K[0]
 
 
@@ -185,11 +192,14 @@ class WeightStepAnswer:
 	var value: MultiLottery.MultiLotteryResult
 	var answer: AssessCriterion.Answer
 
+var METRIC_weight_question_count: int = 0
+
 
 func weight_step(answer: AssessCriterion.Answer) -> WeightStepAnswer:
 	var step_answer: WeightStepAnswer = WeightStepAnswer.new()
 	var result: MultiLottery.MultiLotteryResult
 	step_answer.answer = answer
+	METRIC_weight_question_count += 1
 
 	if (answer == AssessCriterion.Answer.p):
 		#new
@@ -226,15 +236,15 @@ func weight_step(answer: AssessCriterion.Answer) -> WeightStepAnswer:
 		#print(result.values[c])
 		c.value_result.emit(result.values[c])
 
-	print("TIME FOR WEIGHTS TO SHOW UP WHAT THEY GOT")
-	for x in criteria:
-		print("==========`")
-		print(x.criterion_name)
-		#print(x.lower_bound_weight)
-		#print(x.weight)
-		#print(x.upper_bound_weight)
-		print(x.LIMIT_count_weight)
-		print(x.METRIC_count_weight)
+	#print("TIME FOR WEIGHTS TO SHOW UP WHAT THEY GOT")
+	#for x in criteria:
+		#print("==========`")
+		#print(x.criterion_name)
+		##print(x.lower_bound_weight)
+		##print(x.weight)
+		##print(x.upper_bound_weight)
+		#print(x.LIMIT_count_weight)
+		#print(x.METRIC_count_weight)
 
 	return step_answer
 
@@ -246,6 +256,7 @@ func next_phase():
 
 		GamePhases.WEIGHTS:
 			phase = GamePhases.FINAL
+			_init_final_phase()
 
 		GamePhases.FINAL:
 			pass

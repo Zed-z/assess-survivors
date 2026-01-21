@@ -1,8 +1,7 @@
 extends GdUnitTestSuite
 
-
-@onready var criterion_script: GDScript = preload("res://globals/assess_criterion_manager/criteria/assess_criterion_variable_probability.gd")
-var exp: Array[Vector2]
+@onready var manager: AssessManagerClass = preload("res://test/unit/atfut.tscn").instantiate()
+const basicCriterionIndex = 0
 
 
 func assert_almost_eq_vector2_array(actual: Array[Vector2], expected: Array[Vector2], delta: float):
@@ -12,11 +11,10 @@ func assert_almost_eq_vector2_array(actual: Array[Vector2], expected: Array[Vect
 
 
 func test_point_append():
-	var criterion: AssessCriterion = auto_free(criterion_script.new())
-
+	var criterion: AssessCriterion = manager.criteria[basicCriterionIndex]
+	criterion.setup()
 	assert_almost_eq_vector2_array(
-		criterion.point_list,
-		[Vector2(0.0, 0.0),Vector2(10.0, 1.0)],
+		criterion.point_list, [Vector2(0.0, 0.0), Vector2(10.0,1.0)],
 		0.01)
 
 	criterion.do_point_append()
@@ -45,4 +43,32 @@ func test_point_append():
 	assert_almost_eq_vector2_array(
 		criterion.point_list,
 		[Vector2(0.0, 0.0),Vector2(10.0, 0.2),Vector2(20.0, 0.4),Vector2(30.0, 0.6),Vector2(40.0, 0.8),Vector2(50.0, 1.0)],
+		0.01)
+
+
+func test_points_inbettween():
+	var criterion: AssessCriterion = manager.criteria[basicCriterionIndex]
+	criterion.phases = [1/9.0, 1/4.0, 1/3.0, 1/2.0]
+	criterion.setup()
+	assert_almost_eq_vector2_array(
+		criterion.point_list,
+		[Vector2(0.0, 0.0), Vector2(10/9.0, 1/9.0), Vector2(10.0,1.0)],
+		0.01)
+
+	criterion.do_point_inbetween()
+	assert_almost_eq_vector2_array(
+		criterion.point_list,
+		[Vector2(0.0, 0.0), Vector2(10/9.0, 1/9.0), Vector2(10/4.0, 1/4.0), Vector2(10.0,1.0)],
+		0.01)
+
+	criterion.do_point_inbetween()
+	assert_almost_eq_vector2_array(
+		criterion.point_list,
+		[Vector2(0.0, 0.0), Vector2(10/9.0, 1/9.0), Vector2(10/4.0, 1/4.0), Vector2(10/3.0, 1/3.0),Vector2(10.0,1.0)],
+		0.01)
+
+	criterion.do_point_inbetween()
+	assert_almost_eq_vector2_array(
+		criterion.point_list,
+		[Vector2(0.0, 0.0), Vector2(10/9.0, 1/9.0), Vector2(10/4.0, 1/4.0), Vector2(10/3.0, 1/3.0), Vector2(10.0/2, 1.0/2), Vector2(10.0,1.0)],
 		0.01)

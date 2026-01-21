@@ -21,3 +21,9 @@ text = "placeholder"
 [node name="ValuesContainer" type="VBoxContainer" parent="Container"]
 unique_name_in_owner = true
 layout_mode = 2
+
+[node name="Button" type="Button" parent="Container"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[connection signal="pressed" from="Container/Button" to="." method="_on_button_pressed"]

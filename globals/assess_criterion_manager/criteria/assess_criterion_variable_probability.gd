@@ -2,13 +2,13 @@ extends AssessCriterion
 class_name AssessCriterionVariableProbability
 
 
-func preferred_right(): # Loteria, pewnik staje się mniej użyteczny
+func preferred_left(): # Loteria, pewnik staje się mniej użyteczny
 	right_bound = point_list[-2].x
 	point_list[-2].x = (left_bound + point_list[-2].x) / 2
 	#pewniak się robi jako (min_value + pewniak) / 2
 
 
-func preferred_left(): # Pewnik, pewnik staje się bardziej użyteczny
+func preferred_right(): # Pewnik, pewnik staje się bardziej użyteczny
 	left_bound = point_list[-2].x
 	point_list[-2].x = (point_list[-2].x + right_bound) / 2
 	#pewniak się robi jako (pewniak + CUR_MAX_value) / 2

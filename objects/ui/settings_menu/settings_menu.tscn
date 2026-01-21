@@ -324,15 +324,17 @@ horizontal_scroll_mode = 0
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label3" type="Label" parent="Panel/Credits/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/Credits/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Authors"
-horizontal_alignment = 1
+alignment = 1
 
-[node name="Label7" type="Label" parent="Panel/Credits/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer"]
+[node name="Label7" type="Label" parent="Panel/Credits/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "Programming - "
+text = "Programming"
+
+[node name="Label8" type="Label" parent="Panel/Credits/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "ZedGame"
 
 [node name="Label8" type="Label" parent="Panel/Credits/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2

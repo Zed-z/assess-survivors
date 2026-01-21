@@ -18,7 +18,6 @@ func preferred_left(): #jeśli wybral L( x_i, LP, MIN) to polepsz prob_i
 
 
 func preferred_none(): #jesli obojetnie to przeskaluj
-	print(point_list)
 	point_list[-2].y = right_probability / left_probability
 
 
@@ -26,7 +25,6 @@ func set_bound():
 	right_probability = point_list[-2].y * left_probability
 	left_bound = point_list[-3].y * left_probability
 	right_bound = point_list[-1].y * left_probability
-	print(left_bound, "\t", right_probability, "\t", right_bound)
 
 
 func change_question() -> void:

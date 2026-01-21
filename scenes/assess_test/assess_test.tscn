@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://cd2dgvodr3u8k"]
+[gd_scene load_steps=18 format=4 uid="uid://cd2dgvodr3u8k"]
 
 [ext_resource type="Script" uid="uid://dqjtx2pjfltf0" path="res://scenes/assess_test/assess_test.gd" id="1_mafoi"]
 [ext_resource type="Theme" uid="uid://df2r57b2stnof" path="res://themes/ui.tres" id="1_uts2w"]
@@ -6,25 +6,19 @@
 [ext_resource type="Material" uid="uid://bahv2nf1ouhdy" path="res://materials/water.tres" id="3_67qic"]
 [ext_resource type="Material" uid="uid://d1581d5ay26af" path="res://materials/grass.tres" id="4_c6aqy"]
 [ext_resource type="Script" uid="uid://brabuaqkcg3c6" path="res://globals/assess_criterion_manager/criteria/assess_criterion.gd" id="4_o6syu"]
-[ext_resource type="Script" uid="uid://bfn4l4e5i8p0j" path="res://objects/ui/scene_change_button.gd" id="5_cxtxd"]
+[ext_resource type="Script" path="res://objects/ui/scene_change_button.gd" id="5_cxtxd"]
 [ext_resource type="TileSet" uid="uid://cld71m6mttjlh" path="res://tilesets/tileset.tres" id="5_na47r"]
 [ext_resource type="PackedScene" uid="uid://cu78d8juxtctw" path="res://objects/ui/assess_info/assess_info.tscn" id="6_23xs6"]
 [ext_resource type="PackedScene" uid="uid://bndei1083xpll" path="res://objects/decoration/tree.tscn" id="6_qgwg8"]
 [ext_resource type="Texture2D" uid="uid://cqqnj748bj1hu" path="res://sprites/ui/star.png" id="7_lm43g"]
 [ext_resource type="PackedScene" uid="uid://buqqxg1nykgry" path="res://objects/decoration/big_bush.tscn" id="7_vxiuc"]
 [ext_resource type="PackedScene" uid="uid://hf78mlyq324k" path="res://objects/decoration/small_bush.tscn" id="8_sspib"]
-[ext_resource type="Texture2D" uid="uid://buuaf3wdlshc0" path="res://sprites/flower.png" id="11_c6aqy"]
-[ext_resource type="Script" uid="uid://1doyvq1memo6" path="res://globals/assess_criterion_manager/criteria/assess_criterion_constant_probability.gd" id="12_67qic"]
+[ext_resource type="Script" uid="uid://5b0w6k2jxyuc" path="res://globals/assess_criterion_manager/criteria/assess_criterion_lottery_comparison.gd" id="11_67qic"]
 [ext_resource type="Script" uid="uid://dxavujg1j5jr5" path="res://globals/assess_criterion_manager/criteria/assess_criterion_variable_probability.gd" id="14_na47r"]
 
 [sub_resource type="Resource" id="Resource_c6aqy"]
-script = ExtResource("12_67qic")
-criterion_name = "A"
-icon = ExtResource("11_c6aqy")
-MAX_dialog_answers = -1
-LIMIT_expand_count = -1
-LIMIT_count_weight = -1
-metadata/_custom_type_script = "uid://1doyvq1memo6"
+script = ExtResource("11_67qic")
+metadata/_custom_type_script = "uid://5b0w6k2jxyuc"
 
 [sub_resource type="Resource" id="Resource_qgwg8"]
 script = ExtResource("14_na47r")
