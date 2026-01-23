@@ -5,7 +5,7 @@ MAIN_MENU_PLAY,Play,Graj,Spielen,プレー
 MAIN_MENU_QUIT,Quit,Wyjdź,Beenden,終了
 MAIN_MENU_SETTINGS,Settings,Ustawienia,Einstellungen,設定
 MAIN_MENU_ASSESS,ASSESS,ASSESS,ASSESS,アッセッス
-MAIN_MENU_COPYRIGHT,© 2025,© 2025,© 2025,© 2025
+MAIN_MENU_COPYRIGHT,© 2026,© 2026,© 2026,© 2026
 GAME_START_PROMPT,Choose game type,Wybierz typ gry,Wähle Spieltyp,ゲームタイプを選択
 GAME_START_QUICK_GAME,Quick Game,Szybka Gra,Schnelles Spiel,クイックゲーム
 GAME_START_NORMAL_GAME,Normal Game,Normalna Gra,Normales Spiel,ノーマルゲーム
@@ -49,6 +49,9 @@ CHOICE_PANEL_VERSUS,VS,VS,VS,VS
 END_SCREEN_TITLE,Game Over!,Koniec Gry!,Spiel Vorbei!,ゲームセット
 END_SCREEN_SCORE_COUNTER,Final Score: %08d,Ostateczny Wynik: %08d,Endpunktzahl: %08d,最終結果: %08d
 END_SCREEN_MAIN_MENU,Back to Menu,Wróć do Menu,Menü Zurück,メニューに戻る
+END_SCREEN_SEND_TITLE,Send Results,Wysyłanie Wyników,Ergebnisse Senden,結果を送信
+END_SCREEN_SEND_PROMPT,Do you want to send your results\nand compare with others?,Czy chcesz wysłać swoje wyniki\ni porównać je z innymi?,Möchten Sie Ihre Ergebnisse senden\nund mit anderen vergleichen?,結果を送信して\n他の人と比較しますか？
+END_SCREEN_RESEND_PROMPT,A connection error occurred.\nDo you want to try resending?,Wystąpił błąd połączenia.\nCzy chcesz spróbować ponownie wysłać?,"Ein Verbindungsfehler ist aufgetreten.\nMöchten Sie versuchen, es erneut zu senden?",接続エラーが発生しました。\n再送信を試みますか？
 STAT_ATK,Attack,Atak,Angriff,撃
 STAT_HP,Health,Zdrowie,Gesundheit,ヘルス
 STAT_SPD,Speed,Prędkość,Geschwindigkeit,敏速

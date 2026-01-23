@@ -16,7 +16,8 @@ var default_settings: Dictionary = {
 		"choice_criterion": false,
 		"choice_weight": false,
 		"choice_final": false,
-	}
+	},
+	"api_url": "https://assess.zedgame.xyz"
 }
 
 var settings = default_settings.duplicate(true)

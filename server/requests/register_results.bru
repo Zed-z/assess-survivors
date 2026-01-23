@@ -5,7 +5,7 @@ meta {
 }
 
 post {
-  url: http://localhost:3000/register_results
+  url: https://assess.zedgame.xyz/register_results
   body: json
   auth: none
 }
@@ -14,7 +14,6 @@ body:json {
   {
     "playerName": "{{$randomUserName}}",
     "score": "{{$randomInt}}",
-    "won": "{{$randomBoolean}}",
     "stats": [
       {
         "name": "STAT_ATK",
