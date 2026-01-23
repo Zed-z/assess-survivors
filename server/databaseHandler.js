@@ -24,10 +24,6 @@ exports.gameStats = sequelize.define('game_stats', {
 		type: Sequelize.INTEGER,
 		allowNull: false,
 	},
-	won: {
-		type: Sequelize.BOOLEAN,
-		allowNull: false,
-	},
 	averageRiskiness: {
 		type: Sequelize.FLOAT,
 		allowNull: true,

@@ -37,7 +37,6 @@ router.get('/get_leaderboard', async (req, res) => {
 			number: i + 1,
 			player: entry.playerName,
 			score: entry.score,
-			won: entry.won,
 			averageRiskinesas: entry.averageRiskiness,
 			mostWeightStat: entry.mostWeightStat,
 			//stats: entry.stats,
