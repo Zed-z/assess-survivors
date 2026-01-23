@@ -6,22 +6,14 @@ const config = require('./config.js');
 const PORT = config.port;
 const express = require('express');
 
-const app = express()
-	.use(express.json({limit: config.dataLimit}))
-	.use(express.urlencoded({ extended: true, limit: config.dataLimit}))
-	.use(express.json());
+const app = express();
+app.use(express.json());
 
 // CORS
-const ALLOWED_ORIGINS = [
-    "https://zedgame.itch.io", 
-    "http://localhost:3001", 
-    "http://127.0.0.1:3001"
-];
-
 app.use((req, res, next) => {
     const origin = req.headers.origin;
 
-    if (ALLOWED_ORIGINS.includes(origin)) {
+    if (config.allowedOrigins.includes(origin)) {
         res.setHeader('Access-Control-Allow-Origin', origin);
     }
 
@@ -36,7 +28,7 @@ app.use((req, res, next) => {
     next();
 });
 
-// Load and apply routes from the requests/ folder
+// Load and apply routes
 const loadRoutes = (app, routesDir) => {
 	fs.readdirSync(routesDir).forEach(file => {
 		if (file.endsWith('.js')) {
