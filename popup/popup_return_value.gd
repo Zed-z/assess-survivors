@@ -4,7 +4,8 @@ class_name PopupReturnValue
 enum Type {
 	Close,
 	Ok,
-	YesNo
+	YesNo,
+	TextInput
 }
 
 var type: Type

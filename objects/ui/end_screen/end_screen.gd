@@ -39,8 +39,15 @@ func prompt_send_data(resend: bool = false) -> void:
 
 
 func send_data():
+
+	var popup := TextInputPopup.instantiate(self)
+	popup.title = tr("END_SCREEN_SEND_TITLE")
+	popup.text = tr("END_SCREEN_USERNAME_PROMPT")
+	var popup_return: PopupReturnValue = await popup.closed
+	var player_name: String = popup_return.data
+
 	var request: Dictionary = {
-		"playerName": "Player",
+		"playerName": player_name,
 		"score": GlobalInfo.score_manager.score,
 		"stats": []
 	}
@@ -53,7 +60,7 @@ func send_data():
 		request["stats"].append({
 			"name": stat.name,
 			"value": stat.value,
-			"weight": 0,#stat.criterion.weight,
+			"weight": stat.criterion.weight,
 			"riskiness": stat.criterion.risk_factor
 		})
 

@@ -231,6 +231,7 @@ Label/font_sizes/font_size = 32
 Label/fonts/font = ExtResource("1_h6ia1")
 LightPanel/base_type = &"Panel"
 LightPanel/styles/panel = SubResource("StyleBoxTexture_41f1y")
+LineEdit/fonts/font = ExtResource("1_h6ia1")
 Panel/styles/panel = SubResource("StyleBoxTexture_7gpds")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_41f1y")
 ProgressBar/styles/background = SubResource("StyleBoxTexture_4efn8")
