@@ -28,6 +28,7 @@ SettingsManager="*res://globals/settings_manager/settings_manager.tscn"
 ObjectManager="*res://globals/object_manager/object_manager.tscn"
 Utils="*res://globals/utils.gd"
 PauseManager="*res://globals/pause_manager.gd"
+MusicPlayer="*res://globals/music_player/music_player.tscn"
 
 [debug]
 
