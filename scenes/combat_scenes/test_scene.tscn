@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://b7vpx6t3mw6gd"]
+[gd_scene load_steps=22 format=4 uid="uid://b7vpx6t3mw6gd"]
 
 [ext_resource type="PackedScene" uid="uid://ct88pvgyokerc" path="res://objects/player/player.tscn" id="1_41wyt"]
 [ext_resource type="PackedScene" uid="uid://blfd7tomoo2ky" path="res://globals/holders/projectile_holder/projectile_holder.tscn" id="1_gyrba"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dh1jrdfgruvqn" path="res://objects/enemies/enemy_spawner/enemy_spawner.tscn" id="3_vqmlp"]
 [ext_resource type="PackedScene" uid="uid://bh5tkxvg8jh42" path="res://scenes/combat_scenes/combat_ui/combat_overlay.tscn" id="6_1nlv8"]
 [ext_resource type="PackedScene" uid="uid://bndei1083xpll" path="res://objects/decoration/tree.tscn" id="8_nstv8"]
+[ext_resource type="Script" uid="uid://bahsl7p8lqyh5" path="res://scenes/combat_scenes/decoration.gd" id="8_ui2sr"]
 [ext_resource type="PackedScene" uid="uid://dcnxirbl2tpfw" path="res://objects/game_camera/game_camera.tscn" id="9_hosda"]
 [ext_resource type="PackedScene" uid="uid://buqqxg1nykgry" path="res://objects/decoration/big_bush.tscn" id="9_k5p8g"]
 [ext_resource type="PackedScene" uid="uid://55kp84v1di83" path="res://globals/assess_criterion_manager/assess_manager.tscn" id="9_ug5hv"]
@@ -56,8 +57,8 @@ tile_map_data = PackedByteArray("AAD//wAACAABAAAAAAAAAAAACAABAAAAAAAAAP//CAABAAA
 tile_set = ExtResource("3_gyrba")
 
 [node name="Decoration" type="Node2D" parent="."]
-visible = false
 y_sort_enabled = true
+script = ExtResource("8_ui2sr")
 
 [node name="Tree" parent="Decoration" instance=ExtResource("8_nstv8")]
 position = Vector2(148, 434)
