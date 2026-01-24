@@ -17,5 +17,3 @@ shape = SubResource("CircleShape2D_4d8bg")
 position = Vector2(3, 2)
 scale = Vector2(0.21484375, 0.21484375)
 texture = ExtResource("2_eutpu")
-
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]

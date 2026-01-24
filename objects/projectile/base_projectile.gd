@@ -9,7 +9,7 @@ var damage: float
 
 
 func _ready() -> void:
-	area_entered.connect(_on_area_entered)
+	area_entered.connect(_on_area_entered,)
 
 
 func initiate_projectile(vec: Vector2) -> void:
