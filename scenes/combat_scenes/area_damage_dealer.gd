@@ -1,14 +1,16 @@
 extends Node
 
-@onready var spawnable_area: CollisionPolygon2D = $"../EnemySpawner/SpawnableArea"
+@export var spawnable_area: CollisionPolygon2D
 
-@export var damage : float = 0.5
+@export var damage: float = 0.5
 
 var player: Player
 var player_hp_comp: HealthComponent
 
 
 func _ready() -> void:
+	assert(is_instance_valid(spawnable_area))
+
 	player = GlobalInfo.player
 	player_hp_comp = player.get_node("HealthComponent")
 	var timer = Timer.new()

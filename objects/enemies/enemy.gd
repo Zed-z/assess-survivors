@@ -2,6 +2,8 @@ extends CharacterBody2D
 class_name Enemy
 var target: Player
 
+@export var spawner: EnemySpawner
+
 @export var move_controller: MoveController
 @export var move_animation: AnimatedSprite2D
 
@@ -25,6 +27,7 @@ func scale_enemy(scaler: BaseEnemyScaler):
 
 
 func _ready() -> void:
+	assert(is_instance_valid(spawner))
 	assert(is_instance_valid(move_animation), name + " does not have animation assigned")
 	target = GlobalInfo.player
 
@@ -52,7 +55,7 @@ func _on_health_component_got_hit(depleted: bool) -> void:
 		$AnimationPlayer.play("die")
 
 		await $AnimationPlayer.animation_finished
-		get_parent().remove_enemy(self)
+		spawner.remove_enemy(self)
 		GlobalInfo.score_manager.score_increase(100)
 	else:
 		$AnimationPlayer.stop()

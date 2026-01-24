@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://fnao1rs5haap"]
+[gd_scene load_steps=23 format=4 uid="uid://fnao1rs5haap"]
 
 [ext_resource type="Script" uid="uid://bmj4swwdanc7i" path="res://scenes/combat_scenes/gameplay.gd" id="1_rk5i4"]
 [ext_resource type="PackedScene" uid="uid://c218rscg2tadk" path="res://objects/score_manager/score_manager.tscn" id="2_dxil3"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" uid="uid://cewtwidc4lwar" path="res://scenes/combat_scenes/pickup_spawner.gd" id="16_sysgn"]
 [ext_resource type="PackedScene" uid="uid://dcoqxmxne62pu" path="res://objects/player/pickup/instances/health_pickup.tscn" id="17_ut44a"]
 [ext_resource type="PackedScene" uid="uid://bayobo3ev4nkp" path="res://objects/player/pickup/instances/xp_pickup.tscn" id="18_r7yvl"]
+[ext_resource type="Material" uid="uid://bod3pt5yrjc4b" path="res://materials/enemy_outline.tres" id="19_dxil3"]
 [ext_resource type="Script" uid="uid://b50csmsp4it8e" path="res://scenes/combat_scenes/area_damage_dealer.gd" id="19_ohie8"]
 [ext_resource type="PackedScene" uid="uid://dt1hcj81rn16p" path="res://objects/area_bounds/area_bounds.tscn" id="20_wn8it"]
 
@@ -179,7 +180,8 @@ scale = Vector2(0.998866, 0.986525)
 
 [node name="GameCamera" parent="Player" instance=ExtResource("13_odjsu")]
 
-[node name="EnemySpawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("14_dbfkq")]
+[node name="EnemySpawner" parent="." node_paths=PackedStringArray("enemy_holder", "player") instance=ExtResource("14_dbfkq")]
+enemy_holder = NodePath("EnemyHolder")
 player = NodePath("../Player")
 min_radius = 500.0
 max_radius = 600.0
@@ -195,8 +197,13 @@ pickups = Array[PackedScene]([ExtResource("17_ut44a"), ExtResource("18_r7yvl")])
 visible = false
 polygon = PackedVector2Array(-1107, 247, -1134, 355, -1011, 425, -938, 398, -690, 508, -243, 540, 788, 551, 972, 514, 1181, 427, 1237, 463, 1355, 395, 1376, 271, 1422, 234, 1487, 139, 1486, -516, 1368, -582, 1297, -561, 1174, -620, 1103, -597, 857, -708, -431, -714, -881, -671, -940, -644, -1013, -673, -1188, -580, -1175, -529, -1313, -449, -1292, -413, -1389, -358, -1372, -290, -1345, -254, -1451, -198, -1456, -117, -1352, -58, -1386, -25, -1388, 42, -1287, 95, -1328, 136)
 
-[node name="AreaDamageDealer" type="Node" parent="."]
+[node name="EnemyHolder" type="CanvasGroup" parent="EnemySpawner"]
+y_sort_enabled = true
+material = ExtResource("19_dxil3")
+
+[node name="AreaDamageDealer" type="Node" parent="." node_paths=PackedStringArray("spawnable_area")]
 script = ExtResource("19_ohie8")
+spawnable_area = NodePath("../EnemySpawner/SpawnableArea")
 
 [node name="AreaBounds" parent="." instance=ExtResource("20_wn8it")]
 

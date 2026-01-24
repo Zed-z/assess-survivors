@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://spkrq1jvi4r6"]
+
+[ext_resource type="PackedScene" uid="uid://cg068o0hw2swp" path="res://popup/base_popup.tscn" id="1_fvfny"]
+[ext_resource type="Script" uid="uid://ceslo1c8pvk3h" path="res://popup/text_input_popup.gd" id="2_fvfny"]
+
+[node name="TextInputPopup" instance=ExtResource("1_fvfny")]
+script = ExtResource("2_fvfny")
+allow_empty = null
+show_background = true
+can_be_closed = false
+
+[node name="ButtonClose" parent="Popup/VBoxContainer/TitleBar/HBoxContainer" index="1"]
+visible = false
+
+[node name="Text" parent="Popup/VBoxContainer/Content/HBoxContainer" index="0"]
+text = ""
+
+[node name="Input" type="LineEdit" parent="Popup/VBoxContainer" index="2"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="Popup/VBoxContainer" index="3"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Popup/VBoxContainer/MarginContainer2" index="0"]
+layout_mode = 2
+alignment = 1
+
+[node name="ButtonOk" type="Button" parent="Popup/VBoxContainer/MarginContainer2/HBoxContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "OK"

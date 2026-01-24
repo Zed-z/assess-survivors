@@ -8,7 +8,9 @@ func _ready() -> void:
 	%LabelScore.text = tr("END_SCREEN_SCORE_COUNTER") % GlobalInfo.score_manager.score
 	var test_value1: int = 0
 	var test_value2: int = 0
-	%LabelNotes.text = GlobalInfo.write_summary(GlobalInfo.assess_all, GlobalInfo.game_all, true)
+	%LabelNotes.text = GlobalInfo.write_summary(GlobalInfo.assess_all, GlobalInfo.GameSummary.GAMETIME, true)
+
+	prompt_send_data()
 
 
 func _exit_tree() -> void:
@@ -21,11 +23,32 @@ func _on_button_assess_info_pressed() -> void:
 	get_parent().add_child(s)
 
 
+func prompt_send_data(resend: bool = false) -> void:
+	var popup := YesNoPopup.instantiate(self)
+	popup.title = tr("END_SCREEN_SEND_TITLE")
+
+	if resend:
+		popup.text = tr("END_SCREEN_RESEND_PROMPT")
+	else:
+		popup.text = tr("END_SCREEN_SEND_PROMPT")
+
+	var popup_return: PopupReturnValue = await popup.closed
+
+	if popup_return.data:
+		send_data()
+
+
 func send_data():
+
+	var popup := TextInputPopup.instantiate(self)
+	popup.title = tr("END_SCREEN_SEND_TITLE")
+	popup.text = tr("END_SCREEN_USERNAME_PROMPT")
+	var popup_return: PopupReturnValue = await popup.closed
+	var player_name: String = popup_return.data
+
 	var request: Dictionary = {
-		"playerName": "Player",
+		"playerName": player_name,
 		"score": GlobalInfo.score_manager.score,
-		"won": true,
 		"stats": []
 	}
 
@@ -37,27 +60,23 @@ func send_data():
 		request["stats"].append({
 			"name": stat.name,
 			"value": stat.value,
-			"weight": 0,#stat.criterion.weight,
+			"weight": stat.criterion.weight,
 			"riskiness": stat.criterion.risk_factor
 		})
 
 	var json = JSON.stringify(request)
-	print(json)
+	var api_url: String = SettingsManager.get_setting("api_url")
 	var headers = ["Content-Type: application/json"]
-	$HTTPRequest.request("http://localhost:3000/register_results", headers, HTTPClient.METHOD_POST, json)
+	$HTTPRequest.request(api_url + "/register_results", headers, HTTPClient.METHOD_POST, json)
 	$HTTPRequest.request_completed.connect(_on_request_completed)
 
 
 func _on_request_completed(result, response_code, headers, body):
-	if response_code != 200:
-		%ButtonSubmit.disabled = false
+	if result != HTTPRequest.RESULT_SUCCESS or response_code != 200:
+		prompt_send_data(true)
+		return
 
 	var json = JSON.parse_string(body.get_string_from_utf8())
 	print(json)
 
-	%LabelNotes.text = "\n".join(json["notes"])
-
-
-func _on_button_2_pressed() -> void:
-	%ButtonSubmit.disabled = true
-	send_data()
+	# TODO

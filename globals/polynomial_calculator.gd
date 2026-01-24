@@ -117,11 +117,18 @@ static func calculate_partial_usefullness(u_graph: Array[Vector2], value: float)
 #calculates U(x)
 static func calculate_global_usefullness(K: float, variant: Dictionary[AssessCriterion, float]):
 	var p: float = 1.0
+	const epsilon = 0.001
 
-	for key in variant:
-		p *= (K * key.weight * calculate_partial_usefullness(key.point_list, variant[key]) + 1)
+	if abs(K) > epsilon:
+		for key in variant:
+			p *= (K * key.weight * calculate_partial_usefullness(key.point_list, variant[key]) + 1)
 
-	return(1/K) * (p - 1)
+		return(1/K) * (p - 1)
+	else:
+		for key in variant:
+			p += key.weight * calculate_partial_usefullness(key.point_list, variant[key])
+
+		return
 
 
 #sums elements of an array

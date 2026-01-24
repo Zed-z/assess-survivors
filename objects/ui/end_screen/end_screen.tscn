@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://df2r57b2stnof" path="res://themes/ui.tres" id="1_8p1g5"]
 [ext_resource type="Script" uid="uid://w1l641rhg61w" path="res://objects/ui/end_screen/end_screen.gd" id="2_77v0h"]
-[ext_resource type="Script" path="res://objects/ui/scene_change_button.gd" id="3_ml61n"]
+[ext_resource type="Script" uid="uid://bfn4l4e5i8p0j" path="res://objects/ui/scene_change_button.gd" id="3_ml61n"]
 
 [node name="EndScreen" type="Control"]
 process_mode = 3
@@ -96,12 +96,6 @@ text = "END_SCREEN_MAIN_MENU"
 script = ExtResource("3_ml61n")
 scene = "main_menu"
 
-[node name="ButtonSubmit" type="Button" parent="MarginContainer/Control/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "SEND"
-
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
 [connection signal="pressed" from="MarginContainer/Control/HBoxContainer/ButtonAssessInfo" to="." method="_on_button_assess_info_pressed"]
-[connection signal="pressed" from="MarginContainer/Control/HBoxContainer/ButtonSubmit" to="." method="_on_button_2_pressed"]

@@ -45,33 +45,33 @@ func write_summary(assess_summary: int, game_summary: int, smart_mode: bool):
 	print(assess_weights)
 	print(assess_risks)
 	if smart_mode:
-		if assess_weights.min() == assess_weights.max():
+		if abs(assess_weights.min() - assess_weights.max()) < 0.01:
 			assess_summary ^= AssessSummary.MOST_WEIGHT | AssessSummary.LEAST_WEIGHT
 
-		if assess_risks.min() == assess_risks.max():
+		if abs(assess_risks.min() - assess_risks.max()) < 0.01:
 			assess_summary ^= AssessSummary.MOST_RISKY | AssessSummary.LEAST_RISKY
 
 	#TODO translate
 	if has_flag(assess_summary, AssessSummary.MOST_RISKY):
-		var most_risky = assess_manager.criteria.find(func(x): return x.risk_factor == assess_risks.max())
+		var most_risky = assess_manager.criteria.find_custom(func(x): return x.risk_factor == assess_risks.max())
 		return_string += "Your most risky stat: "
 		return_string += tr(assess_manager.criteria[most_risky].criterion_name)
 		return_string += "\n"
 
 	if has_flag(assess_summary, AssessSummary.LEAST_RISKY):
-		var least_risky = assess_manager.criteria.find(func(x): return x.risk_factor == assess_risks.min())
+		var least_risky = assess_manager.criteria.find_custom(func(x): return x.risk_factor == assess_risks.min())
 		return_string += "Your least risky stat: "
 		return_string += tr(assess_manager.criteria[least_risky].criterion_name)
 		return_string += "\n"
 
 	if has_flag(assess_summary, AssessSummary.MOST_WEIGHT):
-		var most_weight = assess_manager.criteria.find(func(x): return x.weight == assess_weights.max())
+		var most_weight = assess_manager.criteria.find_custom(func(x): return x.weight == assess_weights.max())
 		return_string += "Your most weighted stat: "
 		return_string += tr(assess_manager.criteria[most_weight].criterion_name)
 		return_string += "\n"
 
 	if has_flag(assess_summary, AssessSummary.LEAST_WEIGHT):
-		var least_weight = assess_manager.criteria.find(func(x): return x.weight == assess_weights.min())
+		var least_weight = assess_manager.criteria.find_custom(func(x): return x.weight == assess_weights.min())
 		return_string += "Your least weighted stat: "
 		return_string += tr(assess_manager.criteria[least_weight].criterion_name)
 		return_string += "\n"

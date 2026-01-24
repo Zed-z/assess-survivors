@@ -3,7 +3,7 @@ class_name RandomWalker
 
 var curent_target_location: Vector2 = Vector2.ZERO
 
-@onready var holder:EnemySpawner= $"../.."
+@onready var spawner: EnemySpawner = $"../../.."
 
 
 func generate_valid_target_location():
@@ -15,13 +15,13 @@ func generate_valid_target_location():
 			var offset = Vector2(1000,0).rotated(randf_range(0,3.14 * 2))
 			var enemy_location= global_position + offset
 
-			if holder.is_position_inside_area(enemy_location):
+			if spawner.is_position_inside_area(enemy_location):
 				curent_target_location = enemy_location
 				return
 			else:
 				enemy_location = global_position - offset
 
-				if holder.is_position_inside_area(enemy_location):
+				if spawner.is_position_inside_area(enemy_location):
 					curent_target_location = enemy_location
 					return
 

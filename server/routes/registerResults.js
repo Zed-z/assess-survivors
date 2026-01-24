@@ -17,7 +17,6 @@ router.post('/register_results', async (req, res) => {
 		{
 			"playerName": "Username",
 			"score": "100000",
-			"won": true,
 			"stats": [
 				{
 					"name": "STAT_ATK",
@@ -40,19 +39,7 @@ router.post('/register_results', async (req, res) => {
 		const info = { notes: []};
 
 		const totalGames = await db.gameStats.count();
-		const totalGamesWon = await db.gameStats.count({
-			where: { won: true }
-		});
-		const winRate = (totalGames > 0)
-			? (totalGamesWon / totalGames)
-			: 0;
 		info.total_games = totalGames;
-		info.total_games_won = totalGamesWon;
-		info.win_rate = winRate;
-
-		if (req.body.won) {
-			info.notes.push(`You won, like ${(winRate * 100).toFixed(2)}% of all players!`);
-		}
 
 		const mostWeightStat = req.body.stats.reduce((maxStat, currentStat) => {
 			return (currentStat.weight > maxStat.weight)
@@ -94,7 +81,6 @@ router.post('/register_results', async (req, res) => {
 			gameGuid: gameGuid,
 			playerName: req.body.playerName,
 			score: req.body.score,
-			won: req.body.won,
 			averageRiskiness: avgerageRiskiness,
 			mostWeightStat: mostWeightStat.name
 		}).catch((e) => {

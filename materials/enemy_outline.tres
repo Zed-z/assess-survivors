@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bod3pt5yrjc4b"]
+
+[ext_resource type="Shader" uid="uid://chuyjyyktupwb" path="res://materials/enemy_outline.gdshader" id="1_fsem5"]
+
+[resource]
+shader = ExtResource("1_fsem5")
+shader_parameter/line_colour = Color(1, 0, 0, 1)
+shader_parameter/line_thickness = 4
