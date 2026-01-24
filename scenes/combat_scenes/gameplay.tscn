@@ -275,7 +275,8 @@ scale = Vector2(2.0542154, 2.2317595)
 amount = 200
 texture = ExtResource("23_mx1ka")
 lifetime = 50.0
-preprocess = 10.0
+preprocess = 20.0
+visibility_rect = Rect2(-1000, -1000, 2000, 2000)
 process_material = SubResource("ParticleProcessMaterial_mx1ka")
 script = ExtResource("24_w6rc0")
 
