@@ -12,5 +12,5 @@ func _process(delta: float) -> void:
 
 	for x: Node2D in array:
 		var pom = x.position.distance_squared_to(player_pos)
-		print(x.name)
-		x.modulate.a = 0#clamp(0.2,1,remap(pom,0,200,0.2,1))
+
+		x.modulate.a = clamp(0.5,1,remap(pom,4000,13000,0.5,1))
