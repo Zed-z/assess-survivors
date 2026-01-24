@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="WaveData" load_steps=11 format=3 uid="uid://b05m0t3a3esnq"]
+[gd_resource type="Resource" script_class="WaveData" load_steps=12 format=3 uid="uid://b05m0t3a3esnq"]
 
 [ext_resource type="Script" uid="uid://dmbi1icxkymxl" path="res://objects/enemies/enemy_spawner/enemy_wave_data/wave_touple.gd" id="1_y23y8"]
 [ext_resource type="PackedScene" uid="uid://b6mxutcmgdjsk" path="res://objects/enemies/enemy_scenes/enemy_slime.tscn" id="2_kknye"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dmtshlqm6061i" path="res://objects/enemies/enemy_scenes/enemy_bat.tscn" id="4_gbgs1"]
 [ext_resource type="Script" uid="uid://cd06aok4ajl3c" path="res://objects/enemies/enemy_spawner/enemy_wave_data/enemy_wave_data.gd" id="5_65o7x"]
 [ext_resource type="PackedScene" uid="uid://b878cclpdkau" path="res://objects/enemies/enemy_scenes/enemy_bush.tscn" id="5_kknye"]
+[ext_resource type="Resource" uid="uid://bojujeuathosb" path="res://objects/enemies/enemy_spawner/enemy_wave_data/wave_scaling/do_not_modify.tres" id="6_f7xlv"]
 
 [sub_resource type="Resource" id="Resource_bctpy"]
 script = ExtResource("1_y23y8")

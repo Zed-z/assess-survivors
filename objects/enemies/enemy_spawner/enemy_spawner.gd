@@ -3,6 +3,8 @@ class_name EnemySpawner
 
 signal enemy_killed(enemy: Enemy)
 
+@export var enemy_holder: Node2D
+
 @export var player: Player
 @export_group("spawn parameters")
 @export var min_radius: float = 100
@@ -104,6 +106,8 @@ func new_wave():
 
 
 func _ready() -> void:
+	assert(is_instance_valid(enemy_holder))
+
 	enemy_spawn_timer.timeout.connect(spawn_enemy)
 	enemies_array = SwapbackArray.new(50)
 	GlobalInfo.enemy_spawner = self
@@ -162,6 +166,7 @@ func spawn_enemy():
 
 	spawned_enemies += 1
 	var e: Enemy = create_enemy()
+	e.spawner = self
 
 	var enemy_location
 
@@ -189,7 +194,7 @@ func spawn_enemy():
 
 		break
 
-	call_deferred("add_child",e)
+	enemy_holder.call_deferred("add_child",e)
 	enemies_array.append(e)
 	e.global_position = enemy_location
 	e.wave_number = current_wave_index
