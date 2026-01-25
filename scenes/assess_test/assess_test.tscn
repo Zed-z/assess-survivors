@@ -6,7 +6,7 @@
 [ext_resource type="Material" uid="uid://bahv2nf1ouhdy" path="res://materials/water.tres" id="3_67qic"]
 [ext_resource type="Material" uid="uid://d1581d5ay26af" path="res://materials/grass.tres" id="4_c6aqy"]
 [ext_resource type="Script" uid="uid://brabuaqkcg3c6" path="res://globals/assess_criterion_manager/criteria/assess_criterion.gd" id="4_o6syu"]
-[ext_resource type="Script" path="res://objects/ui/scene_change_button.gd" id="5_cxtxd"]
+[ext_resource type="Script" uid="uid://bfn4l4e5i8p0j" path="res://objects/ui/scene_change_button.gd" id="5_cxtxd"]
 [ext_resource type="TileSet" uid="uid://cld71m6mttjlh" path="res://tilesets/tileset.tres" id="5_na47r"]
 [ext_resource type="PackedScene" uid="uid://cu78d8juxtctw" path="res://objects/ui/assess_info/assess_info.tscn" id="6_23xs6"]
 [ext_resource type="PackedScene" uid="uid://bndei1083xpll" path="res://objects/decoration/tree.tscn" id="6_qgwg8"]
