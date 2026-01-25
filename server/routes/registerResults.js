@@ -36,7 +36,7 @@ router.post('/register_results', async (req, res) => {
 
 		const gameGuid = crypto.randomUUID();
 
-		const info = { notes: []};
+		const info = {};
 
 		const totalGames = await db.gameStats.count();
 		info.total_games = totalGames;
@@ -52,7 +52,7 @@ router.post('/register_results', async (req, res) => {
 
 		info.most_weight_stat = mostWeightStat;
 		info.same_most_weight_stat_count = sameMostWeightStatCount;
-		info.notes.push(`Your most weighted stat was ${mostWeightStat.name}, just like ${sameMostWeightStatCount} other players.`);
+		//info.notes.push(`Your most weighted stat was ${mostWeightStat.name}, just like ${sameMostWeightStatCount} other players.`);
 
 		const lessScoreCount = await db.gameStats.count({
 			where: { score: { [Sequelize.Op.lt]: req.body.score } }
@@ -60,7 +60,7 @@ router.post('/register_results', async (req, res) => {
 		const percentile = (totalGames > 0) ? (lessScoreCount / totalGames) : 0;
 		info.less_score_count = lessScoreCount;
 		info.score_percentile = percentile;
-		info.notes.push(`Your score is better than ${(percentile * 100).toFixed(2)}% of all players.`);
+		//info.notes.push(`Your score is better than ${(percentile * 100).toFixed(2)}% of all players.`);
 
 		const avgerageRiskiness = req.body.stats.reduce((sum, stat) => sum + stat.riskiness * stat.weight, 0)
 			/ req.body.stats.reduce((sum, stat) => sum + stat.weight, 0);
@@ -74,7 +74,7 @@ router.post('/register_results', async (req, res) => {
 		info.more_riskiness_count = moreRiskinessCount;
 		info.less_riskiness_count = lessRiskinessCount;
 		info.riskiness_percentile = riskinessPercentile;
-		info.notes.push(`Your average riskiness was ${avgerageRiskiness.toFixed(2)}, higher than ${(riskinessPercentile * 100).toFixed(2)} of people.`);
+		//info.notes.push(`Your average riskiness was ${avgerageRiskiness.toFixed(2)}, higher than ${(riskinessPercentile * 100).toFixed(2)} of people.`);
 
 
 		const rawRow = await db.gameStats.create({
