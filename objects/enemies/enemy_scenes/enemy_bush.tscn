@@ -1277,8 +1277,7 @@ metadata/_custom_type_script = "uid://bxrtysv8dyqbb"
 [node name="WalkingBushMoveCantroler" type="Node2D" parent="." index="1"]
 script = ExtResource("2_q0efr")
 speed = 140.0
-ideal_radius = 550.0
-allowed_radius_deviation = 200
+ideal_radius = 400.0
 debug_view = true
 metadata/_custom_type_script = "uid://bgb2oual2bgw"
 
