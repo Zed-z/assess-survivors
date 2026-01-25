@@ -1279,7 +1279,6 @@ script = ExtResource("2_q0efr")
 speed = 140.0
 ideal_radius = 550.0
 allowed_radius_deviation = 200
-debug_view = true
 metadata/_custom_type_script = "uid://bgb2oual2bgw"
 
 [node name="Timer" type="Timer" parent="WalkingBushMoveCantroler" index="0"]
