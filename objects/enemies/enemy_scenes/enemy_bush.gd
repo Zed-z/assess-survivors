@@ -51,7 +51,7 @@ func _physics_process(_delta: float) -> void:
 			else:
 				can_act -=_delta
 
-		if GlobalInfo.enemy_spawner.is_position_inside_area(position + velocity * _delta):
+		if GlobalInfo.enemy_spawner.is_position_inside_area(position + velocity * 0.2):
 			move_and_slide()
 
 	elif current_state == BUSH_STATE.UP:

@@ -191,7 +191,7 @@ shape = SubResource("CircleShape2D_fg4xr")
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("4_lijck")
-health = 150
+health = 150.0
 metadata/_custom_type_script = "uid://008ins25r0w8"
 
 [node name="SpriteContainer" type="Node2D" parent="."]
@@ -209,6 +209,12 @@ bus = &"Effects"
 stream = ExtResource("5_gpstc")
 bus = &"Effects"
 
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_right = 4.0
+offset_bottom = 27.0
+
 [connection signal="area_entered" from="HurtBox" to="HurtBox" method="_on_area_entered"]
 [connection signal="hit" from="HurtBox" to="HealthComponent" method="take_damage"]
 [connection signal="got_hit" from="HealthComponent" to="." method="_on_health_component_got_hit"]
+[connection signal="health_changed" from="HealthComponent" to="ProgressBar" method="set_value"]
+[connection signal="max_health_changed" from="HealthComponent" to="ProgressBar" method="set_max"]

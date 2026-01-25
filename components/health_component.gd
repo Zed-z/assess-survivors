@@ -20,6 +20,8 @@ func setup(_health: float):
 
 func reset():
 	current_health = health
+	max_health_changed.emit(health)
+	health_changed.emit(current_health)
 
 
 func _ready() -> void:
