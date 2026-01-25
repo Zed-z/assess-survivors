@@ -84,8 +84,7 @@ func _init_final_phase() -> void:
 
 	var polynomial: Array[float] = Polynomials_calculator.create_polynomial(weights_array)
 	var potential_K: Array = Polynomials_calculator.bairstow(polynomial).filter(func(x): return x != 0)
-	const epsilon = 0.001
-	#filter out nans and close to zero values
+	#filter out nans
 
 	print("our unfiltered candidates for K are: ", potential_K)
 	potential_K = potential_K.filter(func(x): return x != NAN)
