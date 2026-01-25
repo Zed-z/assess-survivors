@@ -17,7 +17,13 @@ var animation_state: String
 @export var tount_chance: float = 0.25
 @export var action_cooldown: float = 4
 
+var spawnable_area: PackedVector2Array
+
 var can_act = 0
+
+
+func _ready() -> void:
+	spawnable_area = GlobalInfo.enemy_spawner.spawnable_area.polygon
 
 
 func _physics_process(_delta: float) -> void:
@@ -45,7 +51,8 @@ func _physics_process(_delta: float) -> void:
 			else:
 				can_act -=_delta
 
-		move_and_slide()
+		if GlobalInfo.enemy_spawner.is_position_inside_area(position + velocity * _delta):
+			move_and_slide()
 
 	elif current_state == BUSH_STATE.UP:
 
