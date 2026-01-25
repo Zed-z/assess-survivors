@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://fnao1rs5haap"]
+[gd_scene load_steps=25 format=4 uid="uid://fnao1rs5haap"]
 
 [ext_resource type="Script" uid="uid://bmj4swwdanc7i" path="res://scenes/combat_scenes/gameplay.gd" id="1_rk5i4"]
 [ext_resource type="PackedScene" uid="uid://c218rscg2tadk" path="res://objects/score_manager/score_manager.tscn" id="2_dxil3"]
@@ -24,46 +24,9 @@
 [ext_resource type="PackedScene" uid="uid://dt1hcj81rn16p" path="res://objects/area_bounds/area_bounds.tscn" id="20_wn8it"]
 [ext_resource type="Texture2D" uid="uid://ck25545lgbf7y" path="res://sprites/decoration/leaves.png" id="23_mx1ka"]
 [ext_resource type="Script" path="res://scenes/combat_scenes/gpu_particles_2d.gd" id="24_w6rc0"]
+[ext_resource type="PackedScene" uid="uid://vwqhgys8qq58" path="res://vfx/leavs_ambient.tscn" id="23_mx1ka"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_o1s56"]
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_w6rc0"]
-particles_animation = true
-particles_anim_h_frames = 3
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="Curve" id="Curve_w6rc0"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.14454976, 1), 0.0, 0.0, 0, 0, Vector2(0.82938385, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 4
-
-[sub_resource type="CurveTexture" id="CurveTexture_b42ld"]
-curve = SubResource("Curve_w6rc0")
-
-[sub_resource type="Curve" id="Curve_sfti6"]
-_limits = [-200.0, 200.0, 0.0, 1.0]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.35781989, 189.6532), 0.0, 0.0, 0, 0, Vector2(0.69668245, -57.19159), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 4
-
-[sub_resource type="CurveTexture" id="CurveTexture_wiwyd"]
-curve = SubResource("Curve_sfti6")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mx1ka"]
-lifetime_randomness = 0.56
-particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(800, 250, 1)
-angle_min = 1.0728835e-05
-angle_max = 720.0
-direction = Vector3(1, 0.2, 0)
-initial_velocity_min = 25.0
-initial_velocity_max = 30.0
-angular_velocity_min = -30.000015
-angular_velocity_max = 29.999983
-gravity = Vector3(0, 0, 0)
-linear_accel_curve = SubResource("CurveTexture_wiwyd")
-alpha_curve = SubResource("CurveTexture_b42ld")
-anim_offset_max = 1.0
 
 [node name="GameplayScene" type="Node2D"]
 y_sort_enabled = true
@@ -268,16 +231,7 @@ position = Vector2(-2000, 0)
 rotation = 1.5707964
 shape = SubResource("WorldBoundaryShape2D_o1s56")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-material = SubResource("CanvasItemMaterial_w6rc0")
+[node name="GPUParticles2D" parent="." instance=ExtResource("23_mx1ka")]
 position = Vector2(-457.99997, -85)
-scale = Vector2(2.0542154, 2.2317595)
-amount = 200
-texture = ExtResource("23_mx1ka")
-lifetime = 50.0
-preprocess = 20.0
-visibility_rect = Rect2(-1000, -1000, 2000, 2000)
-process_material = SubResource("ParticleProcessMaterial_mx1ka")
-script = ExtResource("24_w6rc0")
 
 [connection signal="enemy_killed" from="EnemySpawner" to="EnemySpawner/PickupSpawner" method="spawn_pickup"]
