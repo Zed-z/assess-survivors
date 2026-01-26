@@ -95,7 +95,7 @@ jobs:
 
       - name: Run GDUnit4 Tests
         if: ${{ env.RUN_TESTS == 'true' }}
-        uses: MikeSchulze/gdUnit4-action@v1
+        uses: godot-gdunit-labs/gdUnit4-action@v1
         with:
           godot-version: ${{ env.GODOT_VERSION }}
           paths: "res://test"
