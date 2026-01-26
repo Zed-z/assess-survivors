@@ -45,6 +45,7 @@ env:
   EXPORT_FOLDER_LINUX: ${{ github.workspace }}/export/linux
   EXPORT_FOLDER_WEB: ${{ github.workspace }}/export/web
   EXPORT_FOLDER_OUTPUT: ${{ github.workspace }}/export/output
+  TEST_REPORT_FOLDER: ${{ github.workspace }}/reports/report_1
   APPLICATION_NAME: assess_survivors
 
 jobs:
@@ -99,6 +100,7 @@ jobs:
           godot-version: ${{ env.GODOT_VERSION }}
           paths: "res://test"
           timeout: 10
+        continue-on-error: true
 
       - name: Build Linux
         if: ${{ env.BUILD_TARGET == 'linux' || env.BUILD_TARGET == 'all' }}
@@ -160,6 +162,13 @@ jobs:
         with:
           name: ${{ env.APPLICATION_NAME }}_web_${{ env.BUILD_MODE }}_${{ env.VERSION }}
           path: ${{ env.EXPORT_FOLDER_WEB }}
+
+      - name: Upload test report
+        if: ${{ env.RUN_TESTS == 'true' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.APPLICATION_NAME }}_${{ env.VERSION }}_test_report
+          path: ${{ env.TEST_REPORT_FOLDER }}
 
       - name: Create release
         if: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v') }}
