@@ -3,6 +3,7 @@ run-name: >
   ${{ github.event_name == 'workflow_dispatch' && format('Manual Build: {0} [{1}]', github.event.inputs.build_target, github.event.inputs.build_mode) || format('Tagged Release: {0}', github.ref_name) }}
 
 permissions:
+  checks: write
   contents: write
 
 on:
@@ -95,7 +96,7 @@ jobs:
 
       - name: Run GDUnit4 Tests
         if: ${{ env.RUN_TESTS == 'true' }}
-        uses: godot-gdunit-labs/gdUnit4-action@v1
+        uses: godot-gdunit-labs/gdUnit4-action@v1.3.0
         with:
           godot-version: ${{ env.GODOT_VERSION }}
           paths: "res://test"
