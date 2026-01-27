@@ -27,7 +27,9 @@ func _unhandled_input(event: InputEvent) -> void:
 				if !is_instance_valid(target):
 					continue;
 
-				target.hit.emit(DamageParameters.new(stats.get_stat("STAT_MELEE")))
+				var targ = (target.global_position - global_position).normalized()
+				print(targ)
+				target.hit.emit(DamageParameters.new(stats.get_stat("STAT_MELEE"), targ))
 
 
 func _process(delta: float) -> void:
