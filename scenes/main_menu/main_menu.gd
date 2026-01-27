@@ -3,6 +3,8 @@ extends Control
 
 func _ready() -> void:
 
+	%Version.text = ProjectSettings.get_setting("application/config/version")
+
 	%ButtonPlay.grab_focus()
 
 	match OS.get_name():

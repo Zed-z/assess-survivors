@@ -35,6 +35,8 @@ SETTINGS_TAB_AUDIO,Audio,Dźwięk,Audio,音
 SETTINGS_TITLE_AUDIO,Audio Settings,Ustawienia Dźwięku,Audioeinstellungen,音のせってい
 SETTINGS_TAB_CREDITS,Credits,Autorzy,Credits,クレジット
 SETTINGS_TITLE_CREDITS,Credits,Autorzy,Credits,クレジット
+SETTINGS_CREDITS_AUTHORS,Authors,Autorzy,Autoren,著者
+SETTINGS_CREDITS_FONTS,Fonts,Czcionki,Schriftarten,フォント
 GAMEPLAY_LEVEL_BAR,Level %s (%s / %s XP),Poziom %s (%s / %s PD),Level %s (%s / %s XP),レベル %s (%s / %s XP)
 GAMEPLAY_SCORE_COUNTER,Score\n%08d,Wynik\n%08d,Punktzahl\n%08d,結果\n%08d
 GAMEPLAY_HEALTH,%s / %s HP,%s / %s HP,%s / %s HP,%s / %s HP
