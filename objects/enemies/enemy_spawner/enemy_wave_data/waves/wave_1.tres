@@ -18,7 +18,7 @@ metadata/_custom_type_script = "uid://b3iagr3n10lfe"
 [resource]
 script = ExtResource("2_iauqp")
 enemies_per_minute = 15
-enemy_cap = 1
+enemy_cap = 10
 enemies_to_spawn = 10
 kill_all_enemies = true
 enemies = Array[ExtResource("1_mdp22")]([SubResource("Resource_tuyln")])
