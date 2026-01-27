@@ -22,8 +22,6 @@
 [ext_resource type="Material" uid="uid://bod3pt5yrjc4b" path="res://materials/enemy_outline.tres" id="19_dxil3"]
 [ext_resource type="Script" uid="uid://b50csmsp4it8e" path="res://scenes/combat_scenes/area_damage_dealer.gd" id="19_ohie8"]
 [ext_resource type="PackedScene" uid="uid://dt1hcj81rn16p" path="res://objects/area_bounds/area_bounds.tscn" id="20_wn8it"]
-[ext_resource type="Texture2D" uid="uid://ck25545lgbf7y" path="res://sprites/decoration/leaves.png" id="23_mx1ka"]
-[ext_resource type="Script" path="res://scenes/combat_scenes/gpu_particles_2d.gd" id="24_w6rc0"]
 [ext_resource type="PackedScene" uid="uid://vwqhgys8qq58" path="res://vfx/leavs_ambient.tscn" id="23_mx1ka"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_o1s56"]

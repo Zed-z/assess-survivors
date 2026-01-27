@@ -8,7 +8,7 @@ func _ready() -> void:
 	%LabelScore.text = tr("END_SCREEN_SCORE_COUNTER") % GlobalInfo.score_manager.score
 	var test_value1: int = 0
 	var test_value2: int = 0
-	%LabelNotes.text = GlobalInfo.write_summary(GlobalInfo.assess_all, GlobalInfo.GameSummary.GAMETIME, true)
+	%LabelNotes.text = GlobalInfo.write_summary(GlobalInfo.assess_all, GlobalInfo.GameSummary.GAMETIME, 0)
 
 	prompt_send_data()
 
@@ -77,6 +77,9 @@ func _on_request_completed(result, response_code, headers, body):
 		return
 
 	var json = JSON.parse_string(body.get_string_from_utf8())
+	print("\t\tFULL JSON")
 	print(json)
 
-	# TODO
+	%LabelNotes.text += GlobalInfo.append_online(GlobalInfo.online_all, json)
+	print("\n\n\t\tLABEL TEXT")
+	print(%LabelNotes.text)
