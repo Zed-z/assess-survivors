@@ -203,17 +203,17 @@ func do_preferred_none():
 	else:
 		do_point_inbetween()
 
-	if rescale != null:
-		#var factor = point_list[rescale].y/last_value
-		var factor = last_value/point_list[rescale].y
-
-		for i in range(rescale):
-			print(point_list[i].y)
-			point_list[i].y *= factor
-			print(point_list[i].y)
-
-		rescale = null
-		last_value = null
+	#if rescale != null:
+		##var factor = point_list[rescale].y/last_value
+		#var factor = last_value/point_list[rescale].y
+#
+		#for i in range(rescale):
+			#print(point_list[i].y)
+			#point_list[i].y *= factor
+			#print(point_list[i].y)
+#
+		#rescale = null
+		#last_value = null
 
 
 func preferred_none():
