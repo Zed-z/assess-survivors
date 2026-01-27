@@ -214,6 +214,7 @@ offset_right = 4.0
 offset_bottom = 27.0
 
 [connection signal="area_entered" from="HurtBox" to="HurtBox" method="_on_area_entered"]
+[connection signal="hit" from="HurtBox" to="." method="_on_hurt_box_hit"]
 [connection signal="hit" from="HurtBox" to="HealthComponent" method="take_damage"]
 [connection signal="got_hit" from="HealthComponent" to="." method="_on_health_component_got_hit"]
 [connection signal="health_changed" from="HealthComponent" to="ProgressBar" method="set_value"]
