@@ -41,6 +41,7 @@ GAMEPLAY_LEVEL_BAR,Level %s (%s / %s XP),Poziom %s (%s / %s PD),Level %s (%s / %
 GAMEPLAY_SCORE_COUNTER,Score\n%08d,Wynik\n%08d,Punktzahl\n%08d,結果\n%08d
 GAMEPLAY_HEALTH,%s / %s HP,%s / %s HP,%s / %s HP,%s / %s HP
 GAMEPLAY_WAVE_NUMBER,Wave %s,Fala %s,Welle %s,波 %s
+GAMEPLAY_CONTROLS,"Movement: WASD or Arrow Keys\nShoot: LMB   Melee: RMB","Ruch: WASD lub Strzałki\nStrzał: LPM   Atak Wręcz: PPM","Bewegung: WASD oder Pfeiltasten\nSchießen: LKM   Nahkampf: RKM","移動：WASDまたは矢印キー\nシュート：LMB   近接攻撃：RMB"
 LOADING,Loading...,Ładowanie...,Laden...,ロード中。。。
 QUIT,Quit,Wyjdź,Beenden,終了
 PAUSE,Pause,Pauza,?????????????????????????????,?????????????????????????????
