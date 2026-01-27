@@ -33,6 +33,9 @@ var last_significant_index: int = 0
 @export var MAX_dialog_answers: int = 2
 var dialog_answers_count: int = 0
 
+var rescale = null
+var last_value = null
+
 enum Answer {
 	i, # Indifferent
 	p, # Prefer left
@@ -121,8 +124,11 @@ func point_append():
 		new_y
 		)
 
+	rescale = len(point_list) - 1
+	last_value = point_list[rescale].y
 	point_list.append(new_max)
 	#zeskaluj
+
 	for i in range(len(point_list)):
 		point_list[i].y = point_list[i].y / point_list[-1].y
 
@@ -154,6 +160,13 @@ func point_inbetween() -> void:
 
 func do_preferred_left():
 	preferred_left()
+	#if rescale != null:
+		##var factor = point_list[rescale].y/last_value
+		#var factor = last_value/point_list[rescale].y
+#
+		#for i in range(rescale):
+			#point_list[i].y *= factor
+
 	points_changed.emit(point_list)
 	risk_changed.emit(risk_factor)
 
@@ -164,6 +177,13 @@ func preferred_left():
 
 func do_preferred_right():
 	preferred_right()
+	#if rescale != null:
+		##var factor = point_list[rescale].y/last_value
+		#var factor = last_value/point_list[rescale].y
+#
+		#for i in range(rescale):
+			#point_list[i].y *= factor
+
 	points_changed.emit(point_list)
 	risk_changed.emit(risk_factor)
 
@@ -173,6 +193,8 @@ func preferred_right():
 
 
 func do_preferred_none():
+	print(criterion_name)
+	print(point_list)
 	preferred_none()
 	if CUR_phase >= len(phases):
 		do_point_append()
@@ -180,6 +202,18 @@ func do_preferred_none():
 		last_significant_index = len(point_list) - 2
 	else:
 		do_point_inbetween()
+
+	if rescale != null:
+		#var factor = point_list[rescale].y/last_value
+		var factor = last_value/point_list[rescale].y
+
+		for i in range(rescale):
+			print(point_list[i].y)
+			point_list[i].y *= factor
+			print(point_list[i].y)
+
+		rescale = null
+		last_value = null
 
 
 func preferred_none():
