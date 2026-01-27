@@ -68,3 +68,7 @@ metadata/_custom_type_script = "uid://cnwb66k0tvq7m"
 projectile = ExtResource("5_wbyse")
 shoot_coldown = 1.5
 projectile_speed = 100
+
+[node name="ProgressBar" parent="." index="9"]
+offset_top = 19.0
+offset_bottom = 29.0

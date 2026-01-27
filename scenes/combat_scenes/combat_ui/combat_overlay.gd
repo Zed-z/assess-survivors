@@ -14,6 +14,8 @@ func _ready() -> void:
 	set_score(GlobalInfo.score_manager.score)
 	GlobalInfo.score_manager.score_changed.connect(set_score)
 
+	%Controls.visible = SettingsManager.get_setting("tutorial_enabled")
+
 
 func set_score(score: int):
 	%ScoreLabel.text = tr("GAMEPLAY_SCORE_COUNTER") % score

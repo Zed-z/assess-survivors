@@ -96,6 +96,7 @@ func new_wave():
 		elif data.wave_duration > 0:
 			use_timer = true
 			timer.wait_time = data.wave_duration
+			timer.start()
 
 		enemy_spawn_timer.wait_time = 60.0 / current_wave_data.enemies_per_minute
 		enemy_spawn_timer.start()

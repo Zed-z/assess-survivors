@@ -5,11 +5,21 @@ extends Node2D
 
 @export var stats: PlayerStats
 
+var user_action: bool = false
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
-			if $Cooldown.time_left == 0:
+			user_action = true
+
+		if event.is_released() and event.button_index == MOUSE_BUTTON_LEFT:
+			user_action = false
+
+
+func _process(delta: float) -> void:
+	if user_action:
+		if $Cooldown.time_left == 0:
 				$Cooldown.wait_time = stats.get_stat("STAT_COOLDOWN")
 				$Cooldown.start()
 

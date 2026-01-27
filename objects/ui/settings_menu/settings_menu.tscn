@@ -324,39 +324,52 @@ horizontal_scroll_mode = 0
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/Credits/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer"]
+[node name="Authors" type="Label" parent="Panel/Credits/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-alignment = 1
+theme_override_font_sizes/font_size = 48
+text = "SETTINGS_CREDITS_AUTHORS"
+horizontal_alignment = 1
 
-[node name="Label7" type="Label" parent="Panel/Credits/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+[node name="HLine" type="ColorRect" parent="Panel/Credits/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 4)
 layout_mode = 2
-text = "Programming"
-
-[node name="Label8" type="Label" parent="Panel/Credits/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "ZedGame"
+color = Color(0.37254903, 0.63529414, 0.31764707, 1)
 
 [node name="Label8" type="Label" parent="Panel/Credits/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-text = "Game design - "
+text = "igorekkedziorek"
+horizontal_alignment = 1
 
 [node name="Label9" type="Label" parent="Panel/Credits/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-text = "Sound effects - "
+text = "falubaz"
+horizontal_alignment = 1
 
 [node name="Label10" type="Label" parent="Panel/Credits/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-text = "Music - "
-
-[node name="Label6" type="Label" parent="Panel/Credits/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Fonts"
+text = "shamotte"
 horizontal_alignment = 1
 
-[node name="Label4" type="Label" parent="Panel/Credits/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer"]
+[node name="Label13" type="Label" parent="Panel/Credits/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "ZedGame"
+horizontal_alignment = 1
+
+[node name="Fonts" type="Label" parent="Panel/Credits/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "SETTINGS_CREDITS_FONTS"
+horizontal_alignment = 1
+
+[node name="HLine2" type="ColorRect" parent="Panel/Credits/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+color = Color(0.37254903, 0.63529414, 0.31764707, 1)
+
+[node name="MisterBrush" type="Label" parent="Panel/Credits/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 text = "Mister Brush"
+horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="Panel/Credits/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -454,10 +467,12 @@ DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
 OTHER DEALINGS IN THE FONT SOFTWARE.
 "
+horizontal_alignment = 1
 
-[node name="Label5" type="Label" parent="Panel/Credits/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer"]
+[node name="smallburg" type="Label" parent="Panel/Credits/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 text = "smallburg"
+horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="Panel/Credits/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -555,10 +570,12 @@ DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
 OTHER DEALINGS IN THE FONT SOFTWARE.
 "
+horizontal_alignment = 1
 
-[node name="Label11" type="Label" parent="Panel/Credits/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer"]
+[node name="NotoSansJP" type="Label" parent="Panel/Credits/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 text = "Noto Sans JP"
+horizontal_alignment = 1
 
 [node name="Label12" type="Label" parent="Panel/Credits/VBoxContainer2/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -656,6 +673,7 @@ INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
 DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
 OTHER DEALINGS IN THE FONT SOFTWARE."
+horizontal_alignment = 1
 
 [connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]
 [connection signal="pressed" from="Panel/General/VBoxContainer/MarginContainer/HBoxContainer/ButtonEN" to="Panel/General/VBoxContainer/MarginContainer/HBoxContainer/ButtonEN" method="_on_pressed"]
