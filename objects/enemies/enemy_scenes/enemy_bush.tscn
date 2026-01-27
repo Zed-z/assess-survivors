@@ -1293,4 +1293,8 @@ scale = Vector2(10.180746, 10.069604)
 sprite_frames = SubResource("SpriteFrames_ef3f8")
 animation = &"walk"
 
+[node name="ProgressBar" parent="." index="9"]
+offset_top = 51.0
+offset_bottom = 61.0
+
 [connection signal="animation_finished" from="SpriteContainer/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
