@@ -6,6 +6,7 @@ class_name MeleAtacker
 @export var animation: AnimationPlayer
 
 var user_action: bool = false
+var last_action: float = 0
 
 
 func _ready() -> void:
@@ -26,7 +27,10 @@ func _unhandled_input(event: InputEvent) -> void:
 func _process(delta: float) -> void:
 	attack_area.look_at(get_global_mouse_position())
 
-	if user_action and not animation.is_playing():
+	var curent_time = Time.get_unix_time_from_system()
+
+	if user_action and curent_time - last_action> stats.get_stat("STAT_COOLDOWN"):
+		last_action = curent_time
 		$SoundAttack.play()
 		animation.stop()
 		animation.play("sweep")
