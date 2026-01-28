@@ -7,6 +7,7 @@ var curent_target_location: Vector2 = Vector2.ZERO
 
 @export var speed : float = 40
 
+
 func generate_valid_target_location():
 
 	var temp_target_location : Vector2

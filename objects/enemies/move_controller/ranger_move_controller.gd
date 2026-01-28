@@ -14,12 +14,12 @@ func _ready() -> void:
 func get_velocity() -> Vector2:
 
 	queue_redraw()
-	var velo = (target.position- global_position).normalized() * 10
+	var velo = (target.position- global_position).normalized()
 
 	if target.position.distance_squared_to(global_position) > pow(escape_radius,2):
-		return velo
+		return velo * speed
 
-	return -velo
+	return -velo * speed
 
 
 func _draw() -> void:
