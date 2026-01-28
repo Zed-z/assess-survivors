@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://bnwp1x2ol3q8o" path="res://scenes/leaderboard/leaderboard_entry.gd" id="2_b48f7"]
 
 [node name="LeaderboardEntry" type="PanelContainer"]
-anchors_preset = -1
 offset_right = 532.0
 offset_bottom = 96.0
 size_flags_horizontal = 3
@@ -15,16 +14,19 @@ script = ExtResource("2_b48f7")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
+theme_override_constants/separation = 20
 
 [node name="Rank" type="Label" parent="HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "#1"
+vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+alignment = 1
 
 [node name="PlayerName" type="Label" parent="HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -38,14 +40,17 @@ theme_override_constants/separation = 30
 [node name="Score" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 20
 text = "END_SCREEN_SCORE_COUNTER"
 
 [node name="Riskiness" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 20
 text = "END_SCREEN_SCORE_COUNTER"
 
 [node name="MostWeightStat" type="Label" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 20
 text = "END_SCREEN_SCORE_COUNTER"

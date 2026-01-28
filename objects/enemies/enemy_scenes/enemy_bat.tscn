@@ -154,8 +154,8 @@ sprite_frames = SubResource("SpriteFrames_troyk")
 autoplay = "default"
 frame_progress = 0.7013132
 
-[node name="ProgressBar" parent="." index="8"]
-offset_top = 35.0
-offset_bottom = 45.0
+[node name="HealthBar" parent="." index="8"]
+offset_top = 43.0
+offset_bottom = 53.0
 
 [connection signal="area_entered" from="HurtBox" to="MoveController" method="_on_hurt_box_area_entered"]

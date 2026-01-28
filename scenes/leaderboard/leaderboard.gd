@@ -15,7 +15,7 @@ func _on_request_completed(result, response_code, headers, body):
 	if result != HTTPRequest.RESULT_SUCCESS or response_code != 200:
 		var popup := YesNoPopup.instantiate(self)
 		popup.title = tr("END_SCREEN_SEND_TITLE")
-		popup.text = tr("END_SCREEN_RESEND_PROMPT")
+		popup.text = tr("END_SCREEN_RESEND_PROMPT")#TODO
 
 		var popup_return: PopupReturnValue = await popup.closed
 

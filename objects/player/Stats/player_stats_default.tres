@@ -1,69 +1,75 @@
-[gd_resource type="Resource" script_class="PlayerStatsResource" load_steps=23 format=3 uid="uid://b8gbijdgc21wh"]
+[gd_resource type="Resource" script_class="PlayerStatsResource" load_steps=24 format=3 uid="uid://b8gbijdgc21wh"]
 
 [ext_resource type="Script" uid="uid://br5c8626f18ew" path="res://objects/player/Stats/player_stats_resource.gd" id="1_io2c6"]
 [ext_resource type="Script" uid="uid://bui6h7p4lincd" path="res://objects/player/Stats/base_stat.gd" id="2_ocdua"]
-[ext_resource type="Script" uid="uid://dxavujg1j5jr5" path="res://globals/assess_criterion_manager/criteria/assess_criterion_variable_probability.gd" id="3_cqqfb"]
+[ext_resource type="Script" uid="uid://cggagkrebotht" path="res://globals/assess_criterion_manager/criteria/assess_criterion_probability_comparison.gd" id="3_cqqfb"]
 [ext_resource type="Texture2D" uid="uid://d2khmtbsk4mom" path="res://sprites/stats/luk.png" id="4_m2bst"]
 [ext_resource type="Script" uid="uid://d1e80dp6c7ji3" path="res://objects/player/Stats/assess_stat.gd" id="5_a8be2"]
 [ext_resource type="Texture2D" uid="uid://b8riatfslt0b8" path="res://sprites/stats/potion.png" id="6_j43sw"]
+[ext_resource type="Script" uid="uid://5b0w6k2jxyuc" path="res://globals/assess_criterion_manager/criteria/assess_criterion_lottery_comparison.gd" id="6_m2bst"]
 [ext_resource type="Texture2D" uid="uid://pjs46st5j74n" path="res://sprites/ui/cooldown.png" id="6_ocdua"]
 [ext_resource type="Texture2D" uid="uid://bq7q5ii2d7bsq" path="res://sprites/stats/sword.png" id="7_6855u"]
 [ext_resource type="Texture2D" uid="uid://cigsdewro07vk" path="res://icon.svg" id="8_ft4yx"]
 [ext_resource type="Script" uid="uid://ccj8rhd6knfds" path="res://objects/player/Stats/const_stat.gd" id="9_i2fs4"]
 [ext_resource type="Texture2D" uid="uid://d1gvq0yvjdtgx" path="res://sprites/stats/speed.png" id="10_dt5ku"]
 
-[sub_resource type="Resource" id="Resource_dthqj"]
+[sub_resource type="Resource" id="Resource_a8be2"]
 script = ExtResource("3_cqqfb")
-value_step = 0.0
-value_mult = 2.0
-metadata/_custom_type_script = "uid://dxavujg1j5jr5"
+phases = Array[float]([0.5])
+LIMIT_expand_count = 2
+LIMIT_count_weight = 2
+metadata/_custom_type_script = "uid://cggagkrebotht"
 
 [sub_resource type="Resource" id="Resource_ylcck"]
 script = ExtResource("5_a8be2")
-criterion = SubResource("Resource_dthqj")
+criterion = SubResource("Resource_a8be2")
 starting_value = 50
 name = "STAT_ATK"
 icon = ExtResource("4_m2bst")
 metadata/_custom_type_script = "uid://d1e80dp6c7ji3"
 
-[sub_resource type="Resource" id="Resource_yyeqs"]
-script = ExtResource("3_cqqfb")
+[sub_resource type="Resource" id="Resource_j43sw"]
+script = ExtResource("6_m2bst")
 value_step = 0.1
 initial_max_value = 0.1
-metadata/_custom_type_script = "uid://dxavujg1j5jr5"
+phases = Array[float]([0.5])
+LIMIT_expand_count = 2
+LIMIT_count_weight = 2
+metadata/_custom_type_script = "uid://5b0w6k2jxyuc"
 
 [sub_resource type="Resource" id="Resource_u8bnf"]
 script = ExtResource("5_a8be2")
-criterion = SubResource("Resource_yyeqs")
+criterion = SubResource("Resource_j43sw")
 starting_value = 1
-accumulation_mode = 2
 name = "STAT_COOLDOWN"
 icon = ExtResource("6_ocdua")
 metadata/_custom_type_script = "uid://d1e80dp6c7ji3"
 
-[sub_resource type="Resource" id="Resource_45rsp"]
+[sub_resource type="Resource" id="Resource_6855u"]
 script = ExtResource("3_cqqfb")
-value_step = 0.0
-value_mult = 2.0
-metadata/_custom_type_script = "uid://dxavujg1j5jr5"
+phases = Array[float]([0.5])
+LIMIT_expand_count = 2
+LIMIT_count_weight = 2
+metadata/_custom_type_script = "uid://cggagkrebotht"
 
 [sub_resource type="Resource" id="Resource_l55sg"]
 script = ExtResource("5_a8be2")
-criterion = SubResource("Resource_45rsp")
+criterion = SubResource("Resource_6855u")
 starting_value = 10
 name = "STAT_HP"
 icon = ExtResource("6_j43sw")
 metadata/_custom_type_script = "uid://d1e80dp6c7ji3"
 
-[sub_resource type="Resource" id="Resource_lc6id"]
-script = ExtResource("3_cqqfb")
-value_step = 0.0
-value_mult = 2.0
-metadata/_custom_type_script = "uid://dxavujg1j5jr5"
+[sub_resource type="Resource" id="Resource_ft4yx"]
+script = ExtResource("6_m2bst")
+phases = Array[float]([0.5])
+LIMIT_expand_count = 2
+LIMIT_count_weight = 2
+metadata/_custom_type_script = "uid://5b0w6k2jxyuc"
 
 [sub_resource type="Resource" id="Resource_tmow5"]
 script = ExtResource("5_a8be2")
-criterion = SubResource("Resource_lc6id")
+criterion = SubResource("Resource_ft4yx")
 starting_value = 50
 name = "STAT_MELEE"
 icon = ExtResource("7_6855u")
@@ -77,15 +83,16 @@ icon = ExtResource("8_ft4yx")
 hidden = true
 metadata/_custom_type_script = "uid://ccj8rhd6knfds"
 
-[sub_resource type="Resource" id="Resource_x5bgp"]
-script = ExtResource("3_cqqfb")
-value_step = 20.0
-initial_max_value = 20.0
-metadata/_custom_type_script = "uid://dxavujg1j5jr5"
+[sub_resource type="Resource" id="Resource_i2fs4"]
+script = ExtResource("6_m2bst")
+phases = Array[float]([0.5])
+LIMIT_expand_count = 2
+LIMIT_count_weight = 2
+metadata/_custom_type_script = "uid://5b0w6k2jxyuc"
 
 [sub_resource type="Resource" id="Resource_xlkbi"]
 script = ExtResource("5_a8be2")
-criterion = SubResource("Resource_x5bgp")
+criterion = SubResource("Resource_i2fs4")
 starting_value = 150
 name = "STAT_SPD"
 icon = ExtResource("10_dt5ku")

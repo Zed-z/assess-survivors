@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://ct88pvgyokerc"]
+[gd_scene load_steps=30 format=3 uid="uid://ct88pvgyokerc"]
 
 [ext_resource type="Script" uid="uid://bpko7pdk264ld" path="res://objects/player/player.gd" id="1_g7ett"]
 [ext_resource type="PackedScene" uid="uid://dqcwtt15lk5ay" path="res://objects/player/projectile_shooter.tscn" id="2_xlkbi"]
@@ -12,6 +12,8 @@
 [ext_resource type="Script" uid="uid://s8o7eln2esn0" path="res://objects/player/levels.gd" id="7_ow0dq"]
 [ext_resource type="Resource" uid="uid://b8gbijdgc21wh" path="res://objects/player/Stats/player_stats_default.tres" id="8_45urx"]
 [ext_resource type="Script" uid="uid://1ogv7wo486wd" path="res://objects/player/hurtbox/hurtbox.gd" id="8_m4kly"]
+[ext_resource type="AudioStream" uid="uid://cvp46ood7dcu2" path="res://sounds/game/water.wav" id="14_45rsp"]
+[ext_resource type="AudioStream" uid="uid://btnmwk60yarv5" path="res://sounds/game/player_hurt.wav" id="15_ylcck"]
 [ext_resource type="PackedScene" uid="uid://0exdkv4oiw4t" path="res://objects/player/pickup/pickup_receiver.tscn" id="18_xlkbi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_28utn"]
@@ -234,9 +236,15 @@ position = Vector2(1, -19)
 shape = SubResource("CircleShape2D_ylcck")
 
 [node name="WaterEnter" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_45rsp")
 bus = &"Effects"
 
 [node name="WaterLeave" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_45rsp")
+bus = &"Effects"
+
+[node name="Hurt" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_ylcck")
 bus = &"Effects"
 
 [connection signal="new_level" from="Levels" to="." method="_on_levels_new_level"]

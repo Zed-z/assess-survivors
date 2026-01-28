@@ -22,3 +22,7 @@ func risk_to_string(value: float):
 		label = tr("RISKINESS_BALANCED")
 
 	return label
+
+
+func map_cooldown(cooldown: float) -> float:
+	return 1 / cooldown

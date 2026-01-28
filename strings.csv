@@ -38,7 +38,7 @@ SETTINGS_TITLE_CREDITS,Credits,Autorzy,Credits,クレジット
 SETTINGS_CREDITS_AUTHORS,Authors,Autorzy,Autoren,著者
 SETTINGS_CREDITS_FONTS,Fonts,Czcionki,Schriftarten,フォント
 GAMEPLAY_LEVEL_BAR,Level %s (%s / %s XP),Poziom %s (%s / %s PD),Level %s (%s / %s XP),レベル %s (%s / %s XP)
-GAMEPLAY_SCORE_COUNTER,Score\n%08d,Wynik\n%08d,Punktzahl\n%08d,結果\n%08d
+GAMEPLAY_SCORE_COUNTER,Score\n%08d,Wynik\n%08d,Punktzahl\n%08d,スコア\n%08d
 GAMEPLAY_HEALTH,%s / %s HP,%s / %s HP,%s / %s HP,%s / %s HP
 GAMEPLAY_WAVE_NUMBER,Wave %s,Fala %s,Welle %s,波 %s
 CONTROLS_MOVE,WASD/Arrow Keys,WASD/Strzałki,WASD/Pfeiltasten,WASD/矢印キー
@@ -52,7 +52,7 @@ CHOICE_PANEL_SPIN,Spin the Wheel!,Zakręć Kołem!,Dreh das Rad!,ホイールを
 CHOICE_PANEL_NONE,Pick for me,Wybierz za mnie,Für mich auswählen,私は気にしない
 CHOICE_PANEL_VERSUS,VS,VS,VS,VS
 END_SCREEN_TITLE,Game Over!,Koniec Gry!,Spiel Vorbei!,ゲームセット
-END_SCREEN_SCORE_COUNTER,Final Score: %08d,Ostateczny Wynik: %08d,Endpunktzahl: %08d,最終結果: %08d
+END_SCREEN_SCORE_COUNTER,Final Score: %08d,Ostateczny Wynik: %08d,Endpunktzahl: %08d,最終スコア: %08d
 END_SCREEN_MAIN_MENU,Back to Menu,Wróć do Menu,Menü Zurück,メニューに戻る
 END_SCREEN_SEND_TITLE,Send Results,Wysyłanie Wyników,Ergebnisse Senden,結果を送信
 END_SCREEN_SEND_PROMPT,Do you want to send your results\nand compare with others?,Czy chcesz wysłać swoje wyniki\ni porównać je z innymi?,Möchten Sie Ihre Ergebnisse senden\nund mit anderen vergleichen?,結果を送信して\n他の人と比較しますか？
@@ -63,7 +63,7 @@ STAT_HP,Health,Zdrowie,Gesundheit,ヘルス
 STAT_SPD,Speed,Prędkość,Geschwindigkeit,敏速
 STAT_DEF,Defense,Obrona,Verteidigung,ディフェンス
 STAT_PIERCE,Pierce,Przebicie,Durchdringen,ピアス
-STAT_COOLDOWN,Cooldown,Opóźnienie,Abklingzeit,クールダウン
+STAT_COOLDOWN,Agility,Zręczność,Beweglichkeit,敏捷性
 STAT_MELEE,Melee,Atak Wręcz,Nahkampf,近接攻撃
 PAUSE_MENU_TITLE,Game Paused,Pauza,Spiel Pausiert,ゲーム一時停止
 PAUSE_MENU_CONTINUE,Continue,Kontynuuj,Fortsetzen,続ける
@@ -79,7 +79,7 @@ RISKINESS_SLIGHTLY_SAFE,Slightly Safe,Nieco Bezpieczny,Etwas Sicher,やや安全
 RISKINESS_VERY_SAFE,Very Safe,Bardzo Bezpieczny,Sehr Sicher,とても安全
 ASSESS_WEIGHT,Weight: %s,Waga: %s,Gewicht: %s,重さ: %s
 TUTORIAL_CHOICE_CRITERION_TITLE,Criterion Choice,Wybór Kryterium,Kriterium Wahl,基準の選択
-TUTORIAL_CHOICE_CRITERION_BODY,"Choose your reward!\nYou'll get a bonus for one of your stats.","Wybierz swoją nagrodę!\nOtrzymasz bonus do jednej ze swoich statystyk.","Wähle deine Belohnung!\nDu erhältst einen Bonus für eine deiner Statistiken."","報酬を選んでください！\nあなたのステータスの1つにボーナスが与えられます。"
+TUTORIAL_CHOICE_CRITERION_BODY,"Choose your reward!\nYou'll get a bonus for one of your stats.","Wybierz swoją nagrodę!\nOtrzymasz bonus do jednej ze swoich statystyk.","Wähle deine Belohnung!\nDu erhältst einen Bonus für eine deiner Statistiken.","報酬を選んでください！\nあなたのステータスの1つにボーナスが与えられます。"
 TUTORIAL_CHOICE_WEIGHT_TITLE,Weight Choice,Wybór Wagowy,Gewicht Wahl,ウェイトの選択
 TUTORIAL_CHOICE_WEIGHT_BODY,"Choose your reward!\nYou can choose a certain award,\nor risk it for a boost of every stat!","Wybierz swoją nagrodę!\nMożesz wybrać pewną nagrodę,\nlub zaryzykować i otrzymać bonus do każdej statystyki!","Wähle deine Belohnung!\nDu kannst eine sichere Belohnung wählen,\noder es riskieren und einen Boost für jede Statistik erhalten!","報酬を選んでください！\n特定の報酬を選ぶことも、\nすべてのステータスのブーストをリスクにさらすこともできます！"
 TUTORIAL_CHOICE_FINAL_TITLE,Assisted Choice,Wybór Wspomagany,Unterstützte Wahl,アシストされた選択
@@ -102,3 +102,6 @@ SUMMARY_ONLINE_BETTER_THAN_PERCENT,Better than %.2f%% players,Lepszy niż %.2f%%
 SUMMARY_ONLINE_MEAN_RISKINESS,Mean Riskiness: %.2f,Średnia Ryzykowność: %.2f,Durchschnittliche Risikoreich: %.2f,平均リスキー度：%.2f
 SUMMARY_ONLINE_RISKIER_THAN_PERCENT,Riskier than %.2f%% players,Ryzykowniejszy niż %.2f%% graczy,Risikoreicher als %.2f%% Spieler,よりリスキー度が高い %.2f%% プレイヤー
 SUMMARY_ONLINE_LESS_RISKY_THAN_PERCENT,Less Risky than %.2f%% players,Mniej Ryzykowny niż %.2f%% graczy,Weniger Risikoreich als %.2f%% Spieler,よりリスキー度が低い %.2f%% プレイヤー
+LEADERBOARD_SCORE,Score: %s,Punktacja: %s,Punktzahl: %s,スコア：%s
+LEADERBOARD_RISKINESS,Riskiness: %s (%.2f),Ryzykowność: %s (%.2f),Risikoreich: %s (%.2f),リスキー度：%s (%.2f)
+LEADERBOARD_FAVORITE_STAT,Favorite: %s,Ulubiona Statystyka: %s,Lieblingsstatistik: %s,お気に入りのステータス：%s

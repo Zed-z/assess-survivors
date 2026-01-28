@@ -5,6 +5,6 @@ class_name LeaderboardEntry
 func setup(data) -> void:
 	%Rank.text = "#" + str(int(data["rank"]))
 	%PlayerName.text = data["player"]
-	%Score.text = tr("END_SCREEN_SCORE_COUNTER") % int(data["score"])
-	%Riskiness.text = tr("SUMMARY_ONLINE_MEAN_RISKINESS") % data["average_riskiness"]
-	%MostWeightStat.text = tr("SUMMARY_MOST_WEIGHED_STAT") % data["most_weight_stat"]
+	%Score.text = tr("LEADERBOARD_SCORE") % int(data["score"])
+	%Riskiness.text = tr("LEADERBOARD_RISKINESS") % [Utils.risk_to_string(data["average_riskiness"]), data["average_riskiness"]]
+	%MostWeightStat.text = tr("LEADERBOARD_FAVORITE_STAT") % tr(data["most_weight_stat"])
