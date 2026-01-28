@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://cd2dgvodr3u8k"]
+[gd_scene load_steps=19 format=4 uid="uid://cd2dgvodr3u8k"]
 
 [ext_resource type="Script" uid="uid://dqjtx2pjfltf0" path="res://scenes/assess_test/assess_test.gd" id="1_mafoi"]
 [ext_resource type="Theme" uid="uid://df2r57b2stnof" path="res://themes/ui.tres" id="1_uts2w"]
@@ -10,24 +10,30 @@
 [ext_resource type="TileSet" uid="uid://cld71m6mttjlh" path="res://tilesets/tileset.tres" id="5_na47r"]
 [ext_resource type="PackedScene" uid="uid://cu78d8juxtctw" path="res://objects/ui/assess_info/assess_info.tscn" id="6_23xs6"]
 [ext_resource type="PackedScene" uid="uid://bndei1083xpll" path="res://objects/decoration/tree.tscn" id="6_qgwg8"]
-[ext_resource type="Texture2D" uid="uid://cqqnj748bj1hu" path="res://sprites/ui/star.png" id="7_lm43g"]
 [ext_resource type="PackedScene" uid="uid://buqqxg1nykgry" path="res://objects/decoration/big_bush.tscn" id="7_vxiuc"]
 [ext_resource type="PackedScene" uid="uid://hf78mlyq324k" path="res://objects/decoration/small_bush.tscn" id="8_sspib"]
 [ext_resource type="Script" uid="uid://5b0w6k2jxyuc" path="res://globals/assess_criterion_manager/criteria/assess_criterion_lottery_comparison.gd" id="11_67qic"]
-[ext_resource type="Script" uid="uid://dxavujg1j5jr5" path="res://globals/assess_criterion_manager/criteria/assess_criterion_variable_probability.gd" id="14_na47r"]
+[ext_resource type="Texture2D" uid="uid://dwfgw434pgtlt" path="res://sprites/ui/wave/skull.png" id="11_c6aqy"]
+[ext_resource type="Texture2D" uid="uid://2wwjeawdk71n" path="res://sprites/ui/cubes.png" id="13_na47r"]
+[ext_resource type="Script" uid="uid://cggagkrebotht" path="res://globals/assess_criterion_manager/criteria/assess_criterion_probability_comparison.gd" id="14_qgwg8"]
 
 [sub_resource type="Resource" id="Resource_c6aqy"]
 script = ExtResource("11_67qic")
-metadata/_custom_type_script = "uid://5b0w6k2jxyuc"
-
-[sub_resource type="Resource" id="Resource_qgwg8"]
-script = ExtResource("14_na47r")
-criterion_name = "B"
-icon = ExtResource("7_lm43g")
+criterion_name = "Loterie"
+icon = ExtResource("11_c6aqy")
 MAX_dialog_answers = -1
 LIMIT_expand_count = -1
 LIMIT_count_weight = -1
-metadata/_custom_type_script = "uid://dxavujg1j5jr5"
+metadata/_custom_type_script = "uid://5b0w6k2jxyuc"
+
+[sub_resource type="Resource" id="Resource_vxiuc"]
+script = ExtResource("14_qgwg8")
+criterion_name = "Prawdopodobieństwa"
+icon = ExtResource("13_na47r")
+MAX_dialog_answers = -1
+LIMIT_expand_count = -1
+LIMIT_count_weight = -1
+metadata/_custom_type_script = "uid://cggagkrebotht"
 
 [node name="AssessTest" type="Control"]
 layout_mode = 3
@@ -90,7 +96,7 @@ position = Vector2(143, 118)
 position = Vector2(808, 95)
 
 [node name="AssessManager" parent="." instance=ExtResource("3_6yb16")]
-criteria = Array[ExtResource("4_o6syu")]([SubResource("Resource_c6aqy"), SubResource("Resource_qgwg8")])
+criteria = Array[ExtResource("4_o6syu")]([SubResource("Resource_c6aqy"), SubResource("Resource_vxiuc")])
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
