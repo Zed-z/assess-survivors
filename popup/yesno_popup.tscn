@@ -5,6 +5,8 @@
 
 [node name="BasePopup" instance=ExtResource("1_053hu")]
 script = ExtResource("2_d2iof")
+string_yes = "POPUP_YES"
+string_no = "POPUP_NO"
 show_background = true
 
 [node name="Text" parent="Popup/VBoxContainer/Content/HBoxContainer" index="0"]
@@ -20,9 +22,9 @@ alignment = 1
 [node name="ButtonYes" type="Button" parent="Popup/VBoxContainer/MarginContainer2/HBoxContainer" index="0"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Yes"
+text = "POPUP_YES"
 
 [node name="ButtonNo" type="Button" parent="Popup/VBoxContainer/MarginContainer2/HBoxContainer" index="1"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "No"
+text = "POPUP_NO"

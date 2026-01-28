@@ -5,6 +5,7 @@
 
 [node name="OkPopup" instance=ExtResource("1_ojjmj")]
 script = ExtResource("2_y4qhm")
+string_ok = "POPUP_OK"
 show_background = true
 
 [node name="Text" parent="Popup/VBoxContainer/Content/HBoxContainer" index="0"]
@@ -20,4 +21,4 @@ alignment = 1
 [node name="ButtonOk" type="Button" parent="Popup/VBoxContainer/MarginContainer2/HBoxContainer" index="0"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "OK"
+text = "POPUP_OK"
