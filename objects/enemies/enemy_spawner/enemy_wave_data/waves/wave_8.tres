@@ -1,10 +1,10 @@
-[gd_resource type="Resource" script_class="WaveData" load_steps=10 format=3 uid="uid://brfkx26vambfs"]
+[gd_resource type="Resource" script_class="WaveData" load_steps=11 format=3 uid="uid://brfkx26vambfs"]
 
 [ext_resource type="Script" uid="uid://dmbi1icxkymxl" path="res://objects/enemies/enemy_spawner/enemy_wave_data/wave_touple.gd" id="1_4w4je"]
 [ext_resource type="PackedScene" uid="uid://b6mxutcmgdjsk" path="res://objects/enemies/enemy_scenes/enemy_slime.tscn" id="2_4nhoy"]
 [ext_resource type="PackedScene" uid="uid://dnears1tiwond" path="res://objects/enemies/enemy_scenes/enemy_spider.tscn" id="3_4xrko"]
 [ext_resource type="PackedScene" uid="uid://b878cclpdkau" path="res://objects/enemies/enemy_scenes/enemy_bush.tscn" id="4_a3dx6"]
-[ext_resource type="Resource" uid="uid://bojujeuathosb" path="res://objects/enemies/enemy_spawner/enemy_wave_data/wave_scaling/do_not_modify.tres" id="5_4w4je"]
+[ext_resource type="Script" uid="uid://cj0d0i62046mg" path="res://objects/enemies/enemy_spawner/enemy_wave_data/wave_scaling/endless_wave_scaler.gd" id="5_4w4je"]
 [ext_resource type="Script" uid="uid://cd06aok4ajl3c" path="res://objects/enemies/enemy_spawner/enemy_wave_data/enemy_wave_data.gd" id="6_xqfew"]
 
 [sub_resource type="Resource" id="Resource_bctpy"]
@@ -25,11 +25,17 @@ probability = 0.5
 scene = ExtResource("4_a3dx6")
 metadata/_custom_type_script = "uid://dmbi1icxkymxl"
 
+[sub_resource type="Resource" id="Resource_4nhoy"]
+script = ExtResource("5_4w4je")
+metadata/_custom_type_script = "uid://cj0d0i62046mg"
+
 [resource]
 script = ExtResource("6_xqfew")
 enemies_per_minute = 40
-enemy_cap = 20
+enemy_cap = 60
 enemies_to_spawn = 60
 wave_duration = 120.0
 enemies = Array[ExtResource("1_4w4je")]([SubResource("Resource_bctpy"), SubResource("Resource_6tp4c"), SubResource("Resource_f7xlv")])
+is_endless = true
+scaling = SubResource("Resource_4nhoy")
 metadata/_custom_type_script = "uid://cd06aok4ajl3c"

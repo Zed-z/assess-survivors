@@ -18,9 +18,8 @@ probability = 0.25
 scene = ExtResource("3_713lb")
 metadata/_custom_type_script = "uid://dmbi1icxkymxl"
 
-[sub_resource type="Resource" id="Resource_713lb"]
+[sub_resource type="Resource" id="Resource_u04lc"]
 script = ExtResource("4_u04lc")
-health_scaling = 2.0
 metadata/_custom_type_script = "uid://b3iagr3n10lfe"
 
 [resource]
@@ -30,5 +29,5 @@ enemy_cap = 10
 enemies_to_spawn = 10
 kill_all_enemies = true
 enemies = Array[ExtResource("1_m7k4o")]([SubResource("Resource_epad6"), SubResource("Resource_wxxdg")])
-scaling = SubResource("Resource_713lb")
+scaling = SubResource("Resource_u04lc")
 metadata/_custom_type_script = "uid://cd06aok4ajl3c"

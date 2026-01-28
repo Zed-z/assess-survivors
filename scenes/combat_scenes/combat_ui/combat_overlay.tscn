@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bh5tkxvg8jh42"]
+[gd_scene load_steps=18 format=3 uid="uid://bh5tkxvg8jh42"]
 
 [ext_resource type="Theme" uid="uid://df2r57b2stnof" path="res://themes/ui.tres" id="1_n8r28"]
 [ext_resource type="Script" uid="uid://2850i5pp8lmf" path="res://scenes/combat_scenes/combat_ui/combat_overlay.gd" id="1_ylltj"]
@@ -11,6 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://bfw5n6mfu1ekt" path="res://sprites/ui/pause_button_active.png" id="6_6b3w6"]
 [ext_resource type="Texture2D" uid="uid://cvslcla1vbn8t" path="res://sprites/ui/heart_dead.png" id="7_i8c66"]
 [ext_resource type="Texture2D" uid="uid://djws4c08ttrcd" path="res://sprites/ui/heart.png" id="8_a2tx3"]
+[ext_resource type="Texture2D" uid="uid://d2khmtbsk4mom" path="res://sprites/stats/luk.png" id="12_tw7fc"]
+[ext_resource type="Texture2D" uid="uid://bq7q5ii2d7bsq" path="res://sprites/stats/sword.png" id="13_kuo6a"]
+[ext_resource type="Texture2D" uid="uid://d1gvq0yvjdtgx" path="res://sprites/stats/speed.png" id="14_yv5rh"]
 
 [sub_resource type="Animation" id="Animation_a2tx3"]
 length = 0.001
@@ -271,7 +274,7 @@ offset_top = -100.0
 offset_bottom = 0.0
 grow_vertical = 0
 
-[node name="Controls" type="Label" parent="Control/MarginContainer/Control"]
+[node name="Controls" type="VBoxContainer" parent="Control/MarginContainer/Control"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 3
@@ -280,10 +283,51 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -40.0
-offset_top = -48.0
+offset_top = -40.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "GAMEPLAY_CONTROLS"
-horizontal_alignment = 2
+alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/Control/Controls"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/Control/Controls/HBoxContainer"]
+layout_mode = 2
+text = "CONTROLS_SHOOT"
+
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/Control/Controls/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("12_tw7fc")
+expand_mode = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/MarginContainer/Control/Controls"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/Control/Controls/HBoxContainer2"]
+layout_mode = 2
+text = "CONTROLS_MELEE"
+
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/Control/Controls/HBoxContainer2"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("13_kuo6a")
+expand_mode = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control/MarginContainer/Control/Controls"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/Control/Controls/HBoxContainer3"]
+layout_mode = 2
+text = "CONTROLS_MOVE"
+
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/Control/Controls/HBoxContainer3"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("14_yv5rh")
+expand_mode = 1
 
 [connection signal="pressed" from="Control/MarginContainer/Control/HBoxContainer/PauseButton" to="Control" method="_on_pause_button_pressed"]
