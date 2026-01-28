@@ -1,9 +1,9 @@
-[gd_scene load_steps=185 format=3 uid="uid://b878cclpdkau"]
+[gd_scene load_steps=176 format=3 uid="uid://b878cclpdkau"]
 
 [ext_resource type="PackedScene" uid="uid://epsr1o1tk6ur" path="res://objects/enemies/enemy_scenes/base_enemy.tscn" id="1_5mbmq"]
 [ext_resource type="Script" uid="uid://888htwtabv3g" path="res://objects/enemies/enemy_scenes/enemy_bush.gd" id="2_hjj62"]
-[ext_resource type="Script" uid="uid://bgb2oual2bgw" path="res://objects/enemies/move_controller/walking_bush_move_controler.gd" id="2_q0efr"]
-[ext_resource type="Script" uid="uid://qhldu4phre5" path="res://objects/enemies/enemy_scenes/sooter_with_consent.gd" id="2_wmlyl"]
+[ext_resource type="Script" path="res://objects/enemies/move_controller/walking_bush_move_controler.gd" id="2_q0efr"]
+[ext_resource type="Script" path="res://objects/enemies/enemy_scenes/sooter_with_consent.gd" id="2_wmlyl"]
 [ext_resource type="PackedScene" uid="uid://ccfhcgw5yxqpf" path="res://objects/projectile/projectile_instances/projectile_enemy_bush.tscn" id="3_8sbqi"]
 [ext_resource type="Texture2D" uid="uid://c80gbit0i46n7" path="res://sprites/mobs/sus_bush_attack.png" id="5_8sbqi"]
 [ext_resource type="Texture2D" uid="uid://cyycgts70o0nx" path="res://sprites/mobs/sus_bush_get_up.png" id="6_hjj62"]
@@ -346,42 +346,6 @@ region = Rect2(5256, 0, 146, 114)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ng6ji"]
 atlas = ExtResource("6_hjj62")
 region = Rect2(5402, 0, 146, 114)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4vfkr"]
-atlas = ExtResource("6_hjj62")
-region = Rect2(5548, 0, 146, 114)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6sk76"]
-atlas = ExtResource("6_hjj62")
-region = Rect2(5694, 0, 146, 114)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5sg3j"]
-atlas = ExtResource("6_hjj62")
-region = Rect2(5840, 0, 146, 114)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_harnv"]
-atlas = ExtResource("6_hjj62")
-region = Rect2(5986, 0, 146, 114)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xsp4v"]
-atlas = ExtResource("6_hjj62")
-region = Rect2(6132, 0, 146, 114)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u6wfg"]
-atlas = ExtResource("6_hjj62")
-region = Rect2(6278, 0, 146, 114)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rp6dc"]
-atlas = ExtResource("6_hjj62")
-region = Rect2(6424, 0, 146, 114)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pg3t1"]
-atlas = ExtResource("6_hjj62")
-region = Rect2(6570, 0, 146, 114)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dj0ib"]
-atlas = ExtResource("6_hjj62")
-region = Rect2(6716, 0, 146, 114)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_io4rw"]
 atlas = ExtResource("7_blmet")
@@ -962,33 +926,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ng6ji")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4vfkr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6sk76")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5sg3j")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_harnv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xsp4v")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u6wfg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rp6dc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pg3t1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dj0ib")
 }],
 "loop": false,
 "name": &"get_up",
@@ -1279,7 +1216,6 @@ script = ExtResource("2_q0efr")
 speed = 140.0
 ideal_radius = 400.0
 debug_view = true
-metadata/_custom_type_script = "uid://bgb2oual2bgw"
 
 [node name="Timer" type="Timer" parent="WalkingBushMoveCantroler" index="0"]
 
@@ -1291,10 +1227,8 @@ scale = Vector2(10.180746, 10.069604)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SpriteContainer" index="0"]
 sprite_frames = SubResource("SpriteFrames_ef3f8")
-animation = &"walk"
-
-[node name="ProgressBar" parent="." index="9"]
-offset_top = 51.0
-offset_bottom = 61.0
+animation = &"get_up"
+frame = 37
+frame_progress = 1.0
 
 [connection signal="animation_finished" from="SpriteContainer/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
