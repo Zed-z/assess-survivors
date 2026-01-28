@@ -88,3 +88,15 @@ PHASE_FINAL,Final Phase,Ostatnia Faza,Endphase,ファイナルフェーズ
 POPUP_OK,OK,OK,OK,OK
 POPUP_YES,Yes,Tak,Ja,はい
 POPUP_NO,No,Nie,Nein,いいえ
+SUMMARY_MOST_RISKY_STAT,Most Risky: %s,Najbardziej Ryzykowna: %s,Am Risikoreichsten: %s,最もリスキー：%s
+SUMMARY_LEAST_RISKY_STAT,Least Risky: %s,Najmniej Ryzykowna: %s,Am Wenigsten Risikoreich: %s,最もリスキーでない：%s
+SUMMARY_MOST_WEIGHED_STAT,Most Weighted: %s,Najbardziej Ważona: %s,Am Meisten Gewichtet: %s,最も重視された：%s
+SUMMARY_LEAST_WEIGHED_STAT,Least Weighted: %s,Najmniej Ważona: %s,Am Wenigsten Gewichtet: %s,最も重視されていない：%s
+SUMMARY_ANSWER_COUNT,Answers: %d,Odpowiedzi: %d,Antworten: %d,回答：%d
+SUMMARY_GAME_TIME,Game Time: %s,Czas Gry: %s,Spielzeit: %s,ゲーム時間：%s
+SUMMARY_ONLINE_RANK,Rank: #%d,Ranking: #%d,Rang: #%d,ランク：#%d
+SUMMARY_ONLINE_BETTER_THAN_COUNT,Better than %d players,Lepszy niż %d graczy,Besser als %d Spieler,より優れている %d プレイヤー
+SUMMARY_ONLINE_BETTER_THAN_PERCENT,Better than %.2f%% players,Lepszy niż %.2f%% graczy,Besser als %.2f%% Spieler,より優れている %.2f%% プレイヤー
+SUMMARY_ONLINE_MEAN_RISKINESS,Mean Riskiness: %.2f,Średnia Ryzykowność: %.2f,Durchschnittliche Risikoreich: %.2f,平均リスキー度：%.2f
+SUMMARY_ONLINE_RISKIER_THAN_PERCENT,Riskier than %.2f%% players,Ryzykowniejszy niż %.2f%% graczy,Risikoreicher als %.2f%% Spieler,よりリスキー度が高い %.2f%% プレイヤー
+SUMMARY_ONLINE_LESS_RISKY_THAN_PERCENT,Less Risky than %.2f%% players,Mniej Ryzykowny niż %.2f%% graczy,Weniger Risikoreich als %.2f%% Spieler,よりリスキー度が低い %.2f%% プレイヤー
