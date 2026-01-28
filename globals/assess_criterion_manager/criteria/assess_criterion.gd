@@ -47,7 +47,7 @@ var risk_factor: float:
 	get:
 		return _calculate_risk_factor()
 
-var point_list: Array[Vector2]
+var point_list: Array[Vector2] = []
 var question: Question
 var left_bound: float
 var right_bound: float
@@ -283,6 +283,11 @@ func setup() -> void:
 	specific_setup()
 	do_point_inbetween()
 	_question_init()
+
+#used for testing adjacent things such as not doing entire dialogue to calculate polynomial
+func _set_values(points: Array[Vector2], w: float) -> void:
+	point_list = points
+	weight = w
 
 
 func _to_string() -> String:

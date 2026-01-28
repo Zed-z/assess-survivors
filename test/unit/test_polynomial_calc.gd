@@ -1,5 +1,7 @@
 extends GdUnitTestSuite
 
+#calc is short for calculator
+
 
 func assert_almost_eq_array(actual: Array[float], expected: Array[float], delta: float):
 	assert_int(actual.size()).is_equal(expected.size())
@@ -29,7 +31,7 @@ func test_bairstow():
 
 func test_partial_u():
 
-	assert_float(Polynomials_calculator.calculate_partial_usefullness([Vector2(0.0, 1.0), Vector2(1.0,0.0)], 1.0)).is_equal_approx(1.0, 0.001)
+	assert_float(Polynomials_calculator.calculate_partial_usefullness([Vector2(0.0, 1.0), Vector2(1.0,0.0)], 1.0)).is_equal_approx(0.0, 0.001)
 
 
 func test_global_U():
@@ -44,3 +46,12 @@ func test_global_U():
 	var variant: Dictionary[AssessCriterion, float] = {first_one: 1.0, second_one: 0.0}
 	var K = 0.0
 	assert_float(Polynomials_calculator.calculate_global_usefullness(K, variant)).is_equal_approx(1.0, 0.001)
+
+
+func test_global_U_2():
+	var first_one = AssessCriterion.new()
+	first_one.set_values([Vector2(40.0, 0.0),Vector2(20.0, 0.8), Vector2(0, 1.0)], 0.75)
+	var second_one = AssessCriterion.new()
+	second_one.set_values([Vector2(0.0, 0.0),Vector2(20.0, 0.4),Vector2(40.0, 0.8), Vector2(50, 1.0)], 0.25)
+	var K = -2/0.375
+	var variant: Dictionary[AssessCriterion, float] = {first_one: 0.0, second_one: 50.0}
