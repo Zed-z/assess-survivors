@@ -58,7 +58,7 @@ END_SCREEN_SEND_TITLE,Send Results,Wysyłanie Wyników,Ergebnisse Senden,結果�
 END_SCREEN_SEND_PROMPT,Do you want to send your results\nand compare with others?,Czy chcesz wysłać swoje wyniki\ni porównać je z innymi?,Möchten Sie Ihre Ergebnisse senden\nund mit anderen vergleichen?,結果を送信して\n他の人と比較しますか？
 END_SCREEN_RESEND_PROMPT,A connection error occurred.\nDo you want to try resending?,Wystąpił błąd połączenia.\nCzy chcesz spróbować ponownie wysłać?,"Ein Verbindungsfehler ist aufgetreten.\nMöchten Sie versuchen, es erneut zu senden?",接続エラーが発生しました。\n再送信を試みますか？
 END_SCREEN_USERNAME_PROMPT,Enter your name:,Wpisz swoje imię:,Geben Sie Ihren Namen ein:,名前を入力してください：
-STAT_ATK,Attack,Atak,Angriff,撃
+STAT_ATK,Ranged,Atak Dystansowy,Reichweite,遠距離攻撃
 STAT_HP,Health,Zdrowie,Gesundheit,ヘルス
 STAT_SPD,Speed,Prędkość,Geschwindigkeit,敏速
 STAT_DEF,Defense,Obrona,Verteidigung,ディフェンス
