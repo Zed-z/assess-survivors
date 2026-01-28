@@ -53,13 +53,13 @@ func init_choice_panel() -> Node:
 				_init_final_phase()
 
 		GamePhases.FINAL:
-			#TODO create view
 			var variants: Array[Dictionary]
 			for i in range(10):
 				variants.append(Polynomials_calculator.generate_variant(criteria))
 
 			final_panel.variants = variants
 			final_panel.K = K
+			METRIC_fianl_panel += 1
 
 			if SettingsManager.get_setting("tutorial_enabled") and not SettingsManager.get_setting("tutorial/choice_final"):
 					SettingsManager.set_setting("tutorial/choice_final", true)
@@ -192,6 +192,7 @@ class WeightStepAnswer:
 	var answer: AssessCriterion.Answer
 
 var METRIC_weight_question_count: int = 0
+var METRIC_fianl_panel: int = 0
 
 
 func weight_step(answer: AssessCriterion.Answer) -> WeightStepAnswer:

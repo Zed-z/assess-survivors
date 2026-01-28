@@ -66,7 +66,7 @@ func write_summary(assess_summary: int, game_summary: int, smart_mode: bool = tr
 		question_answered += c.METRIC_question_answered
 
 	question_answered += assess_manager.METRIC_weight_question_count
-
+	question_answered += assess_manager.METRIC_fianl_panel
 	if smart_mode:
 		if abs(assess_weights.min() - assess_weights.max()) < 0.01:
 			assess_summary ^= AssessSummary.MOST_WEIGHT | AssessSummary.LEAST_WEIGHT
