@@ -134,10 +134,12 @@ animations = [{
 [node name="Bat" node_paths=PackedStringArray("move_controller", "move_animation") instance=ExtResource("1_k50q8")]
 move_controller = NodePath("MoveController")
 move_animation = NodePath("SpriteContainer/AnimatedSprite2D")
+contact_dmg = 2.0
+xp_reward = 15
 
 [node name="MoveController" type="Node2D" parent="." index="0"]
 script = ExtResource("2_ia6ut")
-speed = 30.0
+speed = 120.0
 metadata/_custom_type_script = "uid://r84uspc8jmiv"
 
 [node name="CollisionShape2D" parent="." index="1"]
@@ -148,6 +150,9 @@ visible = true
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
 position = Vector2(0, -8.999998)
+
+[node name="HealthComponent" parent="." index="3"]
+health = 200.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SpriteContainer" index="0"]
 sprite_frames = SubResource("SpriteFrames_troyk")

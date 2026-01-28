@@ -1202,11 +1202,13 @@ action_cooldown = 4.0
 move_controller = NodePath("WalkingBushMoveCantroler")
 move_animation = NodePath("SpriteContainer/AnimatedSprite2D")
 shooter = NodePath("shooter_with_consent")
+xp_reward = 20
 
 [node name="shooter_with_consent" type="Node2D" parent="." index="0"]
 script = ExtResource("2_wmlyl")
 projectile = ExtResource("3_8sbqi")
 shoot_coldown = 4.0
+damage = 2.0
 metadata/_custom_type_script = "uid://bxrtysv8dyqbb"
 
 [node name="Timer" type="Timer" parent="shooter_with_consent" index="0"]
@@ -1223,6 +1225,9 @@ visible = true
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
 scale = Vector2(10.180746, 10.069604)
+
+[node name="HealthComponent" parent="." index="4"]
+health = 250.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SpriteContainer" index="0"]
 sprite_frames = SubResource("SpriteFrames_ef3f8")

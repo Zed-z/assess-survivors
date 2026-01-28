@@ -162,13 +162,14 @@ animations = [{
 [node name="Enemy" node_paths=PackedStringArray("move_controller", "move_animation") instance=ExtResource("1_xb6n4")]
 move_controller = NodePath("StraightAhed")
 move_animation = NodePath("SpriteContainer/AnimatedSprite2D")
+xp_reward = 5
 
 [node name="HurtBox" parent="." index="1"]
 position = Vector2(0, -20)
 
 [node name="StraightAhed" type="Node2D" parent="." index="3"]
 script = ExtResource("3_22hh6")
-speed = 30.0
+speed = 60.0
 metadata/_custom_type_script = "uid://dmxtlm500xt1a"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SpriteContainer" index="0"]
