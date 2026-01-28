@@ -233,6 +233,12 @@ shape = SubResource("RectangleShape2D_ow0dq")
 position = Vector2(1, -19)
 shape = SubResource("CircleShape2D_ylcck")
 
+[node name="WaterEnter" type="AudioStreamPlayer2D" parent="."]
+bus = &"Effects"
+
+[node name="WaterLeave" type="AudioStreamPlayer2D" parent="."]
+bus = &"Effects"
+
 [connection signal="new_level" from="Levels" to="." method="_on_levels_new_level"]
 [connection signal="got_hit" from="HealthComponent" to="." method="_on_health_component_got_hit"]
 [connection signal="got_hit" from="HealthComponent" to="Hurtbox" method="activate_timer" unbinds=1]
