@@ -284,6 +284,7 @@ func setup() -> void:
 	do_point_inbetween()
 	_question_init()
 
+
 #used for testing adjacent things such as not doing entire dialogue to calculate polynomial
 func _set_values(points: Array[Vector2], w: float) -> void:
 	point_list = points
