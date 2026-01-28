@@ -10,7 +10,6 @@ static func create_polynomial(weights: Array[float]) -> Array[float]:
 		coefs.append(create_nth_coef(weights, i))
 
 	coefs.append(0.0)
-	#print("Polynomial coefs are: ", coefs)
 	return coefs
 
 
@@ -29,11 +28,10 @@ static func create_nth_coef(weights: Array[float], n: int) -> float:
 		return product(weights)
 
 	var arrs: Array = arrays_without_n(weights,len(weights) - n)
-	#print(arrs)
+
 	for j in range(len(arrs)):
 			arrs[j] = product(arrs[j])
 
-	#print(arrs)
 	return sum(arrs)
 
 
@@ -61,7 +59,6 @@ static func arrays_without_n(arr: Array, n: int) -> Array:
 
 			continue
 
-		#print(bin_str)
 		var new_comb: Array = []
 
 		for j in range(len(bin_str)):
@@ -91,11 +88,15 @@ static func calculate_partial_usefullness(u_graph: Array[Vector2], value: float)
 	var right_index: int = len(graph) - 1
 
 	var is_falling: bool = (graph[left_index].x > graph[right_index].x)
-
 	#if value is below minimum or above maximum
 	if max(graph[left_index].x, graph[right_index].x) < value or\
 	 min(graph[left_index].x, graph[right_index].x) > value:
 		return -12
+
+	for i in range(len(u_graph)):
+
+		if abs(value - u_graph[i].x) < 0.0001:
+			return u_graph[i].y
 
 	if is_falling:
 		graph.reverse()
@@ -120,15 +121,19 @@ static func calculate_global_usefullness(K: float, variant: Dictionary[AssessCri
 	const epsilon = 0.001
 
 	if abs(K) > epsilon:
+
 		for key in variant:
 			p *= (K * key.weight * calculate_partial_usefullness(key.point_list, variant[key]) + 1)
 
 		return(1/K) * (p - 1)
 	else:
+
+		p = 0.0
+
 		for key in variant:
 			p += key.weight * calculate_partial_usefullness(key.point_list, variant[key])
 
-		return
+		return p
 
 
 #sums elements of an array
@@ -238,10 +243,24 @@ func _ready():
 	#var divisor: Array[float] = [2,1,3]
 	#%result.text = "result: " + str(polydiv(dividend, divisor))
 
-	var barszczow: Array[float] = [1, -10, 35, -50, 24]
+	#var barszczow: Array[float] = [1, -10, 35, -50, 24]
+#
+	#%result.text = "result: " + " , ".join(bairstow(barszczow))
 
-	%result.text = "result: " + " , ".join(bairstow(barszczow))
+	var t: Array[Vector2] = [Vector2(10.0, 0.0), Vector2(6.0, 0.2),Vector2(2.0, 0.6),Vector2(1.0, 0.7),Vector2(0.0, 1.0)]
+	var x: Array[Vector2] = [Vector2(1.0, 0.0), Vector2(0.0, 7.0)]
 
-	#var t: Array[Vector2] = [Vector2(10.0, 0.0), Vector2(6.0, 0.2),Vector2(2.0, 0.6),Vector2(1.0, 0.7),Vector2(0.0, 1.0)]
+	#%result.text = str(calculate_partial_usefullness(t,6.0))
+	#%weigths.text = str(calculate_partial_usefullness(x,0.0))
 
-	#%weigths.text = str(calculate_partial_usefullness(t,5.0))
+	#var first_one = AssessCriterion.new()
+	#first_one.min_value = 0.0
+	#first_one.initial_max_value = 1.0
+	#first_one.setup()
+	#var second_one = AssessCriterion.new()
+	#second_one.min_value = 1.0
+	#second_one.initial_max_value = 0.0
+	#second_one.setup()
+	#var variant: Dictionary[AssessCriterion, float] = {first_one: 1.0, second_one: 0.0}
+	#var K = 0.0
+	#%result.text = str(Polynomials_calculator.calculate_global_usefullness(K, variant))
