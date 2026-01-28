@@ -28,6 +28,8 @@ func _ready() -> void:
 	reset()
 
 
+
+
 func new_max_health(value: float):
 	var increase: float= value - health
 

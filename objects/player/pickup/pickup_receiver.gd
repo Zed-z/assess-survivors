@@ -16,7 +16,7 @@ func hard_coded_pickups(type: String):
 
 	match type:
 		"health":
-			$"../HealthComponent".heal($"../HealthComponent".health * 0.1)
+			$"../HealthComponent".reset()
 
 		"xp":
 			$"../Levels".gain_level(1)
