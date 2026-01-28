@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://diqurk2i4835v"
-valid=false
+uid="uid://dj4rswlih02qh"
+path="res://.godot/imported/logo2.png-17aba92228eabc9897cd0a07b61174dd.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://sprites/tiles/bricks_red.png"
+source_file="res://promo/logo2.png"
+dest_files=["res://.godot/imported/logo2.png-17aba92228eabc9897cd0a07b61174dd.ctex"]
 
 [params]
 

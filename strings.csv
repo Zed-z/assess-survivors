@@ -1,11 +1,9 @@
 key,en,pl,de,ja
-GAME_TITLE,The Indecision of\nArthur Sess,Niezdecydowanie\nArtura Sessa,Die Unentschlossenheit\nvon Arthur Sess,アーサーセッスの\n優柔不断
 MENU_BACK,Back,Wstecz,Zurück,バック
 MAIN_MENU_PLAY,Play,Graj,Spielen,プレー
 MAIN_MENU_QUIT,Quit,Wyjdź,Beenden,終了
 MAIN_MENU_SETTINGS,Settings,Ustawienia,Einstellungen,設定
 MAIN_MENU_ASSESS,ASSESS,ASSESS,ASSESS,アッセッス
-MAIN_MENU_COPYRIGHT,© 2026,© 2026,© 2026,© 2026
 GAME_START_PROMPT,Choose game type,Wybierz typ gry,Wähle Spieltyp,ゲームタイプを選択
 GAME_START_QUICK_GAME,Quick Game,Szybka Gra,Schnelles Spiel,クイックゲーム
 GAME_START_NORMAL_GAME,Normal Game,Normalna Gra,Normales Spiel,ノーマルゲーム
@@ -31,6 +29,7 @@ SETTINGS_TAB_VIDEO,Video,Grafika,Grafik,グラフィックス
 SETTINGS_TITLE_VIDEO,Video Settings,Ustawienia Graficzne,Grafikeinstellungen,グラフィックスのせってい
 SETTINGS_VIDEO_FULLSCREEN,Fullscreen,Pełny Ekran,Vollbild,全画面 
 SETTINGS_VIDEO_SCREEN_SHAKE,Screen Shake,Trzęsienie Ekranu,?????????????????????????????,?????????????????????????????
+SETTTINGS_VIDEO_ENEMY_HEALTH_BARS,Enemy Health Bars,Paski Zdrowia Wrogów,Gegnerische Gesundheitsbalken,敵の体力バー
 SETTINGS_TAB_AUDIO,Audio,Dźwięk,Audio,音
 SETTINGS_TITLE_AUDIO,Audio Settings,Ustawienia Dźwięku,Audioeinstellungen,音のせってい
 SETTINGS_TAB_CREDITS,Credits,Autorzy,Credits,クレジット
