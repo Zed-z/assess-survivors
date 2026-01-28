@@ -6,6 +6,7 @@ extends Node
 
 var player: Player
 var player_hp_comp: HealthComponent
+var player_state: bool = false
 
 
 func _ready() -> void:
@@ -22,6 +23,15 @@ func _ready() -> void:
 	add_child(timer)
 
 
-func check_player_position():
+func _process(delta: float) -> void:
 	if !Geometry2D.is_point_in_polygon(player.position,spawnable_area.polygon):
+		player_state = true
+		player.get_node("WaterEnter").play()
+	else:
+		player_state = false
+		player.get_node("WaterLeave").play()
+
+
+func check_player_position():
+	if player_state:
 		player_hp_comp.take_damage(DamageParameters.new(damage_percent * player_hp_comp.health))
