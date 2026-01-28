@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://epsr1o1tk6ur" path="res://objects/enemies/enemy_scenes/base_enemy.tscn" id="1_5mbmq"]
 [ext_resource type="Script" uid="uid://888htwtabv3g" path="res://objects/enemies/enemy_scenes/enemy_bush.gd" id="2_hjj62"]
-[ext_resource type="Script" path="res://objects/enemies/move_controller/walking_bush_move_controler.gd" id="2_q0efr"]
-[ext_resource type="Script" path="res://objects/enemies/enemy_scenes/sooter_with_consent.gd" id="2_wmlyl"]
+[ext_resource type="Script" uid="uid://bgb2oual2bgw" path="res://objects/enemies/move_controller/walking_bush_move_controler.gd" id="2_q0efr"]
+[ext_resource type="Script" uid="uid://qhldu4phre5" path="res://objects/enemies/enemy_scenes/sooter_with_consent.gd" id="2_wmlyl"]
 [ext_resource type="PackedScene" uid="uid://ccfhcgw5yxqpf" path="res://objects/projectile/projectile_instances/projectile_enemy_bush.tscn" id="3_8sbqi"]
 [ext_resource type="Texture2D" uid="uid://c80gbit0i46n7" path="res://sprites/mobs/sus_bush_attack.png" id="5_8sbqi"]
 [ext_resource type="Texture2D" uid="uid://cyycgts70o0nx" path="res://sprites/mobs/sus_bush_get_up.png" id="6_hjj62"]
@@ -1230,5 +1230,9 @@ sprite_frames = SubResource("SpriteFrames_ef3f8")
 animation = &"get_up"
 frame = 37
 frame_progress = 1.0
+
+[node name="HealthBar" parent="." index="9"]
+offset_top = 59.0
+offset_bottom = 69.0
 
 [connection signal="animation_finished" from="SpriteContainer/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

@@ -79,7 +79,7 @@ RISKINESS_SLIGHTLY_SAFE,Slightly Safe,Nieco Bezpieczny,Etwas Sicher,やや安全
 RISKINESS_VERY_SAFE,Very Safe,Bardzo Bezpieczny,Sehr Sicher,とても安全
 ASSESS_WEIGHT,Weight: %s,Waga: %s,Gewicht: %s,重さ: %s
 TUTORIAL_CHOICE_CRITERION_TITLE,Criterion Choice,Wybór Kryterium,Kriterium Wahl,基準の選択
-TUTORIAL_CHOICE_CRITERION_BODY,"Choose your reward!\nYou'll get a bonus for one of your stats.","Wybierz swoją nagrodę!\nOtrzymasz bonus do jednej ze swoich statystyk.","Wähle deine Belohnung!\nDu erhältst einen Bonus für eine deiner Statistiken."","報酬を選んでください！\nあなたのステータスの1つにボーナスが与えられます。"
+TUTORIAL_CHOICE_CRITERION_BODY,"Choose your reward!\nYou'll get a bonus for one of your stats.","Wybierz swoją nagrodę!\nOtrzymasz bonus do jednej ze swoich statystyk.","Wähle deine Belohnung!\nDu erhältst einen Bonus für eine deiner Statistiken.","報酬を選んでください！\nあなたのステータスの1つにボーナスが与えられます。"
 TUTORIAL_CHOICE_WEIGHT_TITLE,Weight Choice,Wybór Wagowy,Gewicht Wahl,ウェイトの選択
 TUTORIAL_CHOICE_WEIGHT_BODY,"Choose your reward!\nYou can choose a certain award,\nor risk it for a boost of every stat!","Wybierz swoją nagrodę!\nMożesz wybrać pewną nagrodę,\nlub zaryzykować i otrzymać bonus do każdej statystyki!","Wähle deine Belohnung!\nDu kannst eine sichere Belohnung wählen,\noder es riskieren und einen Boost für jede Statistik erhalten!","報酬を選んでください！\n特定の報酬を選ぶことも、\nすべてのステータスのブーストをリスクにさらすこともできます！"
 TUTORIAL_CHOICE_FINAL_TITLE,Assisted Choice,Wybór Wspomagany,Unterstützte Wahl,アシストされた選択
