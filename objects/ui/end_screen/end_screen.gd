@@ -67,8 +67,8 @@ func send_data():
 	var json = JSON.stringify(request)
 	var api_url: String = SettingsManager.get_setting("api_url")
 	var headers = ["Content-Type: application/json"]
-	$HTTPRequest.request(api_url + "/register_results", headers, HTTPClient.METHOD_POST, json)
 	$HTTPRequest.request_completed.connect(_on_request_completed)
+	$HTTPRequest.request(api_url + "/register_results", headers, HTTPClient.METHOD_POST, json)
 
 
 func _on_request_completed(result, response_code, headers, body):

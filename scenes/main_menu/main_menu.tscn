@@ -131,6 +131,13 @@ text = "MAIN_MENU_ASSESS"
 script = ExtResource("3_ob46e")
 scene = "assess_test"
 
+[node name="ButtonAssess2" type="Button" parent="Control/MarginContainer/Control/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "MAIN_MENU_LEADERBOARD"
+script = ExtResource("3_ob46e")
+scene = "leaderboard"
+
 [node name="SettingsButton" type="Button" parent="Control/MarginContainer/Control/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2

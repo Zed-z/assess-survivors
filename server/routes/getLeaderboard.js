@@ -11,7 +11,7 @@ router.get('/get_leaderboard', async (req, res) => {
 	try {
 
 		const games = await db.gameStats.findAll({
-			limit: 10,
+			limit: 20,
 			order: [['score', 'DESC']]
 		}).catch((e) => {
 			console.log(e);
@@ -34,11 +34,11 @@ router.get('/get_leaderboard', async (req, res) => {
 		}));
 
 		const leaderboard = gamesWithStats.map((entry, i) => ({
-			number: i + 1,
+			rank: i + 1,
 			player: entry.playerName,
 			score: entry.score,
-			averageRiskinesas: entry.averageRiskiness,
-			mostWeightStat: entry.mostWeightStat,
+			average_riskiness: entry.averageRiskiness,
+			most_weight_stat: entry.mostWeightStat,
 			//stats: entry.stats,
 		}));
 
