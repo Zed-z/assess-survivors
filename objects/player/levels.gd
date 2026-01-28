@@ -26,7 +26,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func gain_ex_from_enemy(enemy: Enemy) -> void:
-	collected_xp += 1
+	collected_xp += enemy.xp_reward
 	_xp_changed()
 
 

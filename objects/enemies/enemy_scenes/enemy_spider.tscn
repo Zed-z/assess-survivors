@@ -52,6 +52,7 @@ animations = [{
 [node name="EnemySpider" node_paths=PackedStringArray("move_controller", "move_animation") instance=ExtResource("1_o4p7e")]
 move_controller = NodePath("RangerMoveController")
 move_animation = NodePath("SpriteContainer/AnimatedSprite2D")
+xp_reward = 10
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SpriteContainer" index="0"]
 scale = Vector2(0.5, 0.5)
@@ -60,13 +61,13 @@ autoplay = "default"
 
 [node name="RangerMoveController" type="Node2D" parent="." index="7"]
 script = ExtResource("3_wp2wx")
-speed = 75.0
+speed = 120.0
 escape_radius = 200.0
 metadata/_custom_type_script = "uid://cnwb66k0tvq7m"
 
 [node name="BasicShooter" parent="." index="8" instance=ExtResource("4_yno76")]
 projectile = ExtResource("5_wbyse")
-shoot_coldown = 1.5
+shoot_coldown = 3.0
 projectile_speed = 100
 
 [node name="HealthBar" parent="." index="9"]
