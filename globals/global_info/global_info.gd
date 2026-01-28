@@ -121,9 +121,11 @@ func float_to_time_string(time: float) -> String:
 	var time_string = ""
 
 	if (time / 60.0) >= 1:
-		time_string = str(floor(time / 60.0)) + "m " + "0.2f" % (time - (floor(time / 60.0) * 60)) + "s"
+		time_string = str(floori(time / 60.0)) + "m " + "0.2f" % (time - (floori(time / 60.0) * 60)) + "s"
 	else:
-		time_string = 	"%0.2f" % time + "s"
+		time_string = 	("%0.2f" % time)
+
+		time_string += "s"
 
 	return time_string
 
