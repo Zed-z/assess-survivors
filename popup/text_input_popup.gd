@@ -4,9 +4,18 @@ class_name TextInputPopup
 
 @export var allow_empty: bool = false
 
+@export var string_ok: String = "OK":
+	set(val):
+		string_ok = val
+
+		if %ButtonOk:
+			%ButtonOk.text = string_ok
+
 
 func _ready() -> void:
 	super._ready()
+
+	string_ok = string_ok
 
 	%ButtonOk.pressed.connect(ok)
 

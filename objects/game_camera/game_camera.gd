@@ -16,12 +16,10 @@ func _physics_process(delta: float) -> void:
 	global_position = global_position.lerp(parent.global_position, lerp_speed)
 
 
-func shake():
-	if SettingsManager.get_setting("video/screen_shake"):
-		$AnimationPlayer.play("shake")
-
-
 func shake_scalable(p: Vector2 = Vector2(10,10), angle: float = 1):
+
+	if not SettingsManager.get_setting("video/screen_shake"):
+		return
 
 	if tween:
 		tween.kill()

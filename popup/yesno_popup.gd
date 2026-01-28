@@ -2,9 +2,25 @@
 extends BasePopup
 class_name YesNoPopup
 
+@export var string_yes: String = "Yes":
+	set(val):
+		string_yes = val
+
+		if %ButtonYes:
+			%ButtonYes.text = string_yes
+@export var string_no: String = "No":
+	set(val):
+		string_no = val
+
+		if %ButtonNo:
+			%ButtonNo.text = string_no
+
 
 func _ready() -> void:
 	super._ready()
+
+	string_yes = string_yes
+	string_no = string_no
 
 	%ButtonYes.pressed.connect(yes)
 	%ButtonNo.pressed.connect(no)

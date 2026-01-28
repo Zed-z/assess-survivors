@@ -2,7 +2,7 @@ extends Node
 
 @export var spawnable_area: CollisionPolygon2D
 
-@export var damage: float = 0.5
+@export var damage_percent: float = 0.5
 
 var player: Player
 var player_hp_comp: HealthComponent
@@ -24,4 +24,4 @@ func _ready() -> void:
 
 func check_player_position():
 	if !Geometry2D.is_point_in_polygon(player.position,spawnable_area.polygon):
-		player_hp_comp.take_damage(DamageParameters.new(damage))
+		player_hp_comp.take_damage(DamageParameters.new(damage_percent * player_hp_comp.health))

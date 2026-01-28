@@ -85,3 +85,6 @@ TUTORIAL_CHOICE_FINAL_BODY,"This time, you can choose out of many\nmulti-stat re
 PHASE_CRITERION,Criterion Phase,Faza Kryterium,Kriterium Phase,クリテリオンフェーズ
 PHASE_WEIGHT,Weight Phase,Faza Wagowa,Gewicht Phase,ウェイトフェーズ
 PHASE_FINAL,Final Phase,Ostatnia Faza,Endphase,ファイナルフェーズ
+POPUP_OK,OK,OK,OK,OK
+POPUP_YES,Yes,Tak,Ja,はい
+POPUP_NO,No,Nie,Nein,いいえ

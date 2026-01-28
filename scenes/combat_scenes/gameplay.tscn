@@ -207,6 +207,7 @@ material = ExtResource("19_dxil3")
 [node name="AreaDamageDealer" type="Node" parent="." node_paths=PackedStringArray("spawnable_area")]
 script = ExtResource("19_ohie8")
 spawnable_area = NodePath("../EnemySpawner/SpawnableArea")
+damage_percent = 0.1
 
 [node name="AreaBounds" parent="." instance=ExtResource("20_wn8it")]
 

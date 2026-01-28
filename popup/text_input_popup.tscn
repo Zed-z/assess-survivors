@@ -5,7 +5,8 @@
 
 [node name="TextInputPopup" instance=ExtResource("1_fvfny")]
 script = ExtResource("2_fvfny")
-allow_empty = null
+allow_empty = false
+string_ok = "POPUP_OK"
 show_background = true
 can_be_closed = false
 
@@ -29,4 +30,4 @@ alignment = 1
 [node name="ButtonOk" type="Button" parent="Popup/VBoxContainer/MarginContainer2/HBoxContainer" index="0"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "OK"
+text = "POPUP_OK"
