@@ -16,7 +16,7 @@ run/main_scene="uid://cksd53ocdjjc5"
 config/use_custom_user_dir=true
 config/features=PackedStringArray("4.5", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
-config/icon="uid://buuaf3wdlshc0"
+config/icon="uid://dv621va5ltvjk"
 
 [autoload]
 
