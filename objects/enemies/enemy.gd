@@ -68,4 +68,4 @@ func _on_health_component_got_hit(depleted: bool) -> void:
 
 func _on_hurt_box_hit(parameters: DamageParameters) -> void:
 	position += parameters.direction * 7
-	GlobalInfo.game_camera.shake_scalable(Vector2(1,1),1)
+	GlobalInfo.game_camera.shake_scalable(Vector2(0.5,0.5),1)

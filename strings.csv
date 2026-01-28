@@ -12,7 +12,7 @@ ASSESS_TEST_PREFER_LEFT,Prefer Left,Preferuj Lewe,Bevor Links,左の好む
 ASSESS_TEST_PREFER_RIGHT,Prefer Right,Preferuj Prawe,Bevor Rechts,右の好む
 ASSESS_TEST_INDIFFERENT,Indifferent,Obojętnie Mi,Egal,私は気にしない
 ASSESS_TEST_SCENARIO,Test Scenario,Scenariusz Testowy,Testszenario,テストのシナリオ
-ASSESS_TEST_GET_QUESTION,Get Question,Pobierz Pytanie,?????????????????????????????,?????????????????????????????
+ASSESS_TEST_GET_QUESTION,Get Question,Pobierz Pytanie,Frage Holen,質問を取得
 ASSESS_TEST_NEXT_PHASE,Next Phase,Następna Faza,Nächste Phase,次のフェーズ
 AUDIO_BUS_MASTER,Master,Ogólny,Gesamt,一般
 AUDIO_BUS_MUSIC,Music,Muzyka,Musik,音楽
@@ -28,8 +28,8 @@ SETTINGS_GENERAL_TUTORIALS,Tutorials,Samouczki,Tutorials,チュートリアル
 SETTINGS_GENERAL_RESET_TUTORIALS,Reset Tutorials,Resetuj Samouczki,Tutorials Zurücksetzen,チュートリアルをリセット
 SETTINGS_TAB_VIDEO,Video,Grafika,Grafik,グラフィックス
 SETTINGS_TITLE_VIDEO,Video Settings,Ustawienia Graficzne,Grafikeinstellungen,グラフィックスのせってい
-SETTINGS_VIDEO_FULLSCREEN,Fullscreen,Pełny Ekran,Vollbild,全画面 
-SETTINGS_VIDEO_SCREEN_SHAKE,Screen Shake,Trzęsienie Ekranu,?????????????????????????????,?????????????????????????????
+SETTINGS_VIDEO_FULLSCREEN,Fullscreen,Pełny Ekran,Vollbild,全画面
+SETTINGS_VIDEO_SCREEN_SHAKE,Screen Shake,Trzęsienie Ekranu,Bildschirm Wackeln,画面の揺れ
 SETTTINGS_VIDEO_ENEMY_HEALTH_BARS,Enemy Health Bars,Paski Zdrowia Wrogów,Gegnerische Gesundheitsbalken,敵の体力バー
 SETTINGS_TAB_AUDIO,Audio,Dźwięk,Audio,音
 SETTINGS_TITLE_AUDIO,Audio Settings,Ustawienia Dźwięku,Audioeinstellungen,音のせってい
@@ -41,10 +41,10 @@ GAMEPLAY_LEVEL_BAR,Level %s (%s / %s XP),Poziom %s (%s / %s PD),Level %s (%s / %
 GAMEPLAY_SCORE_COUNTER,Score\n%08d,Wynik\n%08d,Punktzahl\n%08d,結果\n%08d
 GAMEPLAY_HEALTH,%s / %s HP,%s / %s HP,%s / %s HP,%s / %s HP
 GAMEPLAY_WAVE_NUMBER,Wave %s,Fala %s,Welle %s,波 %s
-GAMEPLAY_CONTROLS,"Movement: WASD or Arrow Keys\nShoot: LMB   Melee: RMB","Ruch: WASD lub Strzałki\nStrzał: LPM   Atak Wręcz: PPM","Bewegung: WASD oder Pfeiltasten\nSchießen: LKM   Nahkampf: RKM","移動：WASDまたは矢印キー\nシュート：LMB   近接攻撃：RMB"
+GAMEPLAY_CONTROLS,"Movement: WASD/Arrow Keys\nShoot: LMB   Melee: RMB","Ruch: WASD/Strzałki\nStrzał: LPM   Atak Wręcz: PPM","Bewegung: WASD/Pfeiltasten\nSchießen: LKM   Nahkampf: RKM","移動：WASD/矢印キー\nシュート：LMB   近接攻撃：RMB"
 LOADING,Loading...,Ładowanie...,Laden...,ロード中。。。
 QUIT,Quit,Wyjdź,Beenden,終了
-PAUSE,Pause,Pauza,?????????????????????????????,?????????????????????????????
+PAUSE,Pause,Pauza,Pause,一時停止
 CHOICE_PANEL_SAFE,Stay Safe,Pewna Opcja,Sicher Option,お大事に
 CHOICE_PANEL_SPIN,Spin the Wheel!,Zakręć Kołem!,Dreh das Rad!,ホイールを回す
 CHOICE_PANEL_NONE,Pick for me,Wybierz za mnie,Für mich auswählen,私は気にしない
@@ -63,8 +63,8 @@ STAT_DEF,Defense,Obrona,Verteidigung,ディフェンス
 STAT_PIERCE,Pierce,Przebicie,Durchdringen,ピアス
 STAT_COOLDOWN,Cooldown,Opóźnienie,Abklingzeit,クールダウン
 STAT_MELEE,Melee,Atak Wręcz,Nahkampf,近接攻撃
-PAUSE_MENU_TITLE,Game Paused,Pauza,?????????????????????????????,?????????????????????????????
-PAUSE_MENU_CONTINUE,Continue,Kontynuuj,?????????????????????????????,?????????????????????????????
+PAUSE_MENU_TITLE,Game Paused,Pauza,Spiel Pausiert,ゲーム一時停止
+PAUSE_MENU_CONTINUE,Continue,Kontynuuj,Fortsetzen,続ける
 PAUSE_MENU_SETTINGS,Settings,Ustawienia,Einstellungen,せってい
 PAUSE_MENU_ASSESS_INFO,Statistics,Statystyki,Statistiken,統計
 PAUSE_MENU_QUIT,Quit,Wyjdź,Beenden,終了
@@ -76,12 +76,12 @@ RISKINESS_SAFE,Safe,Bezpieczny,Sicher,安全
 RISKINESS_SLIGHTLY_SAFE,Slightly Safe,Nieco Bezpieczny,Etwas Sicher,やや安全
 RISKINESS_VERY_SAFE,Very Safe,Bardzo Bezpieczny,Sehr Sicher,とても安全
 ASSESS_WEIGHT,Weight: %s,Waga: %s,Gewicht: %s,重さ: %s
-TUTORIAL_CHOICE_CRITERION_TITLE,Criterion Choice,Wybór Kryterium,Kriterium Wahl,???
-TUTORIAL_CHOICE_CRITERION_BODY,"Choose your reward!\nYou'll get a bonus for one of your stats.",Wybierz swoją nagrodę!\nOtrzymasz bonus do jednej ze swoich statystyk.,Wähle deine Belohnung!\nDu erhältst einen Bonus für eine deiner Statistiken.,???
-TUTORIAL_CHOICE_WEIGHT_TITLE,Weight Choice,Wybór Wagi,Gewicht Wahl,???
-TUTORIAL_CHOICE_WEIGHT_BODY,"Choose your reward!\nYou can choose a certain award,\nor risk it for a boost of every stat!","Wybierz swoją nagrodę!\nMożesz wybrać pewną nagrodę,\nlub zaryzykować i otrzymać bonus do każdej statystyki!","Wähle deine Belohnung!\nDu kannst eine sichere Belohnung wählen,\noder es riskieren und einen Boost für jede Statistik erhalten!",???
-TUTORIAL_CHOICE_FINAL_TITLE,Assisted Choice,Wybór Wspomagany,Unterstützte Wahl,???
-TUTORIAL_CHOICE_FINAL_BODY,"This time, you can choose out of many\nmulti-stat rewards!\nYou will be recommended rewards\nbased on your preferences.","Tym razem możesz wybrać spośród wielu\nwielostatystycznych nagród!\nZostaną Ci polecone nagrody\nna podstawie Twoich preferencji.","Diesmal kannst du aus vielen\nmehrstatistischen Belohnungen wählen!\nDir werden Belohnungen empfohlen,\nbasierend auf deinen Vorlieben.",???
+TUTORIAL_CHOICE_CRITERION_TITLE,Criterion Choice,Wybór Kryterium,Kriterium Wahl,基準の選択
+TUTORIAL_CHOICE_CRITERION_BODY,"Choose your reward!\nYou'll get a bonus for one of your stats.","Wybierz swoją nagrodę!\nOtrzymasz bonus do jednej ze swoich statystyk.","Wähle deine Belohnung!\nDu erhältst einen Bonus für eine deiner Statistiken."","報酬を選んでください！\nあなたのステータスの1つにボーナスが与えられます。"
+TUTORIAL_CHOICE_WEIGHT_TITLE,Weight Choice,Wybór Wagowy,Gewicht Wahl,ウェイトの選択
+TUTORIAL_CHOICE_WEIGHT_BODY,"Choose your reward!\nYou can choose a certain award,\nor risk it for a boost of every stat!","Wybierz swoją nagrodę!\nMożesz wybrać pewną nagrodę,\nlub zaryzykować i otrzymać bonus do każdej statystyki!","Wähle deine Belohnung!\nDu kannst eine sichere Belohnung wählen,\noder es riskieren und einen Boost für jede Statistik erhalten!","報酬を選んでください！\n特定の報酬を選ぶことも、\nすべてのステータスのブーストをリスクにさらすこともできます！"
+TUTORIAL_CHOICE_FINAL_TITLE,Assisted Choice,Wybór Wspomagany,Unterstützte Wahl,アシストされた選択
+TUTORIAL_CHOICE_FINAL_BODY,"This time, you can choose out of many\nmulti-stat rewards!\nYou will be recommended rewards\nbased on your preferences.","Tym razem możesz wybrać spośród wielu\nwielostatystycznych nagród!\nZostaną Ci polecone nagrody\nna podstawie Twoich preferencji.","Diesmal kannst du aus vielen\nmehrstatistischen Belohnungen wählen!\nDir werden Belohnungen empfohlen,\nbasierend auf deinen Vorlieben.","今回は、多くのマルチステータス報酬から選択できます！\nあなたの好みに基づいて報酬が推奨されます。"
 PHASE_CRITERION,Criterion Phase,Faza Kryterium,Kriterium Phase,クリテリオンフェーズ
 PHASE_WEIGHT,Weight Phase,Faza Wagowa,Gewicht Phase,ウェイトフェーズ
 PHASE_FINAL,Final Phase,Ostatnia Faza,Endphase,ファイナルフェーズ
