@@ -29,7 +29,7 @@ func _process(delta: float) -> void:
 
 	var curent_time = Time.get_unix_time_from_system()
 
-	if user_action and curent_time - last_action> stats.get_stat("STAT_COOLDOWN"):
+	if user_action and curent_time - last_action> Utils.map_cooldown(stats.get_stat("STAT_COOLDOWN")):
 		last_action = curent_time
 		$SoundAttack.play()
 		animation.stop()

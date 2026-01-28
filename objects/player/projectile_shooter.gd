@@ -20,7 +20,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _process(delta: float) -> void:
 	if user_action:
 		if $Cooldown.time_left == 0:
-				$Cooldown.wait_time = stats.get_stat("STAT_COOLDOWN")
+				$Cooldown.wait_time = Utils.map_cooldown(stats.get_stat("STAT_COOLDOWN"))
 				$Cooldown.start()
 
 				var aim_direction: Vector2 = (get_global_mouse_position() - global_position)

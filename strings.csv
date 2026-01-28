@@ -63,7 +63,7 @@ STAT_HP,Health,Zdrowie,Gesundheit,ヘルス
 STAT_SPD,Speed,Prędkość,Geschwindigkeit,敏速
 STAT_DEF,Defense,Obrona,Verteidigung,ディフェンス
 STAT_PIERCE,Pierce,Przebicie,Durchdringen,ピアス
-STAT_COOLDOWN,Cooldown,Opóźnienie,Abklingzeit,クールダウン
+STAT_COOLDOWN,Agility,Zręczność,Beweglichkeit,敏捷性
 STAT_MELEE,Melee,Atak Wręcz,Nahkampf,近接攻撃
 PAUSE_MENU_TITLE,Game Paused,Pauza,Spiel Pausiert,ゲーム一時停止
 PAUSE_MENU_CONTINUE,Continue,Kontynuuj,Fortsetzen,続ける
