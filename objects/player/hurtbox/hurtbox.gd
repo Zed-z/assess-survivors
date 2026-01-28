@@ -15,8 +15,12 @@ func _process(_delta: float) -> void:
 			var e := area.get_parent()
 
 			if e is Enemy:
-				got_hit(DamageParameters.new(e.get_contact_dmg()))
-				invornerable = true
-				timer.start()
+				await got_hit(DamageParameters.new(e.get_contact_dmg()))
+				activate_timer()
 
 				break
+
+
+func activate_timer():
+	invornerable = true
+	timer.start()

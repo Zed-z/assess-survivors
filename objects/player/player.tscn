@@ -235,5 +235,6 @@ shape = SubResource("CircleShape2D_ylcck")
 
 [connection signal="new_level" from="Levels" to="." method="_on_levels_new_level"]
 [connection signal="got_hit" from="HealthComponent" to="." method="_on_health_component_got_hit"]
+[connection signal="got_hit" from="HealthComponent" to="Hurtbox" method="activate_timer" unbinds=1]
 [connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_area_entered"]
 [connection signal="hit" from="Hurtbox" to="HealthComponent" method="take_damage"]

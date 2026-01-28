@@ -53,6 +53,8 @@ func _on_health_component_got_hit(depleted: bool) -> void:
 	if depleted:
 		$AnimationPlayer.stop()
 		$AnimationPlayer.play("die")
+		$HurtBox.monitorable = false
+		$CollisionShape2D.queue_free()
 
 		await $AnimationPlayer.animation_finished
 		spawner.remove_enemy(self)
