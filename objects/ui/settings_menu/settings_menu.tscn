@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d2xe4jjrkjnh0"]
+[gd_scene load_steps=13 format=3 uid="uid://d2xe4jjrkjnh0"]
 
 [ext_resource type="Theme" uid="uid://df2r57b2stnof" path="res://themes/ui.tres" id="1_j78aw"]
 [ext_resource type="Script" uid="uid://cyq1ux3q7slto" path="res://objects/ui/settings_menu/settings_menu.gd" id="2_p28av"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://do5v087546avq" path="res://objects/ui/settings_menu/button_nh.gd" id="7_cbb5h"]
 [ext_resource type="Script" uid="uid://o7jc52ayptjm" path="res://objects/ui/settings_menu/tutorial_button.gd" id="8_bto1d"]
 [ext_resource type="Script" uid="uid://bkdmoalpoaho5" path="res://objects/ui/settings_menu/screen_shake_button.gd" id="9_2n5xb"]
+[ext_resource type="Script" uid="uid://y53anlunmtjs" path="res://objects/ui/settings_menu/health_bars_button.gd" id="11_pnted"]
 
 [node name="SettingsMenu" type="Control"]
 process_mode = 3
@@ -206,6 +207,11 @@ script = ExtResource("6_porcf")
 layout_mode = 2
 text = "SETTINGS_VIDEO_SCREEN_SHAKE"
 script = ExtResource("9_2n5xb")
+
+[node name="CheckButton3" type="CheckButton" parent="Panel/Video/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "SETTTINGS_VIDEO_ENEMY_HEALTH_BARS"
+script = ExtResource("11_pnted")
 
 [node name="Audio" type="Control" parent="Panel"]
 visible = false

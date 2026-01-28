@@ -31,6 +31,8 @@ func _ready() -> void:
 	assert(is_instance_valid(move_animation), name + " does not have animation assigned")
 	target = GlobalInfo.player
 
+	$HealthBar.visible = SettingsManager.get_setting("video/enemy_health_bars")
+
 
 func _physics_process(_delta: float) -> void:
 	velocity = move_controller.get_velocity()
