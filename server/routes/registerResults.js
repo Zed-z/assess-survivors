@@ -68,12 +68,14 @@ router.post('/register_results', async (req, res) => {
 			where: { averageRiskiness: { [Sequelize.Op.lt]: avgerageRiskiness } }
 		});
 		const moreRiskinessCount = totalGames - lessRiskinessCount;
-		const riskinessPercentile = (totalGames > 0) ? (lessRiskinessCount / totalGames) : 0;
+		const moreRiskinessPercentile = (totalGames > 0) ? (lessRiskinessCount / totalGames) : 0;
+		const lessRiskinessPercentile = (totalGames > 0) ? (moreRiskinessCount / totalGames) : 0;
 
 		info.avgerage_riskiness = avgerageRiskiness;
 		info.more_riskiness_count = moreRiskinessCount;
 		info.less_riskiness_count = lessRiskinessCount;
-		info.riskiness_percentile = riskinessPercentile;
+		info.more_riskiness_percentile = moreRiskinessPercentile;
+		info.less_riskiness_percentile = lessRiskinessPercentile;
 		//info.notes.push(`Your average riskiness was ${avgerageRiskiness.toFixed(2)}, higher than ${(riskinessPercentile * 100).toFixed(2)} of people.`);
 
 
@@ -97,6 +99,11 @@ router.post('/register_results', async (req, res) => {
 				riskiness: stat.riskiness
 			}))
 		);
+
+		const rank = await db.gameStats.count({
+			where: { score: { [Sequelize.Op.gt]: req.body.score } }
+		}) + 1;
+		info.rank = rank;
 
 		const row = rawRow.get({ plain: true });
 		row.stats = rawStats.map(s => s.get({ plain: true }));

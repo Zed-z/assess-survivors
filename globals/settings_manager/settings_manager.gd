@@ -9,6 +9,7 @@ var default_settings: Dictionary = {
 	"video": {
 		"fullscreen": false,
 		"screen_shake": true,
+		"enemy_health_bars": true,
 	},
 	"language": OS.get_locale_language(),
 	"tutorial_enabled": true,
