@@ -27,10 +27,12 @@ func _process(delta: float) -> void:
 	if !Geometry2D.is_point_in_polygon(player.position,spawnable_area.polygon):
 		if not player_state:
 			player.get_node("WaterEnter").play()
+
 		player_state = true
 	else:
 		if player_state:
 			player.get_node("WaterLeave").play()
+
 		player_state = false
 
 

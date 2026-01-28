@@ -5,6 +5,8 @@ var curent_target_location: Vector2 = Vector2.ZERO
 
 @onready var spawner: EnemySpawner = $"../../.."
 
+@export var speed : float = 40
+
 
 func generate_valid_target_location():
 
@@ -40,4 +42,4 @@ func get_velocity() -> Vector2:
 
 	var dir = (curent_target_location - global_position).normalized()
 
-	return dir * 40
+	return dir * speed
