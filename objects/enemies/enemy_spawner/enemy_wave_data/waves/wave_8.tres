@@ -38,4 +38,6 @@ wave_duration = 120.0
 enemies = Array[ExtResource("1_4w4je")]([SubResource("Resource_bctpy"), SubResource("Resource_6tp4c"), SubResource("Resource_f7xlv")])
 is_endless = true
 scaling = SubResource("Resource_4nhoy")
+enemies_per_munite_incease = 10
+enemy_cap_increase = 10
 metadata/_custom_type_script = "uid://cd06aok4ajl3c"
