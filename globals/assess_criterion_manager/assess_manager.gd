@@ -83,7 +83,7 @@ func _init_final_phase() -> void:
 		weights_array.append(c.weight)
 
 	var polynomial: Array[float] = Polynomials_calculator.create_polynomial(weights_array)
-	var potential_K: Array = Polynomials_calculator.bairstow(polynomial).filter(func(x): return x != 0)
+	var potential_K: Array = Polynomials_calculator.bairstow(polynomial)
 	#filter out nans
 
 	print("our unfiltered candidates for K are: ", potential_K)
