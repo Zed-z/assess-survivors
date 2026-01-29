@@ -32,19 +32,19 @@ var endles_wave_timer : Timer
 
 func _unhandled_input(event: InputEvent) -> void:
 
-	if event.is_action_pressed("force_next_wave"):
+	if event.is_action_pressed("force_next_wave") and GlobalInfo.is_debug:
 		current_wave_index+=1
 		current_wave_index = clamp(current_wave_index,0,len(waves.waves))
 		print(current_wave_index)
 		new_wave()
 
-	if event.is_action("restart_wave"):
+	if event.is_action("restart_wave") and GlobalInfo.is_debug:
 		new_wave()
 		for enemy:Enemy in enemies_array:
 			if is_instance_valid(enemy):
 				enemy.wave_number = -1
 
-	if event.is_action("previous_wave"):
+	if event.is_action("previous_wave") and GlobalInfo.is_debug:
 		current_wave_index-=1
 		current_wave_index = clamp(current_wave_index,0,len(waves.waves))
 		new_wave()

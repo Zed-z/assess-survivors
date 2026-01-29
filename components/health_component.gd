@@ -62,6 +62,6 @@ func heal(healing: float) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action("force_kill"):
+	if event.is_action("force_kill") and GlobalInfo.is_debug:
 		var damage: DamageParameters = DamageParameters.new(ceil(current_health))
 		take_damage(damage)
