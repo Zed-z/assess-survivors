@@ -25,6 +25,7 @@ columns = 2
 [node name="Metadata" type="HBoxContainer" parent="."]
 layout_mode = 2
 theme = ExtResource("2_cs4u7")
+alignment = 1
 
 [node name="KLabel" type="Label" parent="Metadata"]
 unique_name_in_owner = true
