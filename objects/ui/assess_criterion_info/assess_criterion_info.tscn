@@ -43,18 +43,20 @@ text = "Criterion_name"
 
 [node name="ChartContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 120)
+custom_minimum_size = Vector2(180, 100)
 layout_mode = 2
 size_flags_vertical = 3
 
 [node name="Weight" type="Label" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 text = "Weight"
 horizontal_alignment = 1
 
 [node name="RiskFactor" type="Label" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 text = "risk factor"
 horizontal_alignment = 1

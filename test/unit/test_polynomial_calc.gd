@@ -50,8 +50,8 @@ func test_global_U():
 
 func test_global_U_2():
 	var first_one = AssessCriterion.new()
-	first_one.set_values([Vector2(40.0, 0.0),Vector2(20.0, 0.8), Vector2(0, 1.0)], 0.75)
+	first_one._set_values([Vector2(40.0, 0.0),Vector2(20.0, 0.8), Vector2(0, 1.0)], 0.75)
 	var second_one = AssessCriterion.new()
-	second_one.set_values([Vector2(0.0, 0.0),Vector2(20.0, 0.4),Vector2(40.0, 0.8), Vector2(50, 1.0)], 0.25)
+	second_one._set_values([Vector2(0.0, 0.0),Vector2(20.0, 0.4),Vector2(40.0, 0.8), Vector2(50, 1.0)], 0.25)
 	var K = -2/0.375
 	var variant: Dictionary[AssessCriterion, float] = {first_one: 0.0, second_one: 50.0}

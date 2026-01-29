@@ -83,15 +83,17 @@ func _init_final_phase() -> void:
 		weights_array.append(c.weight)
 
 	var polynomial: Array[float] = Polynomials_calculator.create_polynomial(weights_array)
-	var potential_K: Array = Polynomials_calculator.bairstow(polynomial).filter(func(x): return x != 0)
+	var potential_K: Array = Polynomials_calculator.bairstow(polynomial)
 	#filter out nans
 
 	print("our unfiltered candidates for K are: ", potential_K)
-	potential_K = potential_K.filter(func(x): return x != NAN)
+	potential_K = potential_K.filter(func(x): return not is_nan(x))
+	potential_K.sort_custom(func(x): return abs(x))
+
 	assert(len(potential_K) != 0, "No K avaialable")
 
 	print("our candidates for K are: ", potential_K)
-	K = potential_K[0]
+	K = potential_K[potential_K.size() - 1]
 
 
 func _ready() -> void:
@@ -263,6 +265,6 @@ func next_phase():
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("force_endgame"):
+	if event.is_action_pressed("force_next_phase") and GlobalInfo.is_debug:
 		next_phase()
 		print("switched to phase: ", GamePhases.keys()[phase])

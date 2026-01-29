@@ -20,8 +20,12 @@ func setup(assess_manager: AssessManagerClass):
 		item.assesscriterion = assessmanger.criteria[i]
 		%CriteriaContainer.add_child(item)
 
+
+func _process(delta: float) -> void:
 	if assessmanger.phase == AssessManagerClass.GamePhases.FINAL:
-			%KLabel.text = "K = " + str(assessmanger.K)
+		%KLabel.text = "K = " + str(assessmanger.K)
+	else:
+		%KLabel.text = ""
 
 
 func _ready() -> void:

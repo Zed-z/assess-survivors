@@ -51,6 +51,8 @@ CHOICE_PANEL_SAFE,Stay Safe,Pewna Opcja,Sicher Option,お大事に
 CHOICE_PANEL_SPIN,Spin the Wheel!,Zakręć Kołem!,Dreh das Rad!,ホイールを回す
 CHOICE_PANEL_NONE,Pick for me,Wybierz za mnie,Für mich auswählen,私は気にしない
 CHOICE_PANEL_VERSUS,VS,VS,VS,VS
+CHOICE_PANEL_CHOOSE,Choose,Wybierz,Wählen,選ぶ
+CHOICE_PANEL_FINAL_TITLE,Choose Your Reward,Wybierz Swoją Nagrodę,Wähle Deine Belohnung,報酬を選んでください
 END_SCREEN_TITLE,Game Over!,Koniec Gry!,Spiel Vorbei!,ゲームセット
 END_SCREEN_SCORE_COUNTER,Final Score: %08d,Ostateczny Wynik: %08d,Endpunktzahl: %08d,最終スコア: %08d
 END_SCREEN_MAIN_MENU,Back to Menu,Wróć do Menu,Menü Zurück,メニューに戻る

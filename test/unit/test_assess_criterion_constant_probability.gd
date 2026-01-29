@@ -1,6 +1,5 @@
 extends GdUnitTestSuite
-
-@onready var manager: AssessManagerClass = preload("res://test/unit/atfut.tscn").instantiate()
+var manager: AssessManagerClass
 const assessConstantProbability = 1
 var criterion: AssessCriterion
 
@@ -12,11 +11,13 @@ func assert_almost_eq_vector2_array(actual: Array[Vector2], expected: Array[Vect
 
 
 func before_test():
-	criterion = manager.criteria[assessConstantProbability]
+	manager = auto_free(preload("res://test/unit/atfut.tscn").instantiate())
+	criterion = auto_free(manager.criteria[assessConstantProbability])
 	criterion.setup()
 
 
 func after_test():
+	manager.free()
 	criterion.question.get_left().free()
 	criterion.question.get_right().free()
 	criterion.question.free()

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dcfbmk7lea3yd"]
+[gd_scene load_steps=4 format=3 uid="uid://dcfbmk7lea3yd"]
 
 [ext_resource type="Theme" uid="uid://df2r57b2stnof" path="res://themes/ui.tres" id="1_1dlnb"]
 [ext_resource type="Script" uid="uid://c31h6uxdxbjeo" path="res://objects/ui/choice_panel_final/choice_panel_final_card.gd" id="1_6xl23"]
+[ext_resource type="Texture2D" uid="uid://eqlqxwrieawh" path="res://sprites/ui/brain.png" id="3_fvqo8"]
 
 [node name="ChoicePanelFinalCard" type="PanelContainer"]
 custom_minimum_size = Vector2(220, 300)
@@ -15,15 +16,41 @@ layout_mode = 2
 
 [node name="Rank" type="Label" parent="Container"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 text = "placeholder"
 
-[node name="ValuesContainer" type="VBoxContainer" parent="Container"]
+[node name="CenterContainer" type="CenterContainer" parent="Container"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ValuesContainer" type="GridContainer" parent="Container/CenterContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 3
+columns = 2
 
 [node name="Button" type="Button" parent="Container"]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "CHOICE_PANEL_CHOOSE"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Container"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Container/HBoxContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("3_fvqo8")
+expand_mode = 1
+
+[node name="Utility" type="Label" parent="Container/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "100%"
+vertical_alignment = 1
 
 [connection signal="pressed" from="Container/Button" to="." method="_on_button_pressed"]

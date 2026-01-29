@@ -6,7 +6,7 @@ class_name PickupSpawner
 
 
 func spawn_pickup(enemy: Enemy):
-	if randf_range(0.0, 1.0) < 0.8:
+	if randf_range(0.0, 1.0) > spawn_chance:
 		return
 
 	var selected_pickup = pickups.pick_random()
