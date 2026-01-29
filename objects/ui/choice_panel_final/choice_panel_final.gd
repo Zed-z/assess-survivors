@@ -22,12 +22,16 @@ func initialize_variant(v: Dictionary[AssessCriterion, float], rank: int) -> Cho
 
 
 func chosen(variant: Dictionary[AssessCriterion, float], rank: int):
+
 	$SoundChosen.play()
 	$Timer.start()
 
 	print(rank)
-	for x in %Grid.get_children():
+	for x: ChoicePanelFinalCard in %Grid.get_children():
 		x.disabled = true
+
+		if x.variant != variant:
+			x.modulate = Color(0.5, 0.5, 0.5, 0.5)
 
 	for c in variant:
 		c.value_result.emit(variant[c])
