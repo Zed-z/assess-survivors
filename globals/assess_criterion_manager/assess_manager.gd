@@ -88,6 +88,7 @@ func _init_final_phase() -> void:
 
 	print("our unfiltered candidates for K are: ", potential_K)
 	potential_K = potential_K.filter(func(x): return x != NAN)
+	
 	assert(len(potential_K) != 0, "No K avaialable")
 
 	print("our candidates for K are: ", potential_K)
