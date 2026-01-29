@@ -15,7 +15,10 @@
 
 [sub_resource type="Resource" id="Resource_a8be2"]
 script = ExtResource("3_cqqfb")
-phases = Array[float]([0.5])
+value_step = 0.0
+initial_max_value = 50.0
+value_mult = 1.5
+phases = Array[float]([0.33, 0.66])
 LIMIT_expand_count = 2
 LIMIT_count_weight = 2
 metadata/_custom_type_script = "uid://cggagkrebotht"
@@ -62,7 +65,10 @@ metadata/_custom_type_script = "uid://d1e80dp6c7ji3"
 
 [sub_resource type="Resource" id="Resource_ft4yx"]
 script = ExtResource("6_m2bst")
-phases = Array[float]([0.5])
+value_step = 0.0
+initial_max_value = 50.0
+value_mult = 1.5
+phases = Array[float]([0.33, 0.66])
 LIMIT_expand_count = 2
 LIMIT_count_weight = 2
 metadata/_custom_type_script = "uid://5b0w6k2jxyuc"
