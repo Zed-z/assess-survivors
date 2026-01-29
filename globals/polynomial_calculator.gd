@@ -119,12 +119,14 @@ static func calculate_partial_usefullness(u_graph: Array[Vector2], value: float)
 static func calculate_global_usefullness(K: float, variant: Dictionary[AssessCriterion, float]):
 	var p: float = 1.0
 	const epsilon = 0.001
-
+	#print("Global")
 	if abs(K) > epsilon:
 
 		for key in variant:
 			p *= (K * key.weight * calculate_partial_usefullness(key.point_list, variant[key]) + 1)
+			#print("partial is: ", key.weight * calculate_partial_usefullness(key.point_list, variant[key]))
 
+		#print("global usefullness is: ", (1/K) * (p - 1))
 		return(1/K) * (p - 1)
 	else:
 
@@ -132,7 +134,9 @@ static func calculate_global_usefullness(K: float, variant: Dictionary[AssessCri
 
 		for key in variant:
 			p += key.weight * calculate_partial_usefullness(key.point_list, variant[key])
+			#print("partial is: ", key.weight * calculate_partial_usefullness(key.point_list, variant[key]))
 
+		#print("global usefullness is: ", p)
 		return p
 
 
