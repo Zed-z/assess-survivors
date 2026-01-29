@@ -11,8 +11,8 @@ func assert_almost_eq_vector2_array(actual: Array[Vector2], expected: Array[Vect
 
 
 func before_test():
-	manager = preload("res://test/unit/atfut.tscn").instantiate()
-	criterion = manager.criteria[assessConstantProbability]
+	manager = auto_free(preload("res://test/unit/atfut.tscn").instantiate())
+	criterion = auto_free(manager.criteria[assessConstantProbability])
 	criterion.setup()
 
 
