@@ -107,3 +107,4 @@ SUMMARY_ONLINE_LESS_RISKY_THAN_PERCENT,Less Risky than %.2f%% players,Mniej Ryzy
 LEADERBOARD_SCORE,Score: %s,Punktacja: %s,Punktzahl: %s,スコア：%s
 LEADERBOARD_RISKINESS,Riskiness: %s (%.2f),Ryzykowność: %s (%.2f),Risikoreich: %s (%.2f),リスキー度：%s (%.2f)
 LEADERBOARD_FAVORITE_STAT,Favorite: %s,Ulubiona Statystyka: %s,Lieblingsstatistik: %s,お気に入りのステータス：%s
+WAVE_SURVIVE,Survive!,Przetrwaj!,Überleben!,生き残る！
