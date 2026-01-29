@@ -196,24 +196,22 @@ func do_preferred_none():
 	print(criterion_name)
 	print(point_list)
 	preferred_none()
+	if rescale != null:
+		var factor = point_list[rescale].y/last_value
+		#var factor = last_value/point_list[rescale].y
+
+		for i in range(rescale):
+			point_list[i].y *= factor
+
+		rescale = null
+		last_value = null
+
 	if CUR_phase >= len(phases):
 		do_point_append()
 		CUR_phase = 0
 		last_significant_index = len(point_list) - 2
 	else:
 		do_point_inbetween()
-
-	#if rescale != null:
-		##var factor = point_list[rescale].y/last_value
-		#var factor = last_value/point_list[rescale].y
-#
-		#for i in range(rescale):
-			#print(point_list[i].y)
-			#point_list[i].y *= factor
-			#print(point_list[i].y)
-#
-		#rescale = null
-		#last_value = null
 
 
 func preferred_none():
