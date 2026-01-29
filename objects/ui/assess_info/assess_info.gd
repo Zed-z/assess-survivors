@@ -27,6 +27,7 @@ func _process(delta: float) -> void:
 	else:
 		%KLabel.text = ""
 
+
 func _ready() -> void:
 	if assessmanger != null:
 		setup(assessmanger)

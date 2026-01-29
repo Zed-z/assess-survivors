@@ -87,12 +87,13 @@ func _init_final_phase() -> void:
 	#filter out nans
 
 	print("our unfiltered candidates for K are: ", potential_K)
-	potential_K = potential_K.filter(func(x): return x != NAN)
+	potential_K = potential_K.filter(func(x): return not is_nan(x))
+	potential_K.sort_custom(func(x): return abs(x))
 
 	assert(len(potential_K) != 0, "No K avaialable")
 
 	print("our candidates for K are: ", potential_K)
-	K = potential_K[0]
+	K = potential_K[potential_K.size() - 1]
 
 
 func _ready() -> void:
