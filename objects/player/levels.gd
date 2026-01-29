@@ -21,7 +21,7 @@ func set_new_required_ex(_new_level: int):
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("force_level"):
+	if event.is_action_pressed("force_level") and GlobalInfo.is_debug:
 		gain_level(1)
 
 

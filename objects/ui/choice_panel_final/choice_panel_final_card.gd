@@ -8,6 +8,7 @@ class_name ChoicePanelFinalCard
 		%Button.disabled = disabled
 
 var variant: Dictionary[AssessCriterion, float]
+var utility: float
 var rank: int
 
 signal variant_chosen(variant: Dictionary[AssessCriterion, float],rank: int)
@@ -16,8 +17,7 @@ signal variant_chosen(variant: Dictionary[AssessCriterion, float],rank: int)
 func _ready() -> void:
 	disabled = disabled
 	%Rank.text = str(rank)
-	#TODO: translate
-	%Button.text = "Chose me"
+	%Utility.text = "%.2f%%" % (utility * 100)
 
 	for stat in variant:
 		var item: WeightItem = item_display.instantiate()

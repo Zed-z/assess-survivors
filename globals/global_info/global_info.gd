@@ -11,6 +11,8 @@ var gameplay_scene: GameplayScene
 
 var game_time: float
 
+@onready var is_debug = OS.is_debug_build()
+
 const assess_all: int = AssessSummary.MOST_RISKY |\
  AssessSummary.LEAST_RISKY |\
  AssessSummary.MOST_WEIGHT |\

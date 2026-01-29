@@ -263,6 +263,6 @@ func next_phase():
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("force_endgame"):
+	if event.is_action_pressed("force_next_phase") and GlobalInfo.is_debug:
 		next_phase()
 		print("switched to phase: ", GamePhases.keys()[phase])
