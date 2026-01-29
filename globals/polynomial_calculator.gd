@@ -71,62 +71,83 @@ static func arrays_without_n(arr: Array, n: int) -> Array:
 	return all_combs
 
 
-static func generate_variant(ctierion_array: Array[AssessCriterion]) -> Dictionary[AssessCriterion, float]:
+static func generate_variant(K, ctierion_array: Array[AssessCriterion]) -> Dictionary[AssessCriterion, float]:
 	var variant: Dictionary[AssessCriterion, float] = {}
 
 	for criterion in ctierion_array:
 		var value: float = randf_range(criterion.point_list[0].x, criterion.point_list[-1].x)
 		variant[criterion] = value
 
+	if calculate_global_usefullness(K, variant) < 0.0 or calculate_global_usefullness(K, variant) > 1.0:
+		print("Incorrect")
+		return generate_variant(K, ctierion_array)
+
 	return variant
 
 
 #calculates u(x)
 static func calculate_partial_usefullness(u_graph: Array[Vector2], value: float) -> float:
-	var graph = u_graph.duplicate()
-	var left_index: int = 0
-	var right_index: int = len(graph) - 1
-
-	var is_falling: bool = (graph[left_index].x > graph[right_index].x)
-	#if value is below minimum or above maximum
-	if max(graph[left_index].x, graph[right_index].x) < value or\
-	 min(graph[left_index].x, graph[right_index].x) > value:
-		return -12
+	var right_index = 0
 
 	for i in range(len(u_graph)):
+		if u_graph[i].x > value:
+			right_index = i
 
-		if abs(value - u_graph[i].x) < 0.0001:
-			return u_graph[i].y
+	if right_index == 0:
+		assert(false, "how the hell")
+		return -20000000000000000
+	else:
+		var left_index = 0
+		var t = (value - u_graph[left_index].x) / (u_graph[right_index].x - u_graph[left_index].x)
+		return u_graph[left_index].y * (1-t) + u_graph[right_index].y * t
 
-	if is_falling:
-		graph.reverse()
+	#return graph[left_index].y * (1-t) + graph[right_index].y * t
+	#var graph = u_graph.duplicate()
+	#var left_index: int = 0
+	#var right_index: int = len(graph) - 1
+#
+	#var is_falling: bool = (graph[left_index].x > graph[right_index].x)
+	##if value is below minimum or above maximum
+	#if max(graph[left_index].x, graph[right_index].x) < value or\
+	 #min(graph[left_index].x, graph[right_index].x) > value:
+		#return -12
+#
+	#for i in range(len(u_graph)):
+#
+		#if abs(value - u_graph[i].x) < 0.0001:
+			#return u_graph[i].y
+#
+	#if is_falling:
+		#graph.reverse()
+#
+	#while abs(left_index - right_index) != 1:
+		#var middle_index = int(left_index + floor(float(right_index - left_index)/2))
+#
+		#if graph[middle_index].x < value:
+			#left_index = middle_index
 
-	while abs(left_index - right_index) != 1:
-		var middle_index = int(left_index + floor(float(right_index - left_index)/2))
+		#elif graph[middle_index].x > value:
+			#right_index = middle_index
 
-		if graph[middle_index].x < value:
-			left_index = middle_index
-		elif graph[middle_index].x > value:
-			right_index = middle_index
-		else:
-			return graph[middle_index].y
-
-	var t = (value - graph[left_index].x) / (graph[right_index].x - graph[left_index].x)
-	return graph[left_index].y * (1-t) + graph[right_index].y * t
+		#else:
+			#return graph[middle_index].y
+#
+	#var t = (value - graph[left_index].x) / (graph[right_index].x - graph[left_index].x)
+	#return graph[left_index].y * (1-t) + graph[right_index].y * t
 
 
 #calculates U(x)
 static func calculate_global_usefullness(K: float, variant: Dictionary[AssessCriterion, float]):
 	var p: float = 1.0
 	const epsilon = 0.001
-	#print("Global")
+	print("Global")
 	if abs(K) > epsilon:
 
 		for key in variant:
 			p *= (K * key.weight * calculate_partial_usefullness(key.point_list, variant[key]) + 1)
-			#print("partial is: ", key.weight * calculate_partial_usefullness(key.point_list, variant[key]))
+			print("partial is: ", (K * key.weight * calculate_partial_usefullness(key.point_list, variant[key]) + 1))
 
-		#print("global usefullness is: ", (1/K) * (p - 1))
+		print("global usefullness is: ", (1/K) * (p - 1))
 		return(1/K) * (p - 1)
 	else:
 
@@ -134,9 +155,9 @@ static func calculate_global_usefullness(K: float, variant: Dictionary[AssessCri
 
 		for key in variant:
 			p += key.weight * calculate_partial_usefullness(key.point_list, variant[key])
-			#print("partial is: ", key.weight * calculate_partial_usefullness(key.point_list, variant[key]))
+			print("partial is: ", key.weight * calculate_partial_usefullness(key.point_list, variant[key]))
 
-		#print("global usefullness is: ", p)
+		print("global usefullness is: ", p)
 		return p
 
 
