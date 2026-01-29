@@ -34,6 +34,9 @@ class_name WaveData
 
 
 func get_status(enemies_killed: int, time: float) -> String:
+	if is_endless:
+		return "survive"
+
 	if kill_all_enemies:
 		return "%d / %d" % [enemies_killed, enemies_to_spawn]
 	else:
