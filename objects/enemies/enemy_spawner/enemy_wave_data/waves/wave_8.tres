@@ -34,7 +34,6 @@ script = ExtResource("6_xqfew")
 enemies_per_minute = 40
 enemy_cap = 60
 enemies_to_spawn = 60
-wave_duration = 120.0
 enemies = Array[ExtResource("1_4w4je")]([SubResource("Resource_bctpy"), SubResource("Resource_6tp4c"), SubResource("Resource_f7xlv")])
 is_endless = true
 scaling = SubResource("Resource_4nhoy")
