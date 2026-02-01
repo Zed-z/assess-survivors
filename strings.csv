@@ -17,8 +17,8 @@ ASSESS_TEST_NEXT_PHASE,Next Phase,Następna Faza,Nächste Phase,次のフェー�
 AUDIO_BUS_MASTER,Master,Ogólny,Gesamt,一般
 AUDIO_BUS_MUSIC,Music,Muzyka,Musik,音楽
 AUDIO_BUS_EFFECTS,Effects,Efekty,Effekte,音響効果
-SETTINGS_TAB_GENERAL,General,Ogólne,Algemein,一般
-SETTINGS_TITLE_GENERAL,General Settings,Ogólne Ustawienia,Algemeine Einstellungen,一般のせってい
+SETTINGS_TAB_GENERAL,General,Ogólne,Allgemein,一般
+SETTINGS_TITLE_GENERAL,General Settings,Ogólne Ustawienia,Allgemeine Einstellungen,一般のせってい
 SETTINGS_GENERAL_LANGUAGE,Language,Język,Sprache,言葉
 SETTINGS_GENERAL_LANGUAGE_EN,English,English,English,English
 SETTINGS_GENERAL_LANGUAGE_PL,Polski,Polski,Polski,Polski
@@ -47,7 +47,7 @@ CONTROLS_MELEE,RMB,PPM,RKM,RMB
 LOADING,Loading...,Ładowanie...,Laden...,ロード中。。。
 QUIT,Quit,Wyjdź,Beenden,終了
 PAUSE,Pause,Pauza,Pause,一時停止
-CHOICE_PANEL_SAFE,Stay Safe,Pewna Opcja,Sicher Option,お大事に
+CHOICE_PANEL_SAFE,Stay Safe,Pewna Opcja,Sichere Option,お大事に
 CHOICE_PANEL_SPIN,Spin the Wheel!,Zakręć Kołem!,Dreh das Rad!,ホイールを回す
 CHOICE_PANEL_NONE,Pick for me,Wybierz za mnie,Für mich auswählen,私は気にしない
 CHOICE_PANEL_VERSUS,VS,VS,VS,VS
