@@ -213,6 +213,11 @@ var icon_wave_kill: CompressedTexture2D = preload("res://sprites/ui/wave/skull.p
 
 
 func _process(_delta: float) -> void:
+
+	for enemy: Enemy in enemies_array:
+		if not is_position_inside_area(enemy.position):
+			enemy.health_comp.take_damage(DamageParameters.new(200))
+
 	if current_wave_data:
 		GlobalInfo.combat_ui_overlay.wave_icon.visible = true
 

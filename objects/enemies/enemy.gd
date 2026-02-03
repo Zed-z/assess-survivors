@@ -15,6 +15,8 @@ var wave_number: int
 
 @export var xp_reward: int = 1
 
+@onready var health_comp: HealthComponent = $HealthComponent
+
 
 func get_contact_dmg() -> float:
 	return contact_dmg
