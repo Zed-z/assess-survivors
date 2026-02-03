@@ -158,3 +158,14 @@ func move_to_node(node: Control, target: Control, tween: Tween):
 		0.25)
 
 	tween.play()
+
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("choose_1"):
+		_on_button_choose_left_pressed()
+
+	if event.is_action_pressed("choose_2"):
+		_on_button_choose_none_pressed()
+
+	if event.is_action_pressed("choose_3"):
+		_on_button_choose_right_pressed()

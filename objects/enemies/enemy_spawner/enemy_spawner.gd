@@ -76,6 +76,7 @@ func new_wave():
 
 		if data.is_endless:
 			assert(not current_wave_data.kill_all_enemies, "endless wave cannot demmand player kills all enemies")
+			assert(not current_wave_data.wave_duration > 0, "endless wave cannot have a time limit")
 			use_timer = false
 			endles_wave_timer = Timer.new()
 			endles_wave_timer.autostart = true
@@ -123,8 +124,10 @@ func _ready() -> void:
 
 
 				func x():
-					current_wave_index +=1
-					new_wave()
+					if use_timer:
+						current_wave_index +=1
+						new_wave()
+
 					)
 
 	new_wave()

@@ -2,6 +2,7 @@ extends Control
 class_name ChoicePanelFinal
 @export var variants: Array[Dictionary]
 @export var K: float
+var choice_cards: Array[ChoicePanelFinalCard] = []
 
 
 func _ready() -> void:
@@ -18,6 +19,7 @@ func initialize_variant(v: Dictionary[AssessCriterion, float], rank: int) -> Cho
 	x.utility = Polynomials_calculator.calculate_global_usefullness(K, v)
 	x.variant = v
 	x.variant_chosen.connect(chosen)
+	choice_cards.append(x)
 	return x
 
 
@@ -43,3 +45,10 @@ func _on_timer_timeout() -> void:
 
 func _exit_tree() -> void:
 	PauseManager.unpause()
+
+
+func _input(event: InputEvent) -> void:
+	for i in range(0, 10):
+		if event.is_action_pressed("choose_%s" % (i + 1)):
+			if i < choice_cards.size():
+				chosen(choice_cards[i].variant, choice_cards[i].rank)

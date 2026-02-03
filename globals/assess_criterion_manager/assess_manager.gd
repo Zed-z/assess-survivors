@@ -55,7 +55,7 @@ func init_choice_panel() -> Node:
 		GamePhases.FINAL:
 			var variants: Array[Dictionary]
 			for i in range(10):
-				variants.append(Polynomials_calculator.generate_variant(criteria))
+				variants.append(Polynomials_calculator.generate_variant(K, criteria))
 
 			final_panel.variants = variants
 			final_panel.K = K
