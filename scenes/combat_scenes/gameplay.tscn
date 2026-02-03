@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=4 uid="uid://fnao1rs5haap"]
 
-[ext_resource type="Script" uid="uid://bmj4swwdanc7i" path="res://scenes/combat_scenes/gameplay.gd" id="1_rk5i4"]
+[ext_resource type="Script" path="res://scenes/combat_scenes/gameplay.gd" id="1_rk5i4"]
 [ext_resource type="PackedScene" uid="uid://c218rscg2tadk" path="res://objects/score_manager/score_manager.tscn" id="2_dxil3"]
 [ext_resource type="PackedScene" uid="uid://blfd7tomoo2ky" path="res://globals/holders/projectile_holder/projectile_holder.tscn" id="3_ebvij"]
 [ext_resource type="PackedScene" uid="uid://bh5tkxvg8jh42" path="res://scenes/combat_scenes/combat_ui/combat_overlay.tscn" id="4_mx1ka"]
@@ -8,7 +8,7 @@
 [ext_resource type="Material" uid="uid://bahv2nf1ouhdy" path="res://materials/water.tres" id="6_b42ld"]
 [ext_resource type="Material" uid="uid://d1581d5ay26af" path="res://materials/grass.tres" id="7_sfti6"]
 [ext_resource type="TileSet" uid="uid://cld71m6mttjlh" path="res://tilesets/tileset.tres" id="8_wiwyd"]
-[ext_resource type="Script" path="res://scenes/combat_scenes/decoration.gd" id="9_ebvij"]
+[ext_resource type="Script" uid="uid://bahsl7p8lqyh5" path="res://scenes/combat_scenes/decoration.gd" id="9_ebvij"]
 [ext_resource type="PackedScene" uid="uid://bndei1083xpll" path="res://objects/decoration/tree.tscn" id="9_hi53l"]
 [ext_resource type="PackedScene" uid="uid://buqqxg1nykgry" path="res://objects/decoration/big_bush.tscn" id="10_f7g0h"]
 [ext_resource type="PackedScene" uid="uid://hf78mlyq324k" path="res://objects/decoration/small_bush.tscn" id="11_10a6p"]
