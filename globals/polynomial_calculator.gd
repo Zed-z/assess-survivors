@@ -78,8 +78,23 @@ static func generate_variant(K, ctierion_array: Array[AssessCriterion]) -> Dicti
 		var value: float = randf_range(criterion.point_list[0].x, criterion.point_list[-1].x)
 		variant[criterion] = value
 
-	if calculate_global_usefullness(K, variant) < 0.0 or calculate_global_usefullness(K, variant) > 1.0:
+	var U = calculate_global_usefullness(K, variant)
+
+	if U < 0.0 or U > 1.0:
 		print("Incorrect")
+
+		print(K)
+		print(U)
+		for v in variant:
+			print(v.criterion_name,
+			" ",
+			v.weight,
+			" ",
+			variant[v],
+			" ",
+			calculate_partial_usefullness(v.point_list, variant[v])
+			)
+
 		return generate_variant(K, ctierion_array)
 
 	return variant
@@ -94,10 +109,10 @@ static func calculate_partial_usefullness(u_graph: Array[Vector2], value: float)
 			right_index = i
 
 	if right_index == 0:
-		assert(false, "how the hell")
+		assert(false, "bad variant")
 		return -20000000000000000
 	else:
-		var left_index = 0
+		var left_index = right_index - 1
 		var t = (value - u_graph[left_index].x) / (u_graph[right_index].x - u_graph[left_index].x)
 		return u_graph[left_index].y * (1-t) + u_graph[right_index].y * t
 
@@ -140,14 +155,14 @@ static func calculate_partial_usefullness(u_graph: Array[Vector2], value: float)
 static func calculate_global_usefullness(K: float, variant: Dictionary[AssessCriterion, float]):
 	var p: float = 1.0
 	const epsilon = 0.001
-	print("Global")
+	#print("Global")
 	if abs(K) > epsilon:
 
 		for key in variant:
 			p *= (K * key.weight * calculate_partial_usefullness(key.point_list, variant[key]) + 1)
-			print("partial is: ", (K * key.weight * calculate_partial_usefullness(key.point_list, variant[key]) + 1))
+			#print("partial is: ", (K * key.weight * calculate_partial_usefullness(key.point_list, variant[key]) + 1))
 
-		print("global usefullness is: ", (1/K) * (p - 1))
+		#print("global usefullness is: ", (1/K) * (p - 1))
 		return(1/K) * (p - 1)
 	else:
 
@@ -155,9 +170,9 @@ static func calculate_global_usefullness(K: float, variant: Dictionary[AssessCri
 
 		for key in variant:
 			p += key.weight * calculate_partial_usefullness(key.point_list, variant[key])
-			print("partial is: ", key.weight * calculate_partial_usefullness(key.point_list, variant[key]))
+			#print("partial is: ", key.weight * calculate_partial_usefullness(key.point_list, variant[key]))
 
-		print("global usefullness is: ", p)
+		#print("global usefullness is: ", p)
 		return p
 
 

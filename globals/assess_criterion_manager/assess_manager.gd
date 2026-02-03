@@ -73,10 +73,7 @@ func init_choice_panel() -> Node:
 	return choice_panel
 
 
-#function to initialize final phase
-#creates polynomial
-#uses Bairstow to pick K
-#
+# Initialize final phase by calculating K
 func _init_final_phase() -> void:
 	var weights_array: Array[float]
 	for c in criteria:
@@ -84,15 +81,15 @@ func _init_final_phase() -> void:
 
 	var polynomial: Array[float] = Polynomials_calculator.create_polynomial(weights_array)
 	var potential_K: Array = Polynomials_calculator.bairstow(polynomial)
-	#filter out nans
+	# filter out nans - complex roots
 
-	print("our unfiltered candidates for K are: ", potential_K)
+	#print("our unfiltered candidates for K are: ", potential_K)
 	potential_K = potential_K.filter(func(x): return not is_nan(x))
-	potential_K.sort_custom(func(x): return abs(x))
+	potential_K.sort_custom(func(x, y): return abs(x) < abs(y))
 
 	assert(len(potential_K) != 0, "No K avaialable")
 
-	print("our candidates for K are: ", potential_K)
+	#print("our candidates for K are: ", potential_K)
 	K = potential_K[potential_K.size() - 1]
 
 
