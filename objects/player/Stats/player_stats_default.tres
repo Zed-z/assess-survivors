@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://br5c8626f18ew" path="res://objects/player/Stats/player_stats_resource.gd" id="1_io2c6"]
 [ext_resource type="Script" uid="uid://bui6h7p4lincd" path="res://objects/player/Stats/base_stat.gd" id="2_ocdua"]
-[ext_resource type="Script" path="res://globals/assess_criterion_manager/criteria/assess_criterion_probability_comparison.gd" id="3_cqqfb"]
+[ext_resource type="Script" uid="uid://cggagkrebotht" path="res://globals/assess_criterion_manager/criteria/assess_criterion_probability_comparison.gd" id="3_cqqfb"]
 [ext_resource type="Texture2D" uid="uid://d2khmtbsk4mom" path="res://sprites/stats/luk.png" id="4_m2bst"]
 [ext_resource type="Script" uid="uid://d1e80dp6c7ji3" path="res://objects/player/Stats/assess_stat.gd" id="5_a8be2"]
 [ext_resource type="Texture2D" uid="uid://b8riatfslt0b8" path="res://sprites/stats/potion.png" id="6_j43sw"]

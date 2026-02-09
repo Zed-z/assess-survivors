@@ -120,12 +120,12 @@ func append_online(online_summary: int, response) -> String:
 		return_string += tr("SUMMARY_ONLINE_BETTER_THAN_PERCENT") % (response["score_percentile"] * 100) + "\n"
 
 	if has_flag(online_summary, OnlineSummary.AVG_RISK):
-		return_string += tr("SUMMARY_ONLINE_MEAN_RISKINESS") % response["avgerage_riskiness"] + "\n"
+		return_string += tr("SUMMARY_ONLINE_MEAN_RISKINESS") % [Utils.risk_to_string(response["avgerage_riskiness"]), response["avgerage_riskiness"]] + "\n"
 
 	if has_flag(online_summary, OnlineSummary.RISKIER_THAN_PERCENT):
-		return_string += tr("SUMMARY_ONLINE_RISKIER_THAN_PERCENT") % response["more_riskiness_percentile"] + "\n"
+		return_string += tr("SUMMARY_ONLINE_RISKIER_THAN_PERCENT") % (response["more_riskiness_percentile"] * 100) + "\n"
 
 	if has_flag(online_summary, OnlineSummary.LESS_RISKY_THAN_PERCENT):
-		return_string += tr("SUMMARY_ONLINE_LESS_RISKY_THAN_PERCENT") % response["less_riskiness_percentile"] + "\n"
+		return_string += tr("SUMMARY_ONLINE_LESS_RISKY_THAN_PERCENT") % (response["less_riskiness_percentile"] * 100) + "\n"
 
 	return return_string

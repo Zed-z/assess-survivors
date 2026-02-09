@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbyunepcv1c3b"]
+[gd_scene load_steps=5 format=3 uid="uid://dbyunepcv1c3b"]
 
 [ext_resource type="Theme" uid="uid://df2r57b2stnof" path="res://themes/ui.tres" id="1_8p1g5"]
 [ext_resource type="Script" uid="uid://w1l641rhg61w" path="res://objects/ui/end_screen/end_screen.gd" id="2_77v0h"]
 [ext_resource type="Script" uid="uid://bfn4l4e5i8p0j" path="res://objects/ui/scene_change_button.gd" id="3_ml61n"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ml61n"]
+color = Color(1, 1, 1, 1)
+thickness = 2
+vertical = true
 
 [node name="EndScreen" type="Control"]
 process_mode = 3
@@ -76,19 +81,28 @@ vertical_alignment = 1
 [node name="AfterOnline" type="HBoxContainer" parent="MarginContainer/Control/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="NotesLeft" type="Label" parent="MarginContainer/Control/VBoxContainer/AfterOnline"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
 theme_override_font_sizes/font_size = 23
 text = "notes_left"
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/Control/VBoxContainer/AfterOnline"]
+layout_mode = 2
+theme_override_constants/separation = 16
+theme_override_styles/separator = SubResource("StyleBoxLine_ml61n")
 
 [node name="NotesRight" type="Label" parent="MarginContainer/Control/VBoxContainer/AfterOnline"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
 theme_override_font_sizes/font_size = 23
 text = "notes_right"
-horizontal_alignment = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control"]
 layout_mode = 1
